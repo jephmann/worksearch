@@ -1,0 +1,14 @@
+@font-face 
+{
+    /* use fontFamily instead of font-family */
+	src: url('CAMBRIA.TTC');
+	fontFamily: "Cambria";
+}
+.content { 
+    font-family: Cambria;
+    background-color: silver;    
+}
+.content table {
+    background-color: white;
+}
+
