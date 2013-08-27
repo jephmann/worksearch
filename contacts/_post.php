@@ -1,0 +1,23 @@
+<?php
+    // Who
+    $objContact->setGender($_POST['gender']);
+    $objContact->setId_salutation($_POST['salutation']);
+    $objContact->setName_first(ucwords(strtolower(trim($_POST['name_first']))));
+    $objContact->setName_middle(ucwords(strtolower(trim($_POST['name_middle']))));
+    $objContact->setName_last(ucwords(strtolower(trim($_POST['name_last']))));
+    $objContact->setName_suffix(ucwords(strtolower(trim($_POST['name_suffix']))));
+    // Company
+    $objContact->setCompany($_POST['company']);
+    $objContact->setDepartment(ucwords(strtolower(trim($_POST['department']))));
+    $objContact->setTitle(ucwords(strtolower(trim($_POST['title']))));
+    // Communication
+    $objContact->setPhone($_POST['phone']);
+    $objContact->setPhone_extension($_POST['phone_extension']);
+    $objContact->setFax($_POST['fax']);
+    $objContact->setEmail(strtolower(trim($_POST['email'])));
+    // Links
+    $objContact->setLinkedin(strtolower(trim($_POST['linkedin'])));
+    $objContact->setTwitter(strtolower(trim($_POST['twitter'])));
+    $objContact->setFacebook(strtolower(trim($_POST['facebook'])));
+    $objContact->setGoogleplus(strtolower(trim($_POST['googleplus'])));
+?>
