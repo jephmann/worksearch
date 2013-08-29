@@ -59,6 +59,7 @@ class Data {
         $query          = "INSERT INTO {$this->table} ({$fields}) VALUES ({$values})";
         return $query;
     }
+    // 2013.08.28 TODO: DELETE yet to be tested; all other functions OK.
     public function delete()
     {
         $query  = "DELETE FROM {$this->table} WHERE id = :id";
