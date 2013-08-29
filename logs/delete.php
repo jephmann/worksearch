@@ -1,4 +1,11 @@
 <?php
+    /* 2013.08.28 TODO(s):
+     * - Redapt to $objLog->delete($id)
+     * - Consider whether or not to run checks on Company and Contact before
+     *  deleting, athough it should be okay to delete a Log while leaving
+     *  both Contact and Company intact
+     * - JavaScript "Are you sure?" logic
+     */
     $page = array(
         'title'     => NULL,
         'subtitle'  => NULL,

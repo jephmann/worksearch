@@ -1,4 +1,10 @@
-<?php    
+<?php
+    /* 2013.08.28 TODO(s):
+     * - Redapt to $objCompany->delete($id)
+     * - Block deletion if Log exists for Company
+     * - Consider deleting Company's Contact(s) simultaneously
+     * - JavaScript "Are you sure?" logic
+     */
     $page = array(
         'title'     => NULL,
         'subtitle'  => NULL,

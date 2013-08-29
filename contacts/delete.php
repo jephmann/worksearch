@@ -1,4 +1,11 @@
 <?php
+    /* 2013.08.28 TODO(s):
+     * - Redapt to $objContact->delete($id)
+     * - Block deletion if Log exists for Contact
+     * - Consider deleting Contact's Company simultaneously, unless at least one
+     *  other Contact shares its Company
+     * - JavaScript "Are you sure?" logic
+     */
     $page = array(
         'title'     => NULL,
         'subtitle'  => NULL,
