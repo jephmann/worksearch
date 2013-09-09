@@ -25,7 +25,7 @@ class Profile extends Person {
     public $password                = NULL;
     
     // Data Properties
-    protected $table    = "profile";
+    public $table    = "profile";
     protected $fields   = array(
         'name_last',
         'name_first',
@@ -200,8 +200,3 @@ class Profile extends Person {
     }
     
 }
-/*
-    Note that it is a good practice to NOT end your PHP files with a closing PHP tag.
-    This prevents trailing newlines on the file from being included in your output,
-    which can cause problems with redirecting users.
-*/

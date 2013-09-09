@@ -95,7 +95,7 @@ class Person extends Data {
     {
         $birth_year = NULL;
         
-        
+        //TODO
         
         return $birth_year;
     }
@@ -104,6 +104,8 @@ class Person extends Data {
     {
         $birth_month = NULL;
         
+        //TODO
+        
         return $birth_month;
     }
     
@@ -111,12 +113,9 @@ class Person extends Data {
     {
         $birth_day = NULL;
         
+        //TODO
+        
         return $birth_day;
     }
     
 }
-/*
-    Note that it is a good practice to NOT end your PHP files with a closing PHP tag.
-    This prevents trailing newlines on the file from being included in your output,
-    which can cause problems with redirecting users.
-*/

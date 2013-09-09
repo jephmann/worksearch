@@ -8,7 +8,7 @@ class Data {
     
     // Data Properties
     public $id          = NULL;
-    protected $table    = NULL;
+    public $table       = NULL;
     protected $fields   = array();
     
     // Data get/set Methods
@@ -19,7 +19,7 @@ class Data {
         $this->id = $id;
     }
         
-    // Data helper methods: CRUD
+    // Data helper methods: CRUD (These return SQL statements)
     public function selectAll()
     {
         $table  = $this->table;
@@ -32,6 +32,11 @@ class Data {
         $table  = $this->table;
         $fields = implode(',', $this->fields);
         $query  = "SELECT {$fields} FROM {$table} WHERE id = {$id} LIMIT 1";
+        /*
+         * 2013.09.08 TODO:
+         * - Consider parameterizing "WHERE", a la "update()" and "delete()",
+         *      thus making "select($id)" into "select()" instead.
+         */
         return $query;
     }
     public function update()
@@ -59,15 +64,10 @@ class Data {
         $query          = "INSERT INTO {$this->table} ({$fields}) VALUES ({$values})";
         return $query;
     }
-    // 2013.08.28 TODO: DELETE yet to be tested; all other functions OK.
+    
     public function delete()
     {
         $query  = "DELETE FROM {$this->table} WHERE id = :id";
         return $query;
     }
 }
-/*
-    Note that it is a good practice to NOT end your PHP files with a closing PHP tag.
-    This prevents trailing newlines on the file from being included in your output,
-    which can cause problems with redirecting users.
-*/

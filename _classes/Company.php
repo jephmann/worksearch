@@ -27,10 +27,10 @@ class Company extends Data {
     public $industry            = NULL;
     public $recruiter           = FALSE;
     public $description         = NULL;
-    public $contact             = TRUE; // not a db field; if yes, next step is Contact form; if no, next step is Company index.
+    public $contact             = FALSE; // not a db field; if yes, next step is Contact form; if no, next step is Company index.
     
     // Data Properties
-    protected $table    = "companies";
+    public $table    = "companies";
     protected $fields   = array(
         'name',
         'address_building',
@@ -202,7 +202,6 @@ class Company extends Data {
     public function setContact($contact) {
         $this->contact = $contact;
     }
-
         
     // Company Query Methods
     
@@ -237,8 +236,3 @@ class Company extends Data {
         return $parameters;
     }
 }
-/*
-    Note that it is a good practice to NOT end your PHP files with a closing PHP tag.
-    This prevents trailing newlines on the file from being included in your output,
-    which can cause problems with redirecting users.
-*/
