@@ -5,4 +5,3 @@
         header("Location:{$filepath}.php?id={$id}");
         die("Redirecting to the {$title} page...");
     }
-?>

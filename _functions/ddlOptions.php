@@ -73,6 +73,3 @@
         }
         return $ddlOptions;
     }
-    
-    
-?>

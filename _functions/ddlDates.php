@@ -123,12 +123,8 @@
     function optWeeks($weekday, $default)
     {
         $optWeeks   = '<option value="">=== Week Date ===</option>';
-        
-        //$basedate   = date("Y-m-d", strtotime("this {$weekday}"));
         $startdate  = date("Y-m-d", strtotime("this {$weekday} -26 weeks"));
         $enddate    = date("Y-m-d", strtotime("this {$weekday} +26 weeks"));
-        
-        
         while ($startdate < $enddate)
         {
             $selected   = NULL;
@@ -139,13 +135,8 @@
             } else {
                 $selected   = NULL;
             }
-            $display    = date("F d, Y", strtotime($startdate));
+            $display    = date("F j, Y", strtotime($startdate));
             $optWeeks    .= "\n<option{$selected} value=\"{$startdate}\">{$display}</option>";
         }
-        
-        
-        
         return $optWeeks;
     }
-
-?>

@@ -24,4 +24,3 @@
             {$checkedFalse} /> No";
         return $rblTrueFalse;
     }
-?>

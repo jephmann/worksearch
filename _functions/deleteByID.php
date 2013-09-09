@@ -14,4 +14,3 @@
             echo 'Error: ' . $e->getMessage();
         }
     }
-?>
