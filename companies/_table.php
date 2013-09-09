@@ -55,11 +55,6 @@
                     <a href='?orderby=address_zip5&dir=DESC'>&darr;</a>
                     <a href='?orderby=address_zip5&dir=ASC'>&uarr;</a>
                 </th>
-                <th>
-                    E-Mail<br />
-                    <a href='?orderby=email&dir=DESC'>&darr;</a>
-                    <a href='?orderby=email&dir=ASC'>&uarr;</a>
-                </th>
             </tr>
         </thead>
         <?php echo $tbody; ?>

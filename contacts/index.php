@@ -6,24 +6,12 @@
         'mode'      => NULL,
     );
     require_once ($page['path'].'_include/first.php');
-    require_once ($page['path'].'_classes/Status.php');
-    require_once ($page['path'].'_classes/Data.php');
-    require_once ($page['path'].'_classes/Person.php');
-    require_once ($page['path'].'_classes/Contact.php');
-    require_once ($page['path'].'_functions/redirect.php');
-    require_once ($page['path'].'_functions/ddlOptions.php');
-    require_once ($page['path'].'_functions/returnAlreadyCheck.php');
-    require_once ($page['path'].'_functions/returnSort.php');
-    require_once ($page['path'].'_functions/formatPhone.php');
-    
+    require_once ($page['path'].'_classes/all.php');
+    require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
     $objStatus->setColor("003300");
     $objStatus->setBackground_color("CCFFCC");
-    
-    $objContact = new Contact;
-    /*
-     * =========================================================================
-     */
+    // =========================================================================
     
     $get        = FALSE;
     $orderby    = NULL;
@@ -37,21 +25,25 @@
         $dir        = $_GET['dir'];       
     }
     $sort   = return_sort($get, $orderby, $dir, 'name_last');
+    if (!empty($_POST['where']) && !empty($_POST['like']))
+    {
+        $where = " WHERE {$_POST['where']} LIKE '%{$_POST['like']}%'";
+    }
+    // =========================================================================
     
-    
-    
-    $query  = $objContact->selectAll().' '.$where.$sort;
+    $objContacts    = new Contact;
+    $sqlContacts    = $objContacts->selectAll().' '.$where.$sort;
     try
     {
-        $stmt = $db->prepare($query);
-        $stmt->execute();
+        $stmtContacts = $db->prepare($sqlContacts);
+        $stmtContacts->execute();
     }
     catch(PDOException $ex)
     {
         die("Failed to run query: " . $ex->getMessage());
     }
+    $rows = $stmtContacts->fetchAll();
     
-    $rows = $stmt->fetchAll();
     foreach($rows as $row)
     {
         $rowID              = htmlentities($row['id'], ENT_QUOTES, 'UTF-8');
@@ -66,6 +58,10 @@
         $rowPhoneExtension  = htmlentities($row['phone_extension'], ENT_QUOTES, 'UTF-8');
         $rowFax             = htmlentities($row['fax'], ENT_QUOTES, 'UTF-8');
         $rowEmail           = htmlentities($row['email'], ENT_QUOTES, 'UTF-8');
+    
+        $contact_phone      = formatPhone($rowPhone, $rowPhoneExtension);
+        $contact_fax        = formatPhone($rowFax, NULL);
+        $contact_email      = formatEmailLink("Contact", $rowEmail);
         
         $tbody.="<tr>
             <td class=\"td_dud\">
@@ -79,15 +75,13 @@
             <td class=\"td_detail\">{$rowNameFirst} {$rowNameMiddle} {$rowNameLast} {$rowNameSuffix}</td>
             <td class=\"td_detail\">{$rowDepartment}</td>
             <td class=\"td_detail\">{$rowTitle}</td>
-            <td class=\"td_detail\">{$rowPhone} x{$rowPhoneExtension}</td>
-            <td class=\"td_detail\">{$rowEmail}</td>
+            <td class=\"td_detail\">{$contact_phone}</td>
+            <td class=\"td_detail\">{$contact_email}</td>
             </tr>";
     }
     $tbody  .= "</tbody>";
-    
-    /*
-     * =========================================================================
-     */
+
+    // =========================================================================
     require_once ($page['path'].'_html/head.php');
     require_once ($page['path'].'_html/header.php');
     require_once ($page['path'].'_html/aside.php');

@@ -1,6 +1,5 @@
 <?php
-    /* 2013.08.28 TODO(s):
-     * - Redapt to $objCompany->delete($id)
+    /* 2013.09.06 TODO(s):
      * - Block deletion if Log exists for Company
      * - Consider deleting Company's Contact(s) simultaneously
      * - JavaScript "Are you sure?" logic
@@ -12,29 +11,11 @@
         'mode'      => NULL,
     );
     require_once ($page['path'].'_include/first.php');
-    require_once ($page['path'].'_classes/Data.php');
-    require_once ($page['path'].'_classes/Company.php');
-    require_once ($page['path'].'_functions/returnAlreadyCheck.php');
+    require_once ($page['path'].'_classes/all.php');
+    require_once ($page['path'].'_functions/all.php');
+    // =========================================================================
     
-    $field      = 'id';
+    $objDelete  = new Company;
     $id         = $_GET[$field];
-    $id_found   = returnAlreadyCheck($field, $id, 'companies', $db);
-    
-    $objCompany = new Company;    
-    
-    if($id_found == TRUE)
-    {
-        try
-        {
-            $stmt = $db->prepare($objCompany->delete());
-            $stmt->bindParam(':'.$field, $id);
-            $stmt->execute();
-            echo $stmt->rowCount();
-        }
-        catch(PDOException $e)
-        {
-            echo 'Error: ' . $e->getMessage();
-        }
-    }
-    
-    header("Location:index.php");
+    $id_found   = returnAlreadyCheck($field, $id, $objDelete->table, $db);
+    delete($db, $id_found, $id, 'id', $objDelete->delete(), 'Location:index.php');

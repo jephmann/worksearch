@@ -6,58 +6,37 @@
         'mode'      => "Detail",
     );
     require_once ($page['path'].'_include/first.php');
-    require_once ($page['path'].'_classes/Data.php');
-    require_once ($page['path'].'_classes/Person.php');
-    require_once ($page['path'].'_classes/Company.php');
-    require_once ($page['path'].'_classes/Contact.php');
-    require_once ($page['path'].'_classes/Log.php');
-    require_once ($page['path'].'_classes/Profile.php');
-    require_once ($page['path'].'_classes/Status.php');
-    require_once ($page['path'].'_functions/formatPhone.php');
-    
+    require_once ($page['path'].'_classes/all.php');
+    require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
     $objStatus->setColor("003300");
     $objStatus->setBackground_color("CCFFCC");
+    // =========================================================================
     
     $objLog = new Log;
-    /*
-     * =========================================================================
-     */
-
     $id = $_GET['id'];
-    try
-    {
-        $stmt = $db->prepare($objLog->select($id));
-        $stmt->execute();
-    }
-    catch(PDOException $ex)
-    {
-        die("Failed to run query: " . $ex->getMessage());
-    }
-    $row = $stmt->fetch();
-    
-    $objLog->setId_company(htmlentities($row['id_company'], ENT_QUOTES, 'UTF-8'));
-    $objLog->setId_contact(htmlentities($row['id_contact'], ENT_QUOTES, 'UTF-8'));
-    $objLog->setId_contact_method(htmlentities($row['id_contact_method'], ENT_QUOTES, 'UTF-8'));
-    $objLog->setWeek_ending(htmlentities($row['week_ending'], ENT_QUOTES, 'UTF-8'));
-    $objLog->setContact_date(htmlentities($row['contact_date'], ENT_QUOTES, 'UTF-8'));
+    require ($page['path'].'_fetch/log.php');
     
     /*
-     * =========================================================================
+     * 2013.09.08 TO DO:
+     * - Replace company_id with company name (cross-reference)
+     * - Replace contact_id with contact full name (cross-reference)
+     * - Replace contact_method_id with actual method
      */
+    
+    // =========================================================================
     require_once ($page['path'].'_html/head.php');
     require_once ($page['path'].'_html/header.php');
     require_once ($page['path'].'_html/aside.php');
 ?>
 <fieldset>
-    <legend>Logs Notes</legend>
-    <ul>
-        <li>index = sortable Logs table</li>
-        <li>create = add Log</li>
-        <li>update = edit Log</li> 
-        <li>detail = view Log</li>
-        <li>delete = delete Log</li>
-    </ul>
+    <legend>
+        Logs Notes
+            --
+            <a href="update.php?id=<?php echo $id; ?>">Update</a>
+            |
+            <a href="<?php echo $page['path']; ?>delete.php?id=<?php echo $id; ?>">Delete</a>
+    </legend>
     <p>
         For now I want to bring in a table showing one row of an IDES work search record, the Log.
         I still want to see additional information from Contacts and Companies, etc.

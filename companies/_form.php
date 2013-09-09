@@ -27,29 +27,29 @@
             <legend>Address</legend>
             <div class="form_row">
                 <label id="lblBuilding">Building:</label>
-                <input type="text" name="building" value="<?php echo $objCompany->address_building; ?>" maxlength="100" size="40" />
+                <input type="text" name="address_building" value="<?php echo $objCompany->address_building; ?>" maxlength="100" size="40" />
             </div>
             <div class="form_row">
                 <label id="lblStreet">Street:</label>
-                <input type="text" name="street" value="<?php echo $objCompany->address_street; ?>" maxlength="100" size="40" />
+                <input type="text" name="address_street" value="<?php echo $objCompany->address_street; ?>" maxlength="100" size="40" />
             </div>
             <div class="form_row">
                 <label id="lblUnit">Unit:</label>
-                <input type="text" name="unit" value="<?php echo $objCompany->address_unit; ?>" maxlength="100" size="40" />
+                <input type="text" name="address_unit" value="<?php echo $objCompany->address_unit; ?>" maxlength="100" size="40" />
             </div>
             <div class="form_row">
                 <label id="lblCity">City:</label>
-                <input type="text" name="city" value="<?php echo $objCompany->address_city; ?>" maxlength="100" size="40" />
+                <input type="text" name="address_city" value="<?php echo $objCompany->address_city; ?>" maxlength="100" size="40" />
             </div>
             <div class="form_row">
                 <label id="lblState">State:</label>
-                <select name="state"><?php echo $optStates; ?></select>
+                <select name="address_state"><?php echo $optStates; ?></select>
             </div>
             <div class="form_row">
                 <label id="lblPostal">ZIP:</label>
-                <input type="text" name="zip5" value="<?php echo $objCompany->address_zip5; ?>" size="5" maxlength="5" />
+                <input type="text" name="address_zip5" value="<?php echo $objCompany->address_zip5; ?>" size="5" maxlength="5" />
                 -
-                <input type="text" name="zip4" value="<?php echo $objCompany->address_zip4; ?>" size="4" maxlength="4" />
+                <input type="text" name="address_zip4" value="<?php echo $objCompany->address_zip4; ?>" size="4" maxlength="4" />
             </div>
         </fieldset>
         <fieldset>

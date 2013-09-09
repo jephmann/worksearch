@@ -6,26 +6,26 @@
         'mode'      => "Create",
     );
     require_once ($page['path'].'_include/first.php');
-    require_once ($page['path'].'_classes/Status.php');
-    require_once ($page['path'].'_classes/Data.php');
-    require_once ($page['path'].'_classes/Log.php');
-    require_once ($page['path'].'_functions/ddlDates.php');
-    require_once ($page['path'].'_functions/ddlOptions.php');
-    require_once ($page['path'].'_functions/rblOptions.php');
-    
+    require_once ($page['path'].'_classes/all.php');
+    require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
     $objStatus->setColor("003300");
     $objStatus->setBackground_color("CCFFCC");
+    // =========================================================================
     
-    $objLog = new Log;    
-    /*
-     * =========================================================================
-     */    
     
-    $contact_date_yyyy = ('Y');
-    $contact_date_mm = ('m');
-    $contact_date_dd = ('d');
+    $thisYear   = date('Y');
+    $thisMonth  = date('m');
+    $thisDay    = date('d');
     
+    $thisDate       = "{$thisYear}-{$thisMonth}-{$thisDay}";
+    $weekEnding     = date("Y-m-d",strtotime($thisDate." this Saturday"));
+    $dateContact    = date("Y-m-d",strtotime($thisDate));
+    
+    
+    $objLog = new Log;
+    $objLog->setWeek_ending($weekEnding);
+    $objLog->setContact_date($dateContact);
     require ('_defaults.php');
     if(!empty($_POST))
     {
@@ -34,25 +34,21 @@
         require_once ('_validation.php');
         if(empty($objStatus->message))
         {
-            try
+            $insert = insertRow($db, $objLog);
+            if(!empty($insert['error']))
             {
-                $stmt_insert        = $db->prepare($objLog->insert());
-                $stmt_insert->execute($objLog->parameters(NULL));
-                $header             = ("Location:index.php"); 
-                header($header);
-            }
-            catch(PDOException $ex)
-            {
-                $objStatus->setMessage("<li>Failed to add the new Contact: {$ex->getMessage()}</li>");
+                $objStatus->setMessage("<li>Failed to Create Log: {$insert['error']}</li>");
                 $objStatus->setColor("FF0000");
                 $objStatus->setBackground_color("FFFF00");
+            }
+            else
+            {
+                header('Location:index.php');
             }
         }
     }
     
-    /*
-     * =========================================================================
-     */
+    // =========================================================================
     require_once ($page['path'].'_html/head.php');
     require_once ($page['path'].'_html/header.php');
     require_once ($page['path'].'_html/aside.php');

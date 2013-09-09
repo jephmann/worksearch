@@ -6,23 +6,12 @@
         'mode'      => NULL,
     );
     require_once ($page['path'].'_include/first.php');
-    require_once ($page['path'].'_classes/Status.php');
-    require_once ($page['path'].'_classes/Data.php');
-    require_once ($page['path'].'_classes/Log.php');
-    require_once ($page['path'].'_functions/redirect.php');
-    require_once ($page['path'].'_functions/ddlOptions.php');
-    require_once ($page['path'].'_functions/returnAlreadyCheck.php');
-    require_once ($page['path'].'_functions/returnSort.php');
-    require_once ($page['path'].'_functions/formatPhone.php');
-    
+    require_once ($page['path'].'_classes/all.php');
+    require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
     $objStatus->setColor("003300");
     $objStatus->setBackground_color("CCFFCC");
-    
-    $objLog = new Log;    
-    /*
-     * =========================================================================
-     */
+    // =========================================================================
     
     $get        = FALSE;
     $orderby    = NULL;
@@ -39,20 +28,22 @@
     if (!empty($_POST['where']) && !empty($_POST['like']))
     {
         $where = " WHERE {$_POST['where']} LIKE '%{$_POST['like']}%'";
-    }    
+    }
+    // =========================================================================
     
-    $query  = $objLog->selectAll().' '.$where.$sort;
+    $objLogs = new Log;
+    $sqlLogs  = $objLogs->selectAll().' '.$where.$sort;
     try
     {
-        $stmt = $db->prepare($query);
-        $stmt->execute();
+        $stmtLogs = $db->prepare($sqlLogs);
+        $stmtLogs->execute();
     }
     catch(PDOException $ex)
     {
         die("Failed to run query: " . $ex->getMessage());
     }
+    $rows = $stmtLogs->fetchAll();
     
-    $rows = $stmt->fetchAll();
     foreach($rows as $row)
     {
         $rowID              = htmlentities($row['id'], ENT_QUOTES, 'UTF-8');
@@ -61,7 +52,10 @@
         $rowWeekEnding      = htmlentities($row['week_ending'], ENT_QUOTES, 'UTF-8');
         $rowContactDate     = htmlentities($row['contact_date'], ENT_QUOTES, 'UTF-8');
         $rowIDContactMethod = htmlentities($row['id_contact_method'], ENT_QUOTES, 'UTF-8');
-        $rowSpecify         = htmlentities($row['specify'], ENT_QUOTES, 'UTF-8');            
+        $rowSpecify         = htmlentities($row['specify'], ENT_QUOTES, 'UTF-8');
+        
+        $log_week_ending    = date("l F j, Y",strtotime($rowWeekEnding));
+        $log_contact_date   = date("l F j, Y",strtotime($rowContactDate));   
         
         $tbody.="<tr>
             <td class=\"td_dud\">
@@ -75,16 +69,14 @@
             </td>
             <td class=\"td_detail\">{$rowIDCompany}</td>
             <td class=\"td_detail\">{$rowIDContact}</td>
-            <td class=\"td_detail\">{$rowWeekEnding}</td>
-            <td class=\"td_detail\">{$rowContactDate}</td>
+            <td class=\"td_detail\">{$log_week_ending}</td>
+            <td class=\"td_detail\">{$log_contact_date}</td>
             <td class=\"td_detail\">{$rowIDContactMethod} ({$rowSpecify})</td>
             </tr>";
     }
     $tbody  .= "</tbody>";
     
-    /*
-     * =========================================================================
-     */
+    // =========================================================================
     require_once ($page['path'].'_html/head.php');
     require_once ($page['path'].'_html/header.php');
     require_once ($page['path'].'_html/aside.php');
