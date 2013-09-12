@@ -50,23 +50,30 @@ h2 {
 header {
     display: block;
     width: 936px;
-    background-color: #339933;
+    background-color: #CCCCFF;
     padding: 0px 12px;
 }
 header h1 {
-    font-family: lucida console, monospace;
+    font-family: arial, sans-serif;
     font-size: 4.50em;
-    color: #00FF00;
-    text-shadow: 2px 2px 2px #003300;
-    filter: dropshadow(color=#003300, offx=2, offy=2);
+    text-shadow: 2px 2px 2px #000033;
+    filter: dropshadow(color=#000033, offx=2, offy=2);
     display: inline-block;
     padding-bottom: 4px;
+}
+header h1 #title1 {
+    font-weight: normal;
+    color: #0000FF;
+}
+header h1 #title2 {
+    font-weight: bold;
+    color: #3333CC;
 }
 header h2 {
     display: inline;
     float: right;
     padding: auto 0px;
-    color: #003300;
+    color: #000033;
 }
 
 fieldset {
@@ -79,7 +86,10 @@ legend, th {
     border: solid 1px white;
 }
 legend {
-    background-color: silver;    
+    padding:6px;
+    background-color: #CCFFFF;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;     
 }
 tr {
     border-bottom: dotted 1px silver;
@@ -95,38 +105,52 @@ th a {
 }
 nav {
     font-weight: bold;
+    background-color: #666699;
+    padding:0.1em;
 }
 
 th {
-    background-color: #003300;
-    color: #CCFFCC;    
+    background-color: #003333;
+    color: #00FFFF;    
 }
 th:hover {
-    background-color: #CCFFCC;
-    color: #003300; 
+    background-color: #CCFFFF;
+    color: #003333; 
 }
 
 #page nav ul, .filter_list
 {
     list-style-type:none;
     margin:1em;
-    padding:0;
-    background-color: #999999;
+    background-color: yellow;
 }
 #page nav ul li, .filter_list li
 {
     display:inline;
+    margin-right: 4px;
 }
-#page nav ul li a
+#page nav ul li a, legend a
 {
-    padding:2px;
-    border:1px dotted silver;
-    background-color: white;
+    text-decoration: none;
+    color: #00FFFF;
+    padding:6px;
+    /*border:1px dotted silver;*/
+    background-color: #333366;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    -webkit-box-shadow: 2px 2px 2px 2px #000033;
+    box-shadow: 2px 2px 2px 2px #000033; 
 }
-#page nav ul li a:hover
+legend a
 {
-    background-color: yellow;
-    border:1px solid silver;
+    font-size: smaller;
+    margin-right: 4px;
+}
+#page nav ul li a:hover, legend a:hover
+{
+    background-color: #9999CC;
+    color: #000033;
+    /*border:1px dotted silver;*/
 }
 .filter
 {
@@ -167,7 +191,7 @@ footer {
     display: block;
     width: 960px;
     margin: 0 auto;
-    background-color: #003300;
+    background-color: #000033;
     color: #FFFFFF;
 }
 
@@ -213,4 +237,34 @@ em {
 
 tbody tr th {
     
+}
+
+/*
+    Notes on NOTES: 
+    A div containing notes for "unfinished" areas of pages,
+    intended as a temporay display to be deleted later
+    -- hence 'comic sans' and 'post-it' color scheme,
+    in contrast to the rest of the page.
+    A semi-subtle public TODO announcement. ;)
+*/
+.notes {
+
+    font-family: 'comic sans ms';
+    background-color: #FFFFCC;
+    border-left: 1pt dotted red;
+    padding: 1em;
+    color: #000000;
+}
+.notes h3 {
+    color: purple;
+}
+.notes p {
+    font-style: italic;
+}
+
+pre {
+    font-family: 'lucida console',monospace;
+    display: block;
+    border: 1px dashed silver;
+    background-color: #FFFFFF;
 }
