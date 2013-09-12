@@ -7,6 +7,7 @@
 class Contact extends Person {
     
     // Contact Properties
+    public $id_user         = NULL;
     public $id_company      = NULL;
     public $department      = NULL;
     public $title           = NULL;
@@ -20,8 +21,9 @@ class Contact extends Person {
     public $googleplus      = NULL;
     
     // Data Properties
-    public $table    = "contacts";
+    public $table       = "contacts";
     protected $fields   = array(
+        'id_user',
         'id_company',
         'id_salutation',
         'name_last',
@@ -42,6 +44,13 @@ class Contact extends Person {
         );
         
     // Contact get/set Methods
+    public function getId_user() {
+        return $this->id_user;
+    }
+    public function setId_user($id_user) {
+        $this->id_user = $id_user;
+    }    
+    
     public function getId_company() {
         return $this->id_company;
     }
@@ -123,6 +132,7 @@ class Contact extends Person {
     public function parameters($id)
     {
         $parameters = array(
+            ':id_user'          => $this->id_user,
             ':id_company'       => $this->id_company,
             ':id_salutation'    => $this->id_salutation,
             ':name_last'        => $this->name_last,

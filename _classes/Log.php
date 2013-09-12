@@ -7,6 +7,7 @@
 class Log extends Data {
     
     // Log Properties
+    public $id_user             = NULL;
     public $week_ending         = NULL;                         // * "Week Ending"
     public $contact_date        = NULL;                         // * "Contact Date"
     public $work                = "Website Design/Development"; // * "Type of Work Sought
@@ -16,11 +17,12 @@ class Log extends Data {
     public $specify             = "N/A";
     public $results             = NULL;                         // * "Results
     public $remarks             = NULL;
-    // * from the IDES "work search form":
+    // * from the IDES "work search form".
     
     // Data Properties
-    public $table   = "logs";
-    protected $fields  = array(
+    public $table       = "logs";
+    protected $fields   = array(
+        'id_user',
         'week_ending',
         'contact_date',
         'work',
@@ -33,6 +35,13 @@ class Log extends Data {
         );
         
     // Log get/set Methods
+    public function getId_user() {
+        return $this->id_user;
+    }
+    public function setId_user($id_user) {
+        $this->id_user = $id_user;
+    }    
+    
     public function getWeek_ending() {
         return $this->week_ending;
     }
@@ -100,6 +109,7 @@ class Log extends Data {
     public function parameters($id)
     {
         $parameters = array(
+            ':id_user'              => $this->id_user,
             ':week_ending'          => $this->week_ending,
             ':contact_date'         => $this->contact_date,
             ':work'                 => $this->work,

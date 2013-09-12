@@ -7,6 +7,7 @@
 class Profile extends Person {
     
     // Profile Properties
+    public $id_user                 = NULL;
     public $address_building        = NULL;
     public $address_street          = NULL;
     public $address_unit            = NULL;
@@ -25,8 +26,9 @@ class Profile extends Person {
     public $password                = NULL;
     
     // Data Properties
-    public $table    = "profile";
+    public $table       = "profile";
     protected $fields   = array(
+        'id_user',
         'name_last',
         'name_first',
         'name_middle',
@@ -53,6 +55,13 @@ class Profile extends Person {
     );
         
     // Profile get/set Methods
+    public function getId_user() {
+        return $this->id_user;
+    }
+    public function setId_user($id_user) {
+        $this->id_user = $id_user;
+    }
+    
     public function getAddress_building() {
         return $this->address_building;
     }
@@ -169,6 +178,7 @@ class Profile extends Person {
     public function parameters($id)
     {
         $parameters = array(
+            ':id_user'                  => $this->id_user,
             ':name_last'                => $this->name_last,
             ':name_first'               => $this->name_first,
             ':name_middle'              => $this->name_middle,

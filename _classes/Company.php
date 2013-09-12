@@ -7,6 +7,7 @@
 class Company extends Data {
     
     // Company Properties
+    public $id_user             = NULL;
     public $name                = NULL;
     public $address_building    = NULL;
     public $address_street      = NULL;
@@ -30,8 +31,9 @@ class Company extends Data {
     public $contact             = FALSE; // not a db field; if yes, next step is Contact form; if no, next step is Company index.
     
     // Data Properties
-    public $table    = "companies";
+    public $table       = "companies";
     protected $fields   = array(
+        'id_user',
         'name',
         'address_building',
         'address_street',
@@ -55,6 +57,12 @@ class Company extends Data {
         );
         
     // Company get/set Methods
+    public function getId_user() {
+        return $this->id_user;
+    }
+    public function setId_user($id_user) {
+        $this->id_user = $id_user;
+    }    
     
     public function getName() {
         return $this->name;
@@ -203,11 +211,11 @@ class Company extends Data {
         $this->contact = $contact;
     }
         
-    // Company Query Methods
-    
+    // Company Query Methods    
     public function parameters($id)
     {
         $parameters = array(
+            ':id_user'          => $this->id_user,
             ':name'             => $this->name,
             ':address_building' => $this->address_building,
             ':address_street'   => $this->address_street,
