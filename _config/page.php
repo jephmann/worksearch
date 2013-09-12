@@ -39,6 +39,15 @@
     session_start();
 
     /* below is stuff JH put after the tutorial */
+    function user_session($filepath)
+    {
+        if(empty($_SESSION['user']))
+        {
+            header("Location: {$filepath}login.php");
+            die("Redirecting to login.php");
+        } 
+    }
+    
     date_default_timezone_set('America/Chicago'); 
     
     $project = array(
@@ -47,6 +56,9 @@
         'description'   => 'A personal application to assist the author in his job search',
         'keywords'      => 'unemployed, unemployment',
     );
+    
+    $asterisk   = "<span class=\"asterisk\">&nbsp;*</span>";
+    $dagger     = "<span class=\"asterisk\">&nbsp;&#8224;</span>";
     
     $content = array(
         'li'    => NULL,
