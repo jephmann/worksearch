@@ -1,7 +1,3 @@
-<?php
-    $asterisk = "<span class=\"asterisk\">&nbsp;*</span>";
-    $dagger = "<span class=\"asterisk\">&nbsp;&#8224;</span>";
-?>
 <p>
     <?php echo $dagger; ?> = Fields originally suggested by the Work Search form
     in use at the Illinois Department of Employment Security (IDES).

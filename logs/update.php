@@ -6,6 +6,7 @@
         'mode'      => "Update",
     );
     require_once ($page['path'].'_include/first.php');
+    user_session($page['path']);
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
@@ -15,7 +16,7 @@
     
     $objLog = new Log;
     $id     = $_GET['id'];
-    require ($page['path'].'_fetch/log.php');
+    require ('_fetch.php');
     
     //$optWeekEnding = optWeeks('Saturday', date('Y-m-d', strtotime('2013-08-03')));
     $contact_date_mm = date('m', strtotime($objLog->contact_date));
@@ -41,9 +42,9 @@
     }
     
     // =========================================================================
-    require_once ($page['path'].'_html/head.php');
-    require_once ($page['path'].'_html/header.php');
-    require_once ($page['path'].'_html/aside.php');
+    require_once ($page['path'].'_views/head.php');
+    require_once ($page['path'].'_views/header.php');
+    require_once ($page['path'].'_views/aside.php');
     require_once ('_form.php');
-    require_once ($page['path'].'_html/footer.php');
+    require_once ($page['path'].'_views/footer.php');
 ?>

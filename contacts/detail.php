@@ -6,6 +6,7 @@
         'mode'      => "Detail",
     );
     require_once ($page['path'].'_include/first.php');
+    user_session($page['path']);
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
@@ -16,14 +17,14 @@
     // CONTACT
     $objContact = new Contact;
     $id         = $_GET['id'];
-    require ($page['path'].'_fetch/contact.php');
-    require ($page['path'].'_display/contact.php');
+    require ('_fetch.php');
+    require ('_display.php');
     
     // CONTACT'S COMPANY
     $objCompany = new Company;
     $id         = $objContact->id_company;
-    require ($page['path'].'_fetch/company.php');
-    require ($page['path'].'_display/company.php');
+    require ($page['path'].'companies/_fetch.php');
+    require ($page['path'].'companies/_display.php');
     
     // CONTACT'S LOGS
     /*
@@ -54,18 +55,16 @@
     //$rowContacts    = fetchRowsWhere($db, $field, $id, $sqlContacts);
     
     // =========================================================================    
-    require_once ($page['path'].'_html/head.php');
-    require_once ($page['path'].'_html/header.php');
-    require_once ($page['path'].'_html/aside.php');
+    require_once ($page['path'].'_views/head.php');
+    require_once ($page['path'].'_views/header.php');
+    require_once ($page['path'].'_views/aside.php');
     ?>
 <div style="width:300px; float:right">
     <fieldset>
         <legend>
-            <?php echo $objContact->name_full(); ?>
-            --
             <a href="update.php?id=<?php echo $id; ?>">Update</a>
-            |
             <a href="<?php echo $page['path']; ?>delete.php?id=<?php echo $id; ?>">Delete</a>
+            <?php echo $objContact->name_full(); ?>
         </legend>
         <table>
             <tr>
@@ -187,5 +186,5 @@
 </div>
 <div class="clear"></div>
     <?php
-    require_once ($page['path'].'_html/footer.php');
+    require_once ($page['path'].'_views/footer.php');
 ?>

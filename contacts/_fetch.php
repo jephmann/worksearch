@@ -1,5 +1,7 @@
 <?php
     $rowContact = fetchRow($db, $objContact, $id);
+    // Whose Contact? 
+    $objContact->setId_user(htmlentities($rowContact['id_user'], ENT_QUOTES, 'UTF-8'));
     // Who
     $objContact->setGender(htmlentities($rowContact['gender'], ENT_QUOTES, 'UTF-8'));
     $objContact->setId_salutation(htmlentities($rowContact['id_salutation'], ENT_QUOTES, 'UTF-8'));

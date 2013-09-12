@@ -1,4 +1,7 @@
 <?php
+    /*
+     * NEVER set/reset $object->id_user via POST
+     */    
     // Company
     $objCompany->setName(ucwords(trim($_POST['name'])));
     $objCompany->setIndustry(trim($_POST['industry']));
@@ -25,4 +28,3 @@
     $objCompany->setGoogleplus(strtolower(trim($_POST['googleplus'])));
     // Add a new Contact to This Company Now?
     $objCompany->setContact($_POST['contact']);
-?>

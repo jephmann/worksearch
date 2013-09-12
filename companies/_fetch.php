@@ -1,5 +1,7 @@
 <?php    
     $rowCompany = fetchRow($db, $objCompany, $id);
+    // Whose Company? 
+    $objCompany->setId_user(htmlentities($rowCompany['id_user'], ENT_QUOTES, 'UTF-8'));
     // Company
     $objCompany->setName(htmlentities($rowCompany['name'], ENT_QUOTES, 'UTF-8'));
     $objCompany->setIndustry(htmlentities($rowCompany['industry'], ENT_QUOTES, 'UTF-8'));

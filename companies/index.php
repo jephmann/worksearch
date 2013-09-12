@@ -6,12 +6,21 @@
         'mode'      => NULL,
     );
     require_once ($page['path'].'_include/first.php');
+    user_session($page['path']);
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
     $objStatus->setColor("003300");
     $objStatus->setBackground_color("CCFFCC");
     // =========================================================================
+    
+    $columns=array(
+        array('title'=>'OPTIONS','field'=>NULL),
+        array('title'=>'Company','field'=>'name'),
+        array('title'=>'City','field'=>'address_city'),
+        array('title'=>'ZIP','field'=>'address_zip5'),
+    );
+    $thead = return_THEAD($columns);
     
     $get        = FALSE;
     $orderby    = NULL;
@@ -121,9 +130,9 @@
     $tbody  .= "</tbody>";    
 
     // =========================================================================
-    require_once ($page['path'].'_html/head.php');
-    require_once ($page['path'].'_html/header.php');
-    require_once ($page['path'].'_html/aside.php');
+    require_once ($page['path'].'_views/head.php');
+    require_once ($page['path'].'_views/header.php');
+    require_once ($page['path'].'_views/aside.php');
     require_once ('_table.php');
-    require_once ($page['path'].'_html/footer.php');
+    require_once ($page['path'].'_views/footer.php');
 ?>

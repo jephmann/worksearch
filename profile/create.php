@@ -6,24 +6,16 @@
         'mode'      => "Create",
     );
     require_once ($page['path'].'_include/first.php');
-    require_once ($page['path'].'_classes/Status.php');
-    require_once ($page['path'].'_classes/Data.php');
-    require_once ($page['path'].'_classes/Person.php');
-    require_once ($page['path'].'_classes/Profile.php');
-    require_once ($page['path'].'_functions/redirect.php');
-    require_once ($page['path'].'_functions/ddlOptions.php');
-    require_once ($page['path'].'_functions/rblTrueFalse.php');
-    require_once ($page['path'].'_functions/rblGender.php');
-    require_once ($page['path'].'_functions/returnAlreadyCheck.php');
-    
+    user_session($page['path']);
+    require_once ($page['path'].'_classes/all.php');
+    require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
     $objStatus->setColor("003300");
     $objStatus->setBackground_color("CCFFCC");
+    // =========================================================================
     
     $objProfile = new Profile;
-    /*
-     * =========================================================================
-     */
+    $objProfile->setId_user($_SESSION['user']['id']);
     
     require ('_defaults.php');
     if (!empty($_POST))
@@ -51,13 +43,11 @@
             }
         }
     }
-    
-    /*
-     * =========================================================================
-     */
-    require_once ($page['path'].'_html/head.php');
-    require_once ($page['path'].'_html/header.php');
-    require_once ($page['path'].'_html/aside.php');
+
+    // =========================================================================
+    require_once ($page['path'].'_views/head.php');
+    require_once ($page['path'].'_views/header.php');
+    require_once ($page['path'].'_views/aside.php');
     require_once ('_form.php');
-    require_once ($page['path'].'_html/footer.php');
+    require_once ($page['path'].'_views/footer.php');
 ?>

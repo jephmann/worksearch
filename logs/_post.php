@@ -1,4 +1,7 @@
 <?php
+    /*
+     * NEVER set/reset $object->id_user via POST
+     */
     $week_ending = new DateTime($_POST['week_ending']);
     $objLog->setWeek_ending($week_ending->format('Y-m-d'));
 
@@ -16,4 +19,3 @@
     $objLog->setSpecify($_POST['specify']);
     $objLog->setResults($_POST['results']);
     $objLog->setRemarks($_POST['remarks']);
-?>

@@ -6,6 +6,7 @@
         'mode'      => "Detail",
     );
     require_once ($page['path'].'_include/first.php');
+    user_session($page['path']);
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
@@ -15,7 +16,7 @@
     
     $objLog = new Log;
     $id = $_GET['id'];
-    require ($page['path'].'_fetch/log.php');
+    require ('_fetch.php');
     
     /*
      * 2013.09.08 TO DO:
@@ -25,17 +26,15 @@
      */
     
     // =========================================================================
-    require_once ($page['path'].'_html/head.php');
-    require_once ($page['path'].'_html/header.php');
-    require_once ($page['path'].'_html/aside.php');
+    require_once ($page['path'].'_views/head.php');
+    require_once ($page['path'].'_views/header.php');
+    require_once ($page['path'].'_views/aside.php');
 ?>
 <fieldset>
     <legend>
-        Logs Notes
-            --
-            <a href="update.php?id=<?php echo $id; ?>">Update</a>
-            |
-            <a href="<?php echo $page['path']; ?>delete.php?id=<?php echo $id; ?>">Delete</a>
+        <a href="update.php?id=<?php echo $id; ?>">Update</a>
+        <a href="<?php echo $page['path']; ?>delete.php?id=<?php echo $id; ?>">Delete</a>
+        Log #<?php echo $id; ?>
     </legend>
     <p>
         For now I want to bring in a table showing one row of an IDES work search record, the Log.
@@ -64,5 +63,5 @@
     </table>
 </fieldset>
 <?php
-    require_once ($page['path'].'_html/footer.php');
+    require_once ($page['path'].'_views/footer.php');
 ?>

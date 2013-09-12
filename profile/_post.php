@@ -1,7 +1,7 @@
 <?php
-    // Login -- CHECK TUTORIAL re encryption and other jazz
-    $objProfile->setUsername(trim($_POST['username']));
-    $objProfile->setPassword(trim($_POST['password']));
+    /*
+     * NEVER set/reset $object->id_user via POST
+     */
     // Who Are You
     $objProfile->setGender($_POST['gender']);
     $objProfile->setId_salutation($_POST['salutation']);
@@ -25,4 +25,3 @@
     $objProfile->setSocial_security_number($_POST['social_security_number']);
     $objProfile->setDrivers_state($_POST['drivers_state']);
     $objProfile->setDrivers_license($_POST['drivers_license']);
-?>

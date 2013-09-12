@@ -35,28 +35,6 @@
         </div>        
     </form>
     <table width="100%">
-        <thead>
-            <tr>
-                <th>
-                    OPTIONS
-                </th>
-                <th>
-                    Name<br />
-                    <a href='?orderby=name&dir=DESC'>&darr;</a>
-                    <a href='?orderby=name&dir=ASC'>&uarr;</a>
-                </th>
-                <th>
-                    City<br />
-                    <a href='?orderby=address_city&dir=DESC'>&darr;</a>
-                    <a href='?orderby=address_city&dir=ASC'>&uarr;</a>
-                </th>
-                <th>
-                    ZIP<br />
-                    <a href='?orderby=address_zip5&dir=DESC'>&darr;</a>
-                    <a href='?orderby=address_zip5&dir=ASC'>&uarr;</a>
-                </th>
-            </tr>
-        </thead>
-        <?php echo $tbody; ?>
+        <?php echo $thead.$tbody; ?>
     </table>
 </fieldset>

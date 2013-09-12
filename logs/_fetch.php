@@ -1,6 +1,7 @@
 <?php    
     $rowLog = fetchRow($db, $objLog, $id);
-    
+     
+    $objLog->setId_user(htmlentities($rowLog['id_user'], ENT_QUOTES, 'UTF-8'));
     $objLog->setWeek_ending(htmlentities($rowLog['week_ending'], ENT_QUOTES, 'UTF-8'));
     $objLog->setContact_date(htmlentities($rowLog['contact_date'], ENT_QUOTES, 'UTF-8'));
     $objLog->setWork(htmlentities($rowLog['work'], ENT_QUOTES, 'UTF-8'));

@@ -1,4 +1,7 @@
 <?php
+    /*
+     * NEVER set/reset $object->id_user via POST
+     */
     // Who
     $objContact->setGender($_POST['gender']);
     $objContact->setId_salutation($_POST['salutation']);
@@ -20,4 +23,3 @@
     $objContact->setTwitter(strtolower(trim($_POST['twitter'])));
     $objContact->setFacebook(strtolower(trim($_POST['facebook'])));
     $objContact->setGoogleplus(strtolower(trim($_POST['googleplus'])));
-?>
