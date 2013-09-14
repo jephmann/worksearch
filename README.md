@@ -4,7 +4,7 @@ These notes are subject to change.
 
 =====
 
-WQRKsearch (a working title) is a personal project which I created chiefly to
+WORKsearch (a working title) is a personal project which I created chiefly to
 stay in practice in between jobs. I might not include every single folder and
 file in this project, whether complete or not.
 
