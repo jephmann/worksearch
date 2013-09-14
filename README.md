@@ -4,9 +4,9 @@ These notes are subject to change.
 
 =====
 
-WQRKsearch is a personal project which I created chiefly to stay in practice in
-between jobs. I might not include every single folder and file in this project,
-whether complete or not.
+WQRKsearch (a working title) is a personal project which I created chiefly to
+stay in practice in between jobs. I might not include every single folder and
+file in this project, whether complete or not.
 
 Being in between jobs, I found that creating a personal website with an aim
 toward managing my contacts and logging my activity would be an ideal project
@@ -22,13 +22,20 @@ condition that no unemployed person pays to use it.
 
 Plus, it helps to have a code sample of something somewhere. ;)
 
+Until the project approaches completion (among other things I have yet to apply
+front-end form validation), I am not soliciting advice for a while. Should you
+feel compelled to offer advice regardless, may your criticism please be
+constructive.
+
+I reserve the right to ignore any other kinds of criticism. ;)
+
 =====
 
 WHAT'S IN IT
 
-Longstoryshort: So far, PHP 5 connecting to MySQL via PDO using HTML5, CSS and
-CSS3. For now, I am concentrating on back-end programming. Other technologies,
-particularly on the front end, shall follow as I go along.
+Longstoryshort: So far, PHP 5 over XAMPP connecting to MySQL via PDO using
+HTML5, CSS and CSS3. For now, I am concentrating on back-end programming. Other
+technologies, particularly on the front end, shall follow as I go along. 
 
 The long story -- by the folders:
 
