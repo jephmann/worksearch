@@ -13,17 +13,15 @@ class Profile extends Person {
     public $address_unit            = NULL;
     public $address_city            = "Chicago";
     public $address_state           = "IL";
-    public $address_zip5            = "606##";
-    public $address_zip4            = "####";
-    public $phone                   = "##########";
-    public $phone_extension         = "####";
-    public $fax                     = "##########";
+    public $address_zip5            = NULL;
+    public $address_zip4            = NULL;
+    public $phone                   = NULL;
+    public $phone_extension         = NULL;
+    public $fax                     = NULL;
     public $email                   = NULL;
-    public $social_security_number  = "#########";
-    public $drivers_state           = "IL";
+    public $social_security_number  = NULL;
+    public $drivers_state           = NULL;
     public $drivers_license         = NULL;
-    public $username                = NULL;
-    public $password                = NULL;
     
     // Data Properties
     public $table       = "profile";
@@ -32,9 +30,9 @@ class Profile extends Person {
         'name_last',
         'name_first',
         'name_middle',
-        'name_suffix',
         'gender',
         'id_salutation',
+        'id_name_suffix',
         'date_birth',
         'address_building',
         'address_street',
@@ -50,8 +48,6 @@ class Profile extends Person {
         'social_security_number',
         'drivers_state',
         'drivers_license',
-        'username',
-        'password',
     );
         
     // Profile get/set Methods
@@ -160,20 +156,6 @@ class Profile extends Person {
         $this->drivers_license = $drivers_license;
     }
     
-    public function getUsername() {
-        return $this->username;
-    }
-    public function setUsername($username) {
-        $this->username = $username;
-    }
-
-    public function getPassword() {
-        return $this->password;
-    }
-    public function setPassword($password) {
-        $this->password = $password;
-    }
-    
     // Profile Query Methods    
     public function parameters($id)
     {
@@ -182,9 +164,9 @@ class Profile extends Person {
             ':name_last'                => $this->name_last,
             ':name_first'               => $this->name_first,
             ':name_middle'              => $this->name_middle,
-            ':name_suffix'              => $this->name_suffix,
             ':gender'                   => $this->gender,
             ':id_salutation'            => $this->id_salutation,
+            ':id_name_suffix'           => $this->id_name_suffix,
             ':address_building'         => $this->address_building,
             ':address_street'           => $this->address_street,
             ':address_unit'             => $this->address_unit,
@@ -199,12 +181,10 @@ class Profile extends Person {
             ':social_security_number'   => $this->social_security_number,
             ':drivers_state'            => $this->drivers_state,
             ':drivers_license'          => $this->drivers_license,
-            ':username'                 => $this->username,
-            ':password'                 => $this->password,
             );
         if(!empty($id))
         {
-            $parameters['id'] = $id;
+            $parameters[':id'] = $id;
         }
         return $parameters;
     }

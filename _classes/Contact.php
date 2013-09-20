@@ -153,7 +153,7 @@ class Contact extends Person {
             );
         if(!empty($id))
         {
-            $parameters['id'] = $id;
+            $parameters[':id'] = $id;
         }
         return $parameters;
     }

@@ -122,7 +122,7 @@ class Log extends Data {
             );
         if(!empty($id))
         {
-            $parameters['id'] = $id;
+            $parameters[':id'] = $id;
         }
         return $parameters;
     }

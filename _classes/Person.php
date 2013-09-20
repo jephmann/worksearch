@@ -9,6 +9,7 @@ class Person extends Data {
     // Person Properties
     public $gender          = NULL;
     public $id_salutation   = NULL;
+    public $id_name_suffix  = NULL;
     public $name_first      = NULL;
     public $name_middle     = NULL;
     public $name_last       = NULL;
@@ -29,6 +30,13 @@ class Person extends Data {
     }
     public function setId_salutation($id_salutation) {
         $this->id_salutation = $id_salutation;
+    }
+    
+    public function getId_name_suffix() {
+        return $this->id_name_suffix;
+    }
+    public function setId_name_suffix($id_name_suffix) {
+        $this->id_name_suffix = $id_name_suffix;
     }
     
     public function getName_first() {
@@ -83,14 +91,8 @@ class Person extends Data {
             $name_full .= ' '.$this->name_suffix;
         }
         return $name_full;
-    }
-    
-    public function name_salutation($salutation)
-    {
-        $name_salutation = $salutation.' '.$this->name_last;
-        return $name_salutation;
-    }
-    
+    }    
+
     public function birth_year($format)
     {
         $birth_year = NULL;
