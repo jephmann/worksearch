@@ -33,7 +33,7 @@ likely to repair in due time when my other priorities permit.
 
 Until the project approaches a sense of "completion", I am not actively
 soliciting advice for a while. Regardless, should you feel compelled to 
-advice, may your criticism please be constructive.
+advise, may your criticism please be constructive.
 
 I reserve the right to ignore any other kinds of criticism. ;)
 
