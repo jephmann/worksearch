@@ -9,6 +9,9 @@
     require_once ($page['path'].'_functions/formatOutsideLink.php');
     require_once ($page['path'].'_functions/formatPhone.php');
     require_once ($page['path'].'_functions/formatPostUS.php');
+    require_once ($page['path'].'_functions/formatDriversLicense.php');
+    require_once ($page['path'].'_functions/formatSSN.php');
+    require_once ($page['path'].'_functions/returnFullNamePlus.php');
     // INPUTS
     require_once ($page['path'].'_functions/ddlDates.php');
     require_once ($page['path'].'_functions/ddlOptions.php');

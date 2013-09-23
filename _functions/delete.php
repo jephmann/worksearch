@@ -1,19 +1,23 @@
 <?php
-    function delete($db, $id_found, $id, $field, $sql_delete, $location)
+    function delete($db, $objTable, $id_found)
     {
+        $error  = NULL;
         if($id_found == TRUE)
         {
             try
             {
-                $stmt = $db->prepare($sql_delete);
-                $stmt->bindParam(':'.$field, $id);
+                $stmt   = $db->prepare($objTable->delete());
+                $stmt->bindParam(':id', $objTable->id);
                 $stmt->execute();
                 // echo $stmt->rowCount();
-                header($location);
             }
-            catch(PDOException $e)
+            catch(PDOException $ex)
             {
-                echo 'Error: ' . $e->getMessage();
+                $error  = 'DELETE Error: ' . $ex->getMessage();
             }
         }
+        $delete = array(
+            'error' => $error,
+        );
+        return $delete;
     }

@@ -1,5 +1,5 @@
 <?php
-    function returnAlreadyCheck($field, $value, $db_table, $db)
+    function returnAlreadyCheck($db, $field, $value, $db_table)
     {
         /*
          * 2013.09.10 TODO:
@@ -56,4 +56,26 @@
          * http://forums.devshed.com/php-faqs-and-stickies-167/how-to-program-a-basic-but-secure-login-system-using-891201.html
          * which is also the source of these notes.         * 
          */
+    }
+    
+    function checkIfAlready($db, $objTable)
+    {
+        $boolean    = FALSE;
+        $query      = "SELECT 1 FROM {$objTable->table} WHERE id = :id";
+        $param      = array(':id' => $objTable->id);
+        try
+        {
+            $stmt   = $db->prepare($query);
+            $stmt->execute($param);
+        }
+        catch(PDOException $ex)
+        {
+            die("Failed to run query on {$objTable->table}.id: " . $ex->getMessage());
+        }
+        $row        = $stmt->fetch();
+        if($row)
+        {
+            $boolean = TRUE;
+        }
+        return $boolean;
     }

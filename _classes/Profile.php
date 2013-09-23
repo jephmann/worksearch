@@ -167,6 +167,7 @@ class Profile extends Person {
             ':gender'                   => $this->gender,
             ':id_salutation'            => $this->id_salutation,
             ':id_name_suffix'           => $this->id_name_suffix,
+            ':date_birth'               => $this->date_birth,
             ':address_building'         => $this->address_building,
             ':address_street'           => $this->address_street,
             ':address_unit'             => $this->address_unit,

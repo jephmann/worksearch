@@ -13,15 +13,29 @@
         <div class="clear" />
         <nav>
             <ul>
-                <li><a href="<?php echo $page['path'].'welcome.php'; ?>">HOME</a></li>
-                <li><a href="<?php echo $page['path'].'profile/'; ?>">Profile</a></li>
-                <li><a href="<?php echo $page['path'].'companies/'; ?>">Companies</a></li>
-                <li><a href="<?php echo $page['path'].'contacts/'; ?>">Contacts</a></li>
-                <li><a href="<?php echo $page['path'].'logs/'; ?>">Logs</a></li>
-                <li>Mail</li>
-                <li><a href="<?php echo $page['path'].'logout.php'; ?>">Log Out</a></li>
-                <li><a href="<?php echo $page['path'].'login.php'; ?>">Log In</a></li>
-                <li><a href="<?php echo $page['path'].'register.php'; ?>">Register</a></li>
+                <?php
+                    if (!empty($_SESSION['user']))
+                    {
+                        echo " <li><a href=\"{$page['path']}welcome.php\">HOME</a></li>
+                            <li><a href=\"{$page['path']}profile/\">Profile</a></li>";
+                    }
+                    if (!empty($_SESSION['profile']))
+                    {
+                        echo "<li><a href=\"{$page['path']}companies/\">Companies</a></li>
+                            <li><a href=\"{$page['path']}contacts/\">Contacts</a></li>
+                            <li><a href=\"{$page['path']}logs/\">Logs</a></li>
+                            <li>Mail</li>";
+                    }
+                    if (empty($_SESSION))
+                    {
+                        echo "<li><a href=\"{$page['path']}login.php\">Log In</a></li>
+                            <li><a href=\"{$page['path']}register.php\">Register</a></li>";
+                    }
+                    if (!empty($_SESSION))
+                    {
+                        echo "<li><a href=\"{$page['path']}logout.php\">Log Out</a></li>";
+                    }
+                ?>
             </ul>
         </nav>
         <div class="clear" />

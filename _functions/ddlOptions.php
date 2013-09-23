@@ -1,5 +1,5 @@
 <?php
-    function ddlOptions($default, $value, $name, $db_table, $db)
+    function ddlOptions($db, $default, $value, $name, $db_table)
     {        
         $qDDL = "select {$value}, {$name} from {$db_table} order by {$name}";
 
@@ -37,7 +37,7 @@
     }
 
     
-    function ddlOptionsAs($default, $value, $concatFields, $name, $sort, $db_table, $db)
+    function ddlOptionsAs($db, $default, $value, $concatFields, $name, $sort, $db_table)
     {        
         $qDDL = "select {$value}, Concat({$concatFields}) AS {$name} from {$db_table} order by {$sort}";
 

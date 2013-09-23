@@ -1,12 +1,12 @@
 <?php
-    function formatDriversLicense($string)
+    function formatDriversLicense($state, $license)
     {
-        $formatDriversLicense = NULL;
-        if(!empty($string))
+        $formatDriversLicense = $state;
+        if(!empty($license))
         {
-            $four = substr($string, 0, 4);
-            $eight = substr($string, 4, 4);
-            $twelve = substr($string, 8, 4);
+            $four = substr($license, 0, 4);
+            $eight = substr($license, 4, 4);
+            $twelve = substr($license, 8, 4);
             $formatDriversLicense = "{$four} {$eight} {$twelve}";
         }
         return $formatDriversLicense;

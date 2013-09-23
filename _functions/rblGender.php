@@ -1,6 +1,7 @@
 <?php
     function rblGender($name, $gender)
     {
+        $rblGender = NULL;
         $checkedMale    = NULL;
         $checkedFemale  = NULL;
         $checked        = " checked=\"checked\"";
@@ -14,7 +15,6 @@
             $checkedFemale  = $checked;
             $checkedMale    = NULL;
         }
-        $rblGender = "";        
         $rblGender .= "\r<input name=\"{$name}\" type=\"radio\" value=\"M\"{$checkedMale} /> Male";
         $rblGender .= "\r<input name=\"{$name}\" type=\"radio\" value=\"F\"{$checkedFemale} /> Female";
         $rblGender .= "\r";
