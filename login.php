@@ -108,6 +108,18 @@
             // the user's details.
             $_SESSION['user'] = $row;
             
+            // My add: check for an exsiting Profile for the user
+            // If Profile exists, add to the Session
+            $objProfile = new Profile;
+            $prmProfile     = $objProfile->id_params(NULL, $_SESSION['user']['id']);
+            $sqlProfile     = $objProfile->selectAll($_SESSION['user']['id']) . " LIMIT 1";
+            $fetchProfile   = read($db, $sqlProfile, $prmProfile, TRUE);
+            $rowProfile     = $fetchProfile['result'][0];
+            if(!empty($rowProfile))
+            {
+                $_SESSION['profile'] = $rowProfile;
+            }
+            
             // Redirect the user to the private members-only page.
             header("Location: welcome.php");
             die("Redirecting to: welcome.php");
