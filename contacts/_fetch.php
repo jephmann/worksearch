@@ -1,5 +1,14 @@
 <?php
-    $rowContact = fetchRow($db, $objContact, $id);
+    $prmContact     = $objContact->id_params($objContact->id, $objContact->id_user);
+    $sqlContact     = $objContact->select($objContact->id_user);
+    $fetchContact   = read($db, $sqlContact, $prmContact, FALSE);
+    $rowContact     = $fetchContact['result'];
+    if(!empty($fetchContact['error']))
+    {
+        $objStatus->setMessage("<li>{$fetchContact['error']}</li>");
+        $objStatus->setColor("FF0000");
+        $objStatus->setBackground_color("FFFF00");
+    }
     // Whose Contact? 
     $objContact->setId_user(htmlentities($rowContact['id_user'], ENT_QUOTES, 'UTF-8'));
     // Who
@@ -8,7 +17,7 @@
     $objContact->setName_first(htmlentities($rowContact['name_first'], ENT_QUOTES, 'UTF-8'));
     $objContact->setName_middle(htmlentities($rowContact['name_middle'], ENT_QUOTES, 'UTF-8'));
     $objContact->setName_last(htmlentities($rowContact['name_last'], ENT_QUOTES, 'UTF-8'));
-    $objContact->setName_suffix(htmlentities($rowContact['name_suffix'], ENT_QUOTES, 'UTF-8'));
+    $objContact->setId_name_suffix(htmlentities($rowContact['id_name_suffix'], ENT_QUOTES, 'UTF-8'));
     // Company
     $objContact->setID_company(htmlentities($rowContact['id_company'], ENT_QUOTES, 'UTF-8'));
     $objContact->setDepartment(htmlentities($rowContact['department'], ENT_QUOTES, 'UTF-8'));

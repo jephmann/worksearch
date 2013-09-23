@@ -8,7 +8,7 @@
     $objContact->setName_first(ucwords(strtolower(trim($_POST['name_first']))));
     $objContact->setName_middle(ucwords(strtolower(trim($_POST['name_middle']))));
     $objContact->setName_last(ucwords(strtolower(trim($_POST['name_last']))));
-    $objContact->setName_suffix(ucwords(strtolower(trim($_POST['name_suffix']))));
+    $objContact->setId_name_suffix($_POST['name_suffix']);
     // Company
     $objContact->setId_company($_POST['company']);
     $objContact->setDepartment(ucwords(strtolower(trim($_POST['department']))));

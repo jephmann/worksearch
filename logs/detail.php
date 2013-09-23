@@ -7,6 +7,7 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
+    $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
@@ -15,7 +16,7 @@
     // =========================================================================
     
     $objLog = new Log;
-    $id = $_GET['id'];
+    $objLog->setId($_GET['id']);
     require ('_fetch.php');
     
     /*
@@ -29,39 +30,6 @@
     require_once ($page['path'].'_views/head.php');
     require_once ($page['path'].'_views/header.php');
     require_once ($page['path'].'_views/aside.php');
-?>
-<fieldset>
-    <legend>
-        <a href="update.php?id=<?php echo $id; ?>">Update</a>
-        <a href="<?php echo $page['path']; ?>delete.php?id=<?php echo $id; ?>">Delete</a>
-        Log #<?php echo $id; ?>
-    </legend>
-    <p>
-        For now I want to bring in a table showing one row of an IDES work search record, the Log.
-        I still want to see additional information from Contacts and Companies, etc.
-    </p>
-    <table>
-        <thead>
-            <tr>
-                <th>Week<br/>Ending</th>
-                <th>Contact<br/>Date</th>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Contact<br/>Method</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><?php echo $objLog->week_ending; ?></td>
-                <td><?php echo $objLog->contact_date; ?></td>
-                <td><?php echo $objLog->id_company; ?></td>
-                <td><?php echo $objLog->id_contact; ?></td>
-                <td><?php echo $objLog->id_contact_method; ?></td>
-            </tr>
-        </tbody>
-            
-    </table>
-</fieldset>
-<?php
+    require ('_details.php');
     require_once ($page['path'].'_views/footer.php');
 ?>

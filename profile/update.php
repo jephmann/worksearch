@@ -7,6 +7,7 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
+    $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
@@ -15,11 +16,9 @@
     // =========================================================================
     
     $objProfile = new Profile;
-
-    //$id = $_GET['id'];
-    $id = 1;
+    $objProfile->setId($_SESSION['profile']['id']);
+    $objProfile->setId_user($id_user);
     require ('_fetch.php');
-    
     require ('_defaults.php');
     if(!empty($_POST))
     {
@@ -28,24 +27,19 @@
         require_once ('_validation.php');
         if(empty($objStatus->message))
         {
-            try
+            $location   = 'index.php';
+            $update     = updateRow($db, $objProfile);
+            if(!empty($update['result']['error']))
             {
-                $stmt_update = $db->prepare($objProfile->update());
-                $stmt_update->execute($objProfile->parameters($id));
-                $header = "Location:";
-                $header .= "../welcome.php";
-                header($header);
-            }
-            catch(PDOException $ex)
-            {
-                $errMessage = "<li>Failed to Update Profile: {$ex->getMessage()}</li>";
-                $errMessage .= "<li>{$objProfile->update()}</li>";
-                $objStatus->setMessage($errMessage);
+                $objStatus->setMessage("<li>Failed to Update Profile: {$update['result']['error']}</li>");
                 $objStatus->setColor("FF0000");
                 $objStatus->setBackground_color("FFFF00");
             }
+            else
+            {
+                header('Location:'.$location);
+            }
         }
-        
     }
 
     // =========================================================================

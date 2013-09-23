@@ -5,17 +5,6 @@
     <fieldset>
         <legend>Profile</legend>
         <fieldset>
-            <legend>Login</legend>
-            <div class="form_row">
-                <label id="lblUsername">Username:</label>
-                <input type="text" name="username" value="<?php echo $objProfile->username; ?>" maxlength="255" />
-            </div>
-            <div class="form_row">
-                <label id="lblPassword">Password:</label>
-                <input type="text" name="password" value="<?php echo $objProfile->password; ?>" maxlength="255" />
-            </div>
-        </fieldset>
-        <fieldset>
             <legend>Who Are You?</legend>
             <div class="form_row">
                 <label id="lblGender">Gender:</label>
@@ -39,7 +28,11 @@
             </div>
             <div class="form_row">
                 <label id="lblNameSuffix">Name Suffix:</label>
-                <input type="text" name="name_suffix" value="<?php echo $objProfile->name_suffix; ?>" maxlength="100" />
+                <select name="name_suffix"><?php echo $optNameSuffixes; ?></select>
+            </div>
+            <div class="form_row">
+                <label id="lblDateBirth">Born:</label>
+                <input type="text" name="date_birth" value="<?php echo $objProfile->date_birth; ?>" maxlength="100" />
             </div>
         </fieldset>
         <fieldset>

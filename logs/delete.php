@@ -18,6 +18,14 @@
     // =========================================================================
     
     $objDelete  = new Log;
-    $id         = $_GET[$field];
-    $id_found   = returnAlreadyCheck($field, $id, $objDelete->table, $db);
-    delete($db, $id_found, $id, 'id', $objDelete->delete(), 'Location:index.php');
+    $objDelete->setId($_GET['id']);
+    $id_found   = checkIfAlready($db, $objDelete);
+    $delete     = delete($db, $objDelete, $id_found);
+    if(!empty($delete['error']))
+    {
+        echo $delete['error'];
+    }
+    else
+    {
+        header('Location:index.php');
+    }

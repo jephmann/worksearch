@@ -7,6 +7,7 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
+    $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
@@ -15,9 +16,8 @@
     // =========================================================================
     
     $objContact = new Contact;
-    $id         = $_GET['id'];
-    require ('_fetch.php');
-    
+    $objContact->setId($_GET['id']);
+    require ('_fetch.php');    
     require ('_defaults.php');
     if(!empty($_POST))
     {        
@@ -26,12 +26,17 @@
         require_once ('_validation.php');
         if(empty($objStatus->message))
         {
-            $update = updateRow($db, $objContact, $id, 'index.php');
-            if(!empty($update))
+            $location   = 'index.php';
+            $update     = updateRow($db, $objContact);
+            if(!empty($update['result']['error']))
             {
-                $objStatus->setMessage("<li>Failed to Update Contact: {$update}</li>");
+                $objStatus->setMessage("<li>Failed to Update Contact: {$update['result']['error']}</li>");
                 $objStatus->setColor("FF0000");
                 $objStatus->setBackground_color("FFFF00");
+            }
+            else
+            {
+                header('Location:'.$location);
             }
         }
     }

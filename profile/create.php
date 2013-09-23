@@ -15,8 +15,7 @@
     // =========================================================================
     
     $objProfile = new Profile;
-    $objProfile->setId_user($_SESSION['user']['id']);
-    
+    $objProfile->setId_user($_SESSION['user']['id']);    
     require ('_defaults.php');
     if (!empty($_POST))
     {
@@ -25,21 +24,16 @@
         require_once ('_validation.php');
         if(empty($objStatus->message))
         {
-            try
+            $insert = insertRow($db, $objProfile);
+            if(!empty($insert['error']))
             {
-                $stmt_insert        = $db->prepare($objProfile->insert());
-                $stmt_insert->execute($objProfile->parameters(NULL));
-                $new_id['profile']  = $db->lastInsertId();
-                $header             = "Location:../login.php?new=".$new_id['profile'];
-                header($header);
-            }
-            catch(PDOException $ex)
-            {
-                $errMessage = "<li>Failed to add the new Profile: {$ex->getMessage()}</li>";
-                $errMessage .= "<li>{$objProfile->insert()}</li>";
-                $objStatus->setMessage($errMessage);
+                $objStatus->setMessage("<li>Failed to Create Profile: {$insert['error']}<br/>{$objProfile->insert()}</li>");
                 $objStatus->setColor("FF0000");
                 $objStatus->setBackground_color("FFFF00");
+            }
+            else
+            {
+                header('Location:index.php');
             }
         }
     }

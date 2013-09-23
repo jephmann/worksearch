@@ -7,6 +7,7 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
+    $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
@@ -15,9 +16,8 @@
     // =========================================================================
     
     $objCompany = new Company;
-    $id         = $_GET['id'];
-    require ('_fetch.php');
-    
+    $objCompany->setId($_GET['id']);
+    require ('_fetch.php');    
     require ('_defaults.php');
     if(!empty($_POST))
     {
@@ -26,20 +26,25 @@
         require_once ('_validation.php');
         if(empty($objStatus->message))
         {
+            $location   = NULL;
             if($objCompany->contact==TRUE)
             {
-                $location   = "../contacts/create.php?company={$id}";
+                $location   = "../contacts/create.php?company={$objCompany->id}";
             }
             else
             {
                 $location   = "index.php";
             }
-            $update = updateRow($db, $objCompany, $id, $location);
-            if(!empty($update))
+            $update     = updateRow($db, $objCompany);
+            if(!empty($update['result']['error']))
             {
-                $objStatus->setMessage("<li>Failed to Update Company: {$update}</li>");
+                $objStatus->setMessage("<li>Failed to Update Company: {$update['result']['error']}</li>");
                 $objStatus->setColor("FF0000");
                 $objStatus->setBackground_color("FFFF00");
+            }
+            else
+            {
+                header('Location:'.$location);
             }
         }
     }

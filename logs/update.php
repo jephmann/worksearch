@@ -15,7 +15,7 @@
     // =========================================================================
     
     $objLog = new Log;
-    $id     = $_GET['id'];
+    $objLog->setId($_GET['id']);
     require ('_fetch.php');
     
     //$optWeekEnding = optWeeks('Saturday', date('Y-m-d', strtotime('2013-08-03')));
@@ -31,12 +31,17 @@
         require_once ('_validation.php');
         if(empty($objStatus->message))
         {
-            $update = updateRow($db, $objLog, $id, 'index.php');
-            if(!empty($update))
+            $location   = 'index.php';
+            $update     = updateRow($db, $objLog);
+            if(!empty($update['result']['error']))
             {
-                $objStatus->setMessage("<li>Failed to Update Log: {$update}</li>");
+                $objStatus->setMessage("<li>Failed to Update Log: {$update['result']['error']}</li>");
                 $objStatus->setColor("FF0000");
                 $objStatus->setBackground_color("FFFF00");
+            }
+            else
+            {
+                header('Location:'.$location);
             }
         }
     }

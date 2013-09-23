@@ -1,6 +1,14 @@
-<?php    
-    $rowLog = fetchRow($db, $objLog, $id);
-     
+<?php  
+    $prmLog     = $objLog->id_params($objLog->id, $objLog->id_user);
+    $sqlLog     = $objLog->select($objLog->id_user);
+    $fetchLog   = read($db, $sqlLog, $prmLog, FALSE);
+    $rowLog     = $fetchLog['result'];
+    if(!empty($fetchContact['error']))
+    {
+        $objStatus->setMessage("<li>{$fetchContact['error']}</li>");
+        $objStatus->setColor("FF0000");
+        $objStatus->setBackground_color("FFFF00");
+    }
     $objLog->setId_user(htmlentities($rowLog['id_user'], ENT_QUOTES, 'UTF-8'));
     $objLog->setWeek_ending(htmlentities($rowLog['week_ending'], ENT_QUOTES, 'UTF-8'));
     $objLog->setContact_date(htmlentities($rowLog['contact_date'], ENT_QUOTES, 'UTF-8'));

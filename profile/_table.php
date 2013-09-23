@@ -1,10 +1,96 @@
+<ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
+    <?php echo $objStatus->message; ?>
+</ul>
 <fieldset>
-    <legend>Your Profile</legend>
-    <ul>
-        <li><a href="create.php">Create</a></li>
-        <li><a href="update.php">Update</a></li>
-        <li><a href="delete.php">Delete</a></li>
-    </ul>
+    <legend>
+        <a href="create.php">Create</a>
+        <a href="update.php">Update</a>
+        <a href="delete.php">Delete</a>
+        Your Profile
+    </legend>
+    <fieldset>
+        <legend>Who Are You?</legend>
+        <table>
+            <tr>
+                <td><strong>Name:</strong></td>
+                <td><?php echo $profile_name_full; ?></td>
+            </tr>
+            <tr>
+                <td><strong>Gender:</strong></td>
+                <td><?php echo $objProfile->gender; ?></td>
+            </tr>
+            <tr>
+                <td><strong>Born:</strong></td>
+                <td><?php echo $objProfile->date_birth; ?></td>
+            </tr>
+        </table>
+        
+        
+    </fieldset>
+    <fieldset>
+        <legend>Address</legend>
+        <table>
+            <tr>
+                <td>
+                    <?php echo $profile_building; ?>
+                    <?php echo $objProfile->address_street; ?>
+                    <br />
+                    <?php echo $profile_unit; ?>
+                    <?php echo $profile_csz; ?>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>Communication</legend>
+        <table>
+            <tr>
+                <td>
+                    <strong>Phone:</strong>
+                </td>
+                <td>
+                    <?php echo $profile_phone; ?>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Fax:</strong></td>
+                <td><?php echo $profile_fax; ?></td>
+            </tr>
+            <tr>
+                <td><strong>E-Mail:</strong></td>
+                <td><?php echo $profile_email; ?></td>
+            </tr>
+        
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>Identification</legend>
+        <table>
+            <tr>
+                <td>
+                    <strong>Drivers License:</strong>
+                </td>
+                <td>
+                    <?php echo $profile_drivers_license; ?>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Social Security Number:</strong></td>
+                <td><?php echo $profile_social_security_number; ?></td>
+            </tr>
+        
+        </table>
+        
+        
+    </fieldset>
+
+    
+    
+
+    
+    
+    
+    
     <div class="notes">
     <h3>Login/Profile notes</h3>
         <ol>

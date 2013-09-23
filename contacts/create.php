@@ -15,8 +15,7 @@
     // =========================================================================
     
     $objContact = new Contact();
-    $objContact->setId_user($_SESSION['user']['id']);
-    
+    $objContact->setId_user($_SESSION['user']['id']);    
     if(isset($_GET['company']))
     {
         $objContact->setId_company($_GET['company']);

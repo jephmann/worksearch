@@ -28,7 +28,7 @@
             </div>
             <div class="form_row">
                 <label id="lblNameSuffix">Name Suffix:</label>
-                <input type="text" name="name_suffix" value="<?php echo $objContact->name_suffix; ?>" maxlength="100" />
+                <select name="name_suffix"><?php echo $optNameSuffixes; ?></select>
             </div>
         </fieldset>
         <fieldset>

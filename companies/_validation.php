@@ -10,8 +10,8 @@
     if($page['mode']=='Create')
     {
         // See whether combination name and zip5 already exist
-        $already_name = returnAlreadyCheck('name', $objCompany->getName(), 'companies', $db);
-        $already_zip5 = returnAlreadyCheck('address_zip5', $objCompany->getAddress_zip5(), 'companies', $db);
+        $already_name = returnAlreadyCheck($db, 'name', $objCompany->getName(), 'companies');
+        $already_zip5 = returnAlreadyCheck($db, 'address_zip5', $objCompany->getAddress_zip5(), 'companies');
         if($already_name && $already_zip5)
         {
             $status['message'] .= ("<li>Combination company name/zip5 already exists.</li>"); 
@@ -27,7 +27,7 @@
             $status['message'] .= ("<li>Invalid e-mail address.</li>");
         }
         // If the entered e-mail address is NOT unique among organizations
-        if(returnAlreadyCheck('email', $objCompany->getEmail(), 'companies', $db))
+        if(returnAlreadyCheck($db, 'email', $objCompany->getEmail(), 'companies'))
         {
             $status['message'] .= ("<li>This Company e-mail address already exists.</li>");
         }

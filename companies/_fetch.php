@@ -1,5 +1,14 @@
-<?php    
-    $rowCompany = fetchRow($db, $objCompany, $id);
+<?php
+    $prmCompany     = $objCompany->id_params($objCompany->id, $objCompany->id_user);
+    $sqlCompany     = $objCompany->select($objCompany->id_user);
+    $fetchCompany   = read($db, $sqlCompany, $prmCompany, FALSE);
+    $rowCompany     = $fetchCompany['result'];
+    if(!empty($fetchCompany['error']))
+    {
+        $objStatus->setMessage("<li>{$fetchCompany['error']}</li>");
+        $objStatus->setColor("FF0000");
+        $objStatus->setBackground_color("FFFF00");
+    }
     // Whose Company? 
     $objCompany->setId_user(htmlentities($rowCompany['id_user'], ENT_QUOTES, 'UTF-8'));
     // Company

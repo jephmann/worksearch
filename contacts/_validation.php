@@ -16,7 +16,7 @@
             $status['message'] .= ("<li>Invalid e-mail address.</li>");
         }
         // If the entered e-mail address is NOT unique among organizations
-        if(returnAlreadyCheck('email', $objContact->email, 'contacts', $db))
+        if(returnAlreadyCheck($db, 'email', $objContact->email, 'contacts'))
         {
             $status['message'] .= ("<li>This Contact e-mail address already exists.</li>");
         }

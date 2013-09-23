@@ -8,8 +8,10 @@
     $objProfile->setName_first(ucwords(strtolower(trim($_POST['name_first']))));
     $objProfile->setName_middle(ucwords(strtolower(trim($_POST['name_middle']))));
     $objProfile->setName_last(ucwords(strtolower(trim($_POST['name_last']))));
-    $objProfile->setName_suffix(ucwords(strtolower(trim($_POST['name_suffix']))));
+    $objProfile->setId_name_suffix($_POST['name_suffix']);
+    $objProfile->setDate_birth(trim($_POST['date_birth']));
     // Address
+    $objProfile->setAddress_building(ucwords(strtolower(trim($_POST['address_building']))));
     $objProfile->setAddress_street(ucwords(strtolower(trim($_POST['address_street']))));
     $objProfile->setAddress_unit(ucwords(trim($_POST['address_unit'])));
     $objProfile->setAddress_city(ucwords(strtolower(trim($_POST['address_city']))));

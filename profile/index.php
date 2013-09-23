@@ -7,32 +7,19 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
+    $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
-    $objStatus = new Status;
+    $objStatus  = new Status;
     $objStatus->setColor("003300");
     $objStatus->setBackground_color("CCFFCC");
     // =========================================================================
     
-    $get        = FALSE;
-    $orderby    = NULL;
-    $dir        = NULL;
-    $tr         = NULL;
-    $where      = NULL;
-    if (isset($_GET['orderby']) && isset($_GET['dir']))
-    {
-        $get        = TRUE;
-        $orderby    = $_GET['orderby'];
-        $dir        = $_GET['dir'];       
-    }
-    $sort   = return_sort($get, $orderby, $dir, 'contact_date');
-    if (!empty($_POST['where']) && !empty($_POST['like']))
-    {
-        $where = " WHERE {$_POST['where']} LIKE '%{$_POST['like']}%'";
-    }
-    // =========================================================================
-    
     $objProfile = new Profile;
+    $objProfile->setId($_SESSION['profile']['id']);
+    $objProfile->setId_user($id_user);
+    require ('_fetch.php');
+    require ('_display.php');    
     
     // =========================================================================
     require_once ($page['path'].'_views/head.php');
