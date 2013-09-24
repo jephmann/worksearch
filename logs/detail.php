@@ -17,14 +17,43 @@
     
     $objLog = new Log;
     $objLog->setId($_GET['id']);
+    $objLog->setId_user($id_user);
     require ('_fetch.php');
     
-    /*
-     * 2013.09.08 TO DO:
-     * - Replace company_id with company name (cross-reference)
-     * - Replace contact_id with contact full name (cross-reference)
-     * - Replace contact_method_id with actual method
-     */
+    $objCompany = new Company;
+    $objCompany->setId($objLog->id_company);
+    $objCompany->setId_user($id_user);
+    require ('../companies/_fetch.php');
+    
+    $objContact = new Contact;
+    $objContact->setId($objLog->id_contact);
+    $objContact->setId_user($id_user);
+    require ('../contacts/_fetch.php');
+    
+    $objContactMethod = new Contact_Method;
+    $objContactMethod->setId($objLog->id_contact_method);    
+    $prmContactMethod   = $objContactMethod->id_params($objContactMethod->id, NULL);
+    $sqlContactMethod   = $objContactMethod->select(NULL);
+    $fetchContactMethod = read($db, $sqlContactMethod, $prmContactMethod, FALSE);
+    $rowContactMethod   = $fetchContactMethod['result'];
+    if(!empty($fetchContactMethod['error']))
+    {
+        $objStatus->setMessage("<li>Log Contact Method Error: {$fetchContactMethod['error']}</li>");
+        $objStatus->setColor("FF0000");
+        $objStatus->setBackground_color("FFFF00");
+    }
+    $objContactMethod->setName(htmlentities($rowContactMethod['name'], ENT_QUOTES, 'UTF-8'));
+    
+    $log_week_ending    = $objLog->full_week_ending();
+    $log_contact_date   = $objLog->full_contact_date();
+    $log_work           = $objLog->work;
+    $company_name       = $objCompany->name;
+    $contact_name       = $objContact->name_full();
+    $log_contact_method = $objContactMethod->name;;
+    $log_specify        = $objLog->specify;
+    $log_results        = $objLog->results;
+    $log_remarks        = $objLog->remarks;
+    
     
     // =========================================================================
     require_once ($page['path'].'_views/head.php');

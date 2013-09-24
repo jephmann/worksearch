@@ -11,6 +11,10 @@
     <fieldset>
         <legend>Who Are You?</legend>
         <table>
+            <colgroup>
+                <col style="background-color:#CCCCFF">
+                <col style="background-color:#FFFFFF">
+            </colgroup>
             <tr>
                 <td><strong>Name:</strong></td>
                 <td><?php echo $profile_name_full; ?></td>
@@ -21,7 +25,7 @@
             </tr>
             <tr>
                 <td><strong>Born:</strong></td>
-                <td><?php echo $objProfile->date_birth; ?></td>
+                <td><?php echo $objProfile->full_birth_date(); ?></td>
             </tr>
         </table>
         
@@ -30,6 +34,9 @@
     <fieldset>
         <legend>Address</legend>
         <table>
+            <colgroup>
+                <col style="background-color:#FFFFFF">
+            </colgroup>
             <tr>
                 <td>
                     <?php echo $profile_building; ?>
@@ -44,6 +51,10 @@
     <fieldset>
         <legend>Communication</legend>
         <table>
+            <colgroup>
+                <col style="background-color:#CCCCFF">
+                <col style="background-color:#FFFFFF">
+            </colgroup>
             <tr>
                 <td>
                     <strong>Phone:</strong>
@@ -66,6 +77,10 @@
     <fieldset>
         <legend>Identification</legend>
         <table>
+            <colgroup>
+                <col style="background-color:#CCCCFF">
+                <col style="background-color:#FFFFFF">
+            </colgroup>
             <tr>
                 <td>
                     <strong>Drivers License:</strong>

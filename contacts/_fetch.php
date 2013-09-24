@@ -5,7 +5,7 @@
     $rowContact     = $fetchContact['result'];
     if(!empty($fetchContact['error']))
     {
-        $objStatus->setMessage("<li>{$fetchContact['error']}</li>");
+        $objStatus->setMessage("<li>Contact Error: {$fetchContact['error']}</li>");
         $objStatus->setColor("FF0000");
         $objStatus->setBackground_color("FFFF00");
     }

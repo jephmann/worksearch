@@ -1,27 +1,21 @@
-<div style="width:350px; float:right">
-    <ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
-        <?php echo $objStatus->message; ?>
-    </ul>
+<ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
+    <?php echo $objStatus->message; ?>
+</ul>
+<div style="width:350px; float:left">
     <fieldset>
         <legend>
             <a href="update.php?id=<?php echo $objContact->id; ?>">Update</a>
             <a href="delete.php?id=<?php echo $objContact->id; ?>">Delete</a>
-            <?php echo $objContact->name_full(); ?>
+            Contact
         </legend>
         <table>
+            <colgroup>
+                <col style="background-color:#CCCCFF">
+                <col style="background-color:#FFFFFF">
+            </colgroup>
             <tr>
                 <td><strong>Name:</strong></td>
-                <td><?php
-                    if(!empty($contact_salutation))
-                    {
-                        echo "{$contact_salutation} ";
-                    }
-                    echo $objContact->name_full();
-                    if(!empty($contact_name_suffix))
-                    {
-                        echo " {$contact_name_suffix}";
-                    }
-                ?></td>
+                <td><?php echo $objContact->name_full(); ?></td>
             </tr>
             <tr>
                 <td><strong>Department:</strong></td>
@@ -63,11 +57,14 @@
     </fieldset>
     <p>[Contact-specific logs]</p>
 </div>
-<div style="width:350px;float:left;">
-
+<div style="width:350px;float:right;">
     <fieldset>
         <legend>Company</legend>
         <table>
+            <colgroup>
+                <col style="background-color:#CCCCFF">
+                <col style="background-color:#FFFFFF">
+            </colgroup>
             <tr>
                 <td><strong>Company:</strong></td>
                 <td><a href="../companies/detail.php?id=<?php echo $objContact->id_company; ?>"><?php echo $objCompany->name; ?></a></td>

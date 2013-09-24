@@ -9,10 +9,10 @@
     {
         $company_unit       = $objCompany->address_unit.'<br .>';
     }
-    $company_zip            = formatPostUS($objCompany->address_zip5, $objCompany->address_zip4);
+    $company_zip            = $objCompany->full_zip();
     $company_csz            = $objCompany->address_city.', '.$objCompany->address_state.' '.$company_zip;
-    $company_phone          = formatPhone($objCompany->phone, $objCompany->phone_extension);
-    $company_fax            = formatPhone($objCompany->fax, NULL);
+    $company_phone          = $objCompany->full_phone();
+    $company_fax            = $objCompany->full_fax();
     $company_email          = formatEmailLink($objCompany->name, $objCompany->email);
     $company_website        = formatOutsideLink($objCompany->name, $objCompany->website, NULL);
     $company_linkedin       = formatOutsideLink("Company LinkedIn", $objCompany->linkedin, NULL);

@@ -127,19 +127,42 @@ class Log extends Data {
         return $parameters;
     }
     
+    // Contact Date methods
     public function contact_month()
     {
         return date('m', strtotime($this->contact_date));
-    }
-    
+    }    
     public function contact_day()
     {
         return date('j', strtotime($this->contact_date));
-    }
-    
+    }    
     public function contact_year()
     {
         return date('Y', strtotime($this->contact_date));
+    }    
+    public function full_contact_date()
+    {
+        $full_contact_date = date('l, F d, Y',strtotime($this->contact_date));
+        return $full_contact_date;
+    }
+    
+    // Week Ending Date methods
+    public function week_ending_month()
+    {
+        return date('m', strtotime($this->week_ending));
+    }    
+    public function week_ending_day()
+    {
+        return date('j', strtotime($this->week_ending));
+    }    
+    public function week_ending_year()
+    {
+        return date('Y', strtotime($this->week_ending));
+    }    
+    public function full_week_ending()
+    {
+        $full_week_ending = date('l, F d, Y',strtotime($this->week_ending));
+        return $full_week_ending;
     }
     
 }

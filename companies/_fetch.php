@@ -5,7 +5,7 @@
     $rowCompany     = $fetchCompany['result'];
     if(!empty($fetchCompany['error']))
     {
-        $objStatus->setMessage("<li>{$fetchCompany['error']}</li>");
+        $objStatus->setMessage("<li>Company Error: {$fetchCompany['error']}</li>");
         $objStatus->setColor("FF0000");
         $objStatus->setBackground_color("FFFF00");
     }

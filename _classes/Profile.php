@@ -190,4 +190,75 @@ class Profile extends Person {
         return $parameters;
     }
     
+    public function full_phone()
+    {
+        $full_phone = NULL;
+        if(!empty($this->phone))
+        {
+            $area = substr($this->phone, 0, 3);
+            $prefix = substr($this->phone, 3, 3);
+            $suffix = substr($this->phone, 6, 4);
+            $full_phone = "({$area}) {$prefix}-{$suffix}";
+            if(!empty($this->phone_extension))
+            {
+                $full_phone .= ' x'.$this->phone_extension;
+            }
+        }
+        return $full_phone;
+    }
+    
+    public function full_fax()
+    {
+        $full_fax = NULL;
+        if(!empty($this->fax))
+        {
+            $area = substr($this->fax, 0, 3);
+            $prefix = substr($this->fax, 3, 3);
+            $suffix = substr($this->fax, 6, 4);
+            $full_fax = "({$area}) {$prefix}-{$suffix}";
+        }
+        return $full_fax;
+    }
+    
+    public function full_ssn()
+    {
+        $full_ssn = NULL;
+        if(!empty($this->social_security_number))
+        {
+            $three      = substr($this->social_security_number, 0, 3);
+            $two        = substr($this->social_security_number, 3, 2);
+            $four       = substr($this->social_security_number, 5, 4);
+            $full_ssn   = "{$three}-{$two}-{$four}";
+        }
+        return $full_ssn;
+    }
+    
+    public function full_dl()
+    {
+        $full_dl = NULL;
+        if(!empty($this->drivers_license))
+        {
+            $full_dl    = $this->drivers_state.' ';
+            $four       = substr($this->drivers_license, 0, 4);
+            $eight      = substr($this->drivers_license, 4, 4);
+            $twelve     = substr($this->drivers_license, 8, 4);
+            $full_dl    .= "{$four} {$eight} {$twelve}";
+        }
+        return $full_dl;
+    }
+    
+    public function full_zip()
+    {        
+        $full_zip = NULL;
+        if(!empty($this->address_zip5))
+        {
+            $full_zip = $this->address_zip5;
+            if(!empty($this->address_zip4))
+            {
+                $full_zip .= '-'.$this->address_zip4;
+            }
+        }
+        return $full_zip;
+    }
+    
 }

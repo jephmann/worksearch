@@ -93,31 +93,25 @@ class Person extends Data {
         return $name_full;
     }    
 
-    public function birth_year($format)
-    {
-        $birth_year = NULL;
-        
-        //TODO
-        
+    public function birth_year()
+    {        
+        $birth_year = date('Y',strtotime($this->date_birth));
         return $birth_year;
-    }
-    
-    public function birth_month($format)
+    }    
+    public function birth_month()
     {
-        $birth_month = NULL;
-        
-        //TODO
-        
+        $birth_month = date('m',strtotime($this->date_birth));        
         return $birth_month;
-    }
-    
-    public function birth_day($format)
+    }    
+    public function birth_day()
     {
-        $birth_day = NULL;
-        
-        //TODO
-        
+        $birth_day = date('j',strtotime($this->date_birth));        
         return $birth_day;
+    }    
+    public function full_birth_date()
+    {
+        $full_birth_date = date('l, F d, Y',strtotime($this->date_birth));
+        return $full_birth_date;
     }
     
 }

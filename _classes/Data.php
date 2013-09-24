@@ -8,7 +8,7 @@ class Data {
     
     // Data Properties
     public $id          = NULL;
-    public $table       = NULL;
+    public $table       = NULL;     // 2013.09.23 TODO: Would like this protected
     protected $fields   = array();
     
     // Data get/set Methods
@@ -107,6 +107,5 @@ class Data {
             $parameters[':id_user'] = $id_user;
         }
         return $parameters;
-        
     }
 }

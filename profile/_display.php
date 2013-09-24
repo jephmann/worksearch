@@ -1,52 +1,58 @@
 <?php
-    $profile_building       = NULL;
+    
+    $id_sal             = $objProfile->id_salutation;
+    $objSalutation      = new Salutation;
+    if($id_sal != 0)
+    {
+        $prmSalutation      = $objSalutation->id_params($id_sal, NULL);
+        $sqlSalutation      = $objSalutation->select(NULL);
+        $fetchSalutation    = read($db, $sqlSalutation, $prmSalutation, FALSE);
+        $rowSalutation      = $fetchSalutation['result'];
+        if(!empty($fetchSalutation['error']))
+        {
+            $objStatus->setMessage("<li>{$fetchSalutation['error']}</li>");
+            $objStatus->setColor("FF0000");
+            $objStatus->setBackground_color("FFFF00");
+        }
+        $objSalutation->setAbrv(htmlentities($rowSalutation['abrv'], ENT_QUOTES, 'UTF-8'));
+    }
+    
+    $id_suf             = $objProfile->id_name_suffix;
+    $objNameSuffix      = new Name_Suffix;
+    if($id_suf != 0)
+    {
+        $prmNameSuffix      = $objNameSuffix->id_params($id_suf, NULL);
+        $sqlNameSuffix      = $objNameSuffix->select(NULL);
+        $fetchNameSuffix    = read($db, $sqlNameSuffix, $prmNameSuffix, FALSE);
+        $rowNameSuffix      = $fetchNameSuffix['result'];
+        if(!empty($fetchNameSuffix['error']))
+        {
+            $objStatus->setMessage("<li>{$fetchNameSuffix['error']}</li>");
+            $objStatus->setColor("FF0000");
+            $objStatus->setBackground_color("FFFF00");
+        }
+        $objNameSuffix->setAbrv(htmlentities($rowNameSuffix['abrv'], ENT_QUOTES, 'UTF-8'));
+    }
+    
+    $profile_salutation             = $objSalutation->abrv;
+    $profile_name_suffix            = $objNameSuffix->abrv;    
+    $profile_name_full              = returnFullNamePlus($profile_salutation, $objProfile->name_full(), $profile_name_suffix);
+    $profile_building               = NULL;
     if (!empty($objProfile->address_building))
     {
-        $profile_building   = $objProfile->address_building.'<br .>';
+        $profile_building           = $objProfile->address_building.'<br .>';
     }
-    $profile_unit           = NULL;
+    $profile_unit                   = NULL;
     if (!empty($objProfile->address_unit))
     {
-        $profile_unit       = $objProfile->address_unit.'<br .>';
+        $profile_unit               = $objProfile->address_unit.'<br .>';
     }
-    $profile_zip            = formatPostUS($objProfile->address_zip5, $objProfile->address_zip4);
-    $profile_csz            = $objProfile->address_city.', '.$objProfile->address_state.' '.$profile_zip;
-    $profile_phone          = formatPhone($objProfile->phone, $objProfile->phone_extension);
-    $profile_fax            = formatPhone($objProfile->fax, NULL);
-    $profile_email          = formatEmailLink("Profile", $objProfile->email);
-    $profile_drivers_license = formatDriversLicense($objProfile->drivers_state, $objProfile->drivers_license);
-    $profile_social_security_number            = formatSSN($objProfile->social_security_number);
-    
-    echo $objProfile->phone_extension;
-    
-    $objSalutation      = new Salutation;
-    $prmSalutation      = $objSalutation->id_params($objProfile->id_salutation, NULL);
-    $sqlSalutation      = $objSalutation->select(NULL);
-    $fetchSalutation    = read($db, $sqlSalutation, $prmSalutation, FALSE);
-    $rowSalutation      = $fetchSalutation['result'];
-    if(!empty($fetchSalutation['error']))
-    {
-        $objStatus->setMessage("<li>{$fetchSalutation['error']}</li>");
-        $objStatus->setColor("FF0000");
-        $objStatus->setBackground_color("FFFF00");
-    }
-    $objSalutation->setAbrv(htmlentities($rowSalutation['abrv'], ENT_QUOTES, 'UTF-8'));
-    $profile_salutation = $objSalutation->abrv;
-    
-    $objNameSuffix      = new Name_Suffix;
-    $prmNameSuffix      = $objNameSuffix->id_params($objProfile->id_name_suffix, NULL);
-    $sqlNameSuffix      = $objNameSuffix->select(NULL);
-    $fetchNameSuffix    = read($db, $sqlNameSuffix, $prmNameSuffix, FALSE);
-    $rowNameSuffix      = $fetchNameSuffix['result'];
-    if(!empty($fetchNameSuffix['error']))
-    {
-        $objStatus->setMessage("<li>{$fetchNameSuffix['error']}</li>");
-        $objStatus->setColor("FF0000");
-        $objStatus->setBackground_color("FFFF00");
-    }
-    $objNameSuffix->setAbrv(htmlentities($rowNameSuffix['abrv'], ENT_QUOTES, 'UTF-8'));
-    $profile_name_suffix = $objNameSuffix->abrv;
-    
-    $profile_name_full  = returnFullNamePlus($profile_salutation, $objProfile->name_full(), $profile_name_suffix);
+    $profile_zip                    = $objProfile->full_zip();
+    $profile_csz                    = $objProfile->address_city.', '.$objProfile->address_state.' '.$profile_zip;
+    $profile_phone                  = $objProfile->full_phone();
+    $profile_fax                    = $objProfile->full_fax();
+    $profile_email                  = formatEmailLink("Profile", $objProfile->email);
+    $profile_drivers_license        = $objProfile->full_dl();
+    $profile_social_security_number = $objProfile->full_ssn();
             
             

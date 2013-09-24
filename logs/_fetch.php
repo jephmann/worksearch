@@ -3,9 +3,9 @@
     $sqlLog     = $objLog->select($objLog->id_user);
     $fetchLog   = read($db, $sqlLog, $prmLog, FALSE);
     $rowLog     = $fetchLog['result'];
-    if(!empty($fetchContact['error']))
+    if(!empty($fetchLog['error']))
     {
-        $objStatus->setMessage("<li>{$fetchContact['error']}</li>");
+        $objStatus->setMessage("<li>Log Error: {$fetchLog['error']}</li>");
         $objStatus->setColor("FF0000");
         $objStatus->setBackground_color("FFFF00");
     }

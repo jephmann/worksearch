@@ -7,29 +7,46 @@
         <a href="delete.php?id=<?php echo $objLog->id; ?>">Delete</a>
         Log #<?php echo $objLog->id; ?>
     </legend>
-    <p>
-        I still need to see additional information from Contacts and Companies, etc.
-    </p>
-    <table>
+    <table style="margin:0 auto;">
+        <colgroup>
+            <col style="background-color:#CCCCFF">
+            <col style="background-color:#FFFFFF">
+        </colgroup>
         <tr>
             <td><strong>Week Ending</strong></td>
-            <td><?php echo $objLog->week_ending; ?></td>
+            <td><?php echo $log_week_ending; ?></td>
         </tr>
         <tr>
             <td><strong>Contact Date</strong></td>
-            <td><?php echo $objLog->contact_date; ?></td>
+            <td><?php echo $log_contact_date; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Type of Work Sought</strong></td>
+            <td><?php echo $log_work; ?></td>
         </tr>
         <tr>
             <td><strong>Company</strong></td>
-            <td><?php echo $objLog->id_company; ?></td>
+            <td><?php echo $company_name; ?></td>
         </tr>
         <tr>
             <td><strong>Contact</strong></td>
-            <td><?php echo $objLog->id_contact; ?></td>
+            <td><?php echo $contact_name; ?></td>
         </tr>
         <tr>
             <td><strong>Contact Method</strong></td>
-            <td><?php echo $objLog->id_contact_method; ?></td>
+            <td><?php echo $log_contact_method; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Contact Method Specifics</strong></td>
+            <td><?php echo $log_specify; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Results</strong></td>
+            <td><?php echo $log_results; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Remarks</strong></td>
+            <td><?php echo $log_remarks; ?></td>
         </tr>
     </table>
 </fieldset>

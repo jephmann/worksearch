@@ -18,12 +18,14 @@
     // CONTACT
     $objContact     = new Contact;
     $objContact->setId($_GET['id']);
+    $objContact->setId_user($id_user);
     require ('_fetch.php');
     require ('_display.php');
     
     // CONTACT'S COMPANY
     $objCompany     = new Company;
     $objCompany->setId($objContact->id_company);
+    $objCompany->setId_user($id_user);
     require ($page['path'].'companies/_fetch.php');
     require ($page['path'].'companies/_display.php');
     

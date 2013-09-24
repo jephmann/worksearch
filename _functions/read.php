@@ -11,6 +11,7 @@
         catch(PDOException $ex)
         {
             $error  = ("Failed to run query: " . $ex->getMessage());
+            $error  .= ("<br />{$sql}");
         }
         if($all == TRUE)
         {

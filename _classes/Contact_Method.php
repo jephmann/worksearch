@@ -10,7 +10,7 @@ class Contact_Method extends Data {
     public $name    = NULL;
     
     // Data Properties
-    public $table   = "contact_method";
+    public $table   = "contact_methods";
     protected $fields   = array(
         'name',
     );

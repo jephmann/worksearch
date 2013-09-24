@@ -9,6 +9,10 @@
             <?php echo $objCompany->name; ?>
         </legend>
         <table>
+            <colgroup>
+                <col style="background-color:#CCCCFF">
+                <col style="background-color:#FFFFFF">
+            </colgroup>
             <tr>
                 <td><strong>Recruiter:</strong></td>
                 <td><?php echo $company_recruiter; ?></td>
