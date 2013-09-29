@@ -32,7 +32,9 @@
             </div>
             <div class="form_row">
                 <label id="lblDateBirth">Born:</label>
-                <input type="text" name="date_birth" value="<?php echo $objProfile->date_birth; ?>" maxlength="100" />
+                <select name="birth_date_mm"><?php echo $optBirthDateMM; ?></select>
+                <select name="birth_date_dd"><?php echo $optBirthDateDD; ?></select>
+                <select name="birth_date_yyyy"><?php echo $optBirthDateYYYY; ?></select>
             </div>
         </fieldset>
         <fieldset>

@@ -47,8 +47,8 @@
     $log_week_ending    = $objLog->full_week_ending();
     $log_contact_date   = $objLog->full_contact_date();
     $log_work           = $objLog->work;
-    $company_name       = $objCompany->name;
-    $contact_name       = $objContact->name_full();
+    $company_name       = nullCheck($objCompany->name,'DELETED');
+    $contact_name       = nullCheck($objContact->name_full(),'DELETED');
     $log_contact_method = $objContactMethod->name;;
     $log_specify        = $objLog->specify;
     $log_results        = $objLog->results;

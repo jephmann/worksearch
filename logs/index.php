@@ -15,9 +15,7 @@
     $objStatus->setBackground_color("CCFFCC");
     // =========================================================================
     
-    $objLogs    = new Log;
-    $objLogs->setId_user($id_user);
-    $prmLogs    = $objLogs->id_params(NULL, $objLogs->id_user);
+    $prmJoin    = array(':id_user' => $id_user);
     require_once ($page['path'].'_variables/index.php');
     if (isset($_GET['orderby']) && isset($_GET['dir']))
     {
@@ -28,25 +26,41 @@
     $sort   = return_sort($get, $orderby, $dir, 'contact_date');
     
     /*
-     * 2103.09.14 TODO:
+     * 2103.09.28 TODO:
      * Create and Validate Filtering
      * - something must be selected
      * - textbox must have something
      */
     if (!empty($_POST['where']) && !empty($_POST['like']))
     {
-        $where                      = $_POST['where'];
-        $like                       = $_POST['like'];
-        $and                        = " AND {$where} LIKE :{$where}";
-        $prmLogs[":{$where}"]       = "%{$like}%";
+        $where                  = $_POST['where'];
+        $like                   = $_POST['like'];
+        $and                    = " AND {$where} LIKE :{$where}";
+        $prmJoin[":{$where}"]   = "%{$like}%";
     }
     // =========================================================================
     
-    $sqlLogs    = $objLogs->selectAll($objLogs->id_user).' '.$and.$sort;
-    $fetchLogs  = read($db, $sqlLogs, $prmLogs, TRUE);
-    if(!empty($fetchLogs['error']))
+    $sqlJoin    = "SELECT
+        logs.id AS id,
+        logs.week_ending AS week_ending,
+        logs.contact_date AS contact_date,
+        companies.name AS company,
+        CONCAT(contacts.name_last,', ',contacts.name_first,' ',contacts.name_middle) AS contact_name,
+        contact_methods.name AS contact_method,
+        logs.specify AS specify
+        FROM logs
+        LEFT JOIN companies
+        ON logs.id_company = companies.id
+        LEFT JOIN contacts
+        ON logs.id_contact = contacts.id
+        LEFT JOIN contact_methods
+        ON logs.id_contact_method = contact_methods.id
+        WHERE logs.id_user = :id_user
+        {$and}{$sort}";
+    $fetchJoin  = read($db, $sqlJoin, $prmJoin, TRUE);
+    if(!empty($fetchJoin['error']))
     {
-        $objStatus->setMessage("<li>{$fetchLogs['error']}</li>");
+        $objStatus->setMessage("<li>Join Error -- {$fetchJoin['error']}</li>");
         $objStatus->setColor("FF0000");
         $objStatus->setBackground_color("FFFF00");
         $columns    = NULL;
@@ -58,27 +72,29 @@
     {
         $columns=array(
             array('title'=>'OPTIONS','field'=>NULL),
-            array('title'=>'Company','field'=>'id_company'),
-            array('title'=>'Contact','field'=>'id_contact'),
             array('title'=>'Week Ending','field'=>'week_ending'),
             array('title'=>'Contact Date','field'=>'contact_date'),
-            array('title'=>'Contact Method','field'=>'id_contact_method'),
+            array('title'=>'Company','field'=>'company'),
+            array('title'=>'Contact','field'=>'contact_name'),
+            array('title'=>'Contact Method','field'=>'contact_method'),
         );
         $thead  = return_THEAD($columns);
         $tbody  = "<tbody>";        
-        $rows   = $fetchLogs['result'];
+        $rows   = $fetchJoin['result'];
         foreach($rows as $row)
         {
             $rowID              = htmlentities($row['id'], ENT_QUOTES, 'UTF-8');
-            $rowIDCompany       = htmlentities($row['id_company'], ENT_QUOTES, 'UTF-8');
-            $rowIDContact       = htmlentities($row['id_contact'], ENT_QUOTES, 'UTF-8');
             $rowWeekEnding      = htmlentities($row['week_ending'], ENT_QUOTES, 'UTF-8');
             $rowContactDate     = htmlentities($row['contact_date'], ENT_QUOTES, 'UTF-8');
-            $rowIDContactMethod = htmlentities($row['id_contact_method'], ENT_QUOTES, 'UTF-8');
+            $rowCompany         = htmlentities($row['company'], ENT_QUOTES, 'UTF-8');
+            $rowContactName     = htmlentities($row['contact_name'], ENT_QUOTES, 'UTF-8');
+            $rowContactMethod   = htmlentities($row['contact_method'], ENT_QUOTES, 'UTF-8');
             $rowSpecify         = htmlentities($row['specify'], ENT_QUOTES, 'UTF-8');
 
             $log_week_ending    = date("l F j, Y",strtotime($rowWeekEnding));
-            $log_contact_date   = date("l F j, Y",strtotime($rowContactDate));   
+            $log_contact_date   = date("l F j, Y",strtotime($rowContactDate));
+            $contact_company    = nullCheck($rowCompany,'DELETED');
+            $contact_name       = nullCheck($rowContactName,'DELETED');
 
             $tbody.="<tr>
                 <td class=\"td_dud\">
@@ -90,11 +106,11 @@
                 href=\"delete.php?id={$rowID}\"
                 onclick=\"alertDelete({$rowID})\">Delete</a>
                 </td>
-                <td class=\"td_detail\">{$rowIDCompany}</td>
-                <td class=\"td_detail\">{$rowIDContact}</td>
                 <td class=\"td_detail\">{$log_week_ending}</td>
                 <td class=\"td_detail\">{$log_contact_date}</td>
-                <td class=\"td_detail\">{$rowIDContactMethod} ({$rowSpecify})</td>
+                <td class=\"td_detail\">{$contact_company}</td>
+                <td class=\"td_detail\">{$contact_name}</td>
+                <td class=\"td_detail\">{$rowContactMethod}<br />({$rowSpecify})</td>
                 </tr>";
         }
         $tbody  .= "</tbody>";

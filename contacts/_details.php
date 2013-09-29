@@ -66,8 +66,18 @@
                 <col style="background-color:#FFFFFF">
             </colgroup>
             <tr>
-                <td><strong>Company:</strong></td>
-                <td><a href="../companies/detail.php?id=<?php echo $objContact->id_company; ?>"><?php echo $objCompany->name; ?></a></td>
+                <td>
+                    <strong>
+                        <a title="Link to Company Detail" href="../companies/detail.php?id=<?php echo $objContact->id_company; ?>">
+                            Company:
+                        </a>
+                    </strong>
+                </td>
+                <td>
+                    <?php
+                    echo formatOutsideLink($objCompany->name, $objCompany->website, $objCompany->name);
+                    ?>
+                </td>
             </tr>
             <tr>
                 <td><strong>Recruiter:</strong></td>
@@ -86,7 +96,7 @@
                     <?php echo $objCompany->address_street; ?>
                     <br />
                     <?php echo $company_unit; ?>
-                    <?php echo $objCompany->address_city.', '.$objCompany->address_state.'&nbsp;'.$objCompany->address_zip5.'-'.$objCompany->address_zip4; ?>
+                    <?php echo $company_csz; ?>
                 </td>
             </tr>
             <tr>
@@ -104,10 +114,6 @@
             <tr>
                 <td><strong>E-Mail:</strong></td>
                 <td><?php echo $company_email; ?></td>
-            </tr>
-            <tr>
-                <td><strong>Website:</strong></td>
-                <td><?php echo $company_website; ?></td>
             </tr>
             <tr>
                 <td><strong>LinkedIn:</strong></td>

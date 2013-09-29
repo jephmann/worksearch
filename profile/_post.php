@@ -9,7 +9,15 @@
     $objProfile->setName_middle(ucwords(strtolower(trim($_POST['name_middle']))));
     $objProfile->setName_last(ucwords(strtolower(trim($_POST['name_last']))));
     $objProfile->setId_name_suffix($_POST['name_suffix']);
-    $objProfile->setDate_birth(trim($_POST['date_birth']));
+    
+    
+
+    $birth_date_yyyy = ($_POST['birth_date_yyyy']);
+    $birth_date_mm = ($_POST['birth_date_mm']);
+    $birth_date_dd = ($_POST['birth_date_dd']);
+    $birth_date = new DateTime($birth_date_yyyy.'-'.$birth_date_mm.'-'.$birth_date_dd);
+    $objProfile->setDate_birth($birth_date->format('Y-m-d'));
+    
     // Address
     $objProfile->setAddress_building(ucwords(strtolower(trim($_POST['address_building']))));
     $objProfile->setAddress_street(ucwords(strtolower(trim($_POST['address_street']))));
