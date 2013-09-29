@@ -249,9 +249,9 @@ class Company extends Data {
         $full_phone = NULL;
         if(!empty($this->phone))
         {
-            $area = substr($this->phone, 0, 3);
-            $prefix = substr($this->phone, 3, 3);
-            $suffix = substr($this->phone, 6, 4);
+            $area       = substr($this->phone, 0, 3);
+            $prefix     = substr($this->phone, 3, 3);
+            $suffix     = substr($this->phone, 6, 4);
             $full_phone = "({$area}) {$prefix}-{$suffix}";
             if(!empty($this->phone_extension))
             {
@@ -266,10 +266,10 @@ class Company extends Data {
         $full_fax = NULL;
         if(!empty($this->fax))
         {
-            $area = substr($this->fax, 0, 3);
-            $prefix = substr($this->fax, 3, 3);
-            $suffix = substr($this->fax, 6, 4);
-            $full_fax = "({$area}) {$prefix}-{$suffix}";
+            $area       = substr($this->fax, 0, 3);
+            $prefix     = substr($this->fax, 3, 3);
+            $suffix     = substr($this->fax, 6, 4);
+            $full_fax   = "({$area}) {$prefix}-{$suffix}";
         }
         return $full_fax;
     }

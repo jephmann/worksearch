@@ -11,6 +11,7 @@
     require_once ($page['path'].'_functions/formatPostUS.php');
     require_once ($page['path'].'_functions/formatDriversLicense.php');
     require_once ($page['path'].'_functions/formatSSN.php');
+    require_once ($page['path'].'_functions/nullCheck.php');
     require_once ($page['path'].'_functions/returnFullNamePlus.php');
     // INPUTS
     require_once ($page['path'].'_functions/ddlDates.php');
