@@ -120,14 +120,12 @@ IMMEDIATE ISSUES as of 2013.09.30:
 - A general doublecheck of the back-end re Profile, Company, Contact and Log.
 - PHP back-end validation for Profile, Company, Contact and Log forms.
 - Only after the back-end validation nears completion will I pursue JavaScript
-(jQuery) front-end validation for Profile, Company, Contact and Log forms.
+(jQuery?) front-end validation for Profile, Company, Contact and Log forms.
 - Front-end JavaScript (jQuery?) "are you sure?" logic re Delete.
 - Look into pagination of main tables; recheck sorting and filtering where
 applicable.
-- Explore object encapsulation further -- whether to make certain properties and
-methods private or protected, especially in my Data class. (Abstraction,
-inheritance and polymorphism seem okay; for me, the major judgment calls seem to
-be in encapsulation.
+- Explore object encapsulation further -- i.e. whether or not to make certain
+properties and methods private or protected, especially in my Data class.
 
 LONG-TERM NICE-TO-HAVES as of 2013.09.30:
 
@@ -142,5 +140,5 @@ Mobile as well as my first earnest attempt to combine PHP with jQuery Mobile.
 
 OTHER:
 
-- I created the supporting MySQL database myself. I might or might not post the
-SQL statements behind it in lieu of the actual database itself.
+- I created the supporting MySQL database myself. I might -- or might not --
+post the SQL statements behind it here in lieu of the actual database itself.
