@@ -4,7 +4,7 @@ These notes are subject to change.
 
 =====
 
-September 30, 2013
+October 4, 2013
 
 WORKsearch (a working title) is a personal, independent project which I began in
 May 2013 chiefly to stay in practice in between jobs. Currently it is a work in
@@ -41,11 +41,15 @@ I reserve the right to ignore any other kinds of criticism. ;)
 
 WHAT'S IN IT
 
-Longstoryshort: So far, PHP 5 over XAMPP connecting to MySQL via PDO using
-HTML5, CSS and CSS3. For now, I am concentrating on back-end programming. Other
-technologies, particularly on the front end, shall follow as I go along.
-Aesthetics are the least of my concerns for now; I might want to keep the
-project flexible by allow it to be reskinned by others anyhow.
+Longstoryshort: So far, PHP 5.4.7 over XAMPP 1.8.1 connecting to MySQL 5.5.27
+via PDO using HTML, HTML5, CSS and CSS3. My IDE is NetBeans 7.3.
+
+For now, I am concentrating on back-end programming. Other technologies,
+particularly on the front end, shall follow as I go along.
+
+Beyond framing the pages, color schemes and other aesthetic issues are the least
+of my concerns for now. I might want to keep the project flexible by allowing it
+to be reskinned by others anyhow.
 
 The long story -- by the folders:
 
@@ -141,4 +145,5 @@ Mobile as well as my first earnest attempt to combine PHP with jQuery Mobile.
 OTHER:
 
 - I created the supporting MySQL database myself. I might -- or might not --
-post the SQL statements behind it here in lieu of the actual database itself.
+post the SQL statements behind the tables here in lieu of the actual database
+itself. It may depend on "popular demand".
