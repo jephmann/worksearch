@@ -62,7 +62,7 @@
         
         // We will use this SQL query to see whether the username entered by the
         // user is already in use.
-        $check_username = returnAlreadyCheck('username', $_POST['user_username'], 'users', $db);
+        $check_username = returnAlreadyCheck($db, 'username', $_POST['user_username'], 'users');
         if($check_username == TRUE)
         {
             $status_message .= ("<li>This username is already in use.</li>");
@@ -70,7 +70,7 @@
         
         // Now we perform the same type of check for the email address, in order
         // to ensure that it is unique.        
-        $check_email = returnAlreadyCheck('email', $_POST['user_email'], 'users', $db);
+        $check_email = returnAlreadyCheck($db, 'email', $_POST['user_email'], 'users');
         if($check_email == TRUE)
         {
             $status_message .= ("<li>This email address is already registered.</li>");
