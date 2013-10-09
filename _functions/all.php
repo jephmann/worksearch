@@ -13,6 +13,7 @@
     require_once ($page['path'].'_functions/formatSSN.php');
     require_once ($page['path'].'_functions/nullCheck.php');
     require_once ($page['path'].'_functions/returnFullNamePlus.php');
+    require_once ($page['path'].'_functions/validation.php');
     // INPUTS
     require_once ($page['path'].'_functions/ddlDates.php');
     require_once ($page['path'].'_functions/ddlOptions.php');
