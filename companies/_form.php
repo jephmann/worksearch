@@ -1,13 +1,16 @@
-<ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
-    <?php echo $objStatus->message; ?>
-</ul>
 <form method="post" action="">
     <fieldset>
         <legend>Company</legend>
+        <p>
+            <?php echo $asterisk; ?> = Required fields.
+        </p>
+        <ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
+            <?php echo $objStatus->message; ?>
+        </ul>
         <fieldset>
             <legend>About the Company</legend>                
             <div class="form_row">
-                <label id="lblName">Name:</label>
+                <label id="lblName">Name:<?php echo $asterisk; ?></label>
                 <input type="text" name="name" value="<?php echo $objCompany->name; ?>" maxlength="255" size="40" />
             </div>
             <div class="form_row">
@@ -15,7 +18,7 @@
                 <input type="text" name="industry" value="<?php echo $objCompany->industry; ?>" maxlength="255" size="40" />
             </div>
             <div class="form_row">
-                <label id="lblRecruiter">Recruiter:</label>
+                <label id="lblRecruiter">Recruiter:<?php echo $asterisk; ?></label>
                 <?php echo $rblRecruiter; ?>
             </div>
             <div class="form_row">
@@ -30,7 +33,7 @@
                 <input type="text" name="address_building" value="<?php echo $objCompany->address_building; ?>" maxlength="100" size="40" />
             </div>
             <div class="form_row">
-                <label id="lblStreet">Street:</label>
+                <label id="lblStreet">Street:<?php echo $asterisk; ?></label>
                 <input type="text" name="address_street" value="<?php echo $objCompany->address_street; ?>" maxlength="100" size="40" />
             </div>
             <div class="form_row">
@@ -38,15 +41,15 @@
                 <input type="text" name="address_unit" value="<?php echo $objCompany->address_unit; ?>" maxlength="100" size="40" />
             </div>
             <div class="form_row">
-                <label id="lblCity">City:</label>
+                <label id="lblCity">City:<?php echo $asterisk; ?></label>
                 <input type="text" name="address_city" value="<?php echo $objCompany->address_city; ?>" maxlength="100" size="40" />
             </div>
             <div class="form_row">
-                <label id="lblState">State:</label>
+                <label id="lblState">State:<?php echo $asterisk; ?></label>
                 <select name="address_state"><?php echo $optStates; ?></select>
             </div>
             <div class="form_row">
-                <label id="lblPostal">ZIP:</label>
+                <label id="lblPostal">ZIP:<?php echo $asterisk; ?></label>
                 <input type="text" name="address_zip5" value="<?php echo $objCompany->address_zip5; ?>" size="5" maxlength="5" />
                 -
                 <input type="text" name="address_zip4" value="<?php echo $objCompany->address_zip4; ?>" size="4" maxlength="4" />
@@ -93,7 +96,7 @@
             </div>
         </fieldset>
         <div class="form_row">
-            <label id="lblContact">Add Contact to This Company NOW:</label>
+            <label id="lblContact">Add Contact to This Company NOW:<?php echo $asterisk; ?></label>
             <?php echo $rblContact; ?>
         </div>
     </fieldset>

@@ -24,4 +24,3 @@
     {
         $company_recruiter  = "<span style=\"color:red;\">YES</span>";
     }
-?>

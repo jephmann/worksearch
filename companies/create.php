@@ -15,8 +15,7 @@
     // =========================================================================
     
     $objCompany = new Company;
-    $objCompany->setId_user($_SESSION['user']['id']);
-    
+    $objCompany->setId_user($_SESSION['user']['id']);    
     require ('_defaults.php');
     if (!empty($_POST))
     {
@@ -28,7 +27,7 @@
             $insert = insertRow($db, $objCompany);
             if(!empty($insert['error']))
             {
-                $objStatus->setMessage("<li>Failed to Create Company: {$insert['error']}</li>");
+                $objStatus->setMessage("<li>Failed to Create Company: {$insert['error']}<br/>{$objCompany->insert()}</li>");
                 $objStatus->setColor("FF0000");
                 $objStatus->setBackground_color("FFFF00");
             }
@@ -44,31 +43,6 @@
                 }
                 header('Location:'.$location);
             }
-            
-            /*
-            try
-            {
-                $stmt_insert        = $db->prepare($objCompany->insert());
-                $stmt_insert->execute($objCompany->parameters(NULL));
-                $new_id['company']  = $db->lastInsertId();
-                if($objCompany->getContact()==TRUE)
-                {
-                    $header = "../contacts/create.php?company={$new_id['company']}";
-                }
-                else
-                {
-                    $header = "index.php";
-                }
-                header('Location:'.$header);
-            }
-            catch(PDOException $ex)
-            {
-                $objStatus->setMessage("<li>Failed to add the new Company: {$ex->getMessage()}</li>");
-                $objStatus->setColor("FF0000");
-                $objStatus->setBackground_color("FFFF00");
-            }
-             * 
-             */
         }
     }    
 

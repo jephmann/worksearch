@@ -1,11 +1,23 @@
-<?php
+<?php    
+    $company_recruiter      = NULL;
+    if(isset($_POST['recruiter']))
+    {
+        $company_recruiter  = $_POST['recruiter'];
+    }
+    
+    $add_contact            = NULL;
+    if(isset($_POST['contact']))
+    {
+        $add_contact        = $_POST['contact'];
+    }
+    
     /*
      * NEVER set/reset $object->id_user via POST
      */    
     // Company
     $objCompany->setName(ucwords(trim($_POST['name'])));
     $objCompany->setIndustry(trim($_POST['industry']));
-    $objCompany->setRecruiter($_POST['recruiter']);
+    $objCompany->setRecruiter($company_recruiter);
     $objCompany->setDescription(trim($_POST['description']));
     // Address
     $objCompany->setAddress_building(ucwords(strtolower(trim($_POST['address_building']))));
@@ -27,4 +39,4 @@
     $objCompany->setFacebook(strtolower(trim($_POST['facebook'])));
     $objCompany->setGoogleplus(strtolower(trim($_POST['googleplus'])));
     // Add a new Contact to This Company Now?
-    $objCompany->setContact($_POST['contact']);
+    $objCompany->setContact($add_contact);
