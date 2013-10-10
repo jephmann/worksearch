@@ -14,8 +14,16 @@
     $objStatus->setBackground_color("CCFFCC");
     // =========================================================================
     
+    $thisYear   = date('Y');
+    $thisMonth  = date('m');
+    $thisDay    = date('d');
+    
+    $thisDate   = "{$thisYear}-{$thisMonth}-{$thisDay}";
+    $dateBirth  = date("Y-m-d",strtotime($thisDate));
+    
     $objProfile = new Profile;
-    $objProfile->setId_user($_SESSION['user']['id']);    
+    $objProfile->setId_user($_SESSION['user']['id']);
+    $objProfile->setDate_birth($dateBirth);
     require ('_defaults.php');
     if (!empty($_POST))
     {

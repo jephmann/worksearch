@@ -1,22 +1,31 @@
-<?php
+<?php    
+    $profile_gender     = NULL;
+    if(isset($_POST['gender']))
+    {
+        $profile_gender = $_POST['gender'];
+    }
+    
+    $birth_date         = NULL;
+    $birth_date_yyyy    = ($_POST['birth_date_yyyy']);
+    $birth_date_mm      = ($_POST['birth_date_mm']);
+    $birth_date_dd      = ($_POST['birth_date_dd']);
+    if((!empty($birth_date_yyyy)) && (!empty($birth_date_mm)) && (!empty($birth_date_dd)))
+    {
+        $birth_date     = new DateTime($birth_date_yyyy.'-'.$birth_date_mm.'-'.$birth_date_dd);
+        $birth_date     = $birth_date->format('Y-m-d');
+    }
+    
     /*
      * NEVER set/reset $object->id_user via POST
      */
     // Who Are You
-    $objProfile->setGender($_POST['gender']);
+    $objProfile->setGender($profile_gender);
     $objProfile->setId_salutation($_POST['salutation']);
     $objProfile->setName_first(ucwords(strtolower(trim($_POST['name_first']))));
     $objProfile->setName_middle(ucwords(strtolower(trim($_POST['name_middle']))));
     $objProfile->setName_last(ucwords(strtolower(trim($_POST['name_last']))));
     $objProfile->setId_name_suffix($_POST['name_suffix']);
-    
-    
-
-    $birth_date_yyyy = ($_POST['birth_date_yyyy']);
-    $birth_date_mm = ($_POST['birth_date_mm']);
-    $birth_date_dd = ($_POST['birth_date_dd']);
-    $birth_date = new DateTime($birth_date_yyyy.'-'.$birth_date_mm.'-'.$birth_date_dd);
-    $objProfile->setDate_birth($birth_date->format('Y-m-d'));
+    $objProfile->setDate_birth($birth_date);
     
     // Address
     $objProfile->setAddress_building(ucwords(strtolower(trim($_POST['address_building']))));

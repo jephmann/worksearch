@@ -1,9 +1,12 @@
-<ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
-    <?php echo $objStatus->message; ?>
-</ul>
 <form method="post" action="">
     <fieldset>
         <legend>Profile</legend>
+        <p>
+            <?php echo $asterisk; ?> = Required fields.
+        </p>
+        <ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
+            <?php echo $objStatus->message; ?>
+        </ul>
         <fieldset>
             <legend>Who Are You?</legend>
             <div class="form_row">
@@ -23,7 +26,7 @@
                 <input type="text" name="name_middle" value="<?php echo $objProfile->name_middle; ?>" maxlength="100" />
             </div>
             <div class="form_row">
-                <label id="lblNameLast">Last Name:</label>
+                <label id="lblNameLast">Last Name:<?php echo $asterisk; ?></label>
                 <input type="text" name="name_last" value="<?php echo $objProfile->name_last; ?>" maxlength="100" />
             </div>
             <div class="form_row">
