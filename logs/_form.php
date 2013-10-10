@@ -1,17 +1,17 @@
-<p>
-    <?php echo $dagger; ?> = Fields originally suggested by the Work Search form
-    in use at the Illinois Department of Employment Security (IDES).
-    Required or not, at minimum the Log forms shall include these fields.
-</p>
-<p>
-    <?php echo $asterisk; ?> = Required fields.
-</p>
-<ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
-    <?php echo $objStatus->message; ?>
-</ul>
 <form method="post" action="">
     <fieldset>
         <legend>Log</legend>
+        <p>
+            <?php echo $dagger; ?> = Fields originally suggested by the Work Search form
+            in use at the Illinois Department of Employment Security (IDES).
+            Required or not, at minimum the Log forms shall include these fields.
+        </p>
+        <p>
+            <?php echo $asterisk; ?> = Required fields.
+        </p>
+        <ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
+            <?php echo $objStatus->message; ?>
+        </ul>
         <div class="form_row">
             <label id="lblWeekEnding">Week Ending (Saturday):<?php echo $dagger.$asterisk; ?></label>
             <select name="week_ending"><?php echo $optWeekEnding; ?></select>
@@ -39,11 +39,11 @@
             <?php echo $rblContactMethods; ?>
         </div>
         <div class="form_row">
-            <label id="lblSpecify">Specify:</label>
+            <label id="lblSpecify">Specify Contact Method Detail:</label>
             <input type="text" name="specify" value="<?php echo $objLog->specify; ?>" maxlength="255" size="40" />
         </div>
         <div class="form_row">
-            <label id="lblResults">Result:<?php echo $dagger; ?></label>
+            <label id="lblResults">Contact Result:<?php echo $dagger; ?></label>
             <textarea name="results"><?php echo $objLog->results; ?></textarea>
         </div>
         <div class="form_row">

@@ -14,7 +14,6 @@
     $objStatus->setBackground_color("CCFFCC");
     // =========================================================================
     
-    
     $thisYear   = date('Y');
     $thisMonth  = date('m');
     $thisDay    = date('d');
@@ -22,7 +21,6 @@
     $thisDate       = "{$thisYear}-{$thisMonth}-{$thisDay}";
     $weekEnding     = date("Y-m-d",strtotime($thisDate." this Saturday"));
     $dateContact    = date("Y-m-d",strtotime($thisDate));
-    
     
     $objLog = new Log;
     $objLog->setId_user($_SESSION['user']['id']);
@@ -39,7 +37,7 @@
             $insert = insertRow($db, $objLog);
             if(!empty($insert['error']))
             {
-                $objStatus->setMessage("<li>Failed to Create Log: {$insert['error']}</li>");
+                $objStatus->setMessage("<li>Failed to Create Log: {$insert['error']}<br/>{$objLog->insert()}</li>");
                 $objStatus->setColor("FF0000");
                 $objStatus->setBackground_color("FFFF00");
             }

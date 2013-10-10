@@ -7,6 +7,7 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
+    $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
@@ -16,18 +17,13 @@
     
     $objLog = new Log;
     $objLog->setId($_GET['id']);
+    $objLog->setId_user($id_user);
     require ('_fetch.php');
-    
-    //$optWeekEnding = optWeeks('Saturday', date('Y-m-d', strtotime('2013-08-03')));
-    $contact_date_mm = date('m', strtotime($objLog->contact_date));
-    $contact_date_dd = date('j', strtotime($objLog->contact_date));
-    $contact_date_yyyy = date('Y', strtotime($objLog->contact_date));
-    
     require ('_defaults.php');
     if(!empty($_POST))
     {
         require_once ('_post.php');
-        //require ('_defaults.php');
+        require ('_defaults.php');
         require_once ('_validation.php');
         if(empty($objStatus->message))
         {
