@@ -17,6 +17,7 @@
     
     $objContact = new Contact;
     $objContact->setId($_GET['id']);
+    $objContact->setId_user($id_user);
     require ('_fetch.php');    
     require ('_defaults.php');
     if(!empty($_POST))

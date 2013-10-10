@@ -1,9 +1,15 @@
-<?php
+<?php    
+    $contact_gender     = NULL;
+    if(isset($_POST['gender']))
+    {
+        $contact_gender = $_POST['gender'];
+    }
+    
     /*
      * NEVER set/reset $object->id_user via POST
      */
     // Who
-    $objContact->setGender($_POST['gender']);
+    $objContact->setGender($contact_gender);
     $objContact->setId_salutation($_POST['salutation']);
     $objContact->setName_first(ucwords(strtolower(trim($_POST['name_first']))));
     $objContact->setName_middle(ucwords(strtolower(trim($_POST['name_middle']))));

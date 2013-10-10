@@ -1,9 +1,12 @@
-<ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
-    <?php echo $objStatus->message; ?>
-</ul>
 <form method="post" action="">
     <fieldset>
         <legend>Contact</legend>
+        <p>
+            <?php echo $asterisk; ?> = Required fields.
+        </p>
+        <ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
+            <?php echo $objStatus->message; ?>
+        </ul>
         <fieldset>
             <legend>Who</legend>
             <div class="form_row">
@@ -23,7 +26,7 @@
                 <input type="text" name="name_middle" value="<?php echo $objContact->name_middle; ?>" maxlength="100" />
             </div>
             <div class="form_row">
-                <label id="lblNameLast">Last Name:</label>
+                <label id="lblNameLast">Last Name:<?php echo $asterisk; ?></label>
                 <input type="text" name="name_last" value="<?php echo $objContact->name_last; ?>" maxlength="100" />
             </div>
             <div class="form_row">
@@ -34,16 +37,16 @@
         <fieldset>
             <legend>Company</legend>
             <div class="form_row">
-                <label id="lblCompany">Company:</label>
+                <label id="lblCompany">Company:<?php echo $asterisk; ?></label>
                 <select name="company"><?php echo $optCompanies; ?></select>
             </div>
             <div class="form_row">
                 <label id="lblDepartment">Department:</label>
-                <input type="text" name="department" value="<?php echo $objContact->department; ?>" maxlength="255" />
+                <input type="text" name="department" value="<?php echo $objContact->department; ?>" maxlength="255" size="40" />
             </div>
             <div class="form_row">
                 <label id="lblTitle">Title:</label>
-                <input type="text" name="title" value="<?php echo $objContact->title; ?>" maxlength="255" />
+                <input type="text" name="title" value="<?php echo $objContact->title; ?>" maxlength="255" size="40" />
             </div>
         </fieldset>
         <fieldset>

@@ -14,7 +14,7 @@
     $objStatus->setBackground_color("CCFFCC");
     // =========================================================================
     
-    $objContact = new Contact();
+    $objContact = new Contact;
     $objContact->setId_user($_SESSION['user']['id']);    
     if(isset($_GET['company']))
     {
@@ -31,7 +31,7 @@
             $insert = insertRow($db, $objContact);
             if(!empty($insert['error']))
             {
-                $objStatus->setMessage("<li>Failed to Create Contact: {$insert['error']}</li>");
+                $objStatus->setMessage("<li>Failed to Create Contact: {$insert['error']}<br/>{$objContact->insert()}</li>");
                 $objStatus->setColor("FF0000");
                 $objStatus->setBackground_color("FFFF00");
             }
