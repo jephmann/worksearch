@@ -268,3 +268,21 @@ pre {
     border: 1px dashed silver;
     background-color: #FFFFFF;
 }
+/*
+    jQuery Validation
+*/
+label.error {
+    float: none;
+    color: white;
+    padding: 2px .5em;
+    vertical-align: top;
+    font-weight: bold;
+    background-color: crimson;
+    margin: 0 4px;
+    width: 75%;
+    /* css3 */
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-box-shadow:  2px 2px 2px 2px #cccccc;
+    box-shadow:  2px 2px 2px 2px #cccccc;
+}
