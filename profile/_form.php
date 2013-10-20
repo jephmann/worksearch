@@ -1,4 +1,4 @@
-<form method="post" action="">
+<form id="form_profile" method="post" action="">
     <fieldset>
         <legend>Profile</legend>
         <p>
@@ -106,3 +106,4 @@
         <input type="submit" value="<?php echo $page['mode']; ?>" />
     </div>
 </form>
+<script language="javascript" type="text/javascript" src="_form.js"></script>
