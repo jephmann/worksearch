@@ -5,7 +5,8 @@ $(function() {
                 required: true
             },
             user_email: {
-                required: true
+                required: true,
+                email: true
             },
             user_password: {
                 required: true
@@ -13,13 +14,14 @@ $(function() {
         },
         messages: {
             user_username: {
-                required: "Login: Username is required."
+                required: "Register: Username is required."
             },
             user_email: {
-                required: "Login: Password is required."
+                required: "Register: E-Mail is required.",
+                email: "E-mail address must be formatted properly."
             },
             user_password: {
-                required: "Login: Password is required."
+                required: "Register: Password is required."
             }
         }
     });
