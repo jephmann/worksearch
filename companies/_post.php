@@ -1,8 +1,8 @@
 <?php    
     $company_recruiter      = NULL;
-    if(isset($_POST['recruiter']))
+    if(isset($_POST['company_recruiter']))
     {
-        $company_recruiter  = $_POST['recruiter'];
+        $company_recruiter  = $_POST['company_recruiter'];
     }
     
     $add_contact            = NULL;
@@ -15,10 +15,10 @@
      * NEVER set/reset $object->id_user via POST
      */    
     // Company
-    $objCompany->setName(ucwords(trim($_POST['name'])));
-    $objCompany->setIndustry(trim($_POST['industry']));
+    $objCompany->setName(ucwords(trim($_POST['company_name'])));
+    $objCompany->setIndustry(trim($_POST['company_industry']));
     $objCompany->setRecruiter($company_recruiter);
-    $objCompany->setDescription(trim($_POST['description']));
+    $objCompany->setDescription(trim($_POST['company_description']));
     // Address
     $objCompany->setAddress_building(ucwords(strtolower(trim($_POST['address_building']))));
     $objCompany->setAddress_street(ucwords(strtolower(trim($_POST['address_street']))));

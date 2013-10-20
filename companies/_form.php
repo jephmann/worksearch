@@ -1,4 +1,4 @@
-<form method="post" action="">
+<form id="form_company" method="post" action="">
     <fieldset>
         <legend>Company</legend>
         <p>
@@ -11,11 +11,11 @@
             <legend>About the Company</legend>                
             <div class="form_row">
                 <label id="lblName">Name:<?php echo $asterisk; ?></label>
-                <input type="text" name="name" value="<?php echo $objCompany->name; ?>" maxlength="255" size="40" />
+                <input type="text" name="company_name" value="<?php echo $objCompany->name; ?>" maxlength="255" size="40" />
             </div>
             <div class="form_row">
                 <label id="lblIndustry">Industry:</label>
-                <input type="text" name="industry" value="<?php echo $objCompany->industry; ?>" maxlength="255" size="40" />
+                <input type="text" name="company_industry" value="<?php echo $objCompany->industry; ?>" maxlength="255" size="40" />
             </div>
             <div class="form_row">
                 <label id="lblRecruiter">Recruiter:<?php echo $asterisk; ?></label>
@@ -23,7 +23,7 @@
             </div>
             <div class="form_row">
                 <label id="lblDescription">Description:</label>
-                <textarea name="description" rows="7" cols="33" /><?php echo $objCompany->description; ?></textarea>
+                <textarea name="company_description" rows="7" cols="33" /><?php echo $objCompany->description; ?></textarea>
             </div>
         </fieldset>
         <fieldset>
@@ -104,3 +104,4 @@
         <input type="submit" value="<?php echo $page['mode']; ?>" />
     </div>
 </form>
+<script language="javascript" type="text/javascript" src="_form.js"></script>
