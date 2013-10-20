@@ -1,4 +1,4 @@
-<form method="post" action="">
+<form id="form_contact" method="post" action="">
     <fieldset>
         <legend>Contact</legend>
         <p>
@@ -90,3 +90,4 @@
         <input type="submit" value="<?php echo $page['mode']; ?>" />
     </div>
 </form>
+<script language="javascript" type="text/javascript" src="_form.js"></script>
