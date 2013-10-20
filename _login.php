@@ -1,9 +1,9 @@
-<p>
-    <?php echo $asterisk; ?> = Required fields.
-</p>
-<form method="post" action="">
+<form id="form_login" method="post" action="">
     <fieldset>
         <legend>LOGIN</legend>
+        <p>
+            <?php echo $asterisk; ?> = Required fields.
+        </p>
         <ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
             <?php echo $objStatus->message; ?>
         </ul>
@@ -31,3 +31,4 @@
         <input type="submit" value="<?php echo $page['mode']; ?>" />
     </div>
 </form>
+<script language="javascript" type="text/javascript" src="_login.js"></script>
