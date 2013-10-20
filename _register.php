@@ -1,9 +1,9 @@
-<p>
-    <?php echo $asterisk; ?> = Required fields.
-</p>
-<form action="register.php" method="post">
+<form id="form_register" action="register.php" method="post">
     <fieldset>
         <legend>Register (Create a User)</legend>
+        <p>
+            <?php echo $asterisk; ?> = Required fields.
+        </p>
         <ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
             <?php echo $objStatus->message; ?>
         </ul>
@@ -24,3 +24,4 @@
         <input type="submit" value="Register" />
     </div>
 </form>
+<script language="javascript" type="text/javascript" src="_register.js"></script>
