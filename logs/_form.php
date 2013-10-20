@@ -1,4 +1,4 @@
-<form method="post" action="">
+<form id="form_log" method="post" action="">
     <fieldset>
         <legend>Log</legend>
         <p>
@@ -55,3 +55,4 @@
         <input type="submit" value="<?php echo $page['mode']; ?>" />
     </div>
 </form>
+<script language="javascript" type="text/javascript" src="_form.js"></script>
