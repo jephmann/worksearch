@@ -10,8 +10,7 @@
     require ($page['path'].'_classes/all.php');
     require ($page['path'].'_functions/all.php');
     $objStatus = new Status;
-    $objStatus->setColor("003300");
-    $objStatus->setBackground_color("CCFFCC");
+    $objStatus->setClass("status_quo");
     // =========================================================================
     
     // JH's touch: the User class
@@ -140,8 +139,7 @@
         if(!empty($status_message))
         {                    
             $objStatus->setMessage($status_message);
-            $objStatus->setColor("FF0000");
-            $objStatus->setBackground_color("FFFF00");
+            $objStatus->setClass("status_error");
         }
     } 
     

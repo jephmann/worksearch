@@ -10,8 +10,7 @@
     require ($page['path'].'_classes/all.php');
     require ($page['path'].'_functions/all.php');
     $objStatus = new Status;
-    $objStatus->setColor("003300");
-    $objStatus->setBackground_color("CCFFCC");
+    $objStatus->setClass("status_quo");
     // =========================================================================
     
     
