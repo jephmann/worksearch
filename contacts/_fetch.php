@@ -6,8 +6,7 @@
     if(!empty($fetchContact['error']))
     {
         $objStatus->setMessage("<li>Contact Error: {$fetchContact['error']}</li>");
-        $objStatus->setColor("FF0000");
-        $objStatus->setBackground_color("FFFF00");
+        $objStatus->setClass("status_error");
     }
     // Whose Contact? 
     $objContact->setId_user(htmlentities($rowContact['id_user'], ENT_QUOTES, 'UTF-8'));

@@ -4,7 +4,7 @@
         <p>
             <?php echo $asterisk; ?> = Required fields.
         </p>
-        <ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
+        <ul id="status" name="status" class="<?php echo $objStatus->class; ?>">
             <?php echo $objStatus->message; ?>
         </ul>
         <fieldset>
@@ -54,8 +54,10 @@
             <div class="form_row">
                 <label id="lblPhone">Phone:</label>
                 <input type="text" name="phone" value="<?php echo $objContact->phone; ?>" size="10" maxlength="10" />
-                x
-                <input type="text" name="phone_extension" value="<?php echo $objContact->phone_extension; ?>" size="4" maxlength="4" />
+            </div>
+            <div class="form_row">
+                <label id="lblPhoneExtension">Phone Extension:</label>
+                x<input type="text" name="phone_extension" value="<?php echo $objContact->phone_extension; ?>" size="4" maxlength="4" />
             </div>
             <div class="form_row">
                 <label id="lblFax">Fax:</label>
@@ -63,7 +65,7 @@
             </div>
             <div class="form_row">
                 <label id="lblEmail">E-Mail:</label>
-                <input type="text" name="email" value="<?php echo $objContact->email; ?>" maxlength="255" />
+                <input type="text" name="contact_email" value="<?php echo $objContact->email; ?>" maxlength="255" />
             </div>
         </fieldset>
         <fieldset>

@@ -39,7 +39,7 @@
     $objProfile->setPhone($_POST['phone']);
     $objProfile->setPhone_extension($_POST['phone_extension']);
     $objProfile->setFax($_POST['fax']);
-    $objProfile->setEmail(strtolower(trim($_POST['email'])));
+    $objProfile->setEmail(strtolower(trim($_POST['profile_email'])));
     // Identification
     $objProfile->setSocial_security_number($_POST['social_security_number']);
     $objProfile->setDrivers_state($_POST['drivers_state']);

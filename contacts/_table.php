@@ -6,7 +6,7 @@
             Create
         </a>
     </legend>
-    <ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
+    <ul id="status" name="status" class="<?php echo $objStatus->class; ?>">
         <?php echo $objStatus->message; ?>
     </ul>
     <form method="post">

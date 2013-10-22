@@ -10,9 +10,8 @@
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
-    $objStatus = new Status;
-    $objStatus->setColor("003300");
-    $objStatus->setBackground_color("CCFFCC");
+    $objStatus  = new Status;
+    $objStatus->setClass("status_quo");
     // =========================================================================
     
     $objLog = new Log;
@@ -39,8 +38,7 @@
     if(!empty($fetchContactMethod['error']))
     {
         $objStatus->setMessage("<li>Log Contact Method Error: {$fetchContactMethod['error']}</li>");
-        $objStatus->setColor("FF0000");
-        $objStatus->setBackground_color("FFFF00");
+        $objStatus->setClass("status_error");
     }
     $objContactMethod->setName(htmlentities($rowContactMethod['name'], ENT_QUOTES, 'UTF-8'));
     

@@ -10,9 +10,8 @@
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
-    $objStatus = new Status;
-    $objStatus->setColor("003300");
-    $objStatus->setBackground_color("CCFFCC");
+    $objStatus  = new Status;
+    $objStatus->setClass("status_quo");
     // =========================================================================    
     
     // CONTACT
@@ -35,6 +34,9 @@
      * - Display Logs specific to this Contact
      */
     $objLogs        = new Log;
+    $objLogs->setId_company($objCompany->id);
+    $objLogs->setId_contact($objContact->id);
+    $objLogs->setId_user($id_user);
     
     // COMPANY'S ADDITIONAL CONTACTS
     /*
@@ -42,6 +44,9 @@
      * - Display Contacts (other than this Contact) specific to this Contact's Company
      */
     $objContacts    = new Contact;
+    $objContacts->setId_company($objCompany->id);
+    $objContacts->setId_contact($objContact->id);
+    $objContacts->setId_user($id_user);
     
     // =========================================================================    
     require_once ($page['path'].'_views/head.php');

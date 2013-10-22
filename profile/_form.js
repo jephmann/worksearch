@@ -1,3 +1,9 @@
+/*
+ * TODOS:
+ * zip4 entered without zip5
+ * phone extension entered without phone
+ * full birth date or nothing
+ */
 $(function() {
     $( "#form_profile" ).validate({
         rules: {
@@ -28,6 +34,9 @@ $(function() {
                 digits: true,
                 minlength: 10,
                 maxlength: 10
+            },
+            profile_email: {
+                email: true
             },
             social_security_number: {
                 digits: true,
@@ -67,6 +76,9 @@ $(function() {
                 digits: "Numbers only for Fax",
                 minlength: $.format("Fax must be {0} digits."),
                 maxlength: $.format("Fax must be {0} digits.")
+            },
+            profile_email: {
+                email: "E-mail address must be properly formatted."
             },
             social_security_number: {
                 digits: "Numbers only for Social Security Number",

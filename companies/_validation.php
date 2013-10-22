@@ -33,12 +33,9 @@
             $objStatus->message .= validation_message("This Company e-mail address already exists.");
         }
     }
-     * 
      */
     
-    // Red text, yellow background
     if(!empty($objStatus->message))
     {
-        $objStatus->color                = ("CC6666");
-        $objStatus->background_color     = ("FFFFCC");
+        $objStatus->class   = ("status_error");
     }

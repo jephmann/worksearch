@@ -11,9 +11,7 @@
     $objStatus->message .= validate_phone_li($objProfile->fax, "Profile Fax Number");
     $objStatus->message .= validate_email_li($objProfile->email, "Profile E-Mail");
     
-    // Red text, yellow background
     if(!empty($objStatus->message))
     {
-        $objStatus->color                = ("CC6666");
-        $objStatus->background_color     = ("FFFFCC");
+        $objStatus->class   = ("status_error");
     }

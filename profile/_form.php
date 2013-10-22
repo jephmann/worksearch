@@ -4,7 +4,7 @@
         <p>
             <?php echo $asterisk; ?> = Required fields.
         </p>
-        <ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
+        <ul id="status" name="status" class="<?php echo $objStatus->class; ?>">
             <?php echo $objStatus->message; ?>
         </ul>
         <fieldset>
@@ -63,10 +63,12 @@
                 <select name="address_state"><?php echo $optStates; ?></select>
             </div>
             <div class="form_row">
-                <label id="lblAddressPostal">ZIP:</label>
+                <label id="lblAddressZip5">ZIP:</label>
                 <input type="text" name="address_zip5" value="<?php echo $objProfile->address_zip5; ?>" size="5" maxlength="5" />
-                -
-                <input type="text" name="address_zip4" value="<?php echo $objProfile->address_zip4; ?>" size="4" maxlength="4" />
+            </div>
+            <div class="form_row">
+                <label id="lblAddressZip4">ZIP Extension:</label>
+                -<input type="text" name="address_zip4" value="<?php echo $objProfile->address_zip4; ?>" size="4" maxlength="4" />
             </div>
         </fieldset>
         <fieldset>
@@ -74,8 +76,10 @@
             <div class="form_row">
                 <label id="lblPhone">Phone:</label>
                 <input type="text" name="phone" value="<?php echo $objProfile->phone; ?>" size="10" maxlength="10" />
-                x
-                <input type="text" name="phone_extension" value="<?php echo $objProfile->phone_extension; ?>" size="4" maxlength="4" />
+            </div>
+            <div class="form_row">
+                <label id="lblPhoneExtension">Phone Extension:</label>
+                x<input type="text" name="phone_extension" value="<?php echo $objProfile->phone_extension; ?>" size="4" maxlength="4" />
             </div>
             <div class="form_row">
                 <label id="lblFax">Fax:</label>
@@ -83,7 +87,7 @@
             </div>
             <div class="form_row">
                 <label id="lblEmail">E-Mail:</label>
-                <input type="text" name="email" value="<?php echo $objProfile->email; ?>" maxlength="255" size="40" />
+                <input type="text" name="profile_email" value="<?php echo $objProfile->email; ?>" maxlength="255" size="40" />
             </div>
         </fieldset>
         <fieldset>

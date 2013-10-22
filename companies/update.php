@@ -11,8 +11,7 @@
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
     $objStatus = new Status;
-    $objStatus->setColor("003300");
-    $objStatus->setBackground_color("CCFFCC");
+    $objStatus->setClass("status_quo");
     // =========================================================================
     
     $objCompany = new Company;
@@ -40,8 +39,7 @@
             if(!empty($update['result']['error']))
             {
                 $objStatus->setMessage("<li>Failed to Update Company: {$update['result']['error']}</li>");
-                $objStatus->setColor("FF0000");
-                $objStatus->setBackground_color("FFFF00");
+                $objStatus->setClass("status_error");
             }
             else
             {

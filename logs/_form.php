@@ -9,7 +9,7 @@
         <p>
             <?php echo $asterisk; ?> = Required fields.
         </p>
-        <ul style="background-color: #<?php echo $objStatus->background_color; ?>; color: #<?php echo $objStatus->color; ?>;">
+        <ul id="status" name="status" class="<?php echo $objStatus->class; ?>">
             <?php echo $objStatus->message; ?>
         </ul>
         <div class="form_row">

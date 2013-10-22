@@ -6,8 +6,7 @@
     if(!empty($fetchLog['error']))
     {
         $objStatus->setMessage("<li>Log Error: {$fetchLog['error']}</li>");
-        $objStatus->setColor("FF0000");
-        $objStatus->setBackground_color("FFFF00");
+        $objStatus->setClass("status_error");
     }
     $objLog->setId_user(htmlentities($rowLog['id_user'], ENT_QUOTES, 'UTF-8'));
     $objLog->setWeek_ending(htmlentities($rowLog['week_ending'], ENT_QUOTES, 'UTF-8'));

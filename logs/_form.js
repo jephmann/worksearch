@@ -1,3 +1,7 @@
+/*
+ * TODOS:
+ * full contact date or nothing
+ */
 $(function() {
     $( "#form_log" ).validate({
         rules: {

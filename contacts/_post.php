@@ -23,7 +23,7 @@
     $objContact->setPhone($_POST['phone']);
     $objContact->setPhone_extension($_POST['phone_extension']);
     $objContact->setFax($_POST['fax']);
-    $objContact->setEmail(strtolower(trim($_POST['email'])));
+    $objContact->setEmail(strtolower(trim($_POST['contact_email'])));
     // Links
     $objContact->setLinkedin(strtolower(trim($_POST['linkedin'])));
     $objContact->setTwitter(strtolower(trim($_POST['twitter'])));

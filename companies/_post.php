@@ -31,7 +31,7 @@
     $objCompany->setPhone($_POST['phone']);
     $objCompany->setPhone_extension($_POST['phone_extension']);
     $objCompany->setFax($_POST['fax']);
-    $objCompany->setEmail(strtolower(trim($_POST['email'])));
+    $objCompany->setEmail(strtolower(trim($_POST['company_email'])));
     // Links
     $objCompany->setWebsite(strtolower(trim($_POST['website'])));
     $objCompany->setLinkedin(strtolower(trim($_POST['linkedin'])));
