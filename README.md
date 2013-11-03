@@ -4,7 +4,7 @@ These notes are subject to change.
 
 =====
 
-October 4, 2013
+November 3, 2013
 
 WORKsearch (a working title) is a personal, independent project which I began in
 May 2013 chiefly to stay in practice in between jobs. Currently it is a work in
