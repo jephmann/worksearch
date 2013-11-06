@@ -108,4 +108,21 @@ class Data {
         }
         return $parameters;
     }
+    
+    // Options for dropdownlists and radiobuttonlists
+    public function options($value, $display)
+    {
+        /*
+         * $value might not always be id;
+         * e.g. sometimes $value may be a state abbreviation
+         */
+        $query = "SELECT {$value}, {$display} FROM {$this->table} ORDER BY {$display}";
+        return $query;
+    }
+    
+    public function options_concat($value, $concatFields, $display, $sortFields)
+    {        
+        $query = "SELECT {$value}, CONCAT({$concatFields}) AS {$display} FROM {$this->table} ORDER BY {$sortFields}";
+        return $query;
+    }
 }
