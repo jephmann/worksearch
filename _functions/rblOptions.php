@@ -1,7 +1,7 @@
 <?php
-    function rblOptions($default, $input, $name, $value, $db_table, $db, $orientation)
-    {
-        $qRBL = "select {$value}, {$name} from {$db_table} order by {$name}";
+    function rblOptions($db, $default, $input, $display, $value, $object, $orientation)
+    {       
+        $qRBL = $object->options($value, $display);
         try
         {
             $rbls = $db->prepare($qRBL);
@@ -9,8 +9,7 @@
         }
         catch(PDOException $ex)
         {
-            // Note: On a production website, you should not output $ex->getMessage().
-            // It may provide an attacker with helpful information about your code.
+            // TODO: convert to status message
             die("Failed to run DropDownList query: " . $ex->getMessage());
         }
         $rblOptions = "<div style=\"float:left;background-color:yellow;font-weight:bold;\">";
@@ -18,7 +17,7 @@
         $options = $rbls->fetchAll();
         foreach($options as $option)
         {
-            $optName = $option["{$name}"];
+            $optName = $option["{$display}"];
             $optValue = $option["{$value}"];
             if($default == $optValue)
             {

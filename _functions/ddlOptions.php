@@ -1,27 +1,32 @@
 <?php
-    function ddlOptions($db, $default, $value, $name, $db_table)
-    {        
-        $qDDL = "select {$value}, {$name} from {$db_table} order by {$name}";
-
+    function ddlOptions($db, $default, $value, $display, $object, $concatFields, $sortFields)
+    {
+        $query = NULL;
+        if(empty($concatFields) || empty($sortFields))
+        {
+            $query = $object->options($value, $display);
+        }
+        else
+        {
+            $query = $object->options_concat($value, $concatFields, $display, $sortFields);
+        }
         try
         {
-            $ddls = $db->prepare($qDDL);
+            $ddls = $db->prepare($query);
             $ddls->execute();
         }
         catch(PDOException $ex)
         {
-            // Note: On a production website, you should not output $ex->getMessage().
-            // It may provide an attacker with helpful information about your code.
-            die("Failed to run DropDownList query: " . $ex->getMessage());
+            // TODO: convert to status message
+            die("Failed to run {$object->table} DropDownList query: " . $ex->getMessage());
         }
-
         $ddlOptions = "\n<option value=\"\">=== PLEASE SELECT ===</option>";
         $selected = NULL;
         $options = $ddls->fetchAll();
         foreach($options as $option)
         {
-            $optName = $option["{$name}"];
-            $optValue = $option["{$value}"];
+            $optDisplay = $option["{$display}"];
+            $optValue   = $option["{$value}"];
             if($default == $optValue)
             {
                 $selected = " selected";
@@ -30,46 +35,7 @@
             {
                 $selected = "";
             }
-
-            $ddlOptions .= "\n<option{$selected} value=\"{$optValue}\">{$optName}</option>";
-        }
-        return $ddlOptions;
-    }
-
-    
-    function ddlOptionsAs($db, $default, $value, $concatFields, $name, $sort, $db_table)
-    {        
-        $qDDL = "select {$value}, Concat({$concatFields}) AS {$name} from {$db_table} order by {$sort}";
-
-        try
-        {
-            $ddls = $db->prepare($qDDL);
-            $ddls->execute();
-        }
-        catch(PDOException $ex)
-        {
-            // Note: On a production website, you should not output $ex->getMessage().
-            // It may provide an attacker with helpful information about your code.
-            die("Failed to run DropDownList query: " . $ex->getMessage());
-        }
-
-        $ddlOptions = "\n<option value=\"\">=== PLEASE SELECT ===</option>";
-        $selected = NULL;
-        $options = $ddls->fetchAll();
-        foreach($options as $option)
-        {
-            $optName = $option["{$name}"];
-            $optValue = $option["{$value}"];
-            if($default == $optValue)
-            {
-                $selected = " selected";
-            }
-            else
-            {
-                $selected = "";
-            }
-
-            $ddlOptions .= "\n<option{$selected} value=\"{$optValue}\">{$optName}</option>";
+            $ddlOptions .= "\n<option{$selected} value=\"{$optValue}\">{$optDisplay}</option>";
         }
         return $ddlOptions;
     }
