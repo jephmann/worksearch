@@ -1,6 +1,6 @@
 <?php
     // company defaults
-    $optStates      = ddlOptions($db, $objCompany->getAddress_state(), 'abrv', 'state', 'states');
+    $optStates      = ddlOptions($db, $objCompany->getAddress_state(), 'abrv', 'state', $objStates, NULL, NULL);
     $rblRecruiter   = rblTrueFalse("company_recruiter", $objCompany->getRecruiter());
     $rblContact     = rblTrueFalse("contact", $objCompany->getContact());
 ?>

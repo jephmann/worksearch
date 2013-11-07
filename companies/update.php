@@ -17,7 +17,8 @@
     $objCompany = new Company;
     $objCompany->setId($_GET['id']);
     $objCompany->setId_user($id_user);
-    require ('_fetch.php');    
+    require ('_fetch.php');
+    $objStates          = new State;
     require ('_defaults.php');
     if(!empty($_POST))
     {

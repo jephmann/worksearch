@@ -14,7 +14,8 @@
     // =========================================================================
     
     $objCompany = new Company;
-    $objCompany->setId_user($_SESSION['user']['id']);    
+    $objCompany->setId_user($_SESSION['user']['id']);
+    $objStates  = new State;
     require ('_defaults.php');
     if (!empty($_POST))
     {
