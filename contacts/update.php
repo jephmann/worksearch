@@ -17,7 +17,10 @@
     $objContact = new Contact;
     $objContact->setId($_GET['id']);
     $objContact->setId_user($id_user);
-    require ('_fetch.php');    
+    require ('_fetch.php');
+    $objSalutations     = new Salutation;
+    $objNameSuffixes    = new Name_Suffix;
+    $objCompanies       = new Company;
     require ('_defaults.php');
     if(!empty($_POST))
     {        

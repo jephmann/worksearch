@@ -19,6 +19,9 @@
     {
         $objContact->setId_company($_GET['company']);
     }
+    $objSalutations     = new Salutation;
+    $objNameSuffixes    = new Name_Suffix;
+    $objCompanies       = new Company;
     require ('_defaults.php');
     if (!empty($_POST))
     {        

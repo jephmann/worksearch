@@ -45,7 +45,6 @@
      */
     $objContacts    = new Contact;
     $objContacts->setId_company($objCompany->id);
-    $objContacts->setId_contact($objContact->id);
     $objContacts->setId_user($id_user);
     
     // =========================================================================    
