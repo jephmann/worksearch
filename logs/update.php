@@ -14,10 +14,13 @@
     $objStatus->setClass("status_quo");
     // =========================================================================
     
-    $objLog = new Log;
+    $objLog             = new Log;
     $objLog->setId($_GET['id']);
     $objLog->setId_user($id_user);
     require ('_fetch.php');
+    $objCompanies       = new Company;
+    $objContacts        = new Contact;
+    $objContactMethods  = new Contact_Method;
     require ('_defaults.php');
     if(!empty($_POST))
     {

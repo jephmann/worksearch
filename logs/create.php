@@ -21,10 +21,13 @@
     $weekEnding     = date("Y-m-d",strtotime($thisDate." this Saturday"));
     $dateContact    = date("Y-m-d",strtotime($thisDate));
     
-    $objLog = new Log;
+    $objLog             = new Log;
     $objLog->setId_user($_SESSION['user']['id']);
     $objLog->setWeek_ending($weekEnding);
     $objLog->setContact_date($dateContact);
+    $objCompanies       = new Company;
+    $objContacts        = new Contact;
+    $objContactMethods  = new Contact_Method;
     require ('_defaults.php');
     if(!empty($_POST))
     {
