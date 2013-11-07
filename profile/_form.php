@@ -1,6 +1,6 @@
 <form id="form_profile" method="post" action="">
     <fieldset>
-        <legend>Profile</legend>
+        <legend><?php echo $page['mode']; ?>&nbsp;Profile</legend>
         <p>
             <?php echo $asterisk; ?> = Required fields.
         </p>

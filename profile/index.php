@@ -14,6 +14,11 @@
     $objStatus->setClass("status_quo");
     // =========================================================================
     
+    if(empty($_SESSION['profile']['id']))
+    {
+        header('Location:create.php');
+    }
+    
     $objProfile = new Profile;
     $objProfile->setId($_SESSION['profile']['id']);
     $objProfile->setId_user($id_user);

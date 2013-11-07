@@ -18,6 +18,9 @@
     $objProfile->setId($_SESSION['profile']['id']);
     $objProfile->setId_user($id_user);
     require ('_fetch.php');
+    $objStates          = new State;
+    $objSalutations     = new Salutation;
+    $objNameSuffixes    = new Name_Suffix;
     require ('_defaults.php');
     if(!empty($_POST))
     {

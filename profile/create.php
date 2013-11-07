@@ -23,6 +23,9 @@
     $objProfile = new Profile;
     $objProfile->setId_user($_SESSION['user']['id']);
     $objProfile->setDate_birth($dateBirth);
+    $objStates          = new State;
+    $objSalutations     = new Salutation;
+    $objNameSuffixes    = new Name_Suffix;
     require ('_defaults.php');
     if (!empty($_POST))
     {
@@ -39,6 +42,7 @@
             }
             else
             {
+                $_SESSION['profile']['id'] = $insert['id'];
                 header('Location:index.php');
             }
         }
