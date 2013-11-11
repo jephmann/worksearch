@@ -4,7 +4,7 @@ These notes are subject to change.
 
 =====
 
-November 3, 2013
+November 10, 2013
 
 WORKsearch (a working title) is a personal, independent project which I began in
 May 2013 chiefly to stay in practice in between jobs. Currently it is a work in
@@ -13,11 +13,12 @@ whether complete or not. It is also a spare-time project, something I work on
 whenever I can free some time; it is not beholden to any timetables or
 deadlines. 
 
-Being in between jobs, I found that creating a personal website and database
-with an aim toward managing my contacts and logging my activity would be an
-ideal project for me to maintain my strengths as a coder while working on areas
-which could use improvement. Being in between jobs, it is difficult for me to
-think of anything else as a subject for such a project.
+Being in between jobs, and times being what they have been, I found that
+creating a personal website and database with an aim toward managing my contacts
+and logging my activity would be an ideal project for me to maintain my
+strengths as a coder while working on areas which could use improvement. Being
+in between jobs, it is difficult for me to think of anything else as a subject
+for such a project.
 
 Originally this project was meant to be a single-user project. Although I have
 no ambition that this could be a major application which other people could use,
@@ -31,10 +32,7 @@ However finished or unfinished these files may appear, there is definitely a
 method (or function) to my madness. Whatever might appear to be "broken", I am
 likely to repair in due time when my other priorities permit.
 
-Until the project approaches a sense of "completion", I am not actively
-soliciting advice for a while. Regardless, should you feel compelled to 
-advise, may your criticism please be constructive.
-
+Should you feel compelled to advise, may your criticism please be constructive.
 I reserve the right to ignore any other kinds of criticism. ;)
 
 =====
@@ -119,19 +117,28 @@ encrypt) and email address.
 in my environment, this form may include "forget login" logic.
 - logout: shuts down the session and redirect to login.
 
-IMMEDIATE ISSUES as of 2013.09.30:
+IMMEDIATE ISSUES as of 2013.11.10:
 
 - A general doublecheck of the back-end re Profile, Company, Contact and Log.
-- PHP back-end validation for Profile, Company, Contact and Log forms.
-- Only after the back-end validation nears completion will I pursue JavaScript
-(jQuery?) front-end validation for Profile, Company, Contact and Log forms.
+- A specific doublecheck of back-end and front-end validation for Profile,
+Company, Contact and Log forms.
 - Front-end JavaScript (jQuery?) "are you sure?" logic re Delete.
 - Look into pagination of main tables; recheck sorting and filtering where
 applicable.
 - Explore object encapsulation further -- i.e. whether or not to make certain
 properties and methods private or protected, especially in my Data class.
+- Company detail: add lists of related logs and contacts; cross-reference.
+- Contact detail: add list of related logs and additional contacts within
+a contact's company; cross-reference.
+- Log detail: to be determined.
+- Whether to have an "initiated by (me or contact)" field in either Contacts or
+Logs or both.
+- Company: no companies = redirect from index to create.
+- Contact: no contacts = redirect from index to create.
+- Log: no logs = redirect from index to create.
+- Profile: no profile = redirect from index to create.
 
-LONG-TERM NICE-TO-HAVES as of 2013.09.30:
+LONG-TERM NICE-TO-HAVES as of 2013.11.10:
 
 - E-mail logic using PHPMailer which sends custom or form e-mails, perhaps with
 resume attachments, to contacts while logging said activity into Logs.
