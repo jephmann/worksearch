@@ -80,6 +80,7 @@
             $rowEmail           = htmlentities($row['email'], ENT_QUOTES, 'UTF-8');
             $rowWebsite         = htmlentities($row['website'], ENT_QUOTES, 'UTF-8');
             $rowDescription     = htmlentities($row['description'], ENT_QUOTES, 'UTF-8');
+            $rowRemarks         = htmlentities($row['remarks'], ENT_QUOTES, 'UTF-8');
 
             // Formatting and Displaying
 

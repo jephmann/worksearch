@@ -22,6 +22,14 @@
                 <td><?php echo $objCompany->industry; ?></td>
             </tr>
             <tr>
+                <td><strong>Description:</strong></td>
+                <td><?php echo $objCompany->description; ?></td>
+            </tr>
+            <tr>
+                <td><strong>Remarks/Notes:</strong></td>
+                <td><?php echo $objCompany->remarks; ?></td>
+            </tr>
+            <tr>
                 <td>
                     <strong>Address:</strong>
                 </td>
@@ -68,10 +76,6 @@
             <tr>
                 <td><strong>GooglePlus:</strong></td>
                 <td><?php echo $company_googleplus; ?></td>
-            </tr>
-            <tr>
-                <td><strong>DESCRIPTION:</strong></td>
-                <td><?php echo $objCompany->description; ?></td>
             </tr>
         </table>
     </fieldset>

@@ -15,6 +15,7 @@
     $objCompany->setIndustry(htmlentities($rowCompany['industry'], ENT_QUOTES, 'UTF-8'));
     $objCompany->setRecruiter(htmlentities($rowCompany['recruiter'], ENT_QUOTES, 'UTF-8'));
     $objCompany->setDescription(htmlentities($rowCompany['description'], ENT_QUOTES, 'UTF-8'));
+    $objCompany->setRemarks(htmlentities($rowCompany['remarks'], ENT_QUOTES, 'UTF-8'));
     // Address
     $objCompany->setAddress_building(htmlentities($rowCompany['address_building'], ENT_QUOTES, 'UTF-8'));
     $objCompany->setAddress_street(htmlentities($rowCompany['address_street'], ENT_QUOTES, 'UTF-8'));

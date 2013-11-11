@@ -25,6 +25,10 @@
                 <label id="lblDescription">Description:</label>
                 <textarea name="company_description" rows="7" cols="33" /><?php echo $objCompany->description; ?></textarea>
             </div>
+            <div class="form_row">
+                <label id="lblRemarks">Personal Remarks/Notes:</label>
+                <textarea name="remarks" rows="7" cols="33"><?php echo $objCompany->remarks; ?></textarea>
+            </div>
         </fieldset>
         <fieldset>
             <legend>Address</legend>

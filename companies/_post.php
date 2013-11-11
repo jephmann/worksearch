@@ -19,6 +19,7 @@
     $objCompany->setIndustry(trim($_POST['company_industry']));
     $objCompany->setRecruiter($company_recruiter);
     $objCompany->setDescription(trim($_POST['company_description']));
+    $objCompany->setRemarks($_POST['remarks']);
     // Address
     $objCompany->setAddress_building(ucwords(strtolower(trim($_POST['address_building']))));
     $objCompany->setAddress_street(ucwords(strtolower(trim($_POST['address_street']))));
