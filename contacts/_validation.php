@@ -10,6 +10,7 @@
     $objStatus->message .= validate_email_li($objContact->email, "Contact E-Mail");
     
     // NOT REQUIRED: Contact E-Mail, must be unique among Contacts
+    /*
     if(!empty($objContact->email))
     {
         // If the entered e-mail address is NOT unique among Contacts
@@ -18,6 +19,7 @@
             $objStatus->message .= validation_message("This Contact e-mail address already exists.");
         }
     }
+     */
     
     if(!empty($objStatus->message))
     {

@@ -33,6 +33,10 @@
                 <label id="lblNameSuffix">Name Suffix:</label>
                 <select name="name_suffix"><?php echo $optNameSuffixes; ?></select>
             </div>
+            <div class="form_row">
+                <label id="lblRemarks">Personal Remarks/Notes:</label>
+                <textarea name="remarks" rows="7" cols="33"><?php echo $objContact->remarks; ?></textarea>
+            </div>
         </fieldset>
         <fieldset>
             <legend>Company</legend>

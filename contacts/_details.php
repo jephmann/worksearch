@@ -26,6 +26,10 @@
                 <td><?php echo $objContact->title; ?></td>
             </tr>
             <tr>
+                <td><strong>Remarks/Notes:</strong></td>
+                <td><?php echo $objContact->remarks; ?></td>
+            </tr>
+            <tr>
                 <td><strong>Phone:</strong></td>
                 <td><?php echo $contact_phone; ?></td>
             </tr>

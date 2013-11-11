@@ -105,6 +105,7 @@
             $rowPhone           = htmlentities($row['phone'], ENT_QUOTES, 'UTF-8');
             $rowPhoneExtension  = htmlentities($row['extension'], ENT_QUOTES, 'UTF-8');
             $rowEmail           = htmlentities($row['email'], ENT_QUOTES, 'UTF-8');
+            $rowRemarks         = htmlentities($row['remarks'], ENT_QUOTES, 'UTF-8');
 
             $contact_phone      = formatPhone($rowPhone, $rowPhoneExtension);
             $contact_email      = formatEmailLink("Contact", $rowEmail);            
