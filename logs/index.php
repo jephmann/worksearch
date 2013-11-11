@@ -88,6 +88,7 @@
             $rowContactName     = htmlentities($row['contact_name'], ENT_QUOTES, 'UTF-8');
             $rowContactMethod   = htmlentities($row['contact_method'], ENT_QUOTES, 'UTF-8');
             $rowSpecify         = htmlentities($row['specify'], ENT_QUOTES, 'UTF-8');
+            $rowRemarks         = htmlentities($row['remarks'], ENT_QUOTES, 'UTF-8');
 
             $log_week_ending    = date("l F j, Y",strtotime($rowWeekEnding));
             $log_contact_date   = date("l F j, Y",strtotime($rowContactDate));

@@ -44,11 +44,11 @@
         </div>
         <div class="form_row">
             <label id="lblResults">Contact Result:<?php echo $dagger; ?></label>
-            <textarea name="results"><?php echo $objLog->results; ?></textarea>
+            <textarea name="results" rows="7" cols="33"><?php echo $objLog->results; ?></textarea>
         </div>
         <div class="form_row">
             <label id="lblRemarks">Personal Remarks/Notes:</label>
-            <textarea name="remarks"><?php echo $objLog->remarks; ?></textarea>
+            <textarea name="remarks" rows="7" cols="33"><?php echo $objLog->remarks; ?></textarea>
         </div>
     </fieldset>
     <div class="button_row">

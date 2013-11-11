@@ -45,7 +45,7 @@
             <td><?php echo $log_results; ?></td>
         </tr>
         <tr>
-            <td><strong>Remarks</strong></td>
+            <td><strong>Remarks/Notes</strong></td>
             <td><?php echo $log_remarks; ?></td>
         </tr>
     </table>
