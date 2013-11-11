@@ -48,6 +48,7 @@ class Profile extends Person {
         'social_security_number',
         'drivers_state',
         'drivers_license',
+        'remarks',
     );
         
     // Profile get/set Methods
@@ -182,6 +183,7 @@ class Profile extends Person {
             ':social_security_number'   => $this->social_security_number,
             ':drivers_state'            => $this->drivers_state,
             ':drivers_license'          => $this->drivers_license,
+            ':remarks'                  => $this->remarks,
             );
         if(!empty($id))
         {

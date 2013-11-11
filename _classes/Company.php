@@ -53,7 +53,8 @@ class Company extends Data {
         'facebook',
         'googleplus',
         'industry',
-        'recruiter'
+        'recruiter',
+        'remarks'
         );
         
     // Company get/set Methods
@@ -236,6 +237,7 @@ class Company extends Data {
             ':googleplus'       => $this->googleplus,
             ':industry'         => $this->industry,
             ':recruiter'        => $this->recruiter,
+            ':remarks'          => $this->remarks,
             );
         if(!empty($id))
         {

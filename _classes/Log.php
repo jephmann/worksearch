@@ -16,7 +16,6 @@ class Log extends Data {
     public $id_contact_method   = NULL;                         // * "Method of Contact
     public $specify             = "N/A";
     public $results             = NULL;                         // * "Results
-    public $remarks             = NULL;
     // * from the IDES "work search form".
     
     // Data Properties
@@ -89,13 +88,6 @@ class Log extends Data {
     }
     public function setResults($results) {
         $this->results = $results;
-    }
-
-    public function getRemarks() {
-        return $this->remarks;
-    }
-    public function setRemarks($remarks) {
-        $this->remarks = $remarks;
     }
 
     public function getWork() {

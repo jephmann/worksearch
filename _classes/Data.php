@@ -8,6 +8,7 @@ class Data {
     
     // Data Properties
     public $id          = NULL;
+    public $remarks     = NULL;
     public $table       = NULL;     // 2013.09.23 TODO: Would like this protected
     protected $fields   = array();
     
@@ -18,7 +19,14 @@ class Data {
     public function setId($id) {
         $this->id = $id;
     }
-        
+    
+    public function getRemarks() {
+        return $this->remarks;
+    }
+    public function setRemarks($remarks) {
+        $this->remarks = $remarks;
+    }
+            
     /*
      * Data helper methods: CRUD (These return SQL statements)
      */

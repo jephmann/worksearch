@@ -40,7 +40,8 @@ class Contact extends Person {
         'linkedin',
         'twitter',
         'facebook',
-        'googleplus'
+        'googleplus',
+        'remarks'
         );
         
     // Contact get/set Methods
@@ -150,6 +151,7 @@ class Contact extends Person {
             ':twitter'          => $this->twitter,
             ':facebook'         => $this->facebook,
             ':googleplus'       => $this->googleplus,
+            ':remarks'          => $this->remarks,
             );
         if(!empty($id))
         {
