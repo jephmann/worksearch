@@ -16,6 +16,7 @@
     $objProfile->setName_last(htmlentities($rowProfile['name_last'], ENT_QUOTES, 'UTF-8'));
     $objProfile->setId_name_suffix(htmlentities($rowProfile['id_name_suffix'], ENT_QUOTES, 'UTF-8'));
     $objProfile->setDate_birth(htmlentities($rowProfile['date_birth'], ENT_QUOTES, 'UTF-8'));
+    $objProfile->setRemarks(htmlentities($rowProfile['remarks'], ENT_QUOTES, 'UTF-8'));
     // Address
     $objProfile->setAddress_building(htmlentities($rowProfile['address_building'], ENT_QUOTES, 'UTF-8'));
     $objProfile->setAddress_street(htmlentities($rowProfile['address_street'], ENT_QUOTES, 'UTF-8'));

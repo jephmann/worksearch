@@ -39,6 +39,10 @@
                 <select name="birth_date_dd"><?php echo $optBirthDateDD; ?></select>
                 <select name="birth_date_yyyy"><?php echo $optBirthDateYYYY; ?></select>
             </div>
+            <div class="form_row">
+                <label id="lblRemarks">Personal Remarks/Notes:</label>
+                <textarea name="remarks" rows="7" cols="33"><?php echo $objProfile->remarks; ?></textarea>
+            </div>
         </fieldset>
         <fieldset>
             <legend>Address</legend>

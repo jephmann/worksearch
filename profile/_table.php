@@ -27,9 +27,11 @@
                 <td><strong>Born:</strong></td>
                 <td><?php echo $objProfile->full_birth_date(); ?></td>
             </tr>
+            <tr>
+                <td><strong>Remarks/Notes:</strong></td>
+                <td><?php echo $objProfile->remarks; ?></td>
+            </tr>
         </table>
-        
-        
     </fieldset>
     <fieldset>
         <legend>Address</legend>

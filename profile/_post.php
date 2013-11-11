@@ -26,6 +26,7 @@
     $objProfile->setName_last(ucwords(strtolower(trim($_POST['name_last']))));
     $objProfile->setId_name_suffix($_POST['name_suffix']);
     $objProfile->setDate_birth($birth_date);
+    $objProfile->setRemarks($_POST['remarks']);
     
     // Address
     $objProfile->setAddress_building(ucwords(strtolower(trim($_POST['address_building']))));
