@@ -1,6 +1,6 @@
                 </article>        
-            </section>            
-            <div class="clear" />
+            </section> 
+            <div class="clear"></div>
             <footer>
                     <p>
                         Our Beloved Entertainer: <?php echo ($project['author']); ?>

@@ -10,7 +10,7 @@
             </h1>
             <h2><?php echo ($page['title'].$page['subtitle']); ?></h2>
         </header>
-        <div class="clear" />
+        <div class="clear"></div>
         <nav>            
             <?php
                 $nav_li = NULL;
@@ -45,5 +45,5 @@
                 ?>
             </ul>
         </nav>
-        <div class="clear" />
+        <div class="clear"></div>
         <section>
