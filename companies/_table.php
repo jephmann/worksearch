@@ -25,19 +25,4 @@
         <?php echo $thead.$tbody; ?>
     </table>
 </fieldset>
-<script type="text/javascript">
-    function alertDelete(ID)
-    {
-        var answer = confirm("Are you sure about deleting Company #"+ID+"?");        
-	if (answer){
-		alert("Deleted!");
-		window.location = ("../delete.php?id="+ID+"&tbl=companies");
-	}
-	else{
-		alert("Not deleted then.");
-                //window.location = ("index.php");
-                
-	}
-    }
-    
-</script>
+<script language="javascript" type="text/javascript" src="_delete.js"></script>

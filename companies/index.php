@@ -123,9 +123,7 @@
                 <br />
                 <a href=\"update.php?id={$rowID}\">Update</a>
                 <br />
-                <a
-                href=\"delete.php?id={$rowID}\"
-                onclick=\"alertDelete({$rowID})\">Delete</a>
+                <a href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>
                 </td>
                 <td class=\"td_detail\">
                 <strong>{$company_name}</strong>

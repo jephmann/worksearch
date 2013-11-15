@@ -5,7 +5,7 @@
     <fieldset>
         <legend>
             <a href="update.php?id=<?php echo $objCompany->id; ?>">Update</a>
-            <a href="delete.php?id=<?php echo $objCompany->id; ?>">Delete</a>
+            <a href="delete.php?id=<?php echo $objCompany->id; ?>" class="delete">Delete</a>
             <?php echo $objCompany->name; ?>
         </legend>
         <table>
@@ -90,3 +90,4 @@
         <p>In progress.</p>
     </fieldset>
 </div>
+<script language="javascript" type="text/javascript" src="_delete.js"></script>
