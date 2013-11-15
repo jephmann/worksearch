@@ -25,3 +25,4 @@
         <?php echo $thead.$tbody; ?>
     </table>
 </fieldset>
+<script language="javascript" type="text/javascript" src="_delete.js"></script>

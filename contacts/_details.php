@@ -5,7 +5,7 @@
     <fieldset>
         <legend>
             <a href="update.php?id=<?php echo $objContact->id; ?>">Update</a>
-            <a href="delete.php?id=<?php echo $objContact->id; ?>">Delete</a>
+            <a href="delete.php?id=<?php echo $objCompany->id; ?>" class="delete">Delete</a>
             Contact
         </legend>
         <table>
@@ -144,3 +144,4 @@
     <p>[Additional cross-referenced company contacts]</p>
 </div>
 <div class="clear"></div>
+<script language="javascript" type="text/javascript" src="_delete.js"></script>

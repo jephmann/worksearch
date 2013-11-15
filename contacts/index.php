@@ -105,7 +105,6 @@
             $rowPhone           = htmlentities($row['phone'], ENT_QUOTES, 'UTF-8');
             $rowPhoneExtension  = htmlentities($row['extension'], ENT_QUOTES, 'UTF-8');
             $rowEmail           = htmlentities($row['email'], ENT_QUOTES, 'UTF-8');
-            $rowRemarks         = htmlentities($row['remarks'], ENT_QUOTES, 'UTF-8');
 
             $contact_phone      = formatPhone($rowPhone, $rowPhoneExtension);
             $contact_email      = formatEmailLink("Contact", $rowEmail);            
@@ -117,7 +116,7 @@
                 <br />
                 <a href=\"update.php?id={$rowID}\">Update</a>
                 <br />
-                <a href=\"delete.php?id={$rowID}\">Delete</a>
+                <a href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>
                 </td>
                 <td class=\"td_detail\">{$contact_company}</td>
                 <td class=\"td_detail\">{$rowNameFirst} {$rowNameMiddle} {$rowNameLast}</td>
