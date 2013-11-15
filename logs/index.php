@@ -88,7 +88,6 @@
             $rowContactName     = htmlentities($row['contact_name'], ENT_QUOTES, 'UTF-8');
             $rowContactMethod   = htmlentities($row['contact_method'], ENT_QUOTES, 'UTF-8');
             $rowSpecify         = htmlentities($row['specify'], ENT_QUOTES, 'UTF-8');
-            $rowRemarks         = htmlentities($row['remarks'], ENT_QUOTES, 'UTF-8');
 
             $log_week_ending    = date("l F j, Y",strtotime($rowWeekEnding));
             $log_contact_date   = date("l F j, Y",strtotime($rowContactDate));
@@ -101,9 +100,7 @@
                 <br />
                 <a href=\"update.php?id={$rowID}\">Update</a>
                 <br />
-                <a
-                href=\"delete.php?id={$rowID}\"
-                onclick=\"alertDelete({$rowID})\">Delete</a>
+                <a href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>
                 </td>
                 <td class=\"td_detail\">{$log_week_ending}</td>
                 <td class=\"td_detail\">{$log_contact_date}</td>

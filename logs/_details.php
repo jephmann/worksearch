@@ -4,7 +4,7 @@
 <fieldset>
     <legend>
         <a href="update.php?id=<?php echo $objLog->id; ?>">Update</a>
-        <a href="delete.php?id=<?php echo $objLog->id; ?>">Delete</a>
+            <a href="delete.php?id=<?php echo $objCompany->id; ?>" class="delete">Delete</a>
         Log #<?php echo $objLog->id; ?>
     </legend>
     <table style="margin:0 auto;">
@@ -50,3 +50,4 @@
         </tr>
     </table>
 </fieldset>
+<script language="javascript" type="text/javascript" src="_delete.js"></script>
