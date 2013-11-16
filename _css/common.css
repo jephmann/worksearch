@@ -2,10 +2,8 @@
     Document   : common
     Created on : May 6, 2013, 6:16:03 PM
     Author     : Jeffrey
-    Description:
-        Purpose of the stylesheet follows.
+    Description: Styles across the board
 */
-
 
 @font-face 
 {
@@ -17,19 +15,13 @@
     clear: both;
 }
 body {
-    
-    background-image: url('../_images/brushed-metal-002929-medium-gray.jpg');
-}
-#page {
-    display: block;
-    width: 960px;
-    margin: 2em auto;
-    background-color: #FFFFFF;
     color: #000000;
     font-size: 62.5%;
     font-family: "Cambria","Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
-    -webkit-box-shadow: 4px 4px 4px 4px #000000;
-    box-shadow: 4px 4px 4px 4px #000000;
+    /*
+    background-image: url('../_images/brushed-metal-002929-medium-gray.jpg');
+    */
+    background-color: #B0E0E6;
 }
 h1, h2, h3, h4, h5, h6 {
     display: block;
@@ -47,34 +39,90 @@ h2 {
     font-size: 1.75em;
     line-height: 1.75em;
 }
+
+/*
+    Header/Footer rethink [http://jsfiddle.net/virendrachandak/cF2Fv/]
+*/
+
+/* Make Header Sticky */
 header {
-    display: block;
-    width: 936px;
-    background-color: #CCCCFF;
-    padding: 0px 12px;
+    background:         #eee;
+    border:             1px solid #666;
+    height:             100px;
+    left:               0;
+    position:           fixed;
+    width:              100%;
+    top:                0;
+    background-color:   #CCCCFF;
 }
-header h1 {
-    font-family: arial, sans-serif;
-    font-size: 4.50em;
-    text-shadow: 2px 2px 2px #000033;
-    filter: dropshadow(color=#000033, offx=2, offy=2);
-    display: inline-block;
+header section {
+    margin:     0 auto;
+    width:      960px;
+    /*
+    text-align:center;
+    */
+}
+header section h1 {
+    font-family:    arial, sans-serif;
+    font-size:      4.50em;
+    line-height:    60px;
+    text-shadow:    2px 2px 2px #000033;
+    filter:         dropshadow(color=#000033, offx=2, offy=2);
+    display:        inline-block;
     padding-bottom: 4px;
 }
-header h1 #title1 {
-    font-weight: normal;
-    color: #0000FF;
+header section h1 #title1 {
+    font-weight:    normal;
+    color:          #0000FF;
 }
-header h1 #title2 {
-    font-weight: bold;
-    color: #3333CC;
+header section h1 #title2 {
+    font-weight:    bold;
+    color:          #3333CC;
 }
-header h2 {
-    display: inline;
-    float: right;
-    padding: auto 0px;
-    color: #000033;
+header section h2 {
+    display:        inline;
+    float:          right;
+    padding:        auto 0px;
+    color:          #000033;
+    text-align:     right;
 }
+
+/* CSS for the content of page. I am giving top and bottom padding of 80px to make sure the header and footer do not overlap the content.*/
+#container { margin:0 auto; overflow:auto; padding:80px 0; width:940px; }
+#content{}
+
+
+#page {
+    /*
+    display: block;
+    */
+    width: 960px;
+    margin: 120px auto;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 4px 4px 4px 4px #000000;
+    box-shadow: 4px 4px 4px 4px #000000;
+    /* padding: 80px 0; */
+    overflow: auto;
+}
+
+/* Make Footer Sticky */
+footer {
+    border:     1px solid #666;
+    bottom:     0;
+    height:     60px;
+    left:       0;
+    position:   fixed;
+    width:      100%;
+    background-color: #000033;
+}
+footer section {
+    color:      #FFFFFF;
+    line-height:    60px;
+    margin:     0 auto;
+    width:      940px;
+    text-align: center;
+}
+
 
 fieldset {
     border: 1px dotted silver;
@@ -105,8 +153,10 @@ th a {
 }
 nav {
     font-weight: bold;
+    /*
     background-color: #666699;
     padding:0.1em;
+    */
 }
 
 th {
@@ -118,23 +168,27 @@ th:hover {
     color: #003333; 
 }
 
-#page nav ul, .filter_list
+header nav ul, .filter_list
 {
     list-style-type:none;
+    /*
     margin:1em;
     background-color: yellow;
+    */
 }
-#page nav ul li, .filter_list li
+header nav ul li, .filter_list li
 {
     display:inline;
     margin-right: 4px;
 }
-#page nav ul li a, legend a
+header nav ul li a, legend a
 {
     text-decoration: none;
     color: #00FFFF;
     padding:6px;
-    /*border:1px dotted silver;*/
+    /*
+    border:1px dotted silver;
+    */
     background-color: #333366;
     -webkit-border-radius: 12px;
     border-radius: 12px;
@@ -146,7 +200,7 @@ legend a
     font-size: smaller;
     margin-right: 4px;
 }
-#page nav ul li a:hover, legend a:hover
+header nav ul li a:hover, legend a:hover
 {
     background-color: #9999CC;
     color: #000033;
@@ -186,13 +240,6 @@ article {
     width: 720px;
     float: left;
     background-color: #F5F5F5;
-}
-footer {
-    display: block;
-    width: 960px;
-    margin: 0 auto;
-    background-color: #000033;
-    color: #FFFFFF;
 }
 
 label {
