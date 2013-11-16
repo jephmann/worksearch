@@ -1,31 +1,4 @@
 <aside>
-    <p>
-        <?php
-        if(!empty($_SESSION['profile']))
-        {
-            $session_name_full = $_SESSION['profile']['name_last'];
-            if(!empty($_SESSION['profile']['name_middle']))
-            {
-                $session_name_full = $_SESSION['profile']['name_middle'] . ' ' . $session_name_full;
-            }
-            if(!empty($_SESSION['profile']['name_first']))
-            {
-                $session_name_full = $_SESSION['profile']['name_first'] . ' ' . $session_name_full;
-            }
-            echo "<h2>
-                {$session_name_full}
-                <br/>
-                {$_SESSION['profile']['address_city']}, {$_SESSION['profile']['address_state']}
-                </h2>";
-        }
-        else
-        {
-            echo "<h3>
-                We invite you to build your profile before proceding further.
-                </h3>";
-        }
-        ?>
-    </p>
     <fieldset>
         <legend>Contents</legend>
         <div class="notes">

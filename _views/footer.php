@@ -1,11 +1,13 @@
                 </article>        
             </section> 
             <div class="clear"></div>
-            <footer>
-                    <p>
-                        Our Beloved Entertainer: <?php echo ($project['author']); ?>
-                    </p>
-            </footer>
         </div>
+        <footer>
+            <section>
+                <p>
+                    Our Beloved Entertainer: <?php echo ($project['author']); ?>
+                </p>
+            </section>
+        </footer>
     </body>
 </html>
