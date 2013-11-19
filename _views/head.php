@@ -35,7 +35,10 @@
     }
     else
     {
-        $session_whose .= "We invite you to build your profile<br />before proceding further.";
+        if(!empty($_SESSION))
+        {
+            $session_whose .= "We invite you to build your profile<br />before proceding further.";
+        }
     }    
     
     $nav_li = NULL;
@@ -51,8 +54,6 @@
             <li><a href=\"{$page['path']}logs/\">Logs</a></li>
             <li>Mail</li>";
     }
-    
-    
 ?>
 <!DOCTYPE html>
 <html>

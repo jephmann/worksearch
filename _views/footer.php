@@ -4,9 +4,10 @@
         </div>
         <footer>
             <section>
-                <p>
+                <h3>
                     Our Beloved Entertainer: <?php echo ($project['author']); ?>
-                </p>
+                </h3>
+                <p>Copyright &copy; <?php echo Date('Y'); ?></p>
             </section>
         </footer>
     </body>
