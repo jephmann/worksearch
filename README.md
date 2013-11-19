@@ -4,7 +4,7 @@ These notes are subject to change.
 
 =====
 
-November 10, 2013
+November 19, 2013
 
 WORKsearch (a working title) is a personal, independent project which I began in
 May 2013 chiefly to stay in practice in between jobs. Currently it is a work in
@@ -18,7 +18,8 @@ creating a personal website and database with an aim toward managing my contacts
 and logging my activity would be an ideal project for me to maintain my
 strengths as a coder while working on areas which could use improvement. Being
 in between jobs, it is difficult for me to think of anything else as a subject
-for such a project.
+for such a project. (In happier times, this might have been a project about my
+DVD collection or something else fun.)
 
 Originally this project was meant to be a single-user project. Although I have
 no ambition that this could be a major application which other people could use,
@@ -40,7 +41,8 @@ I reserve the right to ignore any other kinds of criticism. ;)
 WHAT'S IN IT
 
 Longstoryshort: So far, PHP 5.4.7 over XAMPP 1.8.1 connecting to MySQL 5.5.27
-via PDO using HTML, HTML5, CSS and CSS3. My IDE is NetBeans 7.3.
+via PDO using HTML, HTML5, CSS and CSS3; to a lesser extent, JavaScript and
+jQuery as well. My IDE is NetBeans 7.3.
 
 For now, I am concentrating on back-end programming. Other technologies,
 particularly on the front end, shall follow as I go along.
@@ -64,7 +66,7 @@ PDO connections. Although I am not using an MVC framework, some MVC concepts may
 formally as a "Model", although this class helps me appreciate the Model
 concept.
 
-- _config -- After using mysql_connect and mysqli_connect to connect to MySQL,
+- _config -- After using "mysql_connect" and "mysqli_connect" to connect to MySQL,
 sometimes together, I decided that PDO would make me a more disciplined PHP
 developer as well as enhance my understanding of object-oriented concepts. Much
 of the PDO configuration can be found here, along with session code and
@@ -117,7 +119,7 @@ encrypt) and email address.
 in my environment, this form may include "forget login" logic.
 - logout: shuts down the session and redirect to login.
 
-IMMEDIATE ISSUES as of 2013.11.10:
+IMMEDIATE ISSUES as of 2013.11.19:
 
 - A general doublecheck of the back-end re Profile, Company, Contact and Log.
 - A specific doublecheck of back-end and front-end validation for Profile,
@@ -131,14 +133,14 @@ properties and methods private or protected, especially in my Data class.
 - Contact detail: add list of related logs and additional contacts within
 a contact's company; cross-reference.
 - Log detail: to be determined.
-- Whether to have an "initiated by (me or contact)" field in either Contacts or
+- Whether to have an "initiated by [me or contact]" field in either Contacts or
 Logs or both.
 - Company: no companies = redirect from index to create.
 - Contact: no contacts = redirect from index to create.
 - Log: no logs = redirect from index to create.
 - Profile: no profile = redirect from index to create.
 
-LONG-TERM NICE-TO-HAVES as of 2013.11.10:
+LONG-TERM NICE-TO-HAVES as of 2013.11.19:
 
 - E-mail logic using PHPMailer which sends custom or form e-mails, perhaps with
 resume attachments, to contacts while logging said activity into Logs.
