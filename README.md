@@ -57,14 +57,14 @@ INCLUDED/REQUIRED FOLDERS/FILES:
 
 - _classes -- The classes which I convert into objects as needed throughout the
 project. Object-oriented programming is one of the areas which I seek to
-improve. This project is my first opportunity to work with classes in earnest.
-All of the classes are entirely mine, except for those related to PHPMailer.
-I am particularly proud of the Data class I created for this project, which
-includes methods to generate fundamental SQL C*R*U*D statements compatible with
-PDO connections. Although I am not using an MVC framework, some MVC concepts may
-"leak" into this project. I am not certain that I can refer to my Data class
-formally as a "Model", although this class helps me appreciate the Model
-concept.
+improve for myself. This project is my first opportunity to work with classes in
+earnest. All of the classes are entirely mine, except for those related to
+PHPMailer. I am particularly proud of the Data class which I created for this
+project, which includes methods to generate fundamental SQL C*R*U*D statements
+compatible with PDO connections, including parameterized queries. Although I am
+not using an MVC framework, some MVC concepts may "leak" into this project. I am
+not certain that I can refer to my Data class formally as a "Model", although
+this class helps me appreciate the Model concept in general.
 
 - _config -- After using "mysql connect" and "mysqli connect" to connect to
 MySQL, sometimes mixed together in a project, I decided that PDO would make me a
