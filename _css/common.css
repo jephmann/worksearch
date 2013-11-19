@@ -12,52 +12,58 @@
 	fontFamily: "Cambria";
 }
 .clear {
-    clear: both;
+    clear:  both;
 }
 body {
-    color: #000000;
-    font-size: 62.5%;
-    font-family: "Cambria","Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
-    /*
-    background-image: url('../_images/brushed-metal-002929-medium-gray.jpg');
-    */
-    background-color: #B0E0E6;
+    color:              #000000;
+    font-size:          62.5%;
+    font-family:        "Cambria","Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    background-color:   #CCCCCC;
+}
+p {
+    display:        block;
+    line-height:    1em;
+    font-size:      1em;
+    padding-bottom: 1em;
 }
 h1, h2, h3, h4, h5, h6 {
-    display: block;
-    font-weight: bold;
+    display:        block;
+    font-weight:    bold;
+    padding-bottom: 1em;
 }
 h4, p, td, th, li, label {
-    font-size: 1.25em;
-    line-height: 1.25em;
+    font-size:      1.25em;
+    line-height:    1.25em;
 }
 h3, legend {
-    font-size: 1.50em;
-    line-height: 1.50em;
+    font-size:      1.50em;
+    line-height:    1.50em;
 }
 h2 {
-    font-size: 1.75em;
-    line-height: 1.75em;
+    font-size:      1.75em;
+    line-height:    1.75em;
 }
 
 /*
     Header/Footer rethink [http://jsfiddle.net/virendrachandak/cF2Fv/]
 */
 
+header, footer {
+    position: fixed;
+    width: 100%
+}
+
 /* Make Header Sticky */
 header {
-    background:         #eee;
-    border:             1px solid #666;
-    height:             100px;
-    left:               0;
-    position:           fixed;
-    width:              100%;
-    top:                0;
     background-color:   #CCCCFF;
+    border-bottom:      1px solid #C0C0C0;
+    height:             10em;
+    left:               0;
+    top:                0;
 }
 header section {
-    margin:     0 auto;
-    width:      960px;
+    margin:             0 auto;
+    width:              960px;
     /*
     text-align:center;
     */
@@ -87,33 +93,22 @@ header section h2 {
     text-align:     right;
 }
 
-/* CSS for the content of page. I am giving top and bottom padding of 80px to make sure the header and footer do not overlap the content.*/
-#container { margin:0 auto; overflow:auto; padding:80px 0; width:940px; }
-#content{}
-
-
 #page {
-    /*
-    display: block;
-    */
-    width: 960px;
-    margin: 120px auto;
-    background-color: #FFFFFF;
-    -webkit-box-shadow: 4px 4px 4px 4px #000000;
-    box-shadow: 4px 4px 4px 4px #000000;
-    /* padding: 80px 0; */
-    overflow: auto;
+    width:                  960px;
+    margin:                 12em auto 8em;
+    background-color:       #FFFFFF;
+    overflow:               auto;
+    -webkit-box-shadow:     4px 4px 4px 4px #000000;
+    box-shadow:             4px 4px 4px 4px #000000;
 }
 
 /* Make Footer Sticky */
 footer {
-    border:     1px solid #666;
-    bottom:     0;
-    height:     60px;
-    left:       0;
-    position:   fixed;
-    width:      100%;
-    background-color: #000033;
+    background-color:   #000033;
+    border-top:         1px solid #C0C0C0;
+    bottom:             0;
+    height:             6em;
+    left:               0;
 }
 footer section {
     color:      #FFFFFF;
@@ -188,12 +183,22 @@ header nav ul li a, legend a
     padding:6px;
     /*
     border:1px dotted silver;
-    */
     background-color: #333366;
+    */
     -webkit-border-radius: 12px;
     border-radius: 12px;
     -webkit-box-shadow: 2px 2px 2px 2px #000033;
-    box-shadow: 2px 2px 2px 2px #000033; 
+    box-shadow: 2px 2px 2px 2px #000033;
+    
+    background: #a7cfdf; /* Old browsers */
+    background: -moz-linear-gradient(top,  #a7cfdf 0%, #23538a 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a7cfdf), color-stop(100%,#23538a)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #a7cfdf 0%,#23538a 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #a7cfdf 0%,#23538a 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #a7cfdf 0%,#23538a 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #a7cfdf 0%,#23538a 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=0 ); /* IE6-9 */
+
 }
 legend a
 {
@@ -202,9 +207,20 @@ legend a
 }
 header nav ul li a:hover, legend a:hover
 {
-    background-color: #9999CC;
     color: #000033;
-    /*border:1px dotted silver;*/
+    /*
+    border:1px dotted silver;
+    background-color: #9999CC;
+    */
+    background: #deefff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #deefff 0%, #98bede 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#deefff), color-stop(100%,#98bede)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #deefff 0%,#98bede 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #deefff 0%,#98bede 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #deefff 0%,#98bede 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #deefff 0%,#98bede 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deefff', endColorstr='#98bede',GradientType=0 ); /* IE6-9 */
+
 }
 .filter
 {
@@ -278,13 +294,70 @@ em {
     text-decoration: none;
 }
 .asterisk {
-    font-weight: bold;
-    color: red;
+    font-weight:    bold;
+    color:          red;
 }
 
 tbody tr th {
     
 }
+
+.left {
+    width:  300px;
+    float:  left;
+}
+.right {
+    width:  300px;
+    float:  right;
+}
+
+.rbl {
+    float:              left;
+    font-weight:        bold;
+    padding-right:      1em;
+    /* background-color:   yellow; */
+}
+
+/*
+    Status Classes
+*/
+
+.status_error, .status_quo {
+    /* css3 */
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-box-shadow:  2px 2px 2px 2px #cccccc;
+    box-shadow:  2px 2px 2px 2px #cccccc;    
+}
+
+.status_error {
+    background-color: crimson;
+    color: #FFFFFF;
+}
+.status_quo {
+    background-color: powderblue;
+    color: #000000;
+}
+
+/*
+    jQuery Validation
+*/
+label.error {
+    float: none;
+    color: white;
+    padding: 2px .5em;
+    vertical-align: top;
+    font-weight: bold;
+    background-color: crimson;
+    margin: 0 4px;
+    width: 75%;
+    /* css3 */
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-box-shadow:  2px 2px 2px 2px #cccccc;
+    box-shadow:  2px 2px 2px 2px #cccccc;
+}
+
 
 /*
     Notes on NOTES: 
@@ -314,45 +387,4 @@ pre {
     display: block;
     border: 1px dashed silver;
     background-color: #FFFFFF;
-}
-
-/*
-    Status Classes
-*/
-.status_error {
-    background-color: crimson;
-    color: #FFFFFF;
-    /* css3 */
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-    -webkit-box-shadow:  2px 2px 2px 2px #cccccc;
-    box-shadow:  2px 2px 2px 2px #cccccc;
-}
-.status_quo {
-    background-color: powderblue;
-    color: #000000;
-    /* css3 */
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-    -webkit-box-shadow:  2px 2px 2px 2px #cccccc;
-    box-shadow:  2px 2px 2px 2px #cccccc;
-}
-
-/*
-    jQuery Validation
-*/
-label.error {
-    float: none;
-    color: white;
-    padding: 2px .5em;
-    vertical-align: top;
-    font-weight: bold;
-    background-color: crimson;
-    margin: 0 4px;
-    width: 75%;
-    /* css3 */
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-    -webkit-box-shadow:  2px 2px 2px 2px #cccccc;
-    box-shadow:  2px 2px 2px 2px #cccccc;
 }
