@@ -15,7 +15,7 @@
             </div>
             <div class="form_row">
                 <label id="lblSalutation">Salutation:</label>
-                <select name="salutation"><?php echo $optSalutations; ?></select>
+                <select name="salutation"><?php echo $optSalutations['options']; ?></select>
             </div>
             <div class="form_row">
                 <label id="lblNameFirst">First Name:</label>
@@ -31,7 +31,7 @@
             </div>
             <div class="form_row">
                 <label id="lblNameSuffix">Name Suffix:</label>
-                <select name="name_suffix"><?php echo $optNameSuffixes; ?></select>
+                <select name="name_suffix"><?php echo $optNameSuffixes['options']; ?></select>
             </div>
             <div class="form_row">
                 <label id="lblDateBirth">Born:</label>
@@ -64,7 +64,7 @@
             </div>
             <div class="form_row">
                 <label id="lblAddressState">State:</label>
-                <select name="address_state"><?php echo $optStates; ?></select>
+                <select name="address_state"><?php echo $optStates['options']; ?></select>
             </div>
             <div class="form_row">
                 <label id="lblAddressZip5">ZIP:</label>
@@ -106,7 +106,7 @@
             </div>
             <div class="form_row">
                 <label id="lblDriversState">Drivers State:</label>
-                <select name="drivers_state"><?php echo $optDriversStates; ?></select>
+                <select name="drivers_state"><?php echo $optDriversStates['options']; ?></select>
             </div>
         </fieldset>
     </fieldset>

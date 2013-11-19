@@ -15,7 +15,7 @@
             </div>
             <div class="form_row">
                 <label id="lblSalutation">Salutation:</label>
-                <select name="salutation"><?php echo $optSalutations; ?></select>
+                <select name="salutation"><?php echo $optSalutations['options']; ?></select>
             </div>
             <div class="form_row">
                 <label id="lblNameFirst">First Name:</label>
@@ -31,7 +31,7 @@
             </div>
             <div class="form_row">
                 <label id="lblNameSuffix">Name Suffix:</label>
-                <select name="name_suffix"><?php echo $optNameSuffixes; ?></select>
+                <select name="name_suffix"><?php echo $optNameSuffixes['options']; ?></select>
             </div>
             <div class="form_row">
                 <label id="lblRemarks">Personal Remarks/Notes:</label>
@@ -42,7 +42,7 @@
             <legend>Company</legend>
             <div class="form_row">
                 <label id="lblCompany">Company:<?php echo $asterisk; ?></label>
-                <select name="company"><?php echo $optCompanies; ?></select>
+                <select name="company"><?php echo $optCompanies['options']; ?></select>
             </div>
             <div class="form_row">
                 <label id="lblDepartment">Department:</label>

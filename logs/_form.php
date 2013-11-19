@@ -28,15 +28,17 @@
         </div>
         <div class="form_row">
             <label id="lblCompany">Company:<?php echo $dagger.$asterisk; ?></label>
-            <select name="company"><?php echo $optCompanies; ?></select>
+            <select name="company"><?php echo $optCompanies['options']; ?></select>
         </div>
         <div class="form_row">
             <label id="lblContact">Contact:<?php echo $dagger.$asterisk; ?></label>
-            <select name="contact"><?php echo $optContacts; ?></select>
+            <select name="contact"><?php echo $optContacts['options']; ?></select>
         </div>
         <div class="form_row">
             <label id="lblContactMethod">Method of Contact:<?php echo $dagger.$asterisk; ?></label>
-            <?php echo $rblContactMethods; ?>
+            <div class="rbl">
+                <?php echo $rblContactMethods['options']; ?>
+            </div>
         </div>
         <div class="form_row">
             <label id="lblSpecify">Specify Contact Method Detail:</label>

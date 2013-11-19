@@ -50,7 +50,7 @@
             </div>
             <div class="form_row">
                 <label id="lblState">State:<?php echo $asterisk; ?></label>
-                <select name="address_state"><?php echo $optStates; ?></select>
+                <select name="address_state"><?php echo $optStates['options']; ?></select>
             </div>
             <div class="form_row">
                 <label id="lblAddressZip5">ZIP:</label>

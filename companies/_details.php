@@ -1,18 +1,22 @@
 <ul id="status" name="status" class="<?php echo $objStatus->class; ?>">
     <?php echo $objStatus->message; ?>
 </ul>
-<div style="width:300px; float:left">
+<section class="left">
     <fieldset>
         <legend>
             <a href="update.php?id=<?php echo $objCompany->id; ?>">Update</a>
             <a href="delete.php?id=<?php echo $objCompany->id; ?>" class="delete">Delete</a>
-            <?php echo $objCompany->name; ?>
+            Company
         </legend>
         <table>
             <colgroup>
                 <col style="background-color:#CCCCFF">
                 <col style="background-color:#FFFFFF">
             </colgroup>
+            <tr>
+                <td><strong>Company:</strong></td>
+                <td><?php echo $objCompany->name; ?></td>
+            </tr>
             <tr>
                 <td><strong>Recruiter:</strong></td>
                 <td><?php echo $company_recruiter; ?></td>
@@ -79,8 +83,8 @@
             </tr>
         </table>
     </fieldset>
-</div>
-<div style="width:300px;float:right;">
+</section>
+<section class="right">
     <fieldset>
         <legend>Contact(s):</legend>
         <p>In progress.</p>
@@ -89,5 +93,5 @@
         <legend>LOG:</legend>
         <p>In progress.</p>
     </fieldset>
-</div>
+</section>
 <script language="javascript" type="text/javascript" src="_delete.js"></script>
