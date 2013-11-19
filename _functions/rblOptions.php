@@ -1,20 +1,24 @@
 <?php
     function rblOptions($db, $default, $input, $display, $value, $object, $orientation)
-    {       
-        $qRBL = $object->options($value, $display);
+    {
+        $result = array(
+            'error' => NULL,
+            'options'   => NULL,
+        );
+        $error = NULL;
+        $query = $object->options($value, $display);
         try
         {
-            $rbls = $db->prepare($qRBL);
-            $rbls->execute();
+            $statement = $db->prepare($query);
+            $statement->execute();
         }
         catch(PDOException $ex)
         {
-            // TODO: convert to status message
-            die("Failed to run DropDownList query: " . $ex->getMessage());
+            $error  = ("<li>Failed to run {$object->table} RadioButtonList query: " . $ex->getMessage()) . "</li>";
         }
-        $rblOptions = "<div style=\"float:left;background-color:yellow;font-weight:bold;\">";
+        $rblOptions = NULL;
         $checked = NULL;
-        $options = $rbls->fetchAll();
+        $options = $statement->fetchAll();
         foreach($options as $option)
         {
             $optName = $option["{$display}"];
@@ -37,6 +41,7 @@
                 $rblOptions .= "&nbsp;&nbsp;";
             }
         }
-        $rblOptions .= "</div>";        
-        return $rblOptions;
+        $result['options']  = $rblOptions;
+        $result['error']    = $error;
+        return $result;
     }

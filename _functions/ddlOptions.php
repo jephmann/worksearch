@@ -1,6 +1,11 @@
 <?php
     function ddlOptions($db, $default, $value, $display, $object, $concatFields, $sortFields)
     {
+        $result = array(
+            'error' => NULL,
+            'options'   => NULL,
+        );
+        $error = NULL;
         $query = NULL;
         if(empty($concatFields) || empty($sortFields))
         {
@@ -12,17 +17,16 @@
         }
         try
         {
-            $ddls = $db->prepare($query);
-            $ddls->execute();
+            $statement = $db->prepare($query);
+            $statement->execute();
         }
         catch(PDOException $ex)
         {
-            // TODO: convert to status message
-            die("Failed to run {$object->table} DropDownList query: " . $ex->getMessage());
+            $error  = ("<li>Failed to run {$object->table} DropDownList query: " . $ex->getMessage()) . "</li>";
         }
         $ddlOptions = "\n<option value=\"\">=== PLEASE SELECT ===</option>";
         $selected = NULL;
-        $options = $ddls->fetchAll();
+        $options = $statement->fetchAll();
         foreach($options as $option)
         {
             $optDisplay = $option["{$display}"];
@@ -37,5 +41,7 @@
             }
             $ddlOptions .= "\n<option{$selected} value=\"{$optValue}\">{$optDisplay}</option>";
         }
-        return $ddlOptions;
+        $result['options']  = $ddlOptions;
+        $result['error']    = $error;
+        return $result;
     }
