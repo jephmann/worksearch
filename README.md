@@ -66,11 +66,12 @@ PDO connections. Although I am not using an MVC framework, some MVC concepts may
 formally as a "Model", although this class helps me appreciate the Model
 concept.
 
-- _config -- After using "mysql_connect" and "mysqli_connect" to connect to MySQL,
-sometimes together, I decided that PDO would make me a more disciplined PHP
-developer as well as enhance my understanding of object-oriented concepts. Much
-of the PDO configuration can be found here, along with session code and
-miscellaneous page configurations I may apply to most of the web pages.
+- _config -- After using "mysql connect" and "mysqli connect" to connect to
+MySQL, sometimes mixed together in a project, I decided that PDO would make me a
+more disciplined PHP developer as well as enhance my understanding of
+object-oriented concepts. Much of the PDO configuration can be found here, along
+with session code and miscellaneous page configurations I may apply to most of
+the web pages.
 
 - _css -- Styling files, along with a font I call in for the body of each page.
 Some CSS3 code is included.
