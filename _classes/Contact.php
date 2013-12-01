@@ -13,6 +13,7 @@ class Contact extends Person {
     public $title           = NULL;
     public $phone           = NULL;
     public $phone_extension = NULL;
+    public $phone_mobile    = NULL;
     public $fax             = NULL;
     public $email           = NULL;
     public $linkedin        = NULL;
@@ -33,6 +34,7 @@ class Contact extends Person {
         'gender',
         'phone',
         'phone_extension',
+        'phone_mobile',
         'fax',
         'email',
         'title',
@@ -71,8 +73,16 @@ class Contact extends Person {
     }
     public function setPhone_extension($phone_extension) {
         $this->phone_extension = $phone_extension;
-    }
+    }    
     
+    public function getPhone_mobile() {
+        return $this->phone_mobile;
+    }
+
+    public function setPhone_mobile($phone_mobile) {
+        $this->phone_mobile = $phone_mobile;
+    }
+        
     public function getFax() {
         return $this->fax;
     }
@@ -143,6 +153,7 @@ class Contact extends Person {
             ':gender'           => $this->gender,
             ':phone'            => $this->phone,
             ':phone_extension'  => $this->phone_extension,
+            ':phone_mobile'     => $this->phone_mobile,
             ':fax'              => $this->fax,
             ':email'            => $this->email,
             ':title'            => $this->title,
@@ -188,5 +199,18 @@ class Contact extends Person {
             $full_fax   = "({$area}) {$prefix}-{$suffix}";
         }
         return $full_fax;
+    }
+    
+    public function full_mobile()
+    {
+        $full_mobile = NULL;
+        if(!empty($this->phone_mobile))
+        {
+            $area       = substr($this->phone_mobile, 0, 3);
+            $prefix     = substr($this->phone_mobile, 3, 3);
+            $suffix     = substr($this->phone_mobile, 6, 4);
+            $full_mobile   = "({$area}) {$prefix}-{$suffix}";
+        }
+        return $full_mobile;
     }
 }
