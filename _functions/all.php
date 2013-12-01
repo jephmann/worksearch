@@ -5,8 +5,7 @@
     require_once ($page['path'].'_functions/update.php');
     require_once ($page['path'].'_functions/delete.php');
     // STRINGS
-    require_once ($page['path'].'_functions/formatEmailLink.php');
-    require_once ($page['path'].'_functions/formatOutsideLink.php');
+    require_once ($page['path'].'_functions/formatLinks.php');
     require_once ($page['path'].'_functions/formatPhone.php');
     require_once ($page['path'].'_functions/formatPostUS.php');
     require_once ($page['path'].'_functions/formatDriversLicense.php');
