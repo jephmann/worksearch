@@ -325,14 +325,14 @@ tbody tr th {
 .status_error, .status_quo {
     /* css3 */
     -webkit-border-radius: 50px;
-    border-radius: 50px;
-    -webkit-box-shadow:  2px 2px 2px 2px #cccccc;
-    box-shadow:  2px 2px 2px 2px #cccccc;    
+    border-radius: 50px;  
 }
 
 .status_error {
     background-color: crimson;
     color: #FFFFFF;
+    -webkit-box-shadow:  2px 2px 2px 2px #cccccc;
+    box-shadow:  2px 2px 2px 2px #cccccc;  
 }
 .status_quo {
     background-color: powderblue;
