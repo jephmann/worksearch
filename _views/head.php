@@ -7,13 +7,13 @@
     {
         if($page['mode'] != "Log In")
         {
-            $loginout .= "<a href=\"{$page['path']}login.php\">Log In</a>";
+            $loginout .= formatInsideLink("Log In", "{$page['path']}login.php", "Log In");
         }
-        $loginout .= "<a href=\"{$page['path']}register.php\">Register</a>";
+        $loginout .= formatInsideLink("Register", "{$page['path']}register.php", "Register");
     }
     if (!empty($_SESSION))
     {
-        $loginout .= "<a href=\"{$page['path']}logout.php\">Log Out</a>";
+        $loginout .= formatInsideLink("Log Out", "{$page['path']}logout.php", "Log Out");
     }    
     
     $session_whose = "<br />";
@@ -44,14 +44,14 @@
     $nav_li = NULL;
     if (!empty($_SESSION['user']))
     {
-        $nav_li .= "<li><a href=\"{$page['path']}welcome.php\">HOME</a></li>
-            <li><a href=\"{$page['path']}profile/\">Profile</a></li>";
+        $nav_li .= "<li>" . formatInsideLink("HOME", "{$page['path']}welcome.php", "HOME") . "</li>
+            <li>" . formatInsideLink("Profile", "{$page['path']}profile/", "Profile") . "</li>";
     }
     if (!empty($_SESSION['profile']))
     {
-        $nav_li .= "<li><a href=\"{$page['path']}companies/\">Companies</a></li>
-            <li><a href=\"{$page['path']}contacts/\">Contacts</a></li>
-            <li><a href=\"{$page['path']}logs/\">Logs</a></li>
+        $nav_li .= "<li>" . formatInsideLink("Companies", "{$page['path']}companies/", "Companies") . "</li>
+            <li>" . formatInsideLink("Contacts", "{$page['path']}contacts/", "Contacts") . "</li>
+            <li>" . formatInsideLink("Logs", "{$page['path']}logs/", "Logs") . "</li>
             <li>Mail</li>";
     }
 ?>
