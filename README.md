@@ -4,7 +4,7 @@ These notes are subject to change.
 
 =====
 
-November 19, 2013
+December 3, 2013
 
 WORKsearch (a working title) is a personal, independent project which I began in
 May 2013 chiefly to stay in practice in between jobs. Currently it is a work in
@@ -120,7 +120,7 @@ encrypt) and email address.
 in my environment, this form may include "forget login" logic.
 - logout: shuts down the session and redirect to login.
 
-IMMEDIATE ISSUES as of 2013.11.19:
+IMMEDIATE ISSUES as of 2013.12.02:
 
 - A general doublecheck of the back-end re Profile, Company, Contact and Log.
 - A specific doublecheck of back-end and front-end validation for Profile,
@@ -140,6 +140,8 @@ Logs or both.
 - Contact: no contacts = redirect from index to create.
 - Log: no logs = redirect from index to create.
 - Profile: no profile = redirect from index to create.
+- Tabbing through forms with a footer sticking to the bottom.
+- Allow e-mail addresses with hyphens (jQuery? PHP?).
 
 LONG-TERM NICE-TO-HAVES as of 2013.11.19:
 
@@ -147,6 +149,8 @@ LONG-TERM NICE-TO-HAVES as of 2013.11.19:
 resume attachments, to contacts while logging said activity into Logs.
 Limitations within my environment (Windows 7 notebook, XAMPP) might prevent
 this.
+- PDF versions of log lists, approximating the IDES "work search" forms, per
+week-ending date.
 - A jQuery Mobile version of the entire project. As in object-oriented
 programming, this project may be my first earnest opportunity to learn jQuery
 Mobile as well as my first earnest attempt to combine PHP with jQuery Mobile.
