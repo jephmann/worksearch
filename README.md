@@ -143,7 +143,7 @@ Logs or both.
 - Tabbing through forms with a footer sticking to the bottom.
 - Allow e-mail addresses with hyphens (jQuery? PHP?).
 
-LONG-TERM NICE-TO-HAVES as of 2013.11.19:
+LONG-TERM NICE-TO-HAVES as of 2013.12.02:
 
 - E-mail logic using PHPMailer which sends custom or form e-mails, perhaps with
 resume attachments, to contacts while logging said activity into Logs.
