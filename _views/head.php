@@ -44,15 +44,15 @@
     $nav_li = NULL;
     if (!empty($_SESSION['user']))
     {
-        $nav_li .= "<li>" . formatInsideLink("HOME", "{$page['path']}welcome.php", "HOME") . "</li>
-            <li>" . formatInsideLink("Profile", "{$page['path']}profile/", "Profile") . "</li>";
+        $nav_li .= "\r<li>" . formatInsideLink("HOME", "{$page['path']}welcome.php", "HOME") . "</li>\r
+            \r<li>" . formatInsideLink("Profile", "{$page['path']}profile/", "Profile") . "</li>\r";
     }
     if (!empty($_SESSION['profile']))
     {
-        $nav_li .= "<li>" . formatInsideLink("Companies", "{$page['path']}companies/", "Companies") . "</li>
-            <li>" . formatInsideLink("Contacts", "{$page['path']}contacts/", "Contacts") . "</li>
-            <li>" . formatInsideLink("Logs", "{$page['path']}logs/", "Logs") . "</li>
-            <li>Mail</li>";
+        $nav_li .= "\r<li>" . formatInsideLink("Companies", "{$page['path']}companies/", "Companies") . "</li>\r
+            \r<li>" . formatInsideLink("Contacts", "{$page['path']}contacts/", "Contacts") . "</li>\r
+            \r<li>" . formatInsideLink("Logs", "{$page['path']}logs/", "Logs") . "</li>\r
+            \r<li>Mail</li>\r";
     }
 ?>
 <!DOCTYPE html>
