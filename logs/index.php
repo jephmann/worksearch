@@ -96,11 +96,11 @@
 
             $tbody.="<tr>
                 <td class=\"td_dud\">
-                <a href=\"detail.php?id={$rowID}\">Detail</a>
+                <a title=\"Detail of This Log\" href=\"detail.php?id={$rowID}\">Detail</a>
                 <br />
-                <a href=\"update.php?id={$rowID}\">Update</a>
+                <a title=\"Update This Log\" href=\"update.php?id={$rowID}\">Update</a>
                 <br />
-                <a href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>
+                <a title=\"Delete This Log\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>
                 </td>
                 <td class=\"td_detail\">{$log_week_ending}</td>
                 <td class=\"td_detail\">{$log_contact_date}</td>

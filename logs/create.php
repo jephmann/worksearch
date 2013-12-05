@@ -44,7 +44,7 @@
             }
             else
             {
-                header('Location:index.php');
+                header("Location:detail.php?id={$insert['id']}");
             }
         }
     }

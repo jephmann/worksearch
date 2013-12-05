@@ -2,7 +2,7 @@
 <fieldset>
     <legend>
         Logs (Click arrows to sort) --
-        <a href="create.php">
+        <a title="Create New Log" href="create.php">
             Create
         </a>
     </legend>

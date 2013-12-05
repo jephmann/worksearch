@@ -45,8 +45,28 @@
     $log_week_ending    = $objLog->full_week_ending();
     $log_contact_date   = $objLog->full_contact_date();
     $log_work           = $objLog->work;
-    $company_name       = nullCheck($objCompany->name,'DELETED');
-    $contact_name       = nullCheck($objContact->name_full(),'DELETED');
+    $log_company    = NULL;
+    if(empty($objCompany->name))
+    {
+        $log_company = nullCheck($objCompany->name,'DELETED');
+    }
+    else
+    {
+        $log_company = "<a title=\"Go to Company Detail\"
+            href=\"../companies/detail.php?id={$objLog->id_company}\">
+            {$objCompany->name}</a>";
+    }
+    $log_contact    = NULL;
+    if(empty($objContact->name_last))
+    {
+        $log_contact = nullCheck($objContact->name_full(),'DELETED');
+    }
+    else
+    {
+        $log_contact = "<a title=\"Go to Contact Detail\"
+            href=\"../contacts/detail.php?id={$objLog->id_contact}\">
+            {$objContact->name_full()}</a>";
+    }
     $log_contact_method = $objContactMethod->name;;
     $log_specify        = $objLog->specify;
     $log_results        = $objLog->results;

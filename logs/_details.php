@@ -3,8 +3,8 @@
 </ul>
 <fieldset>
     <legend>
-        <a href="update.php?id=<?php echo $objLog->id; ?>">Update</a>
-            <a href="delete.php?id=<?php echo $objCompany->id; ?>" class="delete">Delete</a>
+        <a title="Update This Log" href="update.php?id=<?php echo $objLog->id; ?>">Update</a>
+        <a title="Delete This Log" href="delete.php?id=<?php echo $objCompany->id; ?>" class="delete">Delete</a>
         Log #<?php echo $objLog->id; ?>
     </legend>
     <table style="margin:0 auto;">
@@ -26,11 +26,11 @@
         </tr>
         <tr>
             <td><strong>Company</strong></td>
-            <td><?php echo $company_name; ?></td>
+            <td><?php echo $log_company; ?></td>
         </tr>
         <tr>
             <td><strong>Contact</strong></td>
-            <td><?php echo $contact_name; ?></td>
+            <td><?php echo $log_contact; ?></td>
         </tr>
         <tr>
             <td><strong>Contact Method</strong></td>
