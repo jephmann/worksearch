@@ -4,30 +4,34 @@ These notes are subject to change.
 
 =====
 
-December 3, 2013
+December 5, 2013
 
 WORKsearch (a working title) is a personal, independent project which I began in
 May 2013 chiefly to stay in practice in between jobs. Currently it is a work in
 progress. I might not include every single folder and file in this project,
-whether complete or not. It is also a spare-time project, something I work on
-whenever I can free some time; it is not beholden to any timetables or
-deadlines. 
+whether complete or not.
 
-Being in between jobs, and times being what they have been, I found that
-creating a personal website and database with an aim toward managing my contacts
-and logging my activity would be an ideal project for me to maintain my
-strengths as a coder while working on areas which could use improvement. Being
-in between jobs, it is difficult for me to think of anything else as a subject
-for such a project. (In happier times, this might have been a project about my
-DVD collection or something else fun.)
+It is also a spare-time project, something I work on whenever I can free some
+time. It is not beholden to any timetables or deadlines. Ideally it may include
+coding principles and practices which I could apply rapidly to other projects. 
 
-Originally this project was meant to be a single-user project. Although I have
-no ambition that this could be a major application which other people could use,
-I soon decided to make it a multi-user project. Were this to become a major
-project, I would not object to finding ways to monetize this project -- on
-several conditions, including: no unemployed person pays to use it.
+Being in between jobs, and times being what they have been (for me at least), I
+found that creating a personal website and database with an aim toward managing
+my contacts and logging my activity would be an ideal project for me to maintain
+my strengths as a coder while working on areas which could use improvement.
+Being in between jobs, it is difficult for me to think of anything else as a
+subject for such a project. (In happier times, this might have been a project
+about my DVD collection or something else fun.)
 
-Plus, it helps to have a code sample of something somewhere. ;)
+Originally this project was meant to be a single-user project. Although I
+currently have no ambition that this could be a major application which other
+people could use, I soon decided to make it a multi-user project. Were this to
+become a major project, I would not object to finding ways to monetize this
+project -- on several conditions, including: *no unemployed person pays to use
+it*.
+
+Plus, it helps to have a code sample of something somewhere. This project is
+also a showcase of the current state of my coding skills.
 
 However finished or unfinished these files may appear, there is definitely a
 method (or function) to my madness. Whatever might appear to be "broken", I am
@@ -47,13 +51,25 @@ jQuery as well. My IDE is NetBeans 7.3.
 For now, I am concentrating on back-end programming. Other technologies,
 particularly on the front end, shall follow as I go along.
 
+Although at times I may borrow some MVC concepts, this is not an MVC-based
+project. Until I get more deeply into Model-View-Controller and other such
+frameworks, I am structuring this project so that, were I to handle it to an
+expert in MVC, said expert might easily know what pieces to convert to MVC.
+
+When I first learned PHP, I would connect to MySQL using either mysql_connect or
+mysqli_connect or (rather irresponsibly) both. Using PDO instead has made me a
+far more disciplined PHP developer, especially since PHP Data Objects as its
+name suggests utilizes object-oriented programming concepts which I am keen to
+learn anyhow.
+
 Beyond framing the pages, color schemes and other aesthetic issues are the least
 of my concerns for now. I might want to keep the project flexible by allowing it
-to be reskinned by others anyhow.
+to be reskinned by others anyhow. So, yes, even if functions perfectly, it may
+still appear ugly for a long while.
 
 The long story -- by the folders:
 
-INCLUDED/REQUIRED FOLDERS/FILES:
+INCLUDED/REQUIRED FOLDERS/FILES (each prefaced with "_"):
 
 - _classes -- The classes which I convert into objects as needed throughout the
 project. Object-oriented programming is one of the areas which I seek to
@@ -99,12 +115,12 @@ delete prospective companies.
 delete the individual contacts for these companies.
 
 - logs -- Inspired by the IDES "work search" forms (which gives this project its
-working title), this is where users log their activities with their contacts.
-You might notice a "_validation" file in each of the companies / contacts / logs
-/ profile folders. This is where I work on the back-end validation for the
-create and update forms. I used this structure elsewhere. As IDES and other
-state unemployment benefit departments seem to require a lot of fields, I am
-likely to work on the log validation first.
+working title), this CRUD pattern of pages is where users log their activities
+with their contacts. You might notice a "_validation" file in each of the
+companies / contacts / logs / profile folders. This is where I work on the
+back-end validation for the create and update forms. I used this structure
+elsewhere. As IDES and other state unemployment benefit departments seem to
+require a lot of fields, I am likely to work on the log validation first.
 
 - profile -- The creation and updating of a User's Profile. For now, I want only
 one Profile per User.
@@ -120,7 +136,7 @@ encrypt) and email address.
 in my environment, this form may include "forget login" logic.
 - logout: shuts down the session and redirect to login.
 
-IMMEDIATE ISSUES as of 2013.12.02:
+IMMEDIATE ISSUES as of 2013.12.04:
 
 - A general doublecheck of the back-end re Profile, Company, Contact and Log.
 - A specific doublecheck of back-end and front-end validation for Profile,
@@ -143,12 +159,11 @@ Logs or both.
 - Tabbing through forms with a footer sticking to the bottom.
 - Allow e-mail addresses with hyphens (jQuery? PHP?).
 
-LONG-TERM NICE-TO-HAVES as of 2013.12.02:
+LONG-TERM NICE-TO-HAVES as of 2013.12.04:
 
 - E-mail logic using PHPMailer which sends custom or form e-mails, perhaps with
-resume attachments, to contacts while logging said activity into Logs.
-Limitations within my environment (Windows 7 notebook, XAMPP) might prevent
-this.
+resume attachments (e.g. resumes), to contacts while logging said activity into
+Logs. Limitations within my present environment might prevent this for a while.
 - PDF versions of log lists, approximating the IDES "work search" forms, per
 week-ending date.
 - A jQuery Mobile version of the entire project. As in object-oriented
@@ -160,4 +175,7 @@ OTHER:
 
 - I created the supporting MySQL database myself. I might -- or might not --
 post the SQL statements behind the tables here in lieu of the actual database
-itself. It may depend on "popular demand".
+itself. If I can figure out how, I might consider posting whatever triggers or
+stored procedures I may have written. It may depend on "popular demand".
+- As I suggested earlier, you might not see every file of this project on
+GitHub. For example, I am sparing GitHub my image files.
