@@ -16,15 +16,15 @@
      */    
     // Company
     $objCompany->setName(ucwords(trim($_POST['company_name'])));
-    $objCompany->setIndustry(trim($_POST['company_industry']));
+    $objCompany->setIndustry(ucwords(trim($_POST['company_industry'])));
     $objCompany->setRecruiter($company_recruiter);
     $objCompany->setDescription(trim($_POST['company_description']));
     $objCompany->setRemarks($_POST['remarks']);
     // Address
-    $objCompany->setAddress_building(ucwords(strtolower(trim($_POST['address_building']))));
-    $objCompany->setAddress_street(ucwords(strtolower(trim($_POST['address_street']))));
+    $objCompany->setAddress_building(ucwords(trim($_POST['address_building'])));
+    $objCompany->setAddress_street(ucwords(trim($_POST['address_street'])));
     $objCompany->setAddress_unit(ucwords(trim($_POST['address_unit'])));
-    $objCompany->setAddress_city(ucwords(strtolower(trim($_POST['address_city']))));
+    $objCompany->setAddress_city(ucwords(trim($_POST['address_city'])));
     $objCompany->setAddress_state($_POST['address_state']);
     $objCompany->setAddress_zip5($_POST['address_zip5']);
     $objCompany->setAddress_zip4($_POST['address_zip4']);

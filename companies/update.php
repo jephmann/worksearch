@@ -34,7 +34,7 @@
             }
             else
             {
-                $location   = "index.php";
+                $location   = "detail.php?id={$objCompany->id}";
             }
             $update     = updateRow($db, $objCompany);
             if(!empty($update['result']['error']))

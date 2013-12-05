@@ -1,11 +1,11 @@
 <ul id="status" name="status" class="<?php echo $objStatus->class; ?>">
-    <?php echo $objStatus->message; ?>
+    <?php echo $objStatus->message; ?>    
 </ul>
 <section class="left">
     <fieldset>
         <legend>
-            <a href="update.php?id=<?php echo $objCompany->id; ?>">Update</a>
-            <a href="delete.php?id=<?php echo $objCompany->id; ?>" class="delete">Delete</a>
+            <a title="Update This Company" href="update.php?id=<?php echo $objCompany->id; ?>">Update</a>
+            <a title="Delete This Company" href="delete.php?id=<?php echo $objCompany->id; ?>" class="delete">Delete</a>
             Company
         </legend>
         <table>
@@ -87,11 +87,14 @@
 <section class="right">
     <fieldset>
         <legend>Contact(s):</legend>
-        <p>In progress.</p>
+        <?php echo $p_contacts; ?>
     </fieldset>
     <fieldset>
         <legend>LOG:</legend>
-        <p>In progress.</p>
+        <p><?php echo $sqlLogs; ?></p>
+        <table>
+            <?php echo $tr_logs; ?>
+        </table>
     </fieldset>
 </section>
 <script language="javascript" type="text/javascript" src="_delete.js"></script>

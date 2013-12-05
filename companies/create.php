@@ -38,7 +38,7 @@
                 }
                 else
                 {
-                    $location   = ("index.php");
+                    $location   = ("detail.php?id={$insert['id']}");
                 }
                 header('Location:'.$location);
             }

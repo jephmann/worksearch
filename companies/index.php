@@ -81,6 +81,7 @@
             $rowWebsite         = htmlentities($row['website'], ENT_QUOTES, 'UTF-8');
             $rowDescription     = htmlentities($row['description'], ENT_QUOTES, 'UTF-8');
             $rowRemarks         = htmlentities($row['remarks'], ENT_QUOTES, 'UTF-8');
+            $rowRecruiter       = htmlentities($row['recruiter'], ENT_QUOTES, 'UTF-8');
 
             // Formatting and Displaying
 
@@ -88,6 +89,10 @@
             if(!empty($rowWebsite))
             {
                 $company_name       = formatOutsideLink($rowName, $rowWebsite, $rowName);
+            }
+            if($rowRecruiter == TRUE)
+            {
+                $company_name .= "&nbsp;{$asterisk}";
             }
 
             $company_phone          = formatPhone($rowPhone, $rowPhoneExtension);
@@ -116,14 +121,20 @@
             }
 
             $company_citystate      = $rowCity.', '.$rowState;
+            
+            $dud = array(
+                'detail'    => formatInsideLink("Detail of This Company", "detail.php?id={$rowID}", "Detail"),
+                'update'    => formatInsideLink("Update This Company", "update.php?id={$rowID}", "Update"),
+                'delete'    => "<a title=\"Delete This Company\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",
+            );
 
             $tbody.="<tr>
                 <td class=\"td_dud\">
-                <a href=\"detail.php?id={$rowID}\">Detail</a>
+                {$dud['detail']}
                 <br />
-                <a href=\"update.php?id={$rowID}\">Update</a>
+                {$dud['update']}
                 <br />
-                <a href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>
+                {$dud['delete']}
                 </td>
                 <td class=\"td_detail\">
                 <strong>{$company_name}</strong>

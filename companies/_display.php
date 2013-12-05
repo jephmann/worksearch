@@ -2,12 +2,12 @@
     $company_building       = NULL;
     if (!empty($objCompany->address_building))
     {
-        $company_building   = $objCompany->address_building.'<br .>';
+        $company_building   = $objCompany->address_building."\r<br />";
     }
     $company_unit           = NULL;
     if (!empty($objCompany->address_unit))
     {
-        $company_unit       = $objCompany->address_unit.'<br .>';
+        $company_unit       = $objCompany->address_unit."\r<br />";
     }
     $company_zip            = $objCompany->full_zip();
     $company_csz            = $objCompany->address_city.', '.$objCompany->address_state.' '.$company_zip;

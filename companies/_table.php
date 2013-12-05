@@ -2,10 +2,13 @@
 <fieldset>
     <legend>
         Companies (Click arrows to sort) --
-        <a href="create.php">
+        <a title="Create a New Company" href="create.php">
             Create
         </a>
     </legend>
+    <p>
+        <?php echo $asterisk; ?> = Recruiting Firms
+    </p>
     <ul id="status" name="status" class="<?php echo $objStatus->class; ?>">
         <?php echo $objStatus->message; ?>
     </ul>
