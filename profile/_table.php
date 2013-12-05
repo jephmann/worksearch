@@ -3,9 +3,9 @@
 </ul>
 <fieldset>
     <legend>
-        <a href="create.php">Create</a>
-        <a href="update.php">Update</a>
-        <a href="delete.php">Delete</a>
+        <a title="Create New Profile" href="create.php">Create</a>
+        <a title="Update This Profile" href="update.php">Update</a>
+        <a title="Delete This Profile" href="delete.php">Delete</a>
         Your Profile
     </legend>
     <fieldset>
