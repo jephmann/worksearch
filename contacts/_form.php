@@ -56,16 +56,20 @@
         <fieldset>
             <legend>Communication</legend>
             <div class="form_row">
-                <label id="lblPhone">Phone:</label>
+                <label id="lblPhone">Office Phone:</label>
                 <input type="text" name="phone" value="<?php echo $objContact->phone; ?>" size="10" maxlength="10" />
             </div>
             <div class="form_row">
-                <label id="lblPhoneExtension">Phone Extension:</label>
+                <label id="lblPhoneExtension">Office Phone Extension:</label>
                 x<input type="text" name="phone_extension" value="<?php echo $objContact->phone_extension; ?>" size="4" maxlength="4" />
             </div>
             <div class="form_row">
-                <label id="lblFax">Fax:</label>
+                <label id="lblFax">Office Fax:</label>
                 <input type="text" name="fax" value="<?php echo $objContact->fax; ?>" size="10" maxlength="10" />
+            </div>
+            <div class="form_row">
+                <label id="lblPhoneMobile">Mobile Phone:</label>
+                <input type="text" name="phone_mobile" value="<?php echo $objContact->phone_mobile; ?>" size="10" maxlength="10" />
             </div>
             <div class="form_row">
                 <label id="lblEmail">E-Mail:</label>

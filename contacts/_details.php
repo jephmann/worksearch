@@ -4,8 +4,8 @@
 <div style="width:350px; float:left">
     <fieldset>
         <legend>
-            <a href="update.php?id=<?php echo $objContact->id; ?>">Update</a>
-            <a href="delete.php?id=<?php echo $objCompany->id; ?>" class="delete">Delete</a>
+            <a title="Update This Contact" href="update.php?id=<?php echo $objContact->id; ?>">Update</a>
+            <a title="Delete This Contact" href="delete.php?id=<?php echo $objContact->id; ?>" class="delete">Delete</a>
             Contact
         </legend>
         <table>
@@ -15,7 +15,7 @@
             </colgroup>
             <tr>
                 <td><strong>Name:</strong></td>
-                <td><?php echo $objContact->name_full(); ?></td>
+                <td><strong><?php echo $objContact->name_full(); ?></strong></td>
             </tr>
             <tr>
                 <td><strong>Department:</strong></td>
@@ -30,15 +30,19 @@
                 <td><?php echo $objContact->remarks; ?></td>
             </tr>
             <tr>
-                <td><strong>Phone:</strong></td>
+                <td><strong>Office Phone:</strong></td>
                 <td><?php echo $contact_phone; ?></td>
             </tr>
             <tr>
-                <td><strong>Fax:</strong></td>
+                <td><strong>Mobile Phone:</strong></td>
+                <td><?php echo $contact_mobile_phone; ?></td>
+            </tr>
+            <tr>
+                <td><strong>Office Fax:</strong></td>
                 <td><?php echo $contact_fax; ?></td>
             </tr>
             <tr>
-                <td><strong>E-mail:</strong></td>
+                <td><strong>Office E-mail:</strong></td>
                 <td><?php echo $contact_email; ?></td>
             </tr>
             <tr>
@@ -70,18 +74,8 @@
                 <col style="background-color:#FFFFFF">
             </colgroup>
             <tr>
-                <td>
-                    <strong>
-                        <a title="Link to Company Detail" href="../companies/detail.php?id=<?php echo $objContact->id_company; ?>">
-                            Company:
-                        </a>
-                    </strong>
-                </td>
-                <td>
-                    <?php
-                    echo formatOutsideLink($objCompany->name, $objCompany->website, $objCompany->name);
-                    ?>
-                </td>
+                <td><strong>Company:</strong></td>
+                <td><strong><?php echo $company_name; ?></strong></td>
             </tr>
             <tr>
                 <td><strong>Recruiter:</strong></td>
@@ -118,6 +112,10 @@
             <tr>
                 <td><strong>E-Mail:</strong></td>
                 <td><?php echo $company_email; ?></td>
+            </tr>
+            <tr>
+                <td><strong>Website:</strong></td>
+                <td><?php echo $company_website; ?></td>
             </tr>
             <tr>
                 <td><strong>LinkedIn:</strong></td>

@@ -21,6 +21,11 @@ $(function() {
                 minlength: 1,
                 maxlength: 4
             },
+            phone_mobile: {
+                digits: true,
+                minlength: 10,
+                maxlength: 10
+            },
             fax: {
                 digits: true,
                 minlength: 10,
@@ -38,19 +43,24 @@ $(function() {
                 required: "Contact: Company is required."
             },
             phone: {
-                digits: "Numbers only for Phone",
-                minlength: $.format("Phone must be {0} digits."),
-                maxlength: $.format("Phone must be {0} digits.")
+                digits: "Numbers only for Office Phone",
+                minlength: $.format("Office Phone must be {0} digits."),
+                maxlength: $.format("Office Phone must be {0} digits.")
             },
             phone_extension: {
-                digits: "Numbers only for Phone Extension",
-                minlength: $.format("Phone Extension must be {0} digits."),
-                maxlength: $.format("Phone Extension must be {0} digits.")
+                digits: "Numbers only for Office Phone Extension",
+                minlength: $.format("Office Phone Extension must be {0} digits."),
+                maxlength: $.format("Office Phone Extension must be {0} digits.")
             },
             fax: {
-                digits: "Numbers only for Fax",
-                minlength: $.format("Fax must be {0} digits."),
-                maxlength: $.format("Fax must be {0} digits.")
+                digits: "Numbers only for Office Fax",
+                minlength: $.format("Office Fax must be {0} digits."),
+                maxlength: $.format("Office Fax must be {0} digits.")
+            },
+            phone_mobile: {
+                digits: "Numbers only for Mobile Phone",
+                minlength: $.format("Mobile Phone must be {0} digits."),
+                maxlength: $.format("Mobile Phone must be {0} digits.")
             },
             contact_email: {
                 email: "E-mail address must be properly formatted."

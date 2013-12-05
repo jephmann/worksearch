@@ -2,7 +2,7 @@
 <fieldset>
     <legend>
         Contacts (Click arrows to sort) --
-        <a href="create.php">
+        <a title="Create New Contact" href="create.php">
             Create
         </a>
     </legend>

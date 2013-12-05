@@ -25,6 +25,7 @@
     // Communication
     $objContact->setPhone(htmlentities($rowContact['phone'], ENT_QUOTES, 'UTF-8'));
     $objContact->setPhone_extension(htmlentities($rowContact['phone_extension'], ENT_QUOTES, 'UTF-8'));
+    $objContact->setPhone_mobile(htmlentities($rowContact['phone_mobile'], ENT_QUOTES, 'UTF-8'));
     $objContact->setFax(htmlentities($rowContact['fax'], ENT_QUOTES, 'UTF-8'));
     $objContact->setEmail(htmlentities($rowContact['email'], ENT_QUOTES, 'UTF-8'));
     // Links

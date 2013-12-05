@@ -16,17 +16,20 @@
     
     // CONTACT
     $objContact     = new Contact;
-    $objContact->setId($_GET['id']);
     $objContact->setId_user($id_user);
+    $objContact->setId($_GET['id']);
     require ('_fetch.php');
     require ('_display.php');
     
     // CONTACT'S COMPANY
     $objCompany     = new Company;
-    $objCompany->setId($objContact->id_company);
     $objCompany->setId_user($id_user);
+    $objCompany->setId($objContact->id_company);
     require ($page['path'].'companies/_fetch.php');
     require ($page['path'].'companies/_display.php');
+    $company_name = "<a title=\"Link to Company Detail\"
+        href=\"../companies/detail.php?id={$objContact->id_company}\">
+            {$objCompany->name}</a>";
     
     // CONTACT'S LOGS
     /*
@@ -34,9 +37,9 @@
      * - Display Logs specific to this Contact
      */
     $objLogs        = new Log;
+    $objLogs->setId_user($id_user);
     $objLogs->setId_company($objCompany->id);
     $objLogs->setId_contact($objContact->id);
-    $objLogs->setId_user($id_user);
     
     // COMPANY'S ADDITIONAL CONTACTS
     /*

@@ -42,12 +42,14 @@
     $sqlJoin    = "SELECT
         contacts.id AS id,
         companies.name AS company,
+        contacts.id_company AS id_company,
         contacts.name_last AS name_last,
         contacts.name_first AS name_first,
         contacts.name_middle AS name_middle,
         contacts.department AS department,
         contacts.title AS title,
         contacts.phone AS phone,
+        contacts.phone_mobile AS mobile,
         contacts.phone_extension AS extension,
         contacts.email AS email
         FROM contacts
@@ -72,23 +74,17 @@
                 'title'=>'OPTIONS',
                 'field'=>NULL),
             array(
-                'title'=>'Company',
-                'field'=>'company'),
-            array(
                 'title'=>'Name',
                 'field'=>'name_last'),
+            array(
+                'title'=>'Company',
+                'field'=>'company'),
             array(
                 'title'=>'Department',
                 'field'=>'department'),
             array(
                 'title'=>'Title',
                 'field'=>'title'),
-            array(
-                'title'=>'Phone',
-                'field'=>'phone'),
-            array(
-                'title'=>'E-Mail',
-                'field'=>'email'),
         );
         $thead  = return_THEAD($columns);
         $tbody  = "<tbody>";        
@@ -96,6 +92,7 @@
         foreach($rows as $row)
         {
             $rowID              = htmlentities($row['id'], ENT_QUOTES, 'UTF-8');
+            $rowIDCompany       = htmlentities($row['id_company'], ENT_QUOTES, 'UTF-8');
             $rowCompany         = htmlentities($row['company'], ENT_QUOTES, 'UTF-8');
             $rowNameLast        = htmlentities($row['name_last'], ENT_QUOTES, 'UTF-8');
             $rowNameFirst       = htmlentities($row['name_first'], ENT_QUOTES, 'UTF-8');
@@ -104,26 +101,53 @@
             $rowTitle           = htmlentities($row['title'], ENT_QUOTES, 'UTF-8');
             $rowPhone           = htmlentities($row['phone'], ENT_QUOTES, 'UTF-8');
             $rowPhoneExtension  = htmlentities($row['extension'], ENT_QUOTES, 'UTF-8');
+            $rowPhoneMobile     = htmlentities($row['mobile'], ENT_QUOTES, 'UTF-8');
             $rowEmail           = htmlentities($row['email'], ENT_QUOTES, 'UTF-8');
 
             $contact_phone      = formatPhone($rowPhone, $rowPhoneExtension);
-            $contact_email      = formatEmailLink("Contact", $rowEmail);            
+            if(!empty($contact_phone))
+            {
+                $contact_phone  = "<br />O: {$contact_phone}";
+            }
+            $contact_phone_mobile   = formatPhone($rowPhoneMobile, NULL);
+            if(!empty($contact_phone_mobile))
+            {
+                $contact_phone_mobile  = "<br />M: {$contact_phone_mobile}";
+            }
+            $contact_email      = formatEmailLink("Contact", $rowEmail);
+            if(!empty($contact_email))
+            {
+                $contact_email  = "<br />{$contact_email}";
+            }            
             $contact_company    = nullCheck($rowCompany,'DELETED');
+            if(!empty($rowCompany))
+            {
+                $contact_company = formatInsideLink("Detail of This Company", "../companies/detail.php?id={$rowIDCompany}", $contact_company);
+            }
+            
+            $dud = array(
+                'detail'    => formatInsideLink("Detail of This Contact", "detail.php?id={$rowID}", "Detail"),
+                'update'    => formatInsideLink("Update This Contact", "update.php?id={$rowID}", "Update"),
+                'delete'    => "<a title=\"Delete This Contact\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",
+            );            
 
             $tbody.="<tr>
                 <td class=\"td_dud\">
-                <a href=\"detail.php?id={$rowID}\">Detail</a>
+                {$dud['detail']}
                 <br />
-                <a href=\"update.php?id={$rowID}\">Update</a>
+                {$dud['update']}
                 <br />
-                <a href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>
+                {$dud['delete']}
                 </td>
-                <td class=\"td_detail\">{$contact_company}</td>
-                <td class=\"td_detail\">{$rowNameFirst} {$rowNameMiddle} {$rowNameLast}</td>
+                <td class=\"td_detail\">
+                <strong>{$rowNameFirst} {$rowNameMiddle} {$rowNameLast}</strong>
+                {$contact_phone}
+                {$contact_phone_mobile}
+                {$contact_email}
+                </td>
+                <td class=\"td_detail\"><strong>{$contact_company}</strong></td>
                 <td class=\"td_detail\">{$rowDepartment}</td>
                 <td class=\"td_detail\">{$rowTitle}</td>
-                <td class=\"td_detail\">{$contact_phone}</td>
-                <td class=\"td_detail\">{$contact_email}</td>
                 </tr>";
         }
         $tbody  .= "</tbody>";

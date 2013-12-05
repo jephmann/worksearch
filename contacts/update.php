@@ -29,7 +29,7 @@
         require_once ('_validation.php');
         if(empty($objStatus->message))
         {
-            $location   = 'index.php';
+            $location   = "detail.php?id={$objContact->id}";
             $update     = updateRow($db, $objContact);
             if(!empty($update['result']['error']))
             {
@@ -38,7 +38,7 @@
             }
             else
             {
-                header('Location:'.$location);
+                header("Location:{$location}");
             }
         }
     }

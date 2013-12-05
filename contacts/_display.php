@@ -39,6 +39,7 @@
     $contact_name_full      = returnFullNamePlus($contact_salutation, $objContact->name_full(), $contact_name_suffix);
     $contact_phone          = $objContact->full_phone();
     $contact_fax            = $objContact->full_fax();
+    $contact_mobile_phone   = $objContact->full_mobile();
     $contact_email          = formatEmailLink("Contact", $objContact->email);
     $contact_linkedin       = formatOutsideLink("Contact LinkedIn", $objContact->linkedin, NULL);
     $contact_twitter        = formatOutsideLink("Contact Twitter", $objContact->twitter, NULL);

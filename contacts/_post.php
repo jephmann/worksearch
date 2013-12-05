@@ -11,9 +11,9 @@
     // Who
     $objContact->setGender($contact_gender);
     $objContact->setId_salutation($_POST['salutation']);
-    $objContact->setName_first(ucwords(strtolower(trim($_POST['name_first']))));
-    $objContact->setName_middle(ucwords(strtolower(trim($_POST['name_middle']))));
-    $objContact->setName_last(ucwords(strtolower(trim($_POST['name_last']))));
+    $objContact->setName_first(ucwords(trim($_POST['name_first'])));
+    $objContact->setName_middle(ucwords(trim($_POST['name_middle'])));
+    $objContact->setName_last(ucwords(trim($_POST['name_last'])));
     $objContact->setId_name_suffix($_POST['name_suffix']);
     $objContact->setRemarks($_POST['remarks']);
     // Company
@@ -23,6 +23,7 @@
     // Communication
     $objContact->setPhone($_POST['phone']);
     $objContact->setPhone_extension($_POST['phone_extension']);
+    $objContact->setPhone_mobile($_POST['phone_mobile']);
     $objContact->setFax($_POST['fax']);
     $objContact->setEmail(strtolower(trim($_POST['contact_email'])));
     // Links
