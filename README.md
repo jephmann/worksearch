@@ -134,7 +134,7 @@ encrypt) and email address.
 - welcome: ultimately the real home page
 - login: the login form. Depending on whether I can work out e-mailing issues
 in my environment, this form may include "forget login" logic.
-- logout: shuts down the session and redirect to login.
+- logout: shuts down the session and redirects to login.
 
 IMMEDIATE ISSUES as of 2013.12.04:
 
