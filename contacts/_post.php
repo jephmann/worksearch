@@ -18,8 +18,8 @@
     $objContact->setRemarks($_POST['remarks']);
     // Company
     $objContact->setId_company($_POST['company']);
-    $objContact->setDepartment(ucwords(strtolower(trim($_POST['department']))));
-    $objContact->setTitle(ucwords(strtolower(trim($_POST['title']))));
+    $objContact->setDepartment(trim($_POST['department']));
+    $objContact->setTitle(trim($_POST['title']));
     // Communication
     $objContact->setPhone($_POST['phone']);
     $objContact->setPhone_extension($_POST['phone_extension']);

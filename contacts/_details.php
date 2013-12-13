@@ -63,11 +63,16 @@
             </tr>
         </table>
     </fieldset>
-    <p>[Contact-specific logs]</p>
+    <fieldset>
+        <legend>Contact Log(s):</legend>
+        <table>
+            <?php echo $tr_logs; ?>
+        </table>
+    </fieldset>
 </div>
 <div style="width:350px;float:right;">
     <fieldset>
-        <legend>Company</legend>
+        <legend>Contact Company</legend>
         <table>
             <colgroup>
                 <col style="background-color:#CCCCFF">
