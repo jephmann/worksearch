@@ -129,13 +129,13 @@
     $prmLogs = $objLogs->id_params($objLogs->id, $objLogs->id_user);
     $prmLogs['id_company'] = $objLogs->id_company;
     $sqlLogs = $objLogs->selectAll($id_user);
-    $sqlLogs .= " AND id_company = :id_company";   
+    $sqlLogs .= " AND id_company = :id_company";
     
     $fetchLogs   = read($db, $sqlLogs, $prmLogs, TRUE);
     $rowLogs     = $fetchLogs['result'];
     if(!empty($fetchLogs['error']))
     {
-        $objStatus->setMessage("<li>Contacts Error: {$fetchLogs['error']}</li>");
+        $objStatus->setMessage("<li>Company Log Error: {$fetchLogs['error']}</li>");
         $objStatus->setClass("status_error");
     }
     $tr_logs = NULL;
@@ -146,7 +146,27 @@
     else
     {
         // 2013.11.29 TODO: Retrieve Company Logs
-        $tr_logs .= "<tr><td>Bunch of Logs</td></tr>";
+        $tr_logs .= "<thead><tr>
+            <th>Log<br />Detail</th>
+            <th>Week<br />Ending</th>
+            <th>Contact<br />Date</th>
+            <th>Results</th>
+            </tr></thead>
+            </tbody>";
+        foreach($rowLogs as $rowL)
+        {
+            $rowLID = $rowL['id'];
+            $rowLWeekEnding = $rowL['week_ending'];
+            $rowLContactDate = $rowL['contact_date'];
+            $rowLWork = $rowL['work'];
+            $rowLResults = $rowL['results'];
+            $tr_logs .= "<tr>
+                <td><a href=\"../logs/detail.php?id={$rowLID}\">Detail</a></td>
+                <td>{$rowLWeekEnding}</td>
+                <td>{$rowLContactDate}</td>
+                <td>{$rowLResults}</td>
+                </tr>";
+        }
     }
     
     

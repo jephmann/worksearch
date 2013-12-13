@@ -6,7 +6,8 @@
     $objStatus->message .= validate_zip5_li($objCompany->address_zip5, "Company ZIP Code");
     $objStatus->message .= validate_zip4_li($objCompany->address_zip4, "Company ZIP Code Extension", $objCompany->address_zip5);
     
-    // Make sure I did not add this Company/ZIP already
+    // Make sure I did not add this Company/ZIP already [seems to be broken; company name w/ different ZIP gets blocked]
+    /*
     if($page['mode']=='Create')
     {
         // See whether combination name and zip5 already exist
@@ -17,6 +18,7 @@
             $objStatus->message .= validation_message("Combination company name/zip5 already exists.");
         }
     }
+     */
     
     $objStatus->message .= validate_phone_li($objCompany->phone, "Company Phone Number");
     $objStatus->message .= validate_phone_ext_li($objCompany->phone_extension, "Company Phone Extension", $objCompany->phone);    

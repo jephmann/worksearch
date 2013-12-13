@@ -86,12 +86,11 @@
 </section>
 <section class="right">
     <fieldset>
-        <legend>Contact(s):</legend>
+        <legend>Company Contact(s):</legend>
         <?php echo $p_contacts; ?>
     </fieldset>
     <fieldset>
-        <legend>LOG:</legend>
-        <p><?php echo $sqlLogs; ?></p>
+        <legend>Company Log(s):</legend>
         <table>
             <?php echo $tr_logs; ?>
         </table>
