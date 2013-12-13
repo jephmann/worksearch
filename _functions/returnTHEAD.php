@@ -1,7 +1,7 @@
 <?php
     function return_THEAD($array_columns)
     {
-        $thead  = "<thead>";
+        $thead  = "<thead><tr>";
         $asc    = NULL;
         $desc   = NULL;
         $field  = NULL;
@@ -24,6 +24,6 @@
             }
             $thead  .= "</th>";
         }
-        $thead  .= "</thead>";
+        $thead  .= "</tr></thead>";
         return $thead;
     }
