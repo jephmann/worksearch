@@ -179,3 +179,15 @@ itself. If I can figure out how, I might consider posting whatever triggers or
 stored procedures I may have written. It may depend on "popular demand".
 - As I suggested earlier, you might not see every file of this project on
 GitHub. For example, I am sparing GitHub my image files.
+
+UPDATE 2014.03.27:
+- I last updated my WorkSearch projects on GitHub on/about 2014.01.22. Since
+then, my attention was dominated by issues concerning my job search as well as
+other personal matters. One of the job search issues concerned a perception that
+recruiters were calling me far more often for ASP.NET work than for PHP work.
+So, among other things, I spent much of my time on MVC Entity Framework
+tutorials in a bid to revive my dormant ASP.NET skills.
+- Up to now, my WorkSearch projects were built using NetBeans 7.3. These were
+the first projects wherein I would connect to GitHub via NetBeans. Yesterday I
+downloaded and installed NetBeans 8.0. The posting of this updated README.md
+file is a test to ensure that my GitHub settings are still intact.
