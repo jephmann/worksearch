@@ -52,7 +52,9 @@
         $nav_li .= "\r<li>" . formatInsideLink("Companies", "{$page['path']}companies/", "Companies") . "</li>\r
             \r<li>" . formatInsideLink("Contacts", "{$page['path']}contacts/", "Contacts") . "</li>\r
             \r<li>" . formatInsideLink("Logs", "{$page['path']}logs/", "Logs") . "</li>\r
-            \r<li>Mail</li>\r";
+            \r<li>Mail</li>\r
+            \r<li>Documents</li>\r
+            \r<li>Networking</li>\r";
     }
 ?>
 <!DOCTYPE html>
