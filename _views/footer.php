@@ -5,7 +5,7 @@
         <footer>
             <section>
                 <h3>
-                    Our Beloved Entertainer: <?php echo ($project['author']); ?>
+                    Our Beloved Entertainer: Jeffrey P. Hartmann
                 </h3>
                 <p>Copyright &copy; <?php echo Date('Y'); ?></p>
             </section>
