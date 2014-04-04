@@ -4,7 +4,7 @@ These notes are subject to change.
 
 =====
 
-December 5, 2013
+April 5, 2014
 
 WORKsearch (a working title) is a personal, independent project which I began in
 May 2013 chiefly to stay in practice in between jobs. Currently it is a work in
@@ -21,7 +21,8 @@ my contacts and logging my activity would be an ideal project for me to maintain
 my strengths as a coder while working on areas which could use improvement.
 Being in between jobs, it is difficult for me to think of anything else as a
 subject for such a project. (In happier times, this might have been a project
-about my DVD collection or something else fun.)
+about my DVD collection or something else fun. Having recently sold the majority
+of my DVD collection, perhaps it is just as well.)
 
 Originally this project was meant to be a single-user project. Although I
 currently have no ambition that this could be a major application which other
@@ -46,7 +47,9 @@ WHAT'S IN IT
 
 Longstoryshort: So far, PHP 5.4.7 over XAMPP 1.8.1 connecting to MySQL 5.5.27
 via PDO using HTML, HTML5, CSS and CSS3; to a lesser extent, JavaScript and
-jQuery as well. My IDE is NetBeans 7.3.
+jQuery as well.
+
+Originally my IDE is NetBeans 7.3. Last week I updated to NetBeans 8.0.
 
 For now, I am concentrating on back-end programming. Other technologies,
 particularly on the front end, shall follow as I go along.
@@ -159,13 +162,19 @@ Logs or both.
 - Tabbing through forms with a footer sticking to the bottom.
 - Allow e-mail addresses with hyphens (jQuery? PHP?).
 
-LONG-TERM NICE-TO-HAVES as of 2013.12.04:
+LONG-TERM NICE-TO-HAVES as of 2014.04.05:
 
 - E-mail logic using PHPMailer which sends custom or form e-mails, perhaps with
 resume attachments (e.g. resumes), to contacts while logging said activity into
 Logs. Limitations within my present environment might prevent this for a while.
 - PDF versions of log lists, approximating the IDES "work search" forms, per
 week-ending date.
+- A section for networking -- a diary of sorts for one's activities at job
+fairs, MeetUps and other events. Although there does not seem to be a provision
+for such things in the IDES "work search" form, as far as I am concerned,
+all forms of networking should count as credit for diligence in anyone's job
+search.
+- An area to upload resumes, cover letters, form-letter templates and so on.
 - A jQuery Mobile version of the entire project. As in object-oriented
 programming, this project may be my first earnest opportunity to learn jQuery
 Mobile as well as my first earnest attempt to combine PHP with jQuery Mobile.
@@ -189,5 +198,5 @@ So, among other things, I spent much of my time on MVC Entity Framework
 tutorials in a bid to revive my dormant ASP.NET skills.
 - Up to now, my WorkSearch projects were built using NetBeans 7.3. These were
 the first projects wherein I would connect to GitHub via NetBeans. Yesterday I
-downloaded and installed NetBeans 8.0. The posting of this updated README.md
-file is a test to ensure that my GitHub settings are still intact.
+downloaded and installed NetBeans 8.0. The 2014.03.27 posting of this updated
+README.md file is a test to ensure that my GitHub settings are still intact.
