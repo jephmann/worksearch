@@ -49,7 +49,7 @@ WHAT'S IN IT
 via PDO using HTML, HTML5, CSS and CSS3; to a lesser extent, JavaScript and
 jQuery as well.
 
-My IDE is NetBeans 7.3. Last week I updated from 7.3 to 8.0.
+My IDE is NetBeans. Last week I updated from 7.3 to 8.0.
 
 For now, I am concentrating on back-end programming. Other technologies,
 particularly on the front end, shall follow as I go along.
@@ -67,8 +67,8 @@ learn anyhow.
 
 Beyond framing the pages, color schemes and other aesthetic issues are the least
 of my concerns for now. I might want to keep the project flexible by allowing it
-to be reskinned by others anyhow. So, yes, even if functions perfectly, it may
-still appear ugly for a long while.
+to be reskinned by others anyhow. So, yes, even if it functions perfectly, it
+may still appear ugly for a long while.
 
 *The long story* -- by the folders:
 
