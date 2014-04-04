@@ -4,7 +4,7 @@ These notes are subject to change.
 
 =====
 
-April 5, 2014
+April 3, 2014
 
 WORKsearch (a working title) is a personal, independent project which I began in
 May 2013 chiefly to stay in practice in between jobs. Currently it is a work in
@@ -45,11 +45,11 @@ I reserve the right to ignore any other kinds of criticism. ;)
 
 WHAT'S IN IT
 
-Longstoryshort: So far, PHP 5.4.7 over XAMPP 1.8.1 connecting to MySQL 5.5.27
+*Longstoryshort*: So far, PHP 5.4.7 over XAMPP 1.8.1 connecting to MySQL 5.5.27
 via PDO using HTML, HTML5, CSS and CSS3; to a lesser extent, JavaScript and
 jQuery as well.
 
-Originally my IDE is NetBeans 7.3. Last week I updated to NetBeans 8.0.
+My IDE is NetBeans 7.3. Last week I updated from 7.3 to 8.0.
 
 For now, I am concentrating on back-end programming. Other technologies,
 particularly on the front end, shall follow as I go along.
@@ -70,7 +70,7 @@ of my concerns for now. I might want to keep the project flexible by allowing it
 to be reskinned by others anyhow. So, yes, even if functions perfectly, it may
 still appear ugly for a long while.
 
-The long story -- by the folders:
+*The long story* -- by the folders:
 
 INCLUDED/REQUIRED FOLDERS/FILES (each prefaced with "_"):
 
@@ -162,7 +162,7 @@ Logs or both.
 - Tabbing through forms with a footer sticking to the bottom.
 - Allow e-mail addresses with hyphens (jQuery? PHP?).
 
-LONG-TERM NICE-TO-HAVES as of 2014.04.05:
+LONG-TERM NICE-TO-HAVES as of 2014.04.03:
 
 - E-mail logic using PHPMailer which sends custom or form e-mails, perhaps with
 resume attachments (e.g. resumes), to contacts while logging said activity into
@@ -179,6 +179,9 @@ search.
 programming, this project may be my first earnest opportunity to learn jQuery
 Mobile as well as my first earnest attempt to combine PHP with jQuery Mobile.
 (Not interested re Android or iOS at the moment.)
+- Maybe rename "Companies" (and related Company class/objects) as "Prospects"
+(and related Prospect class/objects)
+- Updating those "immediate issues" notes.
 
 OTHER:
 
