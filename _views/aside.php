@@ -1,6 +1,6 @@
 <aside>
     <fieldset>
-        <legend>Contents</legend>
+        <legend>Aside (TBD)</legend>
         <div class="notes">
             <h3>Miscellaneous.</h3>
             <p>                
