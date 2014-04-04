@@ -111,28 +111,28 @@ footer {
     left:               0;
 }
 footer section {
-    color:      #FFFFFF;
+    color:          #FFFFFF;
     line-height:    60px;
-    margin:     0 auto;
-    width:      940px;
-    text-align: center;
+    margin:         0 auto;
+    width:          940px;
+    text-align:     center;
 }
 
 
 fieldset {
-    border: 1px dotted silver;
-    padding: 2px;
+    border:     1px dotted silver;
+    padding:    2px;
 }
 legend, th {
-    font-weight: bold;
-    font-style: italic;
-    border: solid 1px white;
+    font-weight:    bold;
+    font-style:     italic;
+    border:         solid 1px white;
 }
 legend {
     padding:6px;
-    background-color: #CCFFFF;
-    -webkit-border-radius: 12px;
-    border-radius: 12px;     
+    background-color:       #CCFFFF;
+    -webkit-border-radius:  12px;
+    border-radius:          12px;     
 }
 tr {
     border-bottom: dotted 1px silver;
@@ -141,10 +141,10 @@ td, th {
     padding: 2px;
 }
 th a {
-    padding: 2px;
-    font-weight: bold;
-    text-decoration: none;
-    background-color: #F5F5F5;
+    padding:            2px;
+    font-weight:        bold;
+    text-decoration:    none;
+    background-color:   #F5F5F5;
 }
 nav {
     font-weight: bold;
@@ -155,32 +155,28 @@ nav {
 }
 
 th {
-    background-color: #003333;
-    color: #00FFFF;    
+    background-color:   #003333;
+    color:              #00FFFF;    
 }
 th:hover {
-    background-color: #CCFFFF;
-    color: #003333; 
+    background-color:   #CCFFFF;
+    color:              #003333; 
 }
 
 header nav ul, .filter_list
 {
-    list-style-type:none;
-    /*
-    margin:1em;
-    background-color: yellow;
-    */
+    list-style-type:    none;
 }
 header nav ul li, .filter_list li
 {
-    display:inline;
-    margin-right: 4px;
+    display:        inline;
+    margin-right:   4px;
 }
 header nav ul li a, legend a
 {
-    text-decoration: none;
-    color: #00FFFF;
-    padding:6px;
+    text-decoration:    none;
+    color:              #00FFFF;
+    padding:            6px;
     /*
     border:1px dotted silver;
     background-color: #333366;
@@ -202,8 +198,8 @@ header nav ul li a, legend a
 }
 legend a
 {
-    font-size: smaller;
-    margin-right: 4px;
+    font-size:      smaller;
+    margin-right:   4px;
 }
 header nav ul li a:hover, legend a:hover
 {
@@ -224,47 +220,47 @@ header nav ul li a:hover, legend a:hover
 }
 .filter
 {
-    display: block;
-    width: 100%;
+    display:        block;
+    width:          100%;
 }
 .filter label
 {
-    width: 100px;
+    width:          100px;
 }
 .filter_list
 {
-    float: right;
-    font-weight: bold;
+    float:          right;
+    font-weight:    bold;
 }
 
 
 
 section {
-    display: block;
-    width: 960px;
-    margin: 0 auto;
+    display:    block;
+    width:      960px;
+    margin:     0 auto;
 }
 aside {
-    display: block;
-    width: 240px; 
-    float: left;
-    background-color: #666666;
-    color: #FFFFFF;
+    display:            block;
+    width:              240px; 
+    float:              left;
+    background-color:   #666666;
+    color:              #FFFFFF;
 }
 article {
-    display: block;
-    width: 720px;
-    float: left;
-    background-color: #F5F5F5;
+    display:            block;
+    width:              720px;
+    float:              left;
+    background-color:   #F5F5F5;
 }
 
 label {
-    width: 360px;
-    display: block;
-    float: left;
-    border-bottom: 1px dotted silver;
-    background-color: #CCCCCC;
-    font-weight: bold;
+    width:              360px;
+    display:            block;
+    float:              left;
+    border-bottom:      1px dotted silver;
+    background-color:   #CCCCCC;
+    font-weight:        bold;
 }
 input, select {
     font-family: "Cambria","Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
@@ -280,18 +276,18 @@ em {
     text-align: right;
 }
 .form_row, .button_row {
-    display: block;
-    clear: both;
-    padding: 4px;
+    display:    block;
+    clear:      both;
+    padding:    4px;
 }
 .td_detail {
-    border-left: dashed 1px silver;
+    border-left:    dashed 1px silver;
 }
 .td_dud {
-    font-weight:bold;
+    font-weight:    bold;
 }
 .td_dud a {
-    text-decoration: none;
+    text-decoration:    none;
 }
 .asterisk {
     font-weight:    bold;
@@ -358,6 +354,74 @@ label.error {
     box-shadow:  2px 2px 2px 2px #cccccc;
 }
 
+/*
+    Welcome: Contents
+*/
+.contents {
+    display:        block;
+    /* border-bottom:  1px dashed silver; */
+    padding:        7px;
+    width:          700px;
+    float:          left;
+}
+.contents span {
+    display:            inline;
+    width:              100px;
+    background-color:   lightcyan;
+    float:              left;
+    font-size:          2em;
+    font-style:         italic;
+    font-weight:        bold;
+    padding:            0.5em;
+    margin-right:       1em;
+    text-decoration:    none;
+    /* css3 */
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-box-shadow:  2px 2px 2px 2px #333333;
+    box-shadow:  2px 2px 2px 2px #333333;
+    /* css */
+    background: #a7cfdf; /* Old browsers */
+    background: -moz-linear-gradient(top,  #a7cfdf 0%, #23538a 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a7cfdf), color-stop(100%,#23538a)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #a7cfdf 0%,#23538a 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #a7cfdf 0%,#23538a 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #a7cfdf 0%,#23538a 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #a7cfdf 0%,#23538a 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=0 ); /* IE6-9 */
+}
+.contents span:hover {
+    /* css */
+    background: #deefff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #deefff 0%, #98bede 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#deefff), color-stop(100%,#98bede)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #deefff 0%,#98bede 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #deefff 0%,#98bede 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #deefff 0%,#98bede 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #deefff 0%,#98bede 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deefff', endColorstr='#98bede',GradientType=0 ); /* IE6-9 */
+}
+.contents span a {
+    text-decoration:    none;
+    color:              cyan;
+    width:              100%;
+    margin:             0 auto;
+}
+.contents span a:hover {
+    color: navy;
+    margin:             0 auto;
+}
+
+
+.contents p {
+    display:            inline;
+    width:              550px;
+    float:              left;
+    background-color:   #FFFFFF;
+    font-size:          1.25em;
+    font-weight:        bold;
+}
+
 
 /*
     Notes on NOTES: 
@@ -369,22 +433,22 @@ label.error {
 */
 .notes {
 
-    font-family: 'comic sans ms';
-    background-color: #FFFFCC;
-    border-left: 1pt dotted red;
-    padding: 1em;
-    color: #000000;
+    font-family:        'comic sans ms';
+    background-color:   #FFFFCC;
+    border-left:        1pt dotted red;
+    padding:            1em;
+    color:              #000000;
 }
 .notes h3 {
-    color: purple;
+    color:  purple;
 }
 .notes p {
     font-style: italic;
 }
 
 pre {
-    font-family: 'lucida console',monospace;
-    display: block;
-    border: 1px dashed silver;
-    background-color: #FFFFFF;
+    font-family:        'lucida console',monospace;
+    display:            block;
+    border:             1px dashed silver;
+    background-color:   #FFFFFF;
 }
