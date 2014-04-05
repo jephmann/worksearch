@@ -1,12 +1,12 @@
 <?php
 /**
- * Description of Company
+ * Description of Prospect
  *
  * @author Jeffrey
  */
-class Company extends Data {
+class Prospect extends Data {
     
-    // Company Properties
+    // Prospect Properties
     public $id_user             = NULL;
     public $name                = NULL;
     public $address_building    = NULL;
@@ -28,10 +28,10 @@ class Company extends Data {
     public $industry            = NULL;
     public $recruiter           = FALSE;
     public $description         = NULL;
-    public $contact             = FALSE; // not a db field; if yes, next step is Contact form; if no, next step is Company index.
+    public $contact             = FALSE; // not a db field; if yes, next step is Contact form; if no, next step is Prospect index.
     
     // Data Properties
-    public $table       = "companies";
+    public $table       = "prospects";
     protected $fields   = array(
         'id_user',
         'name',
@@ -57,7 +57,7 @@ class Company extends Data {
         'remarks'
         );
         
-    // Company get/set Methods
+    // Prospect get/set Methods
     public function getId_user() {
         return $this->id_user;
     }
@@ -212,7 +212,7 @@ class Company extends Data {
         $this->contact = $contact;
     }
         
-    // Company Query Methods    
+    // Prospect Query Methods    
     public function parameters($id)
     {
         $parameters = array(

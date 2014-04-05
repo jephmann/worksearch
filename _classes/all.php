@@ -6,7 +6,7 @@
     require_once ($page['path'].'_classes/Name_Suffix.php');
     require_once ($page['path'].'_classes/Salutation.php');
     require_once ($page['path'].'_classes/State.php');
-    require_once ($page['path'].'_classes/Company.php');
+    require_once ($page['path'].'_classes/Prospect.php');
     require_once ($page['path'].'_classes/Log.php');
     require_once ($page['path'].'_classes/User.php');
     require_once ($page['path'].'_classes/Person.php');
