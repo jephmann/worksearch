@@ -41,8 +41,8 @@
         
     $sqlJoin    = "SELECT
         contacts.id AS id,
-        companies.name AS company,
-        contacts.id_company AS id_company,
+        prospects.name AS prospect,
+        contacts.id_prospect AS id_prospect,
         contacts.name_last AS name_last,
         contacts.name_first AS name_first,
         contacts.name_middle AS name_middle,
@@ -53,8 +53,8 @@
         contacts.phone_extension AS extension,
         contacts.email AS email
         FROM contacts
-        LEFT JOIN companies
-        ON contacts.id_company = companies.id
+        LEFT JOIN prospects
+        ON contacts.id_prospect = prospects.id
         WHERE contacts.id_user = :id_user
         {$and}{$sort}";
     $fetchJoin  = read($db, $sqlJoin, $prmJoin, TRUE);
@@ -77,8 +77,8 @@
                 'title'=>'Name',
                 'field'=>'name_last'),
             array(
-                'title'=>'Company',
-                'field'=>'company'),
+                'title'=>'Prospect',
+                'field'=>'prospect'),
             array(
                 'title'=>'Department',
                 'field'=>'department'),
@@ -92,8 +92,8 @@
         foreach($rows as $row)
         {
             $rowID              = htmlentities($row['id'], ENT_QUOTES, 'UTF-8');
-            $rowIDCompany       = htmlentities($row['id_company'], ENT_QUOTES, 'UTF-8');
-            $rowCompany         = htmlentities($row['company'], ENT_QUOTES, 'UTF-8');
+            $rowIDProspect       = htmlentities($row['id_prospect'], ENT_QUOTES, 'UTF-8');
+            $rowProspect         = htmlentities($row['prospect'], ENT_QUOTES, 'UTF-8');
             $rowNameLast        = htmlentities($row['name_last'], ENT_QUOTES, 'UTF-8');
             $rowNameFirst       = htmlentities($row['name_first'], ENT_QUOTES, 'UTF-8');
             $rowNameMiddle      = htmlentities($row['name_middle'], ENT_QUOTES, 'UTF-8');
@@ -119,10 +119,10 @@
             {
                 $contact_email  = "<br />{$contact_email}";
             }            
-            $contact_company    = nullCheck($rowCompany,'DELETED');
-            if(!empty($rowCompany))
+            $contact_prospect    = nullCheck($rowProspect,'DELETED');
+            if(!empty($rowProspect))
             {
-                $contact_company = formatInsideLink("Detail of This Company", "../companies/detail.php?id={$rowIDCompany}", $contact_company);
+                $contact_prospect = formatInsideLink("Detail of This Prospect", "../prospects/detail.php?id={$rowIDProspect}", $contact_prospect);
             }
             
             $dud = array(
@@ -145,7 +145,7 @@
                 {$contact_phone_mobile}
                 {$contact_email}
                 </td>
-                <td class=\"td_detail\"><strong>{$contact_company}</strong></td>
+                <td class=\"td_detail\"><strong>{$contact_prospect}</strong></td>
                 <td class=\"td_detail\">{$rowDepartment}</td>
                 <td class=\"td_detail\">{$rowTitle}</td>
                 </tr>";

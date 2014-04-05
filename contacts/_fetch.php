@@ -18,8 +18,8 @@
     $objContact->setName_last(htmlentities($rowContact['name_last'], ENT_QUOTES, 'UTF-8'));
     $objContact->setId_name_suffix(htmlentities($rowContact['id_name_suffix'], ENT_QUOTES, 'UTF-8'));
     $objContact->setRemarks(htmlentities($rowContact['remarks'], ENT_QUOTES, 'UTF-8'));
-    // Company
-    $objContact->setID_company(htmlentities($rowContact['id_company'], ENT_QUOTES, 'UTF-8'));
+    // Prospect
+    $objContact->setID_prospect(htmlentities($rowContact['id_prospect'], ENT_QUOTES, 'UTF-8'));
     $objContact->setDepartment(htmlentities($rowContact['department'], ENT_QUOTES, 'UTF-8'));
     $objContact->setTitle(htmlentities($rowContact['title'], ENT_QUOTES, 'UTF-8'));
     // Communication

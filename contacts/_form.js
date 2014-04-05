@@ -8,7 +8,7 @@ $(function() {
             name_last: {
                 required: true
             },
-            company: {
+            prospect: {
                 required: true
             },
             phone: {
@@ -39,8 +39,8 @@ $(function() {
             name_last: {
                 required: "Contact: Last Name is required."
             },
-            company: {
-                required: "Contact: Company is required."
+            prospect: {
+                required: "Contact: Prospect is required."
             },
             phone: {
                 digits: "Numbers only for Office Phone",

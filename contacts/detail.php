@@ -21,15 +21,15 @@
     require ('_fetch.php');
     require ('_display.php');
     
-    // CONTACT'S COMPANY
-    $objCompany     = new Company;
-    $objCompany->setId_user($id_user);
-    $objCompany->setId($objContact->id_company);
-    require ($page['path'].'companies/_fetch.php');
-    require ($page['path'].'companies/_display.php');
-    $company_name = "<a title=\"Link to Company Detail\"
-        href=\"../companies/detail.php?id={$objContact->id_company}\">
-            {$objCompany->name}</a>";
+    // CONTACT'S PROSPECT
+    $objProspect     = new Prospect;
+    $objProspect->setId_user($id_user);
+    $objProspect->setId($objContact->id_prospect);
+    require ($page['path'].'prospects/_fetch.php');
+    require ($page['path'].'prospects/_display.php');
+    $prospect_name = "<a title=\"Link to Prospect Detail\"
+        href=\"../prospects/detail.php?id={$objContact->id_prospect}\">
+            {$objProspect->name}</a>";
     
     // CONTACT'S LOGS
     /*
@@ -38,7 +38,7 @@
      */
     $objLogs        = new Log;
     $objLogs->setId_user($id_user);
-    $objLogs->setId_company($objCompany->id);
+    $objLogs->setId_prospect($objProspect->id);
     $objLogs->setId_contact($objContact->id);
     
     $prmLogs = $objLogs->id_params($objLogs->id, $objLogs->id_user);
@@ -84,13 +84,13 @@
         }
     }
     
-    // COMPANY'S ADDITIONAL CONTACTS
+    // PROSPECT'S ADDITIONAL CONTACTS
     /*
      * 2013.09.06 TO DO:
-     * - Display Contacts (other than this Contact) specific to this Contact's Company
+     * - Display Contacts (other than this Contact) specific to this Contact's Prospect
      */
     $objContacts    = new Contact;
-    $objContacts->setId_company($objCompany->id);
+    $objContacts->setId_prospect($objProspect->id);
     $objContacts->setId_user($id_user);
     
     // =========================================================================    

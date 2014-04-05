@@ -1,8 +1,8 @@
 <?php
     /* 2013.09.06 TODO(s):
      * - Block deletion if Log exists for Contact
-     * - Consider deleting Contact's Company simultaneously, unless at least one
-     *  other Contact shares its Company
+     * - Consider deleting Contact's Prospect simultaneously, unless at least one
+     *  other Contact shares its Prospect
      * - JavaScript "Are you sure?" logic
      */
     $page = array(

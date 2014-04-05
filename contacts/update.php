@@ -20,7 +20,7 @@
     require ('_fetch.php');
     $objSalutations     = new Salutation;
     $objNameSuffixes    = new Name_Suffix;
-    $objCompanies       = new Company;
+    $objProspects       = new Prospect;
     require ('_defaults.php');
     if(!empty($_POST))
     {        

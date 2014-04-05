@@ -15,10 +15,10 @@
         $option_errors .= $optNameSuffixes['error'];
     }
     
-    $optCompanies       = ddlOptions($db, $objContact->getID_company(), 'id', 'name', $objCompanies, NULL, NULL);
-    if(!empty($optCompanies['error']))
+    $optProspects       = ddlOptions($db, $objContact->getID_prospect(), 'id', 'name', $objProspects, NULL, NULL);
+    if(!empty($optProspects['error']))
     {
-        $option_errors .= $optCompanies['error'];
+        $option_errors .= $optProspects['error'];
     }
     
     if(!empty($option_errors))

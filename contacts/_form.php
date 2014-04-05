@@ -39,10 +39,10 @@
             </div>
         </fieldset>
         <fieldset>
-            <legend>Company</legend>
+            <legend>Prospect</legend>
             <div class="form_row">
-                <label id="lblCompany">Company:<?php echo $asterisk; ?></label>
-                <select name="company"><?php echo $optCompanies['options']; ?></select>
+                <label id="lblProspect">Prospect:<?php echo $asterisk; ?></label>
+                <select name="prospect"><?php echo $optProspects['options']; ?></select>
             </div>
             <div class="form_row">
                 <label id="lblDepartment">Department:</label>

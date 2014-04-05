@@ -15,13 +15,13 @@
     
     $objContact = new Contact;
     $objContact->setId_user($_SESSION['user']['id']);    
-    if(isset($_GET['company']))
+    if(isset($_GET['prospect']))
     {
-        $objContact->setId_company($_GET['company']);
+        $objContact->setId_prospect($_GET['prospect']);
     }
     $objSalutations     = new Salutation;
     $objNameSuffixes    = new Name_Suffix;
-    $objCompanies       = new Company;
+    $objProspects       = new Prospect;
     require ('_defaults.php');
     if (!empty($_POST))
     {        
@@ -38,9 +38,9 @@
             }
             else
             {
-                if(isset($_GET['company']))
+                if(isset($_GET['prospect']))
                 {
-                    $location   = ("../companies/index.php");                
+                    $location   = ("../prospects/index.php");                
                 }
                 else
                 {

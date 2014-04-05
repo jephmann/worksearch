@@ -72,34 +72,34 @@
 </div>
 <div style="width:350px;float:right;">
     <fieldset>
-        <legend>Contact Company</legend>
+        <legend>Contact Prospect</legend>
         <table>
             <colgroup>
                 <col style="background-color:#CCCCFF">
                 <col style="background-color:#FFFFFF">
             </colgroup>
             <tr>
-                <td><strong>Company:</strong></td>
-                <td><strong><?php echo $company_name; ?></strong></td>
+                <td><strong>Prospect:</strong></td>
+                <td><strong><?php echo $prospect_name; ?></strong></td>
             </tr>
             <tr>
                 <td><strong>Recruiter:</strong></td>
-                <td><?php echo $company_recruiter; ?></td>
+                <td><?php echo $prospect_recruiter; ?></td>
             </tr>
             <tr>
                 <td><strong>Industry:</strong></td>
-                <td><?php echo $objCompany->industry; ?></td>
+                <td><?php echo $objProspect->industry; ?></td>
             </tr>
             <tr>
                 <td>
                     <strong>Address:</strong>
                 </td>
                 <td>
-                    <?php echo $company_building; ?>
-                    <?php echo $objCompany->address_street; ?>
+                    <?php echo $prospect_building; ?>
+                    <?php echo $objProspect->address_street; ?>
                     <br />
-                    <?php echo $company_unit; ?>
-                    <?php echo $company_csz; ?>
+                    <?php echo $prospect_unit; ?>
+                    <?php echo $prospect_csz; ?>
                 </td>
             </tr>
             <tr>
@@ -107,44 +107,44 @@
                     <strong>Phone:</strong>
                 </td>
                 <td>
-                    <?php echo $company_phone; ?>
+                    <?php echo $prospect_phone; ?>
                 </td>
             </tr>
             <tr>
                 <td><strong>Fax:</strong></td>
-                <td><?php echo $company_fax; ?></td>
+                <td><?php echo $prospect_fax; ?></td>
             </tr>
             <tr>
                 <td><strong>E-Mail:</strong></td>
-                <td><?php echo $company_email; ?></td>
+                <td><?php echo $prospect_email; ?></td>
             </tr>
             <tr>
                 <td><strong>Website:</strong></td>
-                <td><?php echo $company_website; ?></td>
+                <td><?php echo $prospect_website; ?></td>
             </tr>
             <tr>
                 <td><strong>LinkedIn:</strong></td>
-                <td><?php echo $company_linkedin; ?></td>
+                <td><?php echo $prospect_linkedin; ?></td>
             </tr>
             <tr>
                 <td><strong>Twitter:</strong></td>
-                <td><?php echo $company_twitter; ?></td>
+                <td><?php echo $prospect_twitter; ?></td>
             </tr>
             <tr>
                 <td><strong>Facebook:</strong></td>
-                <td><?php echo $company_facebook; ?></td>
+                <td><?php echo $prospect_facebook; ?></td>
             </tr>
             <tr>
                 <td><strong>Google+:</strong></td>
-                <td><?php echo $company_googleplus; ?></td>
+                <td><?php echo $prospect_googleplus; ?></td>
             </tr>
             <tr>
                 <td><strong>DESCRIPTION:</strong></td>
-                <td><?php echo $objCompany->description; ?></td>
+                <td><?php echo $objProspect->description; ?></td>
             </tr>
         </table>
     </fieldset>
-    <p>[Additional cross-referenced company contacts]</p>
+    <p>[Additional cross-referenced prospect contacts]</p>
 </div>
 <div class="clear"></div>
 <script language="javascript" type="text/javascript" src="_delete.js"></script>
