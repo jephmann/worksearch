@@ -39,22 +39,6 @@
         {
             $session_whose .= "We invite you to build your profile<br />before proceding further.";
         }
-    }    
-    
-    $nav_li = NULL;
-    if (!empty($_SESSION['user']))
-    {
-        $nav_li .= "\r<li>" . formatInsideLink("HOME", "{$page['path']}welcome.php", "HOME") . "</li>\r
-            \r<li>" . formatInsideLink("Profile", "{$page['path']}profile/", "Profile") . "</li>\r";
-    }
-    if (!empty($_SESSION['profile']))
-    {
-        $nav_li .= "\r<li>" . formatInsideLink("Companies", "{$page['path']}companies/", "Companies") . "</li>\r
-            \r<li>" . formatInsideLink("Contacts", "{$page['path']}contacts/", "Contacts") . "</li>\r
-            \r<li>" . formatInsideLink("Logs", "{$page['path']}logs/", "Logs") . "</li>\r
-            \r<li>Mail</li>\r
-            \r<li>Documents</li>\r
-            \r<li>Networking</li>\r";
     }
     
     //=====
@@ -141,9 +125,9 @@
         <title><?php echo ($project['title'].' | '.$page['title'].$page['subtitle']); ?></title>
         <link rel="stylesheet" href="<?php echo $page['path'];?>_css/reset.css" />
         <link rel="stylesheet" href="<?php echo $page['path'];?>_css/common.css" />
-        <script language="javascript" type="text/javascript"
+        <script type="text/javascript"
             src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script language="javascript" type="text/javascript"
+        <script type="text/javascript"
             src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"></script>
     </head>
     <body>
