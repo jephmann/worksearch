@@ -9,7 +9,7 @@
                 <nav>
                     <ul>
                         <?php
-                            echo $nav_li;
+                            echo $navContents;
                         ?>
                     </ul>
                 </nav>

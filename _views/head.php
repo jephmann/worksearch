@@ -56,6 +56,79 @@
             \r<li>Documents</li>\r
             \r<li>Networking</li>\r";
     }
+    
+    //=====
+    $objContents    = new Content;
+    $prmContents    = $objContents->parameters(NULL);
+    $sort           = return_sort(FALSE, NULL, NULL, 'sequence');    
+    $sqlContents    = $objContents->selectAll(NULL).' '.$sort;
+    $fetchContents  = read($db, $sqlContents, $prmContents, TRUE);
+    $rowContents    = NULL;
+    $navContents    = NULL;    // for all pages
+    $divContents    = NULL;    // for the welcome page
+    if(!empty($fetchContents['error']))
+    {
+        $objStatus->setMessage("<li>{$fetchContents['error']}</li>");
+        $objStatus->setClass("status_error");
+        $rowContents    = NULL;
+        $navContents    = NULL;
+        $divContents    = NULL;
+    }
+    else
+    {
+        $rowContents    = $fetchContents['result'];
+        foreach($rowContents as $rowContent)
+        {
+            $content_sequence       = htmlentities($rowContent['sequence'], ENT_QUOTES, 'UTF-8');
+            $content_name           = htmlentities($rowContent['name'], ENT_QUOTES, 'UTF-8');
+            $content_definition     = htmlentities($rowContent['definition'], ENT_QUOTES, 'UTF-8');
+            $content_user           = htmlentities($rowContent['flag_user'], ENT_QUOTES, 'UTF-8');
+            $content_profile        = htmlentities($rowContent['flag_profile'], ENT_QUOTES, 'UTF-8');
+            $content_maintenance    = htmlentities($rowContent['flag_maintenance'], ENT_QUOTES, 'UTF-8');
+            $content_directory      = str_replace(' ', '_', strtolower($content_name)).'/';
+            if($content_sequence == FALSE)
+            {
+                $content_directory  = 'welcome.php';
+            }
+            $content_link           = formatInsideLink($content_name, "{$page['path']}{$content_directory}", $content_name);
+            $content_li             = "\r<li>" . $content_link . "</li>\r";
+                    
+            if ($content_user == TRUE)
+            {
+                if (!empty($_SESSION['user']))
+                {
+                    $navContents .= $content_li;
+                }
+            }
+            
+            $content_profile_note = NULL;
+            if ($content_profile == TRUE)
+            {
+                $content_profile_note = " <em>"
+                        . "Ordinarily you would not see this link unless your Profile is in the system."
+                        . "</em>";
+                if (!empty($_SESSION['profile']))
+                {
+                    $navContents .= $content_li;
+                }
+            }
+
+            if($content_sequence == TRUE) // Omits "HOME" for the Welcome page
+            {
+                $content_div = "<div class=\"contents\">
+                    <span>
+                        {$content_link}
+                    </span>
+                    <p>
+                        {$content_definition}{$content_profile_note}
+                    </p>            
+                </div>";
+                // posstible IFs re user/profile session variables, a la above navigation links        
+                $divContents .= $content_div;
+            }
+        }
+    }
+    //=====
 ?>
 <!DOCTYPE html>
 <html>
