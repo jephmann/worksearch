@@ -4,7 +4,7 @@ These notes are subject to change.
 
 =====
 
-April 3, 2014
+April 5, 2014
 
 WORKsearch (a working title) is a personal, independent project which I began in
 May 2013 chiefly to stay in practice in between jobs. Currently it is a work in
@@ -111,16 +111,16 @@ earnest, I am keeping all my other jQuery Mobile files off GitHub.)
 
 MAIN FOLDERS/FILES:
 
-- companies -- A CRUD pattern of pages wherein users create, read, update and
+- prospects -- A CRUD pattern of pages wherein users create, read, update and
 delete prospective companies.
 
 - contacts -- A CRUD pattern of pages wherein users create, read, update and
-delete the individual contacts for these companies.
+delete the individual contacts for these prospects.
 
 - logs -- Inspired by the IDES "work search" forms (which gives this project its
 working title), this CRUD pattern of pages is where users log their activities
 with their contacts. You might notice a "_validation" file in each of the
-companies / contacts / logs / profile folders. This is where I work on the
+prospects / contacts / logs / profile folders. This is where I work on the
 back-end validation for the create and update forms. I used this structure
 elsewhere. As IDES and other state unemployment benefit departments seem to
 require a lot of fields, I am likely to work on the log validation first.
@@ -141,21 +141,21 @@ in my environment, this form may include "forget login" logic.
 
 IMMEDIATE ISSUES as of 2013.12.04:
 
-- A general doublecheck of the back-end re Profile, Company, Contact and Log.
+- A general doublecheck of the back-end re Profile, Prospect, Contact and Log.
 - A specific doublecheck of back-end and front-end validation for Profile,
-Company, Contact and Log forms.
+Prospect, Contact and Log forms.
 - Front-end JavaScript (jQuery?) "are you sure?" logic re Delete.
 - Look into pagination of main tables; recheck sorting and filtering where
 applicable.
 - Explore object encapsulation further -- i.e. whether or not to make certain
 properties and methods private or protected, especially in my Data class.
-- Company detail: add lists of related logs and contacts; cross-reference.
+- Prospect detail: add lists of related logs and contacts; cross-reference.
 - Contact detail: add list of related logs and additional contacts within
-a contact's company; cross-reference.
+a contact's prospect; cross-reference.
 - Log detail: to be determined.
 - Whether to have an "initiated by [me or contact]" field in either Contacts or
 Logs or both.
-- Company: no companies = redirect from index to create.
+- Prospect: no prospects = redirect from index to create.
 - Contact: no contacts = redirect from index to create.
 - Log: no logs = redirect from index to create.
 - Profile: no profile = redirect from index to create.
@@ -179,8 +179,6 @@ search.
 programming, this project may be my first earnest opportunity to learn jQuery
 Mobile as well as my first earnest attempt to combine PHP with jQuery Mobile.
 (Not interested re Android or iOS at the moment.)
-- Maybe rename "Companies" (and related Company class/objects) as "Prospects"
-(and related Prospect class/objects)
 - Updating those "immediate issues" notes.
 
 OTHER:
