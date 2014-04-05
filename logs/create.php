@@ -25,7 +25,7 @@
     $objLog->setId_user($_SESSION['user']['id']);
     $objLog->setWeek_ending($weekEnding);
     $objLog->setContact_date($dateContact);
-    $objCompanies       = new Company;
+    $objProspects       = new Prospect;
     $objContacts        = new Contact;
     $objContactMethods  = new Contact_Method;
     require ('_defaults.php');

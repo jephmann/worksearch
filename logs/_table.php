@@ -13,7 +13,7 @@
         <div class="filter">            
             <ul class="filter_list">
                 <li>&nbsp;&nbsp;&nbsp;<em>Filter by:</em></li>
-                <li>&nbsp;&nbsp;&nbsp;<input type="radio" name="where" value="company" />Company</li>
+                <li>&nbsp;&nbsp;&nbsp;<input type="radio" name="where" value="prospect" />Prospect</li>
                 <li>&nbsp;&nbsp;&nbsp;<input type="radio" name="where" value="contact" />Contact Name</li>
                 <li>&nbsp;&nbsp;&nbsp;<input type="radio" name="where" value="method" />Contact Method</li>
                 <li>&nbsp;&nbsp;&nbsp;<input type="text" name="like" /></li>

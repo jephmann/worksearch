@@ -1,8 +1,8 @@
 <?php
     /* 2013.09.06 TODO(s):
-     * - Consider whether or not to run checks on Company and Contact before
+     * - Consider whether or not to run checks on Prospect and Contact before
      *  deleting, athough it should be okay to delete a Log while leaving
-     *  both Contact and Company intact
+     *  both Contact and Prospect intact
      * - JavaScript "Are you sure?" logic
      */
     $page = array(

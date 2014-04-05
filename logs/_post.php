@@ -28,7 +28,7 @@
     $objLog->setWeek_ending($week_ending);
     $objLog->setContact_date($contact_date);
     $objLog->setWork($_POST['work']);
-    $objLog->setId_company($_POST['company']);
+    $objLog->setId_prospect($_POST['prospect']);
     $objLog->setId_contact($_POST['contact']);
     $objLog->setId_contact_method($contact_method);
     $objLog->setSpecify($_POST['specify']);

@@ -4,7 +4,7 @@
 <fieldset>
     <legend>
         <a title="Update This Log" href="update.php?id=<?php echo $objLog->id; ?>">Update</a>
-        <a title="Delete This Log" href="delete.php?id=<?php echo $objCompany->id; ?>" class="delete">Delete</a>
+        <a title="Delete This Log" href="delete.php?id=<?php echo $objProspect->id; ?>" class="delete">Delete</a>
         Log #<?php echo $objLog->id; ?>
     </legend>
     <table style="margin:0 auto;">
@@ -25,8 +25,8 @@
             <td><?php echo $log_work; ?></td>
         </tr>
         <tr>
-            <td><strong>Company</strong></td>
-            <td><?php echo $log_company; ?></td>
+            <td><strong>Prospect</strong></td>
+            <td><?php echo $log_prospect; ?></td>
         </tr>
         <tr>
             <td><strong>Contact</strong></td>

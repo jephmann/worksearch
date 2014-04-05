@@ -20,7 +20,7 @@ $(function() {
             work: {
                 required: true
             },
-            company: {
+            prospect: {
                 required: true
             },
             contact: {
@@ -49,8 +49,8 @@ $(function() {
             work: {
                 required: "Log: Type of Work Sought is required."
             },
-            company: {
-                required: "Log: Company is required."
+            prospect: {
+                required: "Log: Prospect is required."
             },
             contact: {
                 required: "Log: Contact is required."

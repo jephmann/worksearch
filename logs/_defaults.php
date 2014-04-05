@@ -6,10 +6,10 @@
     $optContactDateDD   = optDays($objLog->contact_day());
     $optContactDateYYYY = optYears($objLog->contact_year());
     
-    $optCompanies       = ddlOptions($db, $objLog->getId_company(), 'id', 'name', $objCompanies, NULL, NULL);
-    if(!empty($optCompanies['error']))
+    $optProspects       = ddlOptions($db, $objLog->getId_prospect(), 'id', 'name', $objProspects, NULL, NULL);
+    if(!empty($optProspects['error']))
     {
-        $option_errors .= $optCompanies['error'];
+        $option_errors .= $optProspects['error'];
     }
     
     $rblContactMethods  = rblOptions($db, $objLog->getId_contact_method(), 'contact_method', 'name', 'id', $objContactMethods, 'v');

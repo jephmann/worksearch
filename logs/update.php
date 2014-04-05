@@ -18,7 +18,7 @@
     $objLog->setId($_GET['id']);
     $objLog->setId_user($id_user);
     require ('_fetch.php');
-    $objCompanies       = new Company;
+    $objProspects       = new Prospect;
     $objContacts        = new Contact;
     $objContactMethods  = new Contact_Method;
     require ('_defaults.php');

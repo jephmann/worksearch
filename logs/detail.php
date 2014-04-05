@@ -19,10 +19,10 @@
     $objLog->setId_user($id_user);
     require ('_fetch.php');
     
-    $objCompany = new Company;
-    $objCompany->setId($objLog->id_company);
-    $objCompany->setId_user($id_user);
-    require ('../companies/_fetch.php');
+    $objProspect = new Prospect;
+    $objProspect->setId($objLog->id_prospect);
+    $objProspect->setId_user($id_user);
+    require ('../prospects/_fetch.php');
     
     $objContact = new Contact;
     $objContact->setId($objLog->id_contact);
@@ -45,16 +45,16 @@
     $log_week_ending    = $objLog->full_week_ending();
     $log_contact_date   = $objLog->full_contact_date();
     $log_work           = $objLog->work;
-    $log_company    = NULL;
-    if(empty($objCompany->name))
+    $log_prospect    = NULL;
+    if(empty($objProspect->name))
     {
-        $log_company = nullCheck($objCompany->name,'DELETED');
+        $log_prospect = nullCheck($objProspect->name,'DELETED');
     }
     else
     {
-        $log_company = "<a title=\"Go to Company Detail\"
-            href=\"../companies/detail.php?id={$objLog->id_company}\">
-            {$objCompany->name}</a>";
+        $log_prospect = "<a title=\"Go to Prospect Detail\"
+            href=\"../prospects/detail.php?id={$objLog->id_prospect}\">
+            {$objProspect->name}</a>";
     }
     $log_contact    = NULL;
     if(empty($objContact->name_last))

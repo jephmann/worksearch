@@ -7,7 +7,7 @@
     $objStatus->message .= validate_required_li($contact_date_dd, "Log: Contact Day");
     $objStatus->message .= validate_required_li($contact_date_yyyy, "Log: Contact Year");
     $objStatus->message .= validate_required_li($objLog->work, "Log: Type of Work Sought");
-    $objStatus->message .= validate_required_li($objLog->id_company, "Log: Company");
+    $objStatus->message .= validate_required_li($objLog->id_prospect, "Log: Prospect");
     $objStatus->message .= validate_required_li($objLog->id_contact, "Log: Contact");
     $objStatus->message .= validate_required_li($objLog->id_contact_method, "Log: Contact Method");
     $objStatus->message .= validate_required_li($objLog->results, "Log: Result");

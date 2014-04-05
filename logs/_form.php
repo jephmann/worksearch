@@ -27,8 +27,8 @@
             <input type="text" name="work" value="<?php echo $objLog->work; ?>" maxlength="255" size="40" />
         </div>
         <div class="form_row">
-            <label id="lblCompany">Company:<?php echo $dagger.$asterisk; ?></label>
-            <select name="company"><?php echo $optCompanies['options']; ?></select>
+            <label id="lblProspect">Prospect:<?php echo $dagger.$asterisk; ?></label>
+            <select name="prospect"><?php echo $optProspects['options']; ?></select>
         </div>
         <div class="form_row">
             <label id="lblContact">Contact:<?php echo $dagger.$asterisk; ?></label>
