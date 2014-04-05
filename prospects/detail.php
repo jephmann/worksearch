@@ -1,6 +1,6 @@
 <?php    
     $page = array(
-        'title'     => "Companies",
+        'title'     => "Prospects",
         'subtitle'  => " > Detail",
         'path'      => "../",
         'mode'      => "Detail",
@@ -14,22 +14,22 @@
     $objStatus->setClass("status_quo");
     // =========================================================================
     
-    // COMPANY
-    $objCompany = new Company;
-    $objCompany->setId_user($id_user);
-    $objCompany->setId($_GET['id']);
+    // PROSPECT
+    $objProspect = new Prospect;
+    $objProspect->setId_user($id_user);
+    $objProspect->setId($_GET['id']);
     require ('_fetch.php');
     require ('_display.php');
     
-    // COMPANY'S CONTACTS
+    // PROSPECT'S CONTACTS
     $objContacts = new Contact;
     $objContacts->setId_user($id_user);
-    $objContacts->setId_company($objCompany->id);
+    $objContacts->setId_prospect($objProspect->id);
     
     $prmContacts = $objContacts->id_params($objContacts->id, $objContacts->id_user);
-    $prmContacts['id_company'] = $objContacts->id_company;
+    $prmContacts['id_prospect'] = $objContacts->id_prospect;
     $sqlContacts = $objContacts->selectAll($id_user);
-    $sqlContacts .= " AND id_company = :id_company";    
+    $sqlContacts .= " AND id_prospect = :id_prospect";    
     
     $fetchContacts   = read($db, $sqlContacts, $prmContacts, TRUE);
     $rowContacts     = $fetchContacts['result'];
@@ -121,21 +121,21 @@
 
     }
     
-    // COMPANY'S LOGS
+    // PROSPECT'S LOGS
     $objLogs = new Log;
     $objLogs->setId_user($id_user);
-    $objLogs->setId_company($objCompany->id);
+    $objLogs->setId_prospect($objProspect->id);
     
     $prmLogs = $objLogs->id_params($objLogs->id, $objLogs->id_user);
-    $prmLogs['id_company'] = $objLogs->id_company;
+    $prmLogs['id_prospect'] = $objLogs->id_prospect;
     $sqlLogs = $objLogs->selectAll($id_user);
-    $sqlLogs .= " AND id_company = :id_company";
+    $sqlLogs .= " AND id_prospect = :id_prospect";
     
     $fetchLogs   = read($db, $sqlLogs, $prmLogs, TRUE);
     $rowLogs     = $fetchLogs['result'];
     if(!empty($fetchLogs['error']))
     {
-        $objStatus->setMessage("<li>Company Log Error: {$fetchLogs['error']}</li>");
+        $objStatus->setMessage("<li>Prospect Log Error: {$fetchLogs['error']}</li>");
         $objStatus->setClass("status_error");
     }
     $tr_logs = NULL;
@@ -145,7 +145,7 @@
     }
     else
     {
-        // 2013.11.29 TODO: Retrieve Company Logs
+        // 2013.11.29 TODO: Retrieve Prospect Logs
         $tr_logs .= "<thead><tr>
             <th>Log<br />Detail</th>
             <th>Week<br />Ending</th>

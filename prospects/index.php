@@ -1,6 +1,6 @@
 <?php    
     $page = array(
-        'title'     => "Companies",
+        'title'     => "Prospects",
         'subtitle'  => " > Home",
         'path'      => "../",
         'mode'      => NULL,
@@ -14,9 +14,9 @@
     $objStatus->setClass("status_quo");
     // =========================================================================
     
-    $objCompanies   = new Company;
-    $objCompanies->setId_user($id_user);
-    $prmCompanies   = $objCompanies->id_params(NULL, $objCompanies->id_user);
+    $objProspects   = new Prospect;
+    $objProspects->setId_user($id_user);
+    $prmProspects   = $objProspects->id_params(NULL, $objProspects->id_user);
     require_once ($page['path'].'_variables/index.php');
     if (isset($_GET['orderby']) && isset($_GET['dir']))
     {
@@ -37,15 +37,15 @@
         $where                      = $_POST['where'];
         $like                       = $_POST['like'];
         $and                        = " AND {$where} LIKE :{$where}";
-        $prmCompanies[":{$where}"]  = "%{$like}%";
+        $prmProspects[":{$where}"]  = "%{$like}%";
     }
     // =========================================================================
     
-    $sqlCompanies   = $objCompanies->selectAll($objCompanies->id_user).' '.$and.$sort;
-    $fetchCompanies = read($db, $sqlCompanies, $prmCompanies, TRUE);
-    if(!empty($fetchCompanies['error']))
+    $sqlProspects   = $objProspects->selectAll($objProspects->id_user).' '.$and.$sort;
+    $fetchProspects = read($db, $sqlProspects, $prmProspects, TRUE);
+    if(!empty($fetchProspects['error']))
     {
-        $objStatus->setMessage("<li>{$fetchCompanies['error']}</li>");
+        $objStatus->setMessage("<li>{$fetchProspects['error']}</li>");
         $objStatus->setClass("status_error");
         $columns    = NULL;
         $thead      = NULL;
@@ -56,13 +56,13 @@
     {
         $columns    = array(
             array('title'=>'OPTIONS','field'=>NULL),
-            array('title'=>'Company','field'=>'name'),
+            array('title'=>'Prospect','field'=>'name'),
             array('title'=>'City','field'=>'address_city'),
             array('title'=>'ZIP','field'=>'address_zip5'),
         );
         $thead      = return_THEAD($columns);
         $tbody      = "<tbody>";        
-        $rows       = $fetchCompanies['result'];
+        $rows       = $fetchProspects['result'];
         foreach($rows as $row)
         {
             $rowID              = htmlentities($row['id'], ENT_QUOTES, 'UTF-8');
@@ -85,47 +85,47 @@
 
             // Formatting and Displaying
 
-            $company_name           = $rowName;
+            $prospect_name           = $rowName;
             if(!empty($rowWebsite))
             {
-                $company_name       = formatOutsideLink($rowName, $rowWebsite, $rowName);
+                $prospect_name       = formatOutsideLink($rowName, $rowWebsite, $rowName);
             }
             if($rowRecruiter == TRUE)
             {
-                $company_name .= "&nbsp;{$asterisk}";
+                $prospect_name .= "&nbsp;{$asterisk}";
             }
 
-            $company_phone          = formatPhone($rowPhone, $rowPhoneExtension);
-            if(!empty($company_phone))
+            $prospect_phone          = formatPhone($rowPhone, $rowPhoneExtension);
+            if(!empty($prospect_phone))
             {
-                $company_phone      = '<br />'.$company_phone;
+                $prospect_phone      = '<br />'.$prospect_phone;
             }
-            $company_fax            = formatPhone($rowFax, NULL);
-            $company_email          = formatEmailLink("Company", $rowEmail);
-            $company_zip            = formatPostUS($rowZIP5, $rowZIP4);
+            $prospect_fax            = formatPhone($rowFax, NULL);
+            $prospect_email          = formatEmailLink("Prospect", $rowEmail);
+            $prospect_zip            = formatPostUS($rowZIP5, $rowZIP4);
 
-            $company_street         = NULL;
+            $prospect_street         = NULL;
             if(!empty($rowStreet))
             {
-                $company_street     = '<br />'.$rowStreet;
+                $prospect_street     = '<br />'.$rowStreet;
             }
-            $company_building       = NULL;
+            $prospect_building       = NULL;
             if(!empty($rowBuilding))
             {
-                $company_building   = '<br />'.$rowBuilding;
+                $prospect_building   = '<br />'.$rowBuilding;
             }
-            $company_unit           = NULL;
+            $prospect_unit           = NULL;
             if(!empty($rowUnit))
             {
-                $company_unit       = '<br />'.$rowUnit;
+                $prospect_unit       = '<br />'.$rowUnit;
             }
 
-            $company_citystate      = $rowCity.', '.$rowState;
+            $prospect_citystate      = $rowCity.', '.$rowState;
             
             $dud = array(
-                'detail'    => formatInsideLink("Detail of This Company", "detail.php?id={$rowID}", "Detail"),
-                'update'    => formatInsideLink("Update This Company", "update.php?id={$rowID}", "Update"),
-                'delete'    => "<a title=\"Delete This Company\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",
+                'detail'    => formatInsideLink("Detail of This Prospect", "detail.php?id={$rowID}", "Detail"),
+                'update'    => formatInsideLink("Update This Prospect", "update.php?id={$rowID}", "Update"),
+                'delete'    => "<a title=\"Delete This Prospect\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",
             );
 
             $tbody.="<tr>
@@ -137,14 +137,14 @@
                 {$dud['delete']}
                 </td>
                 <td class=\"td_detail\">
-                <strong>{$company_name}</strong>
-                {$company_building}
-                {$company_street}
-                {$company_unit}
-                {$company_phone}
+                <strong>{$prospect_name}</strong>
+                {$prospect_building}
+                {$prospect_street}
+                {$prospect_unit}
+                {$prospect_phone}
                 </td>
-                <td class=\"td_detail\">{$company_citystate}</td>
-                <td class=\"td_detail\">{$company_zip}<br /><br />{$company_email}</td>
+                <td class=\"td_detail\">{$prospect_citystate}</td>
+                <td class=\"td_detail\">{$prospect_zip}<br /><br />{$prospect_email}</td>
                 </tr>";
         }
         $tbody  .= "</tbody>";

@@ -1,8 +1,8 @@
-<!-- COMPANIES -->
+<!-- PROSPECTS -->
 <fieldset>
     <legend>
-        Companies (Click arrows to sort) --
-        <a title="Create a New Company" href="create.php">
+        Prospects (Click arrows to sort) --
+        <a title="Create a New Prospect" href="create.php">
             Create
         </a>
     </legend>

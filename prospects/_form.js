@@ -4,9 +4,9 @@
  * phone extension entered without phone
  */
 $(function() {
-    $( "#form_company" ).validate({
+    $( "#form_prospect" ).validate({
         rules: {
-            company_name: {
+            prospect_name: {
                 required: true
             },
             address_zip5: {
@@ -34,13 +34,13 @@ $(function() {
                 minlength: 10,
                 maxlength: 10
             },
-            company_email: {
+            prospect_email: {
                 email: true
             }
         },
         messages: {
-            company_name: {
-                required: "Company: Name is required."
+            prospect_name: {
+                required: "Prospect: Name is required."
             },
             address_zip5: {
                 digits: "Numbers only for Zip Code",
@@ -67,7 +67,7 @@ $(function() {
                 minlength: $.format("Fax must be {0} digits."),
                 maxlength: $.format("Fax must be {0} digits.")
             },
-            company_email: {
+            prospect_email: {
                 email: "E-mail address must be properly formatted."
             }
         }

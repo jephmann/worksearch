@@ -1,6 +1,6 @@
 <?php    
     $page = array(
-        'title'     => "Companies",
+        'title'     => "Prospects",
         'subtitle'  => " > Update",
         'path'      => "../",
         'mode'      => "Update",
@@ -14,9 +14,9 @@
     $objStatus->setClass("status_quo");
     // =========================================================================
     
-    $objCompany = new Company;
-    $objCompany->setId($_GET['id']);
-    $objCompany->setId_user($id_user);
+    $objProspect = new Prospect;
+    $objProspect->setId($_GET['id']);
+    $objProspect->setId_user($id_user);
     require ('_fetch.php');
     $objStates          = new State;
     require ('_defaults.php');
@@ -28,18 +28,18 @@
         if(empty($objStatus->message))
         {
             $location   = NULL;
-            if($objCompany->contact==TRUE)
+            if($objProspect->contact==TRUE)
             {
-                $location   = "../contacts/create.php?company={$objCompany->id}";
+                $location   = "../contacts/create.php?prospect={$objProspect->id}";
             }
             else
             {
-                $location   = "detail.php?id={$objCompany->id}";
+                $location   = "detail.php?id={$objProspect->id}";
             }
-            $update     = updateRow($db, $objCompany);
+            $update     = updateRow($db, $objProspect);
             if(!empty($update['result']['error']))
             {
-                $objStatus->setMessage("<li>Failed to Update Company: {$update['result']['error']}</li>");
+                $objStatus->setMessage("<li>Failed to Update Prospect: {$update['result']['error']}</li>");
                 $objStatus->setClass("status_error");
             }
             else

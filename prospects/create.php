@@ -1,6 +1,6 @@
 <?php    
     $page = array(
-        'title'     => "Companies",
+        'title'     => "Prospects",
         'subtitle'  => " > Create",
         'path'      => "../",
         'mode'      => "Create",
@@ -13,8 +13,8 @@
     $objStatus->setClass("status_quo");
     // =========================================================================
     
-    $objCompany = new Company;
-    $objCompany->setId_user($_SESSION['user']['id']);
+    $objProspect = new Prospect;
+    $objProspect->setId_user($_SESSION['user']['id']);
     $objStates  = new State;
     require ('_defaults.php');
     if (!empty($_POST))
@@ -24,17 +24,17 @@
         require_once ('_validation.php');
         if(empty($objStatus->message))
         {            
-            $insert = insertRow($db, $objCompany);
+            $insert = insertRow($db, $objProspect);
             if(!empty($insert['error']))
             {
-                $objStatus->setMessage("<li>Failed to Create Company: {$insert['error']}<br/>{$objCompany->insert()}</li>");
+                $objStatus->setMessage("<li>Failed to Create Prospect: {$insert['error']}<br/>{$objProspect->insert()}</li>");
                 $objStatus->setClass("status_error");
             }
             else
             {
-                if($objCompany->getContact()==TRUE)
+                if($objProspect->getContact()==TRUE)
                 {
-                    $location   = ("../contacts/create.php?company={$insert['id']}");
+                    $location   = ("../contacts/create.php?prospect={$insert['id']}");
                 }
                 else
                 {

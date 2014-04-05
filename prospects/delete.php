@@ -1,7 +1,7 @@
 <?php
     /* 2013.09.06 TODO(s):
-     * - Block deletion if Log exists for Company
-     * - Consider deleting Company's Contact(s) simultaneously
+     * - Block deletion if Log exists for Prospect
+     * - Consider deleting Prospect's Contact(s) simultaneously
      * - JavaScript "Are you sure?" logic
      */
     $page = array(
@@ -16,7 +16,7 @@
     require_once ($page['path'].'_functions/all.php');
     // =========================================================================
     
-    $objDelete  = new Company;
+    $objDelete  = new Prospect;
     $objDelete->setId($_GET['id']);
     $id_found   = checkIfAlready($db, $objDelete);
     $delete     = delete($db, $objDelete, $id_found);
