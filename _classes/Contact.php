@@ -8,7 +8,7 @@ class Contact extends Person {
     
     // Contact Properties
     public $id_user         = NULL;
-    public $id_company      = NULL;
+    public $id_prospect     = NULL;
     public $department      = NULL;
     public $title           = NULL;
     public $phone           = NULL;
@@ -25,7 +25,7 @@ class Contact extends Person {
     public $table       = "contacts";
     protected $fields   = array(
         'id_user',
-        'id_company',
+        'id_prospect',
         'id_salutation',
         'name_last',
         'name_first',
@@ -54,11 +54,11 @@ class Contact extends Person {
         $this->id_user = $id_user;
     }    
     
-    public function getId_company() {
-        return $this->id_company;
+    public function getId_prospect() {
+        return $this->id_prospect;
     }
-    public function setId_company($id_company) {
-        $this->id_company = $id_company;
+    public function setId_prospect($id_prospect) {
+        $this->id_prospect = $id_prospect;
     }
 
     public function getPhone() {
@@ -144,7 +144,7 @@ class Contact extends Person {
     {
         $parameters = array(
             ':id_user'          => $this->id_user,
-            ':id_company'       => $this->id_company,
+            ':id_prospect'      => $this->id_prospect,
             ':id_salutation'    => $this->id_salutation,
             ':name_last'        => $this->name_last,
             ':name_first'       => $this->name_first,
@@ -206,10 +206,10 @@ class Contact extends Person {
         $full_mobile = NULL;
         if(!empty($this->phone_mobile))
         {
-            $area       = substr($this->phone_mobile, 0, 3);
-            $prefix     = substr($this->phone_mobile, 3, 3);
-            $suffix     = substr($this->phone_mobile, 6, 4);
-            $full_mobile   = "({$area}) {$prefix}-{$suffix}";
+            $area           = substr($this->phone_mobile, 0, 3);
+            $prefix         = substr($this->phone_mobile, 3, 3);
+            $suffix         = substr($this->phone_mobile, 6, 4);
+            $full_mobile    = "({$area}) {$prefix}-{$suffix}";
         }
         return $full_mobile;
     }

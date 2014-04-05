@@ -11,7 +11,7 @@ class Log extends Data {
     public $week_ending         = NULL;                         // * "Week Ending"
     public $contact_date        = NULL;                         // * "Contact Date"
     public $work                = "Website Design/Development"; // * "Type of Work Sought
-    public $id_company          = NULL;                         // * "Name and Address of Contact"
+    public $id_prospect         = NULL;                         // * "Name and Address of Contact"
     public $id_contact          = NULL;                         // * "Person Contacted
     public $id_contact_method   = NULL;                         // * "Method of Contact
     public $specify             = "N/A";
@@ -25,7 +25,7 @@ class Log extends Data {
         'week_ending',
         'contact_date',
         'work',
-        'id_company',
+        'id_prospect',
         'id_contact',
         'id_contact_method',
         'specify',
@@ -55,11 +55,11 @@ class Log extends Data {
         $this->contact_date = $contact_date;
     }
 
-    public function getId_company() {
-        return $this->id_company;
+    public function getId_prospect() {
+        return $this->id_prospect;
     }
-    public function setId_company($id_company) {
-        $this->id_company = $id_company;
+    public function setId_prospect($id_prospect) {
+        $this->id_prospect = $id_prospect;
     }
 
     public function getId_contact() {
@@ -105,7 +105,7 @@ class Log extends Data {
             ':week_ending'          => $this->week_ending,
             ':contact_date'         => $this->contact_date,
             ':work'                 => $this->work,
-            ':id_company'           => $this->id_company,
+            ':id_prospect'          => $this->id_prospect,
             ':id_contact'           => $this->id_contact,
             ':id_contact_method'    => $this->id_contact_method,
             ':specify'              => $this->specify,
