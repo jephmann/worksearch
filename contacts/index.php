@@ -42,6 +42,8 @@
     $sqlJoin    = "SELECT
         contacts.id AS id,
         prospects.name AS prospect,
+        prospects.address_city AS city,
+        prospects.address_state AS state,
         contacts.id_prospect AS id_prospect,
         contacts.name_last AS name_last,
         contacts.name_first AS name_first,
@@ -92,8 +94,10 @@
         foreach($rows as $row)
         {
             $rowID              = htmlentities($row['id'], ENT_QUOTES, 'UTF-8');
-            $rowIDProspect       = htmlentities($row['id_prospect'], ENT_QUOTES, 'UTF-8');
-            $rowProspect         = htmlentities($row['prospect'], ENT_QUOTES, 'UTF-8');
+            $rowIDProspect      = htmlentities($row['id_prospect'], ENT_QUOTES, 'UTF-8');
+            $rowProspect        = htmlentities($row['prospect'], ENT_QUOTES, 'UTF-8');
+            $rowCity            = htmlentities($row['city'], ENT_QUOTES, 'UTF-8');
+            $rowState           = htmlentities($row['state'], ENT_QUOTES, 'UTF-8');
             $rowNameLast        = htmlentities($row['name_last'], ENT_QUOTES, 'UTF-8');
             $rowNameFirst       = htmlentities($row['name_first'], ENT_QUOTES, 'UTF-8');
             $rowNameMiddle      = htmlentities($row['name_middle'], ENT_QUOTES, 'UTF-8');
@@ -103,6 +107,8 @@
             $rowPhoneExtension  = htmlentities($row['extension'], ENT_QUOTES, 'UTF-8');
             $rowPhoneMobile     = htmlentities($row['mobile'], ENT_QUOTES, 'UTF-8');
             $rowEmail           = htmlentities($row['email'], ENT_QUOTES, 'UTF-8');
+            
+            $contact_citystate  = "{$rowCity}, {$rowState}";
 
             $contact_phone      = formatPhone($rowPhone, $rowPhoneExtension);
             if(!empty($contact_phone))
@@ -122,12 +128,18 @@
             $contact_prospect    = nullCheck($rowProspect,'DELETED');
             if(!empty($rowProspect))
             {
-                $contact_prospect = formatInsideLink("Detail of This Prospect", "../prospects/detail.php?id={$rowIDProspect}", $contact_prospect);
+                $contact_prospect = formatInsideLink("Detail of This Prospect",
+                        "../prospects/detail.php?id={$rowIDProspect}",
+                        $contact_prospect);
             }
             
             $dud = array(
-                'detail'    => formatInsideLink("Detail of This Contact", "detail.php?id={$rowID}", "Detail"),
-                'update'    => formatInsideLink("Update This Contact", "update.php?id={$rowID}", "Update"),
+                'detail'    => formatInsideLink("Detail of This Contact",
+                        "detail.php?id={$rowID}",
+                        "Detail"),
+                'update'    => formatInsideLink("Update This Contact",
+                        "update.php?id={$rowID}",
+                        "Update"),
                 'delete'    => "<a title=\"Delete This Contact\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",
             );            
 
@@ -145,7 +157,7 @@
                 {$contact_phone_mobile}
                 {$contact_email}
                 </td>
-                <td class=\"td_detail\"><strong>{$contact_prospect}</strong></td>
+                <td class=\"td_detail\"><strong>{$contact_prospect}</strong><br />{$contact_citystate}</td>
                 <td class=\"td_detail\">{$rowDepartment}</td>
                 <td class=\"td_detail\">{$rowTitle}</td>
                 </tr>";

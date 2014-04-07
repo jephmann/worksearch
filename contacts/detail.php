@@ -30,6 +30,7 @@
     $prospect_name = "<a title=\"Link to Prospect Detail\"
         href=\"../prospects/detail.php?id={$objContact->id_prospect}\">
             {$objProspect->name}</a>";
+    $prospect_branch    = $objProspect->branch;
     
     // CONTACT'S LOGS
     /*

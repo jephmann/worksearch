@@ -83,6 +83,10 @@
                 <td><strong><?php echo $prospect_name; ?></strong></td>
             </tr>
             <tr>
+                <td><strong>Branch:</strong></td>
+                <td><strong><?php echo $prospect_branch; ?></strong></td>
+            </tr>
+            <tr>
                 <td><strong>Recruiter:</strong></td>
                 <td><?php echo $prospect_recruiter; ?></td>
             </tr>
