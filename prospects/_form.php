@@ -12,6 +12,10 @@
             <div class="form_row">
                 <label id="lblName">Name:<?php echo $asterisk; ?></label>
                 <input type="text" name="prospect_name" value="<?php echo $objProspect->name; ?>" maxlength="255" size="40" />
+            </div>                
+            <div class="form_row">
+                <label id="lblBranch">Branch:</label>
+                <input type="text" name="prospect_branch" value="<?php echo $objProspect->branch; ?>" maxlength="255" size="40" />
             </div>
             <div class="form_row">
                 <label id="lblIndustry">Industry:</label>

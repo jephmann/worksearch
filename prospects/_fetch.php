@@ -12,6 +12,7 @@
     $objProspect->setId_user(htmlentities($rowProspect['id_user'], ENT_QUOTES, 'UTF-8'));
     // Prospect
     $objProspect->setName(htmlentities($rowProspect['name'], ENT_QUOTES, 'UTF-8'));
+    $objProspect->setBranch(htmlentities($rowProspect['branch'], ENT_QUOTES, 'UTF-8'));
     $objProspect->setIndustry(htmlentities($rowProspect['industry'], ENT_QUOTES, 'UTF-8'));
     $objProspect->setRecruiter(htmlentities($rowProspect['recruiter'], ENT_QUOTES, 'UTF-8'));
     $objProspect->setDescription(htmlentities($rowProspect['description'], ENT_QUOTES, 'UTF-8'));

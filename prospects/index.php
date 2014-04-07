@@ -67,6 +67,7 @@
         {
             $rowID              = htmlentities($row['id'], ENT_QUOTES, 'UTF-8');
             $rowName            = htmlentities($row['name'], ENT_QUOTES, 'UTF-8');
+            $rowBranch          = htmlentities($row['branch'], ENT_QUOTES, 'UTF-8');
             $rowBuilding        = htmlentities($row['address_building'], ENT_QUOTES, 'UTF-8');
             $rowStreet          = htmlentities($row['address_street'], ENT_QUOTES, 'UTF-8');
             $rowUnit            = htmlentities($row['address_unit'], ENT_QUOTES, 'UTF-8');
@@ -85,42 +86,47 @@
 
             // Formatting and Displaying
 
-            $prospect_name           = $rowName;
+            $prospect_name          = $rowName;
+            $prospect_branch        = $rowBranch;
+            if(empty($prospect_branch))
+            {
+                $prospect_branch    = "N/A";
+            }
             if(!empty($rowWebsite))
             {
-                $prospect_name       = formatOutsideLink($rowName, $rowWebsite, $rowName);
+                $prospect_name      = formatOutsideLink($rowName, $rowWebsite, $rowName);
             }
             if($rowRecruiter == TRUE)
             {
-                $prospect_name .= "&nbsp;{$asterisk}";
+                $prospect_name      .= "&nbsp;{$asterisk}";
             }
 
-            $prospect_phone          = formatPhone($rowPhone, $rowPhoneExtension);
+            $prospect_phone         = formatPhone($rowPhone, $rowPhoneExtension);
             if(!empty($prospect_phone))
             {
-                $prospect_phone      = '<br />'.$prospect_phone;
+                $prospect_phone     = '<br />'.$prospect_phone;
             }
-            $prospect_fax            = formatPhone($rowFax, NULL);
-            $prospect_email          = formatEmailLink("Prospect", $rowEmail);
-            $prospect_zip            = formatPostUS($rowZIP5, $rowZIP4);
+            $prospect_fax           = formatPhone($rowFax, NULL);
+            $prospect_email         = formatEmailLink("Prospect", $rowEmail);
+            $prospect_zip           = formatPostUS($rowZIP5, $rowZIP4);
 
-            $prospect_street         = NULL;
+            $prospect_street        = NULL;
             if(!empty($rowStreet))
             {
-                $prospect_street     = '<br />'.$rowStreet;
+                $prospect_street    = '<br />'.$rowStreet;
             }
-            $prospect_building       = NULL;
+            $prospect_building      = NULL;
             if(!empty($rowBuilding))
             {
-                $prospect_building   = '<br />'.$rowBuilding;
+                $prospect_building  = '<br />'.$rowBuilding;
             }
-            $prospect_unit           = NULL;
+            $prospect_unit          = NULL;
             if(!empty($rowUnit))
             {
-                $prospect_unit       = '<br />'.$rowUnit;
+                $prospect_unit      = '<br />'.$rowUnit;
             }
 
-            $prospect_citystate      = $rowCity.', '.$rowState;
+            $prospect_citystate     = $rowCity.', '.$rowState;
             
             $dud = array(
                 'detail'    => formatInsideLink("Detail of This Prospect", "detail.php?id={$rowID}", "Detail"),
@@ -138,6 +144,7 @@
                 </td>
                 <td class=\"td_detail\">
                 <strong>{$prospect_name}</strong>
+                <br /><em>Branch:&nbsp;</em>{$prospect_branch}
                 {$prospect_building}
                 {$prospect_street}
                 {$prospect_unit}

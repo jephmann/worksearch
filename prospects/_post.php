@@ -16,6 +16,7 @@
      */    
     // Prospect
     $objProspect->setName(ucwords(trim($_POST['prospect_name'])));
+    $objProspect->setBranch(ucwords(trim($_POST['prospect_branch'])));
     $objProspect->setIndustry(ucwords(trim($_POST['prospect_industry'])));
     $objProspect->setRecruiter($prospect_recruiter);
     $objProspect->setDescription(trim($_POST['prospect_description']));

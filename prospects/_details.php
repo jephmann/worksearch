@@ -18,6 +18,10 @@
                 <td><?php echo $objProspect->name; ?></td>
             </tr>
             <tr>
+                <td><strong>Branch:</strong></td>
+                <td><?php echo $objProspect->branch; ?></td>
+            </tr>
+            <tr>
                 <td><strong>Recruiter:</strong></td>
                 <td><?php echo $prospect_recruiter; ?></td>
             </tr>
