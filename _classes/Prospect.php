@@ -9,6 +9,7 @@ class Prospect extends Data {
     // Prospect Properties
     public $id_user             = NULL;
     public $name                = NULL;
+    public $branch              = NULL;
     public $address_building    = NULL;
     public $address_street      = NULL;
     public $address_unit        = NULL;
@@ -35,6 +36,7 @@ class Prospect extends Data {
     protected $fields   = array(
         'id_user',
         'name',
+        'branch',
         'address_building',
         'address_street',
         'address_unit',
@@ -71,7 +73,15 @@ class Prospect extends Data {
     public function setName($name) {
         $this->name = $name;
     }
+    
+    public function getBranch() {
+        return $this->branch;
+    }
 
+    public function setBranch($branch) {
+        $this->branch = $branch;
+    }
+    
     public function getAddress_building() {
         return $this->address_building;
     }
@@ -218,6 +228,7 @@ class Prospect extends Data {
         $parameters = array(
             ':id_user'          => $this->id_user,
             ':name'             => $this->name,
+            ':branch'           => $this->branch,
             ':address_building' => $this->address_building,
             ':address_street'   => $this->address_street,
             ':address_unit'     => $this->address_unit,
