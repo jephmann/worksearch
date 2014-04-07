@@ -6,7 +6,7 @@
     $optContactDateDD   = optDays($objLog->contact_day());
     $optContactDateYYYY = optYears($objLog->contact_year());
     
-    $optProspects       = ddlOptions($db, $objLog->getId_prospect(), 'id', 'name', $objProspects, NULL, NULL);
+    $optProspects       = ddlOptions($db, $objLog->getId_prospect(), 'id', 'name', $objProspects, 'name, \' \', UPPER(branch)', 'name ASC, branch ASC');
     if(!empty($optProspects['error']))
     {
         $option_errors .= $optProspects['error'];

@@ -15,7 +15,7 @@
         $option_errors .= $optNameSuffixes['error'];
     }
     
-    $optProspects       = ddlOptions($db, $objContact->getID_prospect(), 'id', 'name', $objProspects, NULL, NULL);
+    $optProspects       = ddlOptions($db, $objContact->getID_prospect(), 'id', 'name', $objProspects, 'name, \' \', UPPER(branch)', 'name ASC, branch ASC');
     if(!empty($optProspects['error']))
     {
         $option_errors .= $optProspects['error'];
