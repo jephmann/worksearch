@@ -24,7 +24,7 @@
         $orderby    = $_GET['orderby'];
         $dir        = $_GET['dir'];       
     }
-    $sort   = return_sort($get, $orderby, $dir, 'name');
+    $sort   = return_sort($get, $orderby, $dir, 'name, branch');
     
     /*
      * 2103.09.14 TODO:
