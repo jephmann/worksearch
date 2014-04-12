@@ -14,7 +14,7 @@ class User extends Data {
     // * - http://forums.devshed.com/php-faqs-and-stickies-167/how-to-program-a-basic-but-secure-login-system-using-891201.html
     
     // Data Properties
-    public $table   = "users";
+    protected $table   = "users";
     protected $fields  = array(
         'username',
         'password',

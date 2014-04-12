@@ -7,11 +7,11 @@
 class Name_Suffix extends Data {
     
     // Salutation Properties
-    public $abrv    = NULL;
-    public $name    = NULL;
+    public $abrv        = NULL;
+    public $name        = NULL;
     
     // Data Properties
-    public $table       = "name_suffixes";
+    protected $table    = "name_suffixes";
     protected $fields   = array(
         'abrv',
         'name',

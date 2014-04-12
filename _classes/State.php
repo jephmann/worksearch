@@ -7,11 +7,11 @@
 class State extends Data {
     
     // State Properties
-    public $abrv    = NULL;
-    public $state   = NULL;
+    public $abrv        = NULL;
+    public $state       = NULL;
     
     // Data Properties
-    public $table       = "states";
+    protected $table    = "states";
     protected $fields   = array(
         'abrv',
         'state',

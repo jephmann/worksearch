@@ -19,8 +19,8 @@ class Log extends Data {
     // * from the IDES "work search form".
     
     // Data Properties
-    public $table       = "logs";
-    protected $fields   = array(
+    protected $table            = "logs";
+    protected $fields           = array(
         'id_user',
         'week_ending',
         'contact_date',

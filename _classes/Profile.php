@@ -24,8 +24,8 @@ class Profile extends Person {
     public $drivers_license         = NULL;
     
     // Data Properties
-    public $table       = "profile";
-    protected $fields   = array(
+    protected $table                = "profile";
+    protected $fields               = array(
         'id_user',
         'name_last',
         'name_first',
@@ -261,6 +261,18 @@ class Profile extends Person {
             }
         }
         return $full_zip;
+    }
+    
+    public function link_email()
+    {        
+        $link   = NULL;
+        if(!empty($this->email))
+        {
+            $a_title    = "title=\"E-Mail for {$this->name_full()}\"";
+            $a_href     = "href=\"mailto:{$this->email}\"";
+            $link       = "<a {$a_title} {$a_href}>{$this->email}</a>";
+        }
+        return $link;
     }
     
 }

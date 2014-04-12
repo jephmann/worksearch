@@ -32,8 +32,8 @@ class Prospect extends Data {
     public $contact             = FALSE; // not a db field; if yes, next step is Contact form; if no, next step is Prospect index.
     
     // Data Properties
-    public $table       = "prospects";
-    protected $fields   = array(
+    protected $table            = "prospects";
+    protected $fields           = array(
         'id_user',
         'name',
         'branch',
@@ -299,5 +299,17 @@ class Prospect extends Data {
             }
         }
         return $full_zip;
+    }
+    
+    public function link_email()
+    {        
+        $link   = NULL;
+        if(!empty($this->email))
+        {
+            $a_title    = "title=\"E-Mail for {$this->name}\"";
+            $a_href     = "href=\"mailto:{$this->email}\"";
+            $link       = "<a {$a_title} {$a_href}>{$this->email}</a>";
+        }
+        return $link;
     }
 }

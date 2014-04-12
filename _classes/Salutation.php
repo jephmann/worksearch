@@ -7,12 +7,12 @@
 class Salutation extends Data {
     
     // Salutation Properties
-    public $gender  = "N";
-    public $abrv    = NULL;
-    public $name    = NULL;
+    public $gender      = "N";
+    public $abrv        = NULL;
+    public $name        = NULL;
     
     // Data Properties
-    public $table       = "salutations";
+    protected $table    = "salutations";
     protected $fields   = array(
         'gender',
         'abrv',

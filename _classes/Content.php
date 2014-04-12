@@ -15,8 +15,8 @@ class Content extends Data {
     public $flag_maintenance    = NULL;
     
     // Data Properties
-    public $table       = "contents";
-    protected $fields   = array(
+    protected $table            = "contents";
+    protected $fields           = array(
         'sequence',
         'name',
         'definition',

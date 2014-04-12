@@ -9,7 +9,7 @@ class Data {
     // Data Properties
     public $id          = NULL;
     public $remarks     = NULL;
-    public $table       = NULL;     // 2013.09.23 TODO: Would like this protected
+    protected $table    = NULL;
     protected $fields   = array();
     
     // Data get/set Methods

@@ -22,8 +22,8 @@ class Contact extends Person {
     public $googleplus      = NULL;
     
     // Data Properties
-    public $table       = "contacts";
-    protected $fields   = array(
+    protected $table        = "contacts";
+    protected $fields       = array(
         'id_user',
         'id_prospect',
         'id_salutation',
@@ -212,5 +212,17 @@ class Contact extends Person {
             $full_mobile    = "({$area}) {$prefix}-{$suffix}";
         }
         return $full_mobile;
+    }
+    
+    public function link_email()
+    {        
+        $link   = NULL;
+        if(!empty($this->email))
+        {
+            $a_title    = "title=\"E-Mail for {$this->name_full()}\"";
+            $a_href     = "href=\"mailto:{$this->email}\"";
+            $link       = "<a {$a_title} {$a_href}>{$this->email}</a>";
+        }
+        return $link;
     }
 }
