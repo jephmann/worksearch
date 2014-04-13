@@ -34,9 +34,11 @@
         $objNameSuffix->setAbrv(htmlentities($rowNameSuffix['abrv'], ENT_QUOTES, 'UTF-8'));
     }
     
+    $formats    = new Format;   
+    
     $profile_salutation             = $objSalutation->abrv;
     $profile_name_suffix            = $objNameSuffix->abrv;    
-    $profile_name_full              = returnFullNamePlus($profile_salutation, $objProfile->name_full(), $profile_name_suffix);
+    $profile_name_full              = $formats->fullnameplus($profile_salutation, $objProfile->name_full(), $profile_name_suffix);
     $profile_building               = NULL;
     if (!empty($objProfile->address_building))
     {
@@ -51,7 +53,7 @@
     $profile_csz                    = $objProfile->address_city.', '.$objProfile->address_state.' '.$profile_zip;
     $profile_phone                  = $objProfile->full_phone();
     $profile_fax                    = $objProfile->full_fax();
-    $profile_email                  = formatEmailLink("Profile", $objProfile->email);
+    $profile_email                  = $objProfile->link_email();
     $profile_drivers_license        = $objProfile->full_dl();
     $profile_social_security_number = $objProfile->full_ssn();
             
