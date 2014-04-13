@@ -10,6 +10,7 @@
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
+    require_once ($page['path'].'_include/helpers.php');
     $objStatus  = new Status;
     $objStatus->setClass("status_quo");
     // =========================================================================
@@ -60,7 +61,7 @@
             array('title'=>'City','field'=>'address_city'),
             array('title'=>'ZIP','field'=>'address_zip5'),
         );
-        $thead      = return_THEAD($columns);
+        $thead      = $formats->thead($columns);
         $tbody      = "<tbody>";        
         $rows       = $fetchProspects['result'];
         foreach($rows as $row)
@@ -94,21 +95,21 @@
             }
             if(!empty($rowWebsite))
             {
-                $prospect_name      = formatOutsideLink($rowName, $rowWebsite, $rowName);
+                $prospect_name      = $links->outside($rowName, $rowWebsite, $rowName);
             }
             if($rowRecruiter == TRUE)
             {
                 $prospect_name      .= "&nbsp;{$asterisk}";
             }
 
-            $prospect_phone         = formatPhone($rowPhone, $rowPhoneExtension);
+            $prospect_phone         = $formats->phone($rowPhone, $rowPhoneExtension);
             if(!empty($prospect_phone))
             {
                 $prospect_phone     = '<br />'.$prospect_phone;
             }
-            $prospect_fax           = formatPhone($rowFax, NULL);
-            $prospect_email         = formatEmailLink("Prospect", $rowEmail);
-            $prospect_zip           = formatPostUS($rowZIP5, $rowZIP4);
+            $prospect_fax           = $formats->phone($rowFax, NULL);
+            $prospect_email         = $links->email("Prospect", $rowEmail);
+            $prospect_zip           = $formats->zip($rowZIP5, $rowZIP4);
 
             $prospect_street        = NULL;
             if(!empty($rowStreet))
@@ -129,8 +130,8 @@
             $prospect_citystate     = $rowCity.', '.$rowState;
             
             $dud = array(
-                'detail'    => formatInsideLink("Detail of This Prospect", "detail.php?id={$rowID}", "Detail"),
-                'update'    => formatInsideLink("Update This Prospect", "update.php?id={$rowID}", "Update"),
+                'detail'    => $links->inside("Detail of This Prospect", "detail.php?id={$rowID}", "Detail"),
+                'update'    => $links->inside("Update This Prospect", "update.php?id={$rowID}", "Update"),
                 'delete'    => "<a title=\"Delete This Prospect\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",
             );
 

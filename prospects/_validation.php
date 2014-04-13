@@ -2,9 +2,9 @@
     // Clear Status Message
     $objStatus->message = NULL;
     
-    $objStatus->message .= validate_required_li($objProspect->name, "Prospect: Name");
-    $objStatus->message .= validate_zip5_li($objProspect->address_zip5, "Prospect ZIP Code");
-    $objStatus->message .= validate_zip4_li($objProspect->address_zip4, "Prospect ZIP Code Extension", $objProspect->address_zip5);
+    $objStatus->message .= $validate->required_li($objProspect->name, "Prospect: Name");
+    $objStatus->message .= $validate->zip5_li($objProspect->address_zip5, "Prospect ZIP Code");
+    $objStatus->message .= $validate->zip4_li($objProspect->address_zip4, "Prospect ZIP Code Extension", $objProspect->address_zip5);
     
     // Make sure I did not add this Prospect/ZIP already [seems to be broken; prospect name w/ different ZIP gets blocked]
     /*
@@ -20,10 +20,10 @@
     }
      */
     
-    $objStatus->message .= validate_phone_li($objProspect->phone, "Prospect Phone Number");
-    $objStatus->message .= validate_phone_ext_li($objProspect->phone_extension, "Prospect Phone Extension", $objProspect->phone);    
-    $objStatus->message .= validate_phone_li($objProspect->fax, "Prospect Fax Number");
-    $objStatus->message .= validate_email_li($objProspect->email, "Prospect E-Mail");
+    $objStatus->message .= $validate->phone_li($objProspect->phone, "Prospect Phone Number");
+    $objStatus->message .= $validate->phone_ext_li($objProspect->phone_extension, "Prospect Phone Extension", $objProspect->phone);    
+    $objStatus->message .= $validate->phone_li($objProspect->fax, "Prospect Fax Number");
+    $objStatus->message .= $validate->email_li($objProspect->email, "Prospect E-Mail");
     
     // NOT REQUIRED: Prospect E-Mail, must be unique among Prospects
     /*

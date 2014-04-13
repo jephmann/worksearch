@@ -10,6 +10,7 @@
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
+    require_once ($page['path'].'_include/helpers.php');
     $objStatus = new Status;
     $objStatus->setClass("status_quo");
     // =========================================================================
