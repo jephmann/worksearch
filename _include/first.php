@@ -9,7 +9,7 @@
     // general error stuff
     ini_set('display_errors', true);
     ini_set('display_startup_errors', true);
-    error_reporting (E_ALL);
+    error_reporting (E_ALL); 
     
     // tutorial*
     require_once("{$path_config}pdo.php");  // common.php part 1 (PDO configs, which include basic db variables)

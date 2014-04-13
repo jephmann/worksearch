@@ -7,13 +7,13 @@
     {
         if($page['mode'] != "Log In")
         {
-            $loginout .= formatInsideLink("Log In", "{$page['path']}login.php", "Log In");
+            $loginout .= $links->inside("Log In", "{$page['path']}login.php", "Log In");
         }
-        $loginout .= formatInsideLink("Register", "{$page['path']}register.php", "Register");
+        $loginout .= $links->inside("Register", "{$page['path']}register.php", "Register");
     }
     if (!empty($_SESSION))
     {
-        $loginout .= formatInsideLink("Log Out", "{$page['path']}logout.php", "Log Out");
+        $loginout .= $links->inside("Log Out", "{$page['path']}logout.php", "Log Out");
     }    
     
     $session_whose = "<br />";
@@ -74,7 +74,7 @@
             {
                 $content_directory  = 'welcome.php';
             }
-            $content_link           = formatInsideLink($content_name, "{$page['path']}{$content_directory}", $content_name);
+            $content_link           = $links->inside($content_name, "{$page['path']}{$content_directory}", $content_name);
             $content_li             = "\r<li>" . $content_link . "</li>\r";
                     
             if ($content_user == TRUE)
