@@ -9,8 +9,7 @@
     // user_session redirect unnecessary here
     require ($page['path'].'_classes/all.php');
     require ($page['path'].'_functions/all.php');
-    $objStatus = new Status;
-    $objStatus->setClass("status_quo");
+    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
     // JH's touch: the User class
