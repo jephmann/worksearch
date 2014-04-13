@@ -10,8 +10,7 @@
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
-    $objStatus  = new Status;
-    $objStatus->setClass("status_quo");
+    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
     $prmJoin    = array(':id_user' => $id_user);
@@ -68,7 +67,9 @@
     }
     else
     {
-        $columns=array(
+        $formats    = new Format;
+        $links      = new Link;
+        $columns    = array(
             array('title'=>'OPTIONS','field'=>NULL),
             array('title'=>'Week Ending','field'=>'week_ending'),
             array('title'=>'Contact Date','field'=>'contact_date'),
@@ -76,7 +77,7 @@
             array('title'=>'Contact','field'=>'contact_name'),
             array('title'=>'Contact Method','field'=>'contact_method'),
         );
-        $thead  = return_THEAD($columns);
+        $thead  = $formats->thead($columns);
         $tbody  = "<tbody>";        
         $rows   = $fetchJoin['result'];
         foreach($rows as $row)
@@ -84,23 +85,29 @@
             $rowID              = htmlentities($row['id'], ENT_QUOTES, 'UTF-8');
             $rowWeekEnding      = htmlentities($row['week_ending'], ENT_QUOTES, 'UTF-8');
             $rowContactDate     = htmlentities($row['contact_date'], ENT_QUOTES, 'UTF-8');
-            $rowProspect         = htmlentities($row['prospect'], ENT_QUOTES, 'UTF-8');
+            $rowProspect        = htmlentities($row['prospect'], ENT_QUOTES, 'UTF-8');
             $rowContactName     = htmlentities($row['contact_name'], ENT_QUOTES, 'UTF-8');
             $rowContactMethod   = htmlentities($row['contact_method'], ENT_QUOTES, 'UTF-8');
             $rowSpecify         = htmlentities($row['specify'], ENT_QUOTES, 'UTF-8');
 
             $log_week_ending    = date("l F j, Y",strtotime($rowWeekEnding));
             $log_contact_date   = date("l F j, Y",strtotime($rowContactDate));
-            $contact_prospect    = nullCheck($rowProspect,'DELETED');
-            $contact_name       = nullCheck($rowContactName,'DELETED');
+            $contact_prospect   = $formats->nullCheck($rowProspect,'DELETED');
+            $contact_name       = $formats->nullCheck($rowContactName,'DELETED');
+            
+            $dud = array(
+                'detail'    => $links->inside("Detail of This Log", "detail.php?id={$rowID}", "Detail"),
+                'update'    => $links->inside("Update This Log", "update.php?id={$rowID}", "Update"),
+                'delete'    => "<a title=\"Delete This Log\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",
+            );
 
             $tbody.="<tr>
                 <td class=\"td_dud\">
-                <a title=\"Detail of This Log\" href=\"detail.php?id={$rowID}\">Detail</a>
+                {$dud['detail']}
                 <br />
-                <a title=\"Update This Log\" href=\"update.php?id={$rowID}\">Update</a>
+                {$dud['update']}
                 <br />
-                <a title=\"Delete This Log\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>
+                {$dud['delete']}
                 </td>
                 <td class=\"td_detail\">{$log_week_ending}</td>
                 <td class=\"td_detail\">{$log_contact_date}</td>

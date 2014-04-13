@@ -1,18 +1,25 @@
 <?php
     $option_errors      = NULL;
     
-    $optWeekEnding      = optWeeks('Saturday', $objLog->getWeek_ending());
-    $optContactDateMM   = optMonths($objLog->contact_month());
-    $optContactDateDD   = optDays($objLog->contact_day());
-    $optContactDateYYYY = optYears($objLog->contact_year());
+    $optWeekEnding      = $inputs->ddl_weeks('Saturday', $objLog->getWeek_ending());
+    $optContactDateMM   = $inputs->ddl_months($objLog->contact_month());
+    $optContactDateDD   = $inputs->ddl_days($objLog->contact_day());
+    $optContactDateYYYY = $inputs->ddl_years($objLog->contact_year());
     
-    $optProspects       = ddlOptions($db, $objLog->getId_prospect(), 'id', 'name', $objProspects, 'name, \' \', UPPER(branch)', 'name ASC, branch ASC');
+    $optProspects       = $inputs->ddl_options($db,
+            $objLog->getId_prospect(),
+            'id', 'name', $objProspects,
+            'name, \' \', UPPER(branch)',
+            'name ASC, branch ASC');
     if(!empty($optProspects['error']))
     {
         $option_errors .= $optProspects['error'];
     }
     
-    $rblContactMethods  = rblOptions($db, $objLog->getId_contact_method(), 'contact_method', 'name', 'id', $objContactMethods, 'v');
+    $rblContactMethods  = $inputs->rbl_options($db,
+            $objLog->getId_contact_method(),
+            'contact_method', 'name', 'id',
+            $objContactMethods, 'v');
     if(!empty($rblContactMethods['error']))
     {
         $option_errors .= $rblContactMethods['error'];
@@ -20,7 +27,10 @@
     
     $concatContactNames = ("name_first, ' ', name_middle, ' ', name_last");
     $sortContactNames   = ("name_last, name_first, name_middle");
-    $optContacts        = ddlOptions($db, $objLog->getId_contact(), 'id', 'name', $objContacts, $concatContactNames, $sortContactNames);    
+    $optContacts        = $inputs->ddl_options($db,
+            $objLog->getId_contact(),
+            'id', 'name', $objContacts,
+            $concatContactNames, $sortContactNames);    
     if(!empty($optContacts['error']))
     {
         $option_errors .= $optContacts['error'];
@@ -31,3 +41,13 @@
         $objStatus->setMessage($option_errors);
         $objStatus->setClass("status_error");
     }
+    /**
+     * TODO 2014.04.12
+     * "A million years ago" w/ JavaScript (but in Classic ASP),
+     * I tied two dropdownlists together,
+     * wherein the selection of the first ddl 
+     * narrowed the option of the second ddl.
+     * I would like to use the Prospects ddl
+     * to narrow the Contacts ddl.
+     */
+    

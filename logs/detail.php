@@ -10,8 +10,7 @@
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
-    $objStatus  = new Status;
-    $objStatus->setClass("status_quo");
+    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
     $objLog = new Log;
@@ -48,26 +47,26 @@
     $log_prospect    = NULL;
     if(empty($objProspect->name))
     {
-        $log_prospect = nullCheck($objProspect->name,'DELETED');
+        $log_prospect = $formats->nullCheck($objProspect->name,'DELETED');
     }
     else
     {
-        $log_prospect = "<a title=\"Go to Prospect Detail\"
-            href=\"../prospects/detail.php?id={$objLog->id_prospect}\">
-            {$objProspect->name}</a>";
+        $log_prospect = $links->inside("Go to Prospect Detail",
+            "{$page['path']}prospects/detail.php?id={$objLog->id_prospect}",
+            $objProspect->name);
     }
     $log_contact    = NULL;
     if(empty($objContact->name_last))
     {
-        $log_contact = nullCheck($objContact->name_full(),'DELETED');
+        $log_contact = $formats->nullCheck($objContact->name_full(),'DELETED');
     }
     else
     {
-        $log_contact = "<a title=\"Go to Contact Detail\"
-            href=\"../contacts/detail.php?id={$objLog->id_contact}\">
-            {$objContact->name_full()}</a>";
+        $log_contact = $links->inside("Go to Contact Detail",
+            "{$page['path']}contacts/detail.php?id={$objLog->id_contact}",
+            $objContact->name_full());
     }
-    $log_contact_method = $objContactMethod->name;;
+    $log_contact_method = $objContactMethod->name;
     $log_specify        = $objLog->specify;
     $log_results        = $objLog->results;
     $log_remarks        = $objLog->remarks;
