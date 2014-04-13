@@ -36,12 +36,12 @@
     
     $contact_salutation     = $objSalutation->abrv;    
     $contact_name_suffix    = $objNameSuffix->abrv;
-    $contact_name_full      = returnFullNamePlus($contact_salutation, $objContact->name_full(), $contact_name_suffix);
+    $contact_name_full      = $formats->fullnameplus($contact_salutation, $objContact->name_full(), $contact_name_suffix);
     $contact_phone          = $objContact->full_phone();
     $contact_fax            = $objContact->full_fax();
     $contact_mobile_phone   = $objContact->full_mobile();
-    $contact_email          = formatEmailLink("Contact", $objContact->email);
-    $contact_linkedin       = formatOutsideLink("Contact LinkedIn", $objContact->linkedin, NULL);
-    $contact_twitter        = formatOutsideLink("Contact Twitter", $objContact->twitter, NULL);
-    $contact_facebook       = formatOutsideLink("Contact Facebook", $objContact->facebook, NULL);
-    $contact_googleplus     = formatOutsideLink("Contact Google Plus", $objContact->googleplus, NULL);
+    $contact_email          = $objContact->link_email();
+    $contact_linkedin       = $links->outside("Contact LinkedIn", $objContact->linkedin, $img_linkedin);
+    $contact_twitter        = $links->outside("Contact Twitter", $objContact->twitter, $img_twitter);
+    $contact_facebook       = $links->outside("Contact Facebook", $objContact->facebook, $img_facebook);
+    $contact_googleplus     = $links->outside("Contact Google Plus", $objContact->googleplus, NULL);

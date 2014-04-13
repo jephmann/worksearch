@@ -10,8 +10,7 @@
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
     require_once ($page['path'].'_functions/all.php');
-    $objStatus  = new Status;
-    $objStatus->setClass("status_quo");
+    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
     $prmJoin    = array(':id_user' => $id_user);
@@ -88,9 +87,9 @@
                 'title'=>'Title',
                 'field'=>'title'),
         );
-        $thead  = return_THEAD($columns);
-        $tbody  = "<tbody>";        
-        $rows   = $fetchJoin['result'];
+        $thead      = $formats->thead($columns);
+        $tbody      = "<tbody>";        
+        $rows       = $fetchJoin['result'];
         foreach($rows as $row)
         {
             $rowID              = htmlentities($row['id'], ENT_QUOTES, 'UTF-8');
@@ -107,37 +106,39 @@
             $rowPhoneExtension  = htmlentities($row['extension'], ENT_QUOTES, 'UTF-8');
             $rowPhoneMobile     = htmlentities($row['mobile'], ENT_QUOTES, 'UTF-8');
             $rowEmail           = htmlentities($row['email'], ENT_QUOTES, 'UTF-8');
+
+            // Formatting and Displaying
             
             $contact_citystate  = "{$rowCity}, {$rowState}";
 
-            $contact_phone      = formatPhone($rowPhone, $rowPhoneExtension);
+            $contact_phone      = $formats->phone($rowPhone, $rowPhoneExtension);
             if(!empty($contact_phone))
             {
                 $contact_phone  = "<br />O: {$contact_phone}";
             }
-            $contact_phone_mobile   = formatPhone($rowPhoneMobile, NULL);
+            $contact_phone_mobile   = $formats->phone($rowPhoneMobile, NULL);
             if(!empty($contact_phone_mobile))
             {
                 $contact_phone_mobile  = "<br />M: {$contact_phone_mobile}";
             }
-            $contact_email      = formatEmailLink("Contact", $rowEmail);
+            $contact_email      = $links->email("Contact", $rowEmail);
             if(!empty($contact_email))
             {
                 $contact_email  = "<br />{$contact_email}";
             }            
-            $contact_prospect    = nullCheck($rowProspect,'DELETED');
+            $contact_prospect    = $formats->nullCheck($rowProspect,'DELETED');
             if(!empty($rowProspect))
             {
-                $contact_prospect = formatInsideLink("Detail of This Prospect",
+                $contact_prospect = $links->inside("Detail of This Prospect",
                         "../prospects/detail.php?id={$rowIDProspect}",
                         $contact_prospect);
             }
             
             $dud = array(
-                'detail'    => formatInsideLink("Detail of This Contact",
+                'detail'    => $links->inside("Detail of This Contact",
                         "detail.php?id={$rowID}",
                         "Detail"),
-                'update'    => formatInsideLink("Update This Contact",
+                'update'    => $links->inside("Update This Contact",
                         "update.php?id={$rowID}",
                         "Update"),
                 'delete'    => "<a title=\"Delete This Contact\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",
