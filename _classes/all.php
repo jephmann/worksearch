@@ -17,7 +17,6 @@
     require_once ($page['path'].'_classes/Profile.php');
     require_once ($page['path'].'_classes/Contact.php');
     // HELPERS
-    require_once ($page['path'].'_classes/Crud.php');       // TODO
     require_once ($page['path'].'_classes/Format.php');     
     require_once ($page['path'].'_classes/Input.php');
     require_once ($page['path'].'_classes/Link.php');
