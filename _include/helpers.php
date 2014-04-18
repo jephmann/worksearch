@@ -1,4 +1,6 @@
 <?php
+    // database class
+    $objData    = new Data;
 
     // common helper classes
     $formats    = new Format;
