@@ -8,7 +8,6 @@
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
@@ -35,7 +34,7 @@
         require_once ('_validation.php');
         if(empty($objStatus->message))
         {
-            $insert = insertRow($db, $objLog);
+            $insert = $objData->db_create($db, $objLog);
             if(!empty($insert['error']))
             {
                 $objStatus->setMessage("<li>Failed to Create Log: {$insert['error']}<br/>{$objLog->insert()}</li>");
@@ -54,4 +53,3 @@
     require_once ($page['path'].'_views/aside.php');
     require_once ('_form.php');
     require_once ($page['path'].'_views/footer.php');
-?>

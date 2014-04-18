@@ -1,7 +1,7 @@
 <?php  
     $prmLog     = $objLog->id_params($objLog->id, $objLog->id_user);
     $sqlLog     = $objLog->select($objLog->id_user);
-    $fetchLog   = read($db, $sqlLog, $prmLog, FALSE);
+    $fetchLog   = $objData->db_read($db, $sqlLog, $prmLog, FALSE);
     $rowLog     = $fetchLog['result'];
     if(!empty($fetchLog['error']))
     {

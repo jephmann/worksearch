@@ -14,14 +14,13 @@
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
     $objDelete  = new Log;
     $objDelete->setId($_GET['id']);
-    $id_found   = checkIfAlready($db, $objDelete);
-    $delete     = delete($db, $objDelete, $id_found);
+    $id_found   = $objData->id_exists($db, $objDelete);
+    $delete     = $objData->db_delete($db, $objDelete, $id_found);
     if(!empty($delete['error']))
     {
         echo $delete['error'];

@@ -9,7 +9,6 @@
     user_session($page['path']);
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
@@ -29,7 +28,7 @@
         if(empty($objStatus->message))
         {
             $location   = "detail.php?id={$objLog->id}";
-            $update     = updateRow($db, $objLog);
+            $update     = $objData->db_update($db, $objLog);
             if(!empty($update['result']['error']))
             {
                 $objStatus->setMessage("<li>Failed to Update Log: {$update['result']['error']}</li>");
@@ -48,4 +47,3 @@
     require_once ($page['path'].'_views/aside.php');
     require_once ('_form.php');
     require_once ($page['path'].'_views/footer.php');
-?>

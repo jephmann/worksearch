@@ -9,7 +9,6 @@
     user_session($page['path']);
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
@@ -32,7 +31,7 @@
     $objContactMethod->setId($objLog->id_contact_method);    
     $prmContactMethod   = $objContactMethod->id_params($objContactMethod->id, NULL);
     $sqlContactMethod   = $objContactMethod->select(NULL);
-    $fetchContactMethod = read($db, $sqlContactMethod, $prmContactMethod, FALSE);
+    $fetchContactMethod = $objData->db_read($db, $sqlContactMethod, $prmContactMethod, FALSE);
     $rowContactMethod   = $fetchContactMethod['result'];
     if(!empty($fetchContactMethod['error']))
     {
@@ -78,4 +77,3 @@
     require_once ($page['path'].'_views/aside.php');
     require ('_details.php');
     require_once ($page['path'].'_views/footer.php');
-?>

@@ -9,7 +9,6 @@
     user_session($page['path']);
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
@@ -21,7 +20,7 @@
         $orderby    = $_GET['orderby'];
         $dir        = $_GET['dir'];       
     }
-    $sort   = return_sort($get, $orderby, $dir, 'contact_date');
+    $sort   = $objData->sort($get, $orderby, $dir, 'contact_date');
     
     /*
      * 2103.09.28 TODO:
@@ -55,7 +54,7 @@
         ON logs.id_contact_method = contact_methods.id
         WHERE logs.id_user = :id_user
         {$and}{$sort}";
-    $fetchJoin  = read($db, $sqlJoin, $prmJoin, TRUE);
+    $fetchJoin  = $objData->db_read($db, $sqlJoin, $prmJoin, TRUE);
     if(!empty($fetchJoin['error']))
     {
         $objStatus->setMessage("<li>Join Error -- {$fetchJoin['error']}</li>");
@@ -96,8 +95,12 @@
             $contact_name       = $formats->nullCheck($rowContactName,'DELETED');
             
             $dud = array(
-                'detail'    => $links->inside("Detail of This Log", "detail.php?id={$rowID}", "Detail"),
-                'update'    => $links->inside("Update This Log", "update.php?id={$rowID}", "Update"),
+                'detail'    => $links->inside("Detail of This Log",
+                        "detail.php?id={$rowID}",
+                        "Detail"),
+                'update'    => $links->inside("Update This Log",
+                        "update.php?id={$rowID}",
+                        "Update"),
                 'delete'    => "<a title=\"Delete This Log\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",
             );
 
@@ -125,4 +128,3 @@
     require_once ($page['path'].'_views/aside.php');
     require_once ('_table.php');
     require_once ($page['path'].'_views/footer.php');
-?>
