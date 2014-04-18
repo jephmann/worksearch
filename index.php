@@ -7,4 +7,3 @@
     {
         header('Location:welcome.php');
     }
-?>

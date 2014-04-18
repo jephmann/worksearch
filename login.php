@@ -8,7 +8,6 @@
     require ($page['path'].'_include/first.php');    
     // user_session redirect unnecessary here
     require ($page['path'].'_classes/all.php');
-    require ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
@@ -32,16 +31,10 @@
         // This query retreives the user's information from the database using
         // their username.
         $query = "
-            SELECT
-                id,
-                username,
-                password,
-                salt,
-                email
+            SELECT id, username, password, salt, email
             FROM users
-            WHERE
-                username = :username
-        ";
+            WHERE username = :username
+            ";
         
         // The parameter values
         $query_params = array(
@@ -51,7 +44,7 @@
         try
         {
             // Execute the query against the database
-            $stmt = $db->prepare($query);
+            $stmt   = $db->prepare($query);
             $result = $stmt->execute($query_params);
         }
         catch(PDOException $ex)
@@ -111,7 +104,7 @@
             $objProfile = new Profile;
             $prmProfile     = $objProfile->id_params(NULL, $_SESSION['user']['id']);
             $sqlProfile     = $objProfile->selectAll($_SESSION['user']['id']) . " LIMIT 1";
-            $fetchProfile   = read($db, $sqlProfile, $prmProfile, TRUE);
+            $fetchProfile   = $objData->db_read($db, $sqlProfile, $prmProfile, TRUE);
             $rowProfile     = $fetchProfile['result'][0];
             if(!empty($rowProfile))
             {
@@ -150,4 +143,3 @@
     require_once ($page['path'].'_views/aside.php');
     require ('_login.php');
     require_once ($page['path'].'_views/footer.php');
-?>

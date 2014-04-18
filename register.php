@@ -8,7 +8,6 @@
     require ($page['path'].'_include/first.php');
     // user_session redirect unnecessary here
     require ($page['path'].'_classes/all.php');
-    require ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
@@ -60,7 +59,7 @@
         
         // We will use this SQL query to see whether the username entered by the
         // user is already in use.
-        $check_username = returnAlreadyCheck($db, 'username', $_POST['user_username'], 'users');
+        $check_username = $objData->record_exists($db, 'username', $_POST['user_username'], 'users');
         if($check_username == TRUE)
         {
             $status_message .= ("<li>This username is already in use.</li>");
@@ -68,7 +67,7 @@
         
         // Now we perform the same type of check for the email address, in order
         // to ensure that it is unique.        
-        $check_email = returnAlreadyCheck($db, 'email', $_POST['user_email'], 'users');
+        $check_email = $objData->record_exists($db, 'email', $_POST['user_email'], 'users');
         if($check_email == TRUE)
         {
             $status_message .= ("<li>This email address is already registered.</li>");
@@ -136,7 +135,7 @@
         if(empty($objStatus->message))
         {        
             // JH's function which calls the User class's insert() method
-            $insert = insertRow($db, $objUser);
+            $insert = $objData->db_create($db, $objUser);
             if(!empty($insert['error']))
             {
                 $objStatus->setMessage("<li>Failed to Create Log: {$insert['error']}</li>");
@@ -161,4 +160,3 @@
     require_once ($page['path'].'_views/aside.php');
     require ('_register.php');
     require_once ($page['path'].'_views/footer.php');
-?>
