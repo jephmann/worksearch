@@ -44,9 +44,9 @@
     //=====
     $objContents    = new Content;
     $prmContents    = $objContents->parameters(NULL);
-    $sort           = return_sort(FALSE, NULL, NULL, 'sequence');    
+    $sort           = $objData->sort(FALSE, NULL, NULL, 'sequence');    
     $sqlContents    = $objContents->selectAll(NULL).' '.$sort;
-    $fetchContents  = read($db, $sqlContents, $prmContents, TRUE);
+    $fetchContents  = $objData->db_read($db, $sqlContents, $prmContents, TRUE);
     $rowContents    = NULL;
     $navContents    = NULL;    // for all pages
     $divContents    = NULL;    // for the welcome page
