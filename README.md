@@ -168,3 +168,12 @@ tutorials in a bid to revive my dormant ASP.NET skills.
 the first projects wherein I would connect to GitHub via NetBeans. Yesterday I
 downloaded and installed NetBeans 8.0. The 2014.03.27 posting of this updated
 README.md file is a test to ensure that my GitHub settings are still intact.
+
+UPDATE 2014.04.17
+- On April 12, 2014, I was notified of the existence of a website
+[http://www.jibberjobberusa.com/login.php] which worked along lines so similar
+to this project that I am tempted to abandon this project completely except as a
+coding exercise. I was always ambivalent about whether or not my project could
+become an app which others could use, as the priorities beyond that were about
+staying in practice between jobs and having code samples to show people. I am
+definitely not interested in creating a competing product anyhow.
