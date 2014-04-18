@@ -190,6 +190,7 @@ class Data {
         {
             $stmt   = $db->prepare($sql);
             $stmt->execute($parameters);
+            $error  = NULL;
         }
         catch(PDOException $ex)
         {
