@@ -1,7 +1,7 @@
 <?php   
     $prmProfile     = $objProfile->id_params($objProfile->id, $objProfile->id_user);
     $sqlProfile     = $objProfile->select($objProfile->id_user);
-    $fetchProfile   = read($db, $sqlProfile, $prmProfile, FALSE);
+    $fetchProfile   = $objData->db_read($db, $sqlProfile, $prmProfile, FALSE);
     $rowProfile     = $fetchProfile['result'];
     if(!empty($fetchProfile['error']))
     {

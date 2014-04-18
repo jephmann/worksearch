@@ -8,7 +8,6 @@
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
@@ -19,7 +18,7 @@
     $thisDate   = "{$thisYear}-{$thisMonth}-{$thisDay}";
     $dateBirth  = date("Y-m-d",strtotime($thisDate));
     
-    $objProfile = new Profile;
+    $objProfile         = new Profile;
     $objProfile->setId_user($_SESSION['user']['id']);
     $objProfile->setDate_birth($dateBirth);
     $objStates          = new State;
@@ -33,7 +32,7 @@
         require_once ('_validation.php');
         if(empty($objStatus->message))
         {
-            $insert = insertRow($db, $objProfile);
+            $insert = $objData->db_create($db, $objProfile);
             if(!empty($insert['error']))
             {
                 $objStatus->setMessage("<li>Failed to Create Profile: {$insert['error']}<br/>{$objProfile->insert()}</li>");
@@ -53,4 +52,3 @@
     require_once ($page['path'].'_views/aside.php');
     require_once ('_form.php');
     require_once ($page['path'].'_views/footer.php');
-?>

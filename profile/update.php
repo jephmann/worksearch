@@ -9,11 +9,10 @@
     user_session($page['path']);
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
-    $objProfile = new Profile;
+    $objProfile         = new Profile;
     $objProfile->setId($_SESSION['profile']['id']);
     $objProfile->setId_user($id_user);
     require ('_fetch.php');
@@ -29,7 +28,7 @@
         if(empty($objStatus->message))
         {
             $location   = 'index.php';
-            $update     = updateRow($db, $objProfile);
+            $update     = $objData->db_update($db, $objProfile);
             if(!empty($update['result']['error']))
             {
                 $objStatus->setMessage("<li>Failed to Update Profile: {$update['result']['error']}</li>");
@@ -48,4 +47,3 @@
     require_once ($page['path'].'_views/aside.php');
     require_once ('_form.php');
     require_once ($page['path'].'_views/footer.php');
-?>
