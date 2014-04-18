@@ -9,10 +9,7 @@
     user_session($page['path']);
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
-    $objStatus  = new Status;
-    $objStatus->setClass("status_quo");
     // =========================================================================
     
     // PROSPECT
@@ -32,7 +29,7 @@
     $sqlContacts = $objContacts->selectAll($id_user);
     $sqlContacts .= " AND id_prospect = :id_prospect";    
     
-    $fetchContacts   = read($db, $sqlContacts, $prmContacts, TRUE);
+    $fetchContacts   = $objData->db_read($db, $sqlContacts, $prmContacts, TRUE);
     $rowContacts     = $fetchContacts['result'];
     if(!empty($fetchContacts['error']))
     {
@@ -132,7 +129,7 @@
     $sqlLogs = $objLogs->selectAll($id_user);
     $sqlLogs .= " AND id_prospect = :id_prospect";
     
-    $fetchLogs   = read($db, $sqlLogs, $prmLogs, TRUE);
+    $fetchLogs   = $objData->db_read($db, $sqlLogs, $prmLogs, TRUE);
     $rowLogs     = $fetchLogs['result'];
     if(!empty($fetchLogs['error']))
     {
@@ -177,4 +174,3 @@
     require_once ($page['path'].'_views/aside.php');
     require ('_details.php');
     require_once ($page['path'].'_views/footer.php');
-?>

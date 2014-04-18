@@ -1,7 +1,7 @@
 <?php
     $prmProspect     = $objProspect->id_params($objProspect->id, $objProspect->id_user);
     $sqlProspect     = $objProspect->select($objProspect->id_user);
-    $fetchProspect   = read($db, $sqlProspect, $prmProspect, FALSE);
+    $fetchProspect   = $objData->db_read($db, $sqlProspect, $prmProspect, FALSE);
     $rowProspect     = $fetchProspect['result'];
     if(!empty($fetchProspect['error']))
     {

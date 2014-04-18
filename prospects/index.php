@@ -9,10 +9,7 @@
     user_session($page['path']);
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
-    $objStatus  = new Status;
-    $objStatus->setClass("status_quo");
     // =========================================================================
     
     $objProspects   = new Prospect;
@@ -25,7 +22,7 @@
         $orderby    = $_GET['orderby'];
         $dir        = $_GET['dir'];       
     }
-    $sort   = return_sort($get, $orderby, $dir, 'name, branch');
+    $sort   = $objData->sort($get, $orderby, $dir, 'name, branch');
     
     /*
      * 2103.09.14 TODO:
@@ -43,7 +40,7 @@
     // =========================================================================
     
     $sqlProspects   = $objProspects->selectAll($objProspects->id_user).' '.$and.$sort;
-    $fetchProspects = read($db, $sqlProspects, $prmProspects, TRUE);
+    $fetchProspects = $objData->db_read($db, $sqlProspects, $prmProspects, TRUE);
     if(!empty($fetchProspects['error']))
     {
         $objStatus->setMessage("<li>{$fetchProspects['error']}</li>");
@@ -130,8 +127,12 @@
             $prospect_citystate     = $rowCity.', '.$rowState;
             
             $dud = array(
-                'detail'    => $links->inside("Detail of This Prospect", "detail.php?id={$rowID}", "Detail"),
-                'update'    => $links->inside("Update This Prospect", "update.php?id={$rowID}", "Update"),
+                'detail'    => $links->inside("Detail of This Prospect",
+                        "detail.php?id={$rowID}",
+                        "Detail"),
+                'update'    => $links->inside("Update This Prospect",
+                        "update.php?id={$rowID}",
+                        "Update"),
                 'delete'    => "<a title=\"Delete This Prospect\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",
             );
 
@@ -164,4 +165,3 @@
     require_once ($page['path'].'_views/aside.php');
     require_once ('_table.php');
     require_once ($page['path'].'_views/footer.php');
-?>

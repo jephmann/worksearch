@@ -9,17 +9,14 @@
     user_session($page['path']);
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
-    $objStatus = new Status;
-    $objStatus->setClass("status_quo");
     // =========================================================================
     
-    $objProspect = new Prospect;
+    $objProspect    = new Prospect;
     $objProspect->setId($_GET['id']);
     $objProspect->setId_user($id_user);
     require ('_fetch.php');
-    $objStates          = new State;
+    $objStates      = new State;
     require ('_defaults.php');
     if(!empty($_POST))
     {
@@ -37,7 +34,7 @@
             {
                 $location   = "detail.php?id={$objProspect->id}";
             }
-            $update     = updateRow($db, $objProspect);
+            $update     = $objData->db_update($db, $objProspect);
             if(!empty($update['result']['error']))
             {
                 $objStatus->setMessage("<li>Failed to Update Prospect: {$update['result']['error']}</li>");
@@ -56,4 +53,3 @@
     require_once ($page['path'].'_views/aside.php');
     require_once ('_form.php');
     require_once ($page['path'].'_views/footer.php');
-?>    

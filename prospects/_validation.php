@@ -11,8 +11,8 @@
     if($page['mode']=='Create')
     {
         // See whether combination name and zip5 already exist
-        $already_name = returnAlreadyCheck($db, 'name', $objProspect->getName(), 'prospects');
-        $already_zip5 = returnAlreadyCheck($db, 'address_zip5', $objProspect->getAddress_zip5(), 'prospects');
+        $already_name = $objData->record_exists($db, 'name', $objProspect->getName(), 'prospects');
+        $already_zip5 = $objData->record_exists($db, 'address_zip5', $objProspect->getAddress_zip5(), 'prospects');
         if($already_name && $already_zip5)
         {
             $objStatus->message .= validation_message("Combination prospect name/zip5 already exists.");
@@ -30,7 +30,7 @@
     if(!empty($objProspect->email))
     {
         // If the entered e-mail address is NOT unique among Prospects
-        if(returnAlreadyCheck($db, 'email', $objProspect->getEmail(), 'prospects'))
+        if($objData->record_exists($db, 'email', $objProspect->getEmail(), 'prospects'))
         {
             $objStatus->message .= validation_message("This Prospect e-mail address already exists.");
         }
