@@ -1,7 +1,7 @@
 <?php
     $prmContact     = $objContact->id_params($objContact->id, $objContact->id_user);
     $sqlContact     = $objContact->select($objContact->id_user);
-    $fetchContact   = read($db, $sqlContact, $prmContact, FALSE);
+    $fetchContact   = $objData->db_read($db, $sqlContact, $prmContact, FALSE);
     $rowContact     = $fetchContact['result'];
     if(!empty($fetchContact['error']))
     {

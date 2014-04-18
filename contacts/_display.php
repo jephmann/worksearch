@@ -6,7 +6,7 @@
     {
         $prmSalutation      = $objSalutation->id_params($id_sal, NULL);
         $sqlSalutation      = $objSalutation->select(NULL);
-        $fetchSalutation    = read($db, $sqlSalutation, $prmSalutation, FALSE);
+        $fetchSalutation    = $objData->db_read($db, $sqlSalutation, $prmSalutation, FALSE);
         $rowSalutation      = $fetchSalutation['result'];
         if(!empty($fetchSalutation['error']))
         {
@@ -23,7 +23,7 @@
     {
         $prmNameSuffix      = $objNameSuffix->id_params($id_suf, NULL);
         $sqlNameSuffix      = $objNameSuffix->select(NULL);
-        $fetchNameSuffix    = read($db, $sqlNameSuffix, $prmNameSuffix, FALSE);
+        $fetchNameSuffix    = $objData->db_read($db, $sqlNameSuffix, $prmNameSuffix, FALSE);
         $rowNameSuffix      = $fetchNameSuffix['result'];
         if(!empty($fetchNameSuffix['error']))
         {

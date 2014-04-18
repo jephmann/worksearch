@@ -9,7 +9,6 @@
     user_session($page['path']);
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
@@ -46,7 +45,7 @@
     $sqlLogs = $objLogs->selectAll($id_user);
     $sqlLogs .= " AND id_contact = :id_contact";
     
-    $fetchLogs   = read($db, $sqlLogs, $prmLogs, TRUE);
+    $fetchLogs   = $objData->db_read($db, $sqlLogs, $prmLogs, TRUE);
     $rowLogs     = $fetchLogs['result'];
     if(!empty($fetchLogs['error']))
     {
@@ -99,4 +98,3 @@
     require_once ($page['path'].'_views/aside.php');
     require ('_details.php');
     require_once ($page['path'].'_views/footer.php');
-?>

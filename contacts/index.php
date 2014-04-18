@@ -9,7 +9,6 @@
     user_session($page['path']);
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
@@ -21,7 +20,7 @@
         $orderby    = $_GET['orderby'];
         $dir        = $_GET['dir'];       
     }
-    $sort   = return_sort($get, $orderby, $dir, 'name_last');
+    $sort   = $objData->sort($get, $orderby, $dir, 'name_last');
     
     /*
      * 2103.09.28 TODO:
@@ -58,7 +57,7 @@
         ON contacts.id_prospect = prospects.id
         WHERE contacts.id_user = :id_user
         {$and}{$sort}";
-    $fetchJoin  = read($db, $sqlJoin, $prmJoin, TRUE);
+    $fetchJoin  = $objData->db_read($db, $sqlJoin, $prmJoin, TRUE);
     if(!empty($fetchJoin['error']))
     {
         $objStatus->setMessage("<li>Join Error -- {$fetchJoin['error']}</li>");
@@ -172,4 +171,3 @@
     require_once ($page['path'].'_views/aside.php');
     require_once ('_table.php');
     require_once ($page['path'].'_views/footer.php');
-?>

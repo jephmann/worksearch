@@ -15,7 +15,7 @@
     if(!empty($objContact->email))
     {
         // If the entered e-mail address is NOT unique among Contacts
-        if(returnAlreadyCheck($db, 'email', $objContact->email, 'contacts'))
+        if($objData->record_exists($db, 'email', $objContact->email, 'contacts'))
         {
             $objStatus->message .= validation_message("This Contact e-mail address already exists.");
         }

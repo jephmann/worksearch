@@ -9,11 +9,10 @@
     user_session($page['path']);
     $id_user    = $_SESSION['user']['id'];
     require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_functions/all.php');
     require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
-    $objContact = new Contact;
+    $objContact =       new Contact;
     $objContact->setId($_GET['id']);
     $objContact->setId_user($id_user);
     require ('_fetch.php');
@@ -29,7 +28,7 @@
         if(empty($objStatus->message))
         {
             $location   = "detail.php?id={$objContact->id}";
-            $update     = updateRow($db, $objContact);
+            $update     = $objData->db_update($db, $objContact);
             if(!empty($update['result']['error']))
             {
                 $objStatus->setMessage("<li>Failed to Update Contact: {$update['result']['error']}</li>");
@@ -48,4 +47,3 @@
     require_once ($page['path'].'_views/aside.php');
     require_once ('_form.php');
     require_once ($page['path'].'_views/footer.php');
-?>
