@@ -7,15 +7,13 @@
     );
     require ($page['path'].'_include/first.php');
     user_session($page['path']);
-    require ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
-    $docpath = $page['path'].'documents';
-    $rbl_docdirs = NULL;
-    $doc_dirs = NULL;
+    $docpath        = $page['path'].'documents';
+    $rbl_docdirs    = NULL;
+    $doc_dirs       = NULL;
     
-    $dir_handle = @opendir($docpath) or die("Unable to open $docpath");
+    $dir_handle     = @opendir($docpath) or die("Unable to open $docpath");
     while ($dir = readdir($dir_handle))
     {
         if($dir == "." || $dir == ".." || $dir == "index.php" )
@@ -39,7 +37,7 @@
             }
             closedir($subdir_handle);
     }
-    $doc_dirs .=  "</p>";
+    $doc_dirs       .=  "</p>";
     // Close
     closedir($dir_handle);
     
