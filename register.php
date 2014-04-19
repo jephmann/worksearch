@@ -7,8 +7,6 @@
     );
     require ($page['path'].'_include/first.php');
     // user_session redirect unnecessary here
-    require ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
     // JH's touch: the User class
