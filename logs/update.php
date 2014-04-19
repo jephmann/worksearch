@@ -7,11 +7,9 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
-    $id_user    = $_SESSION['user']['id'];
-    require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
+    $id_user            = $_SESSION['user']['id'];
     $objLog             = new Log;
     $objLog->setId($_GET['id']);
     $objLog->setId_user($id_user);

@@ -7,27 +7,25 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
-    $id_user    = $_SESSION['user']['id'];
-    require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
-    $objLog = new Log;
+    $id_user            = $_SESSION['user']['id'];
+    $objLog             = new Log;
     $objLog->setId($_GET['id']);
     $objLog->setId_user($id_user);
     require ('_fetch.php');
     
-    $objProspect = new Prospect;
+    $objProspect        = new Prospect;
     $objProspect->setId($objLog->id_prospect);
     $objProspect->setId_user($id_user);
     require ('../prospects/_fetch.php');
     
-    $objContact = new Contact;
+    $objContact         = new Contact;
     $objContact->setId($objLog->id_contact);
     $objContact->setId_user($id_user);
     require ('../contacts/_fetch.php');
     
-    $objContactMethod = new Contact_Method;
+    $objContactMethod   = new Contact_Method;
     $objContactMethod->setId($objLog->id_contact_method);    
     $prmContactMethod   = $objContactMethod->id_params($objContactMethod->id, NULL);
     $sqlContactMethod   = $objContactMethod->select(NULL);
@@ -43,25 +41,25 @@
     $log_week_ending    = $objLog->full_week_ending();
     $log_contact_date   = $objLog->full_contact_date();
     $log_work           = $objLog->work;
-    $log_prospect    = NULL;
+    $log_prospect       = NULL;
     if(empty($objProspect->name))
     {
-        $log_prospect = $formats->nullCheck($objProspect->name,'DELETED');
+        $log_prospect   = $formats->nullCheck($objProspect->name,'DELETED');
     }
     else
     {
-        $log_prospect = $links->inside("Go to Prospect Detail",
+        $log_prospect   = $links->inside("Go to Prospect Detail",
             "{$page['path']}prospects/detail.php?id={$objLog->id_prospect}",
             $objProspect->name);
     }
-    $log_contact    = NULL;
+    $log_contact        = NULL;
     if(empty($objContact->name_last))
     {
-        $log_contact = $formats->nullCheck($objContact->name_full(),'DELETED');
+        $log_contact    = $formats->nullCheck($objContact->name_full(),'DELETED');
     }
     else
     {
-        $log_contact = $links->inside("Go to Contact Detail",
+        $log_contact    = $links->inside("Go to Contact Detail",
             "{$page['path']}contacts/detail.php?id={$objLog->id_contact}",
             $objContact->name_full());
     }

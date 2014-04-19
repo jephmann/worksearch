@@ -7,11 +7,9 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
-    $id_user    = $_SESSION['user']['id'];
-    require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
+    $id_user    = $_SESSION['user']['id'];
     $objProfile         = new Profile;
     $objProfile->setId($_SESSION['profile']['id']);
     $objProfile->setId_user($id_user);

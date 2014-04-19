@@ -7,11 +7,9 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
-    $id_user    = $_SESSION['user']['id'];
-    require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
+    $id_user    = $_SESSION['user']['id'];
     $prmJoin    = array(':id_user' => $id_user);
     require_once ($page['path'].'_variables/index.php');
     if (isset($_GET['orderby']) && isset($_GET['dir']))
@@ -20,7 +18,7 @@
         $orderby    = $_GET['orderby'];
         $dir        = $_GET['dir'];       
     }
-    $sort   = $objData->sort($get, $orderby, $dir, 'contact_date');
+    $sort       = $objData->sort($get, $orderby, $dir, 'contact_date');
     
     /*
      * 2103.09.28 TODO:
