@@ -7,27 +7,25 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
-    $id_user    = $_SESSION['user']['id'];
-    require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
+    $id_user    = $_SESSION['user']['id'];
     // PROSPECT
-    $objProspect = new Prospect;
+    $objProspect    = new Prospect;
     $objProspect->setId_user($id_user);
     $objProspect->setId($_GET['id']);
     require ('_fetch.php');
     require ('_display.php');
     
     // PROSPECT'S CONTACTS
-    $objContacts = new Contact;
+    $objContacts    = new Contact;
     $objContacts->setId_user($id_user);
     $objContacts->setId_prospect($objProspect->id);
     
-    $prmContacts = $objContacts->id_params($objContacts->id, $objContacts->id_user);
+    $prmContacts    = $objContacts->id_params($objContacts->id, $objContacts->id_user);
     $prmContacts['id_prospect'] = $objContacts->id_prospect;
-    $sqlContacts = $objContacts->selectAll($id_user);
-    $sqlContacts .= " AND id_prospect = :id_prospect";    
+    $sqlContacts    = $objContacts->selectAll($id_user);
+    $sqlContacts    .= " AND id_prospect = :id_prospect";    
     
     $fetchContacts   = $objData->db_read($db, $sqlContacts, $prmContacts, TRUE);
     $rowContacts     = $fetchContacts['result'];
@@ -36,7 +34,7 @@
         $objStatus->setMessage("<li>Contacts Error: {$fetchContacts['error']}</li>");
         $objStatus->setClass("status_error");
     }
-    $p_contacts = NULL;
+    $p_contacts     = NULL;
     if(empty($rowContacts))
     {
         $p_contacts = "<p><strong>NONE Listed</strong></p>";
@@ -120,17 +118,17 @@
     }
     
     // PROSPECT'S LOGS
-    $objLogs = new Log;
+    $objLogs    = new Log;
     $objLogs->setId_user($id_user);
     $objLogs->setId_prospect($objProspect->id);
     
-    $prmLogs = $objLogs->id_params($objLogs->id, $objLogs->id_user);
+    $prmLogs    = $objLogs->id_params($objLogs->id, $objLogs->id_user);
     $prmLogs['id_prospect'] = $objLogs->id_prospect;
-    $sqlLogs = $objLogs->selectAll($id_user);
-    $sqlLogs .= " AND id_prospect = :id_prospect";
+    $sqlLogs    = $objLogs->selectAll($id_user);
+    $sqlLogs    .= " AND id_prospect = :id_prospect";
     
-    $fetchLogs   = $objData->db_read($db, $sqlLogs, $prmLogs, TRUE);
-    $rowLogs     = $fetchLogs['result'];
+    $fetchLogs  = $objData->db_read($db, $sqlLogs, $prmLogs, TRUE);
+    $rowLogs    = $fetchLogs['result'];
     if(!empty($fetchLogs['error']))
     {
         $objStatus->setMessage("<li>Prospect Log Error: {$fetchLogs['error']}</li>");

@@ -7,12 +7,10 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
-    $id_user    = $_SESSION['user']['id'];
-    require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
-    $objContact =       new Contact;
+    $id_user            = $_SESSION['user']['id'];
+    $objContact         = new Contact;
     $objContact->setId($_GET['id']);
     $objContact->setId_user($id_user);
     require ('_fetch.php');

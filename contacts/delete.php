@@ -13,8 +13,6 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
-    require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
     $objDelete  = new Contact;

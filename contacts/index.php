@@ -7,12 +7,10 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
-    $id_user    = $_SESSION['user']['id'];
-    require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
-    $prmJoin    = array(':id_user' => $id_user);
+    $id_user        = $_SESSION['user']['id'];
+    $prmJoin        = array(':id_user' => $id_user);
     require_once ($page['path'].'_variables/index.php');
     if (isset($_GET['orderby']) && isset($_GET['dir']))
     {
@@ -20,7 +18,7 @@
         $orderby    = $_GET['orderby'];
         $dir        = $_GET['dir'];       
     }
-    $sort   = $objData->sort($get, $orderby, $dir, 'name_last');
+    $sort           = $objData->sort($get, $orderby, $dir, 'name_last');
     
     /*
      * 2103.09.28 TODO:
@@ -125,10 +123,10 @@
             {
                 $contact_email  = "<br />{$contact_email}";
             }            
-            $contact_prospect    = $formats->nullCheck($rowProspect,'DELETED');
+            $contact_prospect   = $formats->nullCheck($rowProspect,'DELETED');
             if(!empty($rowProspect))
             {
-                $contact_prospect = $links->inside("Detail of This Prospect",
+                $contact_prospect   = $links->inside("Detail of This Prospect",
                         "../prospects/detail.php?id={$rowIDProspect}",
                         $contact_prospect);
             }

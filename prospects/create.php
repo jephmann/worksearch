@@ -7,13 +7,11 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
-    require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
-    $objProspect = new Prospect;
+    $objProspect    = new Prospect;
     $objProspect->setId_user($_SESSION['user']['id']);
-    $objStates  = new State;
+    $objStates      = new State;
     require ('_defaults.php');
     if (!empty($_POST))
     {

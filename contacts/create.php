@@ -7,11 +7,9 @@
     );
     require_once ($page['path'].'_include/first.php');
     user_session($page['path']);
-    require_once ($page['path'].'_classes/all.php');
-    require_once ($page['path'].'_include/helpers.php');
     // =========================================================================
     
-    $objContact = new Contact;
+    $objContact         = new Contact;
     $objContact->setId_user($_SESSION['user']['id']);    
     if(isset($_GET['prospect']))
     {
