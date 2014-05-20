@@ -1,12 +1,12 @@
 <?php
     $option_errors      = NULL;
     
-    $optWeekEnding      = $inputs->ddl_weeks('Saturday', $objLog->getWeek_ending());
-    $optContactDateMM   = $inputs->ddl_months($objLog->contact_month());
-    $optContactDateDD   = $inputs->ddl_days($objLog->contact_day());
-    $optContactDateYYYY = $inputs->ddl_years($objLog->contact_year());
+    $optWeekEnding      = Input::ddl_weeks('Saturday', $objLog->getWeek_ending());
+    $optContactDateMM   = Input::ddl_months($objLog->contact_month());
+    $optContactDateDD   = Input::ddl_days($objLog->contact_day());
+    $optContactDateYYYY = Input::ddl_years($objLog->contact_year());
     
-    $optProspects       = $inputs->ddl_options($db,
+    $optProspects       = Input::ddl_options($db,
             $objLog->getId_prospect(),
             'id', 'name', $objProspects,
             'name, \' \', UPPER(branch)',
@@ -16,7 +16,7 @@
         $option_errors .= $optProspects['error'];
     }
     
-    $rblContactMethods  = $inputs->rbl_options($db,
+    $rblContactMethods  = Input::rbl_options($db,
             $objLog->getId_contact_method(),
             'contact_method', 'name', 'id',
             $objContactMethods, 'v');
@@ -27,7 +27,7 @@
     
     $concatContactNames = ("name_first, ' ', name_middle, ' ', name_last");
     $sortContactNames   = ("name_last, name_first, name_middle");
-    $optContacts        = $inputs->ddl_options($db,
+    $optContacts        = Input::ddl_options($db,
             $objLog->getId_contact(),
             'id', 'name', $objContacts,
             $concatContactNames, $sortContactNames);    

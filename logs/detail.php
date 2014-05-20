@@ -44,22 +44,22 @@
     $log_prospect       = NULL;
     if(empty($objProspect->name))
     {
-        $log_prospect   = $formats->nullCheck($objProspect->name,'DELETED');
+        $log_prospect   = Format::nullCheck($objProspect->name,'DELETED');
     }
     else
     {
-        $log_prospect   = $links->inside("Go to Prospect Detail",
+        $log_prospect   = Link::inside("Go to Prospect Detail",
             "{$page['path']}prospects/detail.php?id={$objLog->id_prospect}",
             $objProspect->name);
     }
     $log_contact        = NULL;
     if(empty($objContact->name_last))
     {
-        $log_contact    = $formats->nullCheck($objContact->name_full(),'DELETED');
+        $log_contact    = Format::nullCheck($objContact->name_full(),'DELETED');
     }
     else
     {
-        $log_contact    = $links->inside("Go to Contact Detail",
+        $log_contact    = Link::inside("Go to Contact Detail",
             "{$page['path']}contacts/detail.php?id={$objLog->id_contact}",
             $objContact->name_full());
     }

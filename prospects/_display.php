@@ -14,11 +14,11 @@
     $prospect_phone          = $objProspect->full_phone();
     $prospect_fax            = $objProspect->full_fax();
     $prospect_email          = $objProspect->link_email();
-    $prospect_website        = $links->outside($objProspect->name, $objProspect->website, NULL);
-    $prospect_linkedin       = $links->outside("Prospect's LinkedIn", $objProspect->linkedin, $img_linkedin);
-    $prospect_twitter        = $links->outside("Prospect's Twitter", $objProspect->twitter, $img_twitter);
-    $prospect_facebook       = $links->outside("Prospect's Facebook", $objProspect->facebook, $img_twitter);
-    $prospect_googleplus     = $links->outside("Prospect's GooglePlus", $objProspect->googleplus, NULL);
+    $prospect_website        = Link::outside($objProspect->name, $objProspect->website, NULL);
+    $prospect_linkedin       = Link::outside("Prospect's LinkedIn", $objProspect->linkedin, $img_linkedin);
+    $prospect_twitter        = Link::outside("Prospect's Twitter", $objProspect->twitter, $img_twitter);
+    $prospect_facebook       = Link::outside("Prospect's Facebook", $objProspect->facebook, $img_twitter);
+    $prospect_googleplus     = Link::outside("Prospect's GooglePlus", $objProspect->googleplus, NULL);
     $prospect_recruiter      = "<span style=\"color:green;\">NO</span>";
     if($objProspect->recruiter==TRUE)
     {

@@ -34,11 +34,9 @@
         $objNameSuffix->setAbrv(htmlentities($rowNameSuffix['abrv'], ENT_QUOTES, 'UTF-8'));
     }
     
-    $formats    = new Format;   
-    
     $profile_salutation             = $objSalutation->abrv;
     $profile_name_suffix            = $objNameSuffix->abrv;    
-    $profile_name_full              = $formats->fullnameplus($profile_salutation, $objProfile->name_full(), $profile_name_suffix);
+    $profile_name_full              = Format::fullnameplus($profile_salutation, $objProfile->name_full(), $profile_name_suffix);
     $profile_building               = NULL;
     if (!empty($objProfile->address_building))
     {

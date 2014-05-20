@@ -60,9 +60,9 @@
             $rowCTwitter            = htmlentities($rowC['twitter'], ENT_QUOTES, 'UTF-8');
             
             $c_name = "{$rowCNameFirst} {$rowCNameMiddle} {$rowCNameLast}";
-            $c_email = $links->email($c_name, $rowCEmail);
+            $c_email = Link::email($c_name, $rowCEmail);
 
-            $p_contacts .= "\r<p>\r<strong>" . $links->inside("Detail of Contact", "../contacts/detail.php?id={$rowCID}", $c_name) . "</strong>";
+            $p_contacts .= "\r<p>\r<strong>" . Link::inside("Detail of Contact", "../contacts/detail.php?id={$rowCID}", $c_name) . "</strong>";
             if(!empty($rowCDepartment))
             {
                 $p_contacts .= "\r<br />{$rowCDepartment}";
@@ -73,17 +73,17 @@
             }
             if(!empty($rowCPhone))
             {
-                $c_phone = $formats->phone($rowCPhone,$rowCPhoneExtension);
+                $c_phone = Format::phone($rowCPhone,$rowCPhoneExtension);
                 $p_contacts .= "\r<br />Office Phone: {$c_phone}";
             }
             if(!empty($rowCPhoneMobile))
             {
-                $c_phone_mobile = $formats->phone($rowCPhoneMobile,NULL);
+                $c_phone_mobile = Format::phone($rowCPhoneMobile,NULL);
                 $p_contacts .= "\r<br />Mobile Phone: {$c_phone_mobile}";
             }
             if(!empty($rowCFax))
             {
-                $c_fax = $formats->phone($rowCFax,NULL);
+                $c_fax = Format::phone($rowCFax,NULL);
                 $p_contacts .= "\r<br />Office Fax: {$c_fax}";
             }
             if(!empty($rowCEmail))
@@ -94,19 +94,19 @@
             $p_contact_links = NULL;
             if(!empty($rowCLinkedIn))
             {
-                $p_contact_links .= "\r&nbsp;".$links->outside('LinkedIn',$rowCLinkedIn,$img_linkedin);
+                $p_contact_links .= "\r&nbsp;".Link::outside('LinkedIn',$rowCLinkedIn,$img_linkedin);
             }
             if(!empty($rowCFacebook))
             {
-                $p_contact_links .= "\r&nbsp;".$links->outside('Facebook',$rowCFacebook,$img_facebook);
+                $p_contact_links .= "\r&nbsp;".Link::outside('Facebook',$rowCFacebook,$img_facebook);
             }
             if(!empty($rowCTwitter))
             {
-                $p_contact_links .= "\r&nbsp;".$links->outside('Twitter',$rowCTwitter,$img_twitter);
+                $p_contact_links .= "\r&nbsp;".Link::outside('Twitter',$rowCTwitter,$img_twitter);
             }
             if(!empty($rowCGooglePlus))
             {
-                $p_contact_links .= "\r&nbsp;".$links->outside('GooglePlus',$rowCGooglePlus,'GooglePlus');
+                $p_contact_links .= "\r&nbsp;".Link::outside('GooglePlus',$rowCGooglePlus,'GooglePlus');
             }
             if(!empty($p_contact_links))
             {

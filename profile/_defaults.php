@@ -1,12 +1,12 @@
 <?php
     $option_errors      = NULL;
     
-    $rblGender          = $inputs->rbl_gender("gender", $objProfile->getGender());
-    $optBirthDateMM     = $inputs->ddl_months($objProfile->birth_month());
-    $optBirthDateDD     = $inputs->ddl_days($objProfile->birth_day());
-    $optBirthDateYYYY   = $inputs->ddl_years($objProfile->birth_year());
+    $rblGender          = Input::rbl_gender("gender", $objProfile->getGender());
+    $optBirthDateMM     = Input::ddl_months($objProfile->birth_month());
+    $optBirthDateDD     = Input::ddl_days($objProfile->birth_day());
+    $optBirthDateYYYY   = Input::ddl_years($objProfile->birth_year());
     
-    $optSalutations     = $inputs->ddl_options($db,
+    $optSalutations     = Input::ddl_options($db,
             $objProfile->getId_salutation(),
             'id', 'abrv', $objSalutations,
             NULL, NULL);
@@ -15,7 +15,7 @@
         $option_errors .= $optSalutations['error'];
     }
     
-    $optNameSuffixes    = $inputs->ddl_options($db,
+    $optNameSuffixes    = Input::ddl_options($db,
             $objProfile->getId_name_suffix(),
             'id', 'abrv', $objNameSuffixes,
             NULL, NULL);
@@ -24,7 +24,7 @@
         $option_errors .= $optNameSuffixes['error'];
     }
     
-    $optStates          = $inputs->ddl_options($db,
+    $optStates          = Input::ddl_options($db,
             $objProfile->getAddress_state(),
             'abrv', 'state', $objStates,
             NULL, NULL);
@@ -33,7 +33,7 @@
         $option_errors .= $optStates['error'];
     }
     
-    $optDriversStates   = $inputs->ddl_options($db,
+    $optDriversStates   = Input::ddl_options($db,
             $objProfile->getDrivers_state(),
             'abrv', 'state', $objStates,
             NULL, NULL);

@@ -84,7 +84,7 @@
                 'title'=>'Title',
                 'field'=>'title'),
         );
-        $thead      = $formats->thead($columns);
+        $thead      = Format::thead($columns);
         $tbody      = "<tbody>";        
         $rows       = $fetchJoin['result'];
         foreach($rows as $row)
@@ -108,34 +108,34 @@
             
             $contact_citystate  = "{$rowCity}, {$rowState}";
 
-            $contact_phone      = $formats->phone($rowPhone, $rowPhoneExtension);
+            $contact_phone      = Format::phone($rowPhone, $rowPhoneExtension);
             if(!empty($contact_phone))
             {
                 $contact_phone  = "<br />O: {$contact_phone}";
             }
-            $contact_phone_mobile   = $formats->phone($rowPhoneMobile, NULL);
+            $contact_phone_mobile   = Format::phone($rowPhoneMobile, NULL);
             if(!empty($contact_phone_mobile))
             {
                 $contact_phone_mobile  = "<br />M: {$contact_phone_mobile}";
             }
-            $contact_email      = $links->email("Contact", $rowEmail);
+            $contact_email      = Link::email("Contact", $rowEmail);
             if(!empty($contact_email))
             {
                 $contact_email  = "<br />{$contact_email}";
             }            
-            $contact_prospect   = $formats->nullCheck($rowProspect,'DELETED');
+            $contact_prospect   = Format::nullCheck($rowProspect,'DELETED');
             if(!empty($rowProspect))
             {
-                $contact_prospect   = $links->inside("Detail of This Prospect",
+                $contact_prospect   = Link::inside("Detail of This Prospect",
                         "../prospects/detail.php?id={$rowIDProspect}",
                         $contact_prospect);
             }
             
             $dud = array(
-                'detail'    => $links->inside("Detail of This Contact",
+                'detail'    => Link::inside("Detail of This Contact",
                         "detail.php?id={$rowID}",
                         "Detail"),
-                'update'    => $links->inside("Update This Contact",
+                'update'    => Link::inside("Update This Contact",
                         "update.php?id={$rowID}",
                         "Update"),
                 'delete'    => "<a title=\"Delete This Contact\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",

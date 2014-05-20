@@ -64,8 +64,6 @@
     }
     else
     {
-        $formats    = new Format;
-        $links      = new Link;
         $columns    = array(
             array('title'=>'OPTIONS','field'=>NULL),
             array('title'=>'Week Ending','field'=>'week_ending'),
@@ -74,7 +72,7 @@
             array('title'=>'Contact','field'=>'contact_name'),
             array('title'=>'Contact Method','field'=>'contact_method'),
         );
-        $thead  = $formats->thead($columns);
+        $thead  = Format::thead($columns);
         $tbody  = "<tbody>";        
         $rows   = $fetchJoin['result'];
         foreach($rows as $row)
@@ -89,14 +87,14 @@
 
             $log_week_ending    = date("l F j, Y",strtotime($rowWeekEnding));
             $log_contact_date   = date("l F j, Y",strtotime($rowContactDate));
-            $contact_prospect   = $formats->nullCheck($rowProspect,'DELETED');
-            $contact_name       = $formats->nullCheck($rowContactName,'DELETED');
+            $contact_prospect   = Format::nullCheck($rowProspect,'DELETED');
+            $contact_name       = Format::nullCheck($rowContactName,'DELETED');
             
             $dud = array(
-                'detail'    => $links->inside("Detail of This Log",
+                'detail'    => Link::inside("Detail of This Log",
                         "detail.php?id={$rowID}",
                         "Detail"),
-                'update'    => $links->inside("Update This Log",
+                'update'    => Link::inside("Update This Log",
                         "update.php?id={$rowID}",
                         "Update"),
                 'delete'    => "<a title=\"Delete This Log\" href=\"delete.php?id={$rowID}\" class=\"delete\">Delete</a>",

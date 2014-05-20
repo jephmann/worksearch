@@ -1,9 +1,9 @@
 <?php
     $option_errors      = NULL;
     
-    $rblGender          = $inputs->rbl_gender('gender', $objContact->getGender());
+    $rblGender          = Input::rbl_gender('gender', $objContact->getGender());
     
-    $optSalutations     = $inputs->ddl_options($db,
+    $optSalutations     = Input::ddl_options($db,
             $objContact->getId_salutation(),
             'id', 'abrv', $objSalutations,
             NULL, NULL);
@@ -12,7 +12,7 @@
         $option_errors .= $optSalutations['error'];
     }
     
-    $optNameSuffixes    = $inputs->ddl_options($db,
+    $optNameSuffixes    = Input::ddl_options($db,
             $objContact->getId_name_suffix(),
             'id', 'abrv', $objNameSuffixes,
             NULL, NULL);
@@ -21,7 +21,7 @@
         $option_errors .= $optNameSuffixes['error'];
     }
     
-    $optProspects       = $inputs->ddl_options($db,
+    $optProspects       = Input::ddl_options($db,
             $objContact->getID_prospect(),
             'id', 'name', $objProspects,
             'name, \' \', UPPER(branch)',
