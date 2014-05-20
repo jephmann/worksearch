@@ -7,13 +7,13 @@
     {
         if($page['mode'] != "Log In")
         {
-            $loginout .= $links->inside("Log In", "{$page['path']}login.php", "Log In");
+            $loginout .= Link::inside("Log In", "{$page['path']}login.php", "Log In");
         }
-        $loginout .= $links->inside("Register", "{$page['path']}register.php", "Register");
+        $loginout .= Link::inside("Register", "{$page['path']}register.php", "Register");
     }
     if (!empty($_SESSION))
     {
-        $loginout .= $links->inside("Log Out", "{$page['path']}logout.php", "Log Out");
+        $loginout .= Link::inside("Log Out", "{$page['path']}logout.php", "Log Out");
     }    
     
     $session_whose = "<br />";
@@ -74,7 +74,7 @@
             {
                 $content_directory  = 'welcome.php';
             }
-            $content_link           = $links->inside($content_name, "{$page['path']}{$content_directory}", $content_name);
+            $content_link           = Link::inside($content_name, "{$page['path']}{$content_directory}", $content_name);
             $content_li             = "\r<li>" . $content_link . "</li>\r";
                     
             if ($content_user == TRUE)
