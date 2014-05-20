@@ -6,7 +6,7 @@
  */
 class Validation {
     
-    public function message($validation_message)
+    public static function message($validation_message)
     {
         $li = NULL;
         if(!empty($validation_message))
@@ -20,7 +20,7 @@ class Validation {
         return $li;
     }
     
-    public function required_li($value, $field)
+    public static function required_li($value, $field)
     {
         $li = NULL;
         if(empty($value))
@@ -34,7 +34,7 @@ class Validation {
         return $li;
     }
     
-    public function phone_li($value, $field)
+    public static function phone_li($value, $field)
     {
         $li = NULL;
         if(!empty($value))
@@ -59,7 +59,7 @@ class Validation {
         return $li;
     }
     
-    public function phone_ext_li($value, $field, $phone)
+    public static function phone_ext_li($value, $field, $phone)
     {
         $li = NULL;
         if(!empty($value))
@@ -84,7 +84,7 @@ class Validation {
         return $li;
     }
     
-    public function email_li($value, $field)
+    public static function email_li($value, $field)
     {
         $li = NULL;
         if(!empty($value))
@@ -101,7 +101,7 @@ class Validation {
         return $li;
     }
     
-    public function zip5_li($value, $field)
+    public static function zip5_li($value, $field)
     {
         $li = NULL;
         if(!empty($value))
@@ -127,7 +127,7 @@ class Validation {
         return $li;
     }
     
-    public function zip4_li($value, $field, $zip5)
+    public static function zip4_li($value, $field, $zip5)
     {
         $li = NULL;
         if(!empty($value))
