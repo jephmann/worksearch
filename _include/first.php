@@ -42,7 +42,6 @@
     $inputs     = new Input;
     $links      = new Link;
     $objStatus  = new Status;
-    $validate   = new Validation;    
     // common images
     $link_img       = "{$page['path']}_images/SocialMediaBookmarkIcon/16/";
     $img_linkedin   = $formats->image($link_img.'linkedin.png','LinkedIn');
