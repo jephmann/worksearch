@@ -6,7 +6,7 @@
  */
 class Link {    
     
-    public function email($title, $email)
+    public static function email($title, $email)
     {
         $link   = NULL;
         if(!empty($email))
@@ -18,7 +18,7 @@ class Link {
         return $link;
     }
     
-    public function outside($title, $href, $name)
+    public static function outside($title, $href, $name)
     {
         $link   = NULL;
         if(!empty($href))
@@ -40,7 +40,7 @@ class Link {
         return $link;
     }
     
-    public function inside($title, $href, $name)
+    public static function inside($title, $href, $name)
     {
         $link   = NULL;
         if(!empty($href))
