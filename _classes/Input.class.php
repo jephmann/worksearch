@@ -6,7 +6,7 @@
  */
 class Input {
     
-    public function ddl_years($default)
+    public static function ddl_years($default)
     {
         $optYears   = '<option value="">Year</option>';
         $thisYear   = date('Y');
@@ -27,7 +27,7 @@ class Input {
         return $optYears;
     }
         
-    public function ddl_months($default)
+    public static function ddl_months($default)
     {
         $optMonths  = '<option value="">Month</option>';
         if($default <= 9)
@@ -101,7 +101,7 @@ class Input {
         return $optMonths;
     }
     
-    public function ddl_days($default)
+    public static function ddl_days($default)
     {
         $optDays    = '<option value="">Day</option>';
         if($default <= 9)
@@ -127,7 +127,7 @@ class Input {
         return $optDays;
     }
     
-    public function ddl_weeks($weekday, $default)
+    public static function ddl_weeks($weekday, $default)
     {
         $optWeeks   = '<option value="">=== Week Date ===</option>';
         $startdate  = date("Y-m-d", strtotime("this {$weekday} -26 weeks"));
@@ -148,7 +148,7 @@ class Input {
         return $optWeeks;
     }
     
-    public function ddl_options($db, $default, $value, $display, $object, $concatFields, $sortFields)
+    public static function ddl_options($db, $default, $value, $display, $object, $concatFields, $sortFields)
     {
         $result = array(
             'error' => NULL,
@@ -195,7 +195,7 @@ class Input {
         return $result;
     }
         
-    public function rbl_gender($name, $gender)
+    public static function rbl_gender($name, $gender)
     {
         $rblGender      = NULL;
         $checkedMale    = NULL;
@@ -217,7 +217,7 @@ class Input {
         return $rblGender;
     }
     
-    public function rbl_truefalse($name, $boolean)
+    public static function rbl_truefalse($name, $boolean)
     {
         $checkedTrue    = NULL;
         $checkedFalse   = NULL;
@@ -243,7 +243,7 @@ class Input {
         return $rblTrueFalse;
     }
     
-    public function rbl_options($db, $default, $input, $display, $value, $object, $orientation)
+    public static function rbl_options($db, $default, $input, $display, $value, $object, $orientation)
     {
         $result = array(
             'error' => NULL,
