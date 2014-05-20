@@ -6,7 +6,7 @@
  */
 class Format {    
     
-    public function license($state, $license)
+    public static function license($state, $license)
     {
         $format = NULL;
         if(!empty($license))
@@ -20,7 +20,7 @@ class Format {
         return $format;
     }
     
-    public function ssn($string)
+    public static function ssn($string)
     {
         $format = NULL;
         if(!empty($string))
@@ -33,7 +33,7 @@ class Format {
         return $format;
     }
     
-    public function zip($zip5, $zip4)
+    public static function zip($zip5, $zip4)
     {
         $format = NULL;
         if(!empty($zip5))
@@ -47,7 +47,7 @@ class Format {
         return $format;
     }    
     
-    public function phone($phone, $extension)
+    public static function phone($phone, $extension)
     {
         $format = NULL;
         if(!empty($phone))
@@ -64,7 +64,7 @@ class Format {
         return $format;
     }
     
-    public function fullnameplus($salutation, $name, $suffix)
+    public static function fullnameplus($salutation, $name, $suffix)
     {
         $format       = $name;        
         if(!empty($salutation))
@@ -78,14 +78,14 @@ class Format {
         return $format;
     }
     
-    public function image($src, $alt)
+    public static function image($src, $alt)
     {
         $format = NULL;        
         $format = "<img src=\"{$src}\" alt=\"{$alt}\" />";
         return $format;
     }    
     
-    public function thead($array_columns)
+    public static function thead($array_columns)
     {
         $format = "<thead><tr>";
         $asc    = NULL;
@@ -114,7 +114,7 @@ class Format {
         return $format;
     }    
     
-    public function nullCheck($string, $display)
+    public static function nullCheck($string, $display)
     {
         $text = NULL;
         if(empty($string))
