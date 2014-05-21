@@ -4,7 +4,7 @@
  *
  * @author Jeffrey
  */
-class Contact extends Person {
+class Contact extends Person implements iLink {
     
     // Contact Properties
     public $id_user         = NULL;

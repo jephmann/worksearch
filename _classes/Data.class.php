@@ -4,7 +4,7 @@
  *
  * @author Jeffrey
  */
-class Data {
+class Data implements iData {
     
     // Data Properties
     public $id          = NULL;

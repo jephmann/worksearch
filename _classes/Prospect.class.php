@@ -4,7 +4,7 @@
  *
  * @author Jeffrey
  */
-class Prospect extends Data {
+class Prospect extends Data implements iAddress, iLink {
     
     // Prospect Properties
     public $id_user             = NULL;

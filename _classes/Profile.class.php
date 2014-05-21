@@ -4,7 +4,7 @@
  *
  * @author Jeffrey
  */
-class Profile extends Person {
+class Profile extends Person implements iAddress {
     
     // Profile Properties
     public $id_user                 = NULL;
