@@ -7,7 +7,7 @@ Whereas this is simply a "demo" project:
 restart from scratch. 
 
 As a rule I generally would not have such a directory in a web project. However,
-I created for two general reasons:
+I created it for two general reasons:
 
 POPULAR DEMAND
 - People were curious about the data supporting this project. I was not entirely
