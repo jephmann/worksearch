@@ -6,18 +6,35 @@
  */
 class Name_Suffix extends Data {
     
-    // Salutation Properties
+    /*
+     *  Properties
+     */
+    
     public $abrv        = NULL;
     public $name        = NULL;
+    public $gender      = NULL;
     
-    // Data Properties
+    /* 
+     * Properties: Data
+     */
+    
     protected $table    = "name_suffixes";
     protected $fields   = array(
         'abrv',
         'name',
+        'gender',
     );
-        
-    // Salutation get/set Methods
+    
+    function __construct($abrv, $name, $gender) {
+        $this->abrv = $abrv;
+        $this->name = $name;
+        $this->gender = $gender;
+    }
+    
+    /*
+     *  Methods: get/set
+     */
+    
     public function getAbrv() {
         return $this->abrv;
     }
@@ -30,14 +47,26 @@ class Name_Suffix extends Data {
     }
     public function setName($name) {
         $this->name = $name;
-    }   
+    }
     
-    // Salutation Query Methods    
+    function getGender() {
+        return $this->gender;
+    }
+
+    function setGender($gender) {
+        $this->gender = $gender;
+    }
+    
+    /*
+     * Method: parameterized query    
+     */
+    
     public function parameters($id)
     {        
         $parameters = array(
             ':abrv'     => $this->abrv,
             ':name'     => $this->name,
+            ':gender'   => $this->gender,
             );
         if(!empty($id))
         {

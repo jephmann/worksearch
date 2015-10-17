@@ -6,14 +6,20 @@
  */
 class User extends Data {
     
-    // User properties*
+    /*
+     *  Properties*
+     */
+    
     public $username    = NULL;
     public $password    = NULL;
     public $salt        = NULL;
     public $email       = NULL;
     // * - http://forums.devshed.com/php-faqs-and-stickies-167/how-to-program-a-basic-but-secure-login-system-using-891201.html
     
-    // Data Properties
+    /* 
+     * Properties: Data
+     */
+    
     protected $table   = "users";
     protected $fields  = array(
         'username',
@@ -21,8 +27,11 @@ class User extends Data {
         'salt',
         'email',
         );
-        
-    // User get/set Methods
+    
+    /*
+     *  Methods: get/set
+     */
+    
     public function getUsername() {
         return $this->username;
     }
@@ -53,9 +62,12 @@ class User extends Data {
 
     public function setEmail($email) {
         $this->email = $email;
-    }    
+    }
     
-    // Log Query Methods    
+    /*
+     * Method: parameterized query    
+     */
+    
     public function parameters($id)
     {
         $parameters = array(

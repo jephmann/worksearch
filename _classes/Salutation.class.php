@@ -6,20 +6,35 @@
  */
 class Salutation extends Data {
     
-    // Salutation Properties
+    /*
+     *  Properties
+     */
+    
     public $gender      = "N";
     public $abrv        = NULL;
     public $name        = NULL;
     
-    // Data Properties
+    /* 
+     * Properties: Data
+     */
+    
     protected $table    = "salutations";
     protected $fields   = array(
         'gender',
         'abrv',
         'name',
     );
-        
-    // Salutation get/set Methods
+    
+    function __construct($gender, $abrv, $name) {
+        $this->gender = $gender;
+        $this->abrv = $abrv;
+        $this->name = $name;
+    }
+    
+    /*
+     *  Methods: get/set
+     */
+    
     public function getGender() {
         return $this->gender;
     }
@@ -39,9 +54,12 @@ class Salutation extends Data {
     }
     public function setName($name) {
         $this->name = $name;
-    }   
+    }
     
-    // Salutation Query Methods    
+    /*
+     * Method: parameterized query    
+     */
+    
     public function parameters($id)
     {        
         $parameters = array(

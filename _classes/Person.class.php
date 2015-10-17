@@ -6,23 +6,37 @@
  */
 class Person extends Data {
     
-    // Person Properties
-    public $gender          = NULL;
-    public $id_salutation   = NULL;
-    public $id_name_suffix  = NULL;
-    public $name_first      = NULL;
-    public $name_middle     = NULL;
-    public $name_last       = NULL;
-    public $name_suffix     = NULL;
+    // Properties
     public $date_birth      = NULL;
+    public $gender          = NULL;
+    public $id_name_suffix  = NULL;
+    public $id_salutation   = NULL;
+    public $name_first      = NULL;
+    public $name_last       = NULL;
+    public $name_middle     = NULL;
+    public $name_suffix     = NULL;
         
-    // Person get/set Methods
+    // Methods: get/set
+    
+    public function getDate_birth() {
+        return $this->date_birth;
+    }
+    public function setDate_birth($date_birth) {
+        $this->date_birth = $date_birth;
+    }
 
     public function getGender() {
         return $this->gender;
     }
     public function setGender($gender) {
         $this->gender = $gender;
+    }
+    
+    public function getId_name_suffix() {
+        return $this->id_name_suffix;
+    }
+    public function setId_name_suffix($id_name_suffix) {
+        $this->id_name_suffix = $id_name_suffix;
     }
 
     public function getId_salutation() {
@@ -32,25 +46,11 @@ class Person extends Data {
         $this->id_salutation = $id_salutation;
     }
     
-    public function getId_name_suffix() {
-        return $this->id_name_suffix;
-    }
-    public function setId_name_suffix($id_name_suffix) {
-        $this->id_name_suffix = $id_name_suffix;
-    }
-    
     public function getName_first() {
         return $this->name_first;
     }
     public function setName_first($name_first) {
         $this->name_first = $name_first;
-    }
-
-    public function getName_middle() {
-        return $this->name_middle;
-    }
-    public function setName_middle($name_middle) {
-        $this->name_middle = $name_middle;
     }
 
     public function getName_last() {
@@ -60,6 +60,13 @@ class Person extends Data {
         $this->name_last = $name_last;
     }
 
+    public function getName_middle() {
+        return $this->name_middle;
+    }
+    public function setName_middle($name_middle) {
+        $this->name_middle = $name_middle;
+    }
+    
     public function getName_suffix() {
         return $this->name_suffix;
     }
@@ -67,14 +74,8 @@ class Person extends Data {
         $this->name_suffix = $name_suffix;
     }
     
-    public function getDate_birth() {
-        return $this->date_birth;
-    }
-    public function setDate_birth($date_birth) {
-        $this->date_birth = $date_birth;
-    }
+    // Methods: helpers
     
-    // Helper Methods (because I don't know what else to call them)
     public function name_full()
     {
         $name_full = $this->name_last;

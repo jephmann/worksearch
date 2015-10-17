@@ -6,111 +6,144 @@
  */
 class Log extends Data {
     
-    // Log Properties
-    public $id_user             = NULL;
-    public $week_ending         = NULL;                         // * "Week Ending"
+    /*
+     *  Properties
+     */
+    
     public $contact_date        = NULL;                         // * "Contact Date"
-    public $work                = "Website Design/Development"; // * "Type of Work Sought
-    public $id_prospect         = NULL;                         // * "Name and Address of Contact"
     public $id_contact          = NULL;                         // * "Person Contacted
     public $id_contact_method   = NULL;                         // * "Method of Contact
-    public $specify             = "N/A";
+    public $id_prospect         = NULL;                         // * "Name and Address of Contact"
+    public $id_user             = NULL;
     public $results             = NULL;                         // * "Results
+    public $specify             = "N/A";
+    public $week_ending         = NULL;                         // * "Week Ending"
+    public $work                = "Website Design/Development"; // * "Type of Work Sought
     // * from the IDES "work search form".
     
-    // Data Properties
+    /* 
+     * Properties: Data
+     */
+    
     protected $table            = "logs";
     protected $fields           = array(
-        'id_user',
-        'week_ending',
+        'remarks',
         'contact_date',
-        'work',
-        'id_prospect',
         'id_contact',
         'id_contact_method',
-        'specify',
+        'id_prospect',
+        'id_user',
         'results',
-        'remarks'
+        'specify',
+        'week_ending',
+        'work',
         );
-        
-    // Log get/set Methods
-    public function getId_user() {
-        return $this->id_user;
-    }
-    public function setId_user($id_user) {
-        $this->id_user = $id_user;
-    }    
     
-    public function getWeek_ending() {
-        return $this->week_ending;
-    }
-    public function setWeek_ending($week_ending) {
+    function __construct($contact_date, $id_contact, $id_contact_method, $id_prospect, $id_user, $results, $specify, $week_ending, $work) {
+        $this->contact_date = $contact_date;
+        $this->id_contact = $id_contact;
+        $this->id_contact_method = $id_contact_method;
+        $this->id_prospect = $id_prospect;
+        $this->id_user = $id_user;
+        $this->results = $results;
+        $this->specify = $specify;
         $this->week_ending = $week_ending;
+        $this->work = $work;
     }
-
-    public function getContact_date() {
+    
+    /*
+     *  Methods: get/set
+     */
+    
+    function getContact_date() {
         return $this->contact_date;
     }
-    public function setContact_date($contact_date) {
+
+    function getId_contact() {
+        return $this->id_contact;
+    }
+
+    function getId_contact_method() {
+        return $this->id_contact_method;
+    }
+
+    function getId_prospect() {
+        return $this->id_prospect;
+    }
+
+    function getId_user() {
+        return $this->id_user;
+    }
+
+    function getResults() {
+        return $this->results;
+    }
+
+    function getSpecify() {
+        return $this->specify;
+    }
+
+    function getWeek_ending() {
+        return $this->week_ending;
+    }
+
+    function getWork() {
+        return $this->work;
+    }
+
+    function setContact_date($contact_date) {
         $this->contact_date = $contact_date;
     }
 
-    public function getId_prospect() {
-        return $this->id_prospect;
-    }
-    public function setId_prospect($id_prospect) {
-        $this->id_prospect = $id_prospect;
-    }
-
-    public function getId_contact() {
-        return $this->id_contact;
-    }
-    public function setId_contact($id_contact) {
+    function setId_contact($id_contact) {
         $this->id_contact = $id_contact;
     }
 
-    public function getId_contact_method() {
-        return $this->id_contact_method;
-    }
-    public function setId_contact_method($id_contact_method) {
+    function setId_contact_method($id_contact_method) {
         $this->id_contact_method = $id_contact_method;
     }
 
-    public function getSpecify() {
-        return $this->specify;
-    }
-    public function setSpecify($specify) {
-        $this->specify = $specify;
+    function setId_prospect($id_prospect) {
+        $this->id_prospect = $id_prospect;
     }
 
-    public function getResults() {
-        return $this->results;
+    function setId_user($id_user) {
+        $this->id_user = $id_user;
     }
-    public function setResults($results) {
+
+    function setResults($results) {
         $this->results = $results;
     }
 
-    public function getWork() {
-        return $this->work;
+    function setSpecify($specify) {
+        $this->specify = $specify;
     }
-    public function setWork($work) {
+
+    function setWeek_ending($week_ending) {
+        $this->week_ending = $week_ending;
+    }
+
+    function setWork($work) {
         $this->work = $work;
-    }    
+    }
     
-    // Log Query Methods    
+    /*
+     * Method: parameterized query    
+     */
+    
     public function parameters($id)
     {
         $parameters = array(
-            ':id_user'              => $this->id_user,
-            ':week_ending'          => $this->week_ending,
+            ':remarks'              => $this->remarks,
             ':contact_date'         => $this->contact_date,
-            ':work'                 => $this->work,
-            ':id_prospect'          => $this->id_prospect,
             ':id_contact'           => $this->id_contact,
             ':id_contact_method'    => $this->id_contact_method,
-            ':specify'              => $this->specify,
+            ':id_prospect'          => $this->id_prospect,
+            ':id_user'              => $this->id_user,
             ':results'              => $this->results,
-            ':remarks'              => $this->remarks,
+            ':specify'              => $this->specify,
+            ':week_ending'          => $this->week_ending,
+            ':work'                 => $this->work,
             );
         if(!empty($id))
         {
@@ -119,7 +152,11 @@ class Log extends Data {
         return $parameters;
     }
     
-    // Contact Date methods
+    /*
+     * Methods: dates
+     */
+    
+    // Contact Date
     public function contact_month()
     {
         return date('m', strtotime($this->contact_date));
@@ -134,11 +171,10 @@ class Log extends Data {
     }    
     public function full_contact_date()
     {
-        $full_contact_date = date('l, F d, Y',strtotime($this->contact_date));
-        return $full_contact_date;
+        return date('l, F d, Y',strtotime($this->contact_date));
     }
     
-    // Week Ending Date methods
+    // Week Ending Date
     public function week_ending_month()
     {
         return date('m', strtotime($this->week_ending));
@@ -153,8 +189,7 @@ class Log extends Data {
     }    
     public function full_week_ending()
     {
-        $full_week_ending = date('l, F d, Y',strtotime($this->week_ending));
-        return $full_week_ending;
+        return date('l, F d, Y',strtotime($this->week_ending));
     }
     
 }

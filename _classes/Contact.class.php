@@ -6,183 +6,263 @@
  */
 class Contact extends Person implements iLink {
     
-    // Contact Properties
-    public $id_user         = NULL;
-    public $id_prospect     = NULL;
+    /*
+     * Properties
+     */
+    
+    // remarks              Data
+    // date_birth           Person
     public $department      = NULL;
-    public $title           = NULL;
+    public $email           = NULL;
+    public $facebook        = NULL;
+    public $fax             = NULL;
+    // gender               Person
+    public $googleplus      = NULL;
+    // id_name_suffix       Person
+    public $id_prospect     = NULL;
+    // id_salutation        Person
+    public $id_user         = NULL;
+    public $linkedin        = NULL;
+    // name_first           Person
+    // name_last            Person
+    // name_middle          Person
     public $phone           = NULL;
     public $phone_extension = NULL;
     public $phone_mobile    = NULL;
-    public $fax             = NULL;
-    public $email           = NULL;
-    public $linkedin        = NULL;
+    public $skype           = NULL;
+    public $title           = NULL;
     public $twitter         = NULL;
-    public $facebook        = NULL;
-    public $googleplus      = NULL;
+    public $website         = NULL;
     
-    // Data Properties
+    /* 
+     * Properties: Data
+     */
+    
     protected $table        = "contacts";
     protected $fields       = array(
-        'id_user',
+        'remarks',
+        'date_birth',
+        'department',
+        'email',
+        'facebook',
+        'fax',
+        'gender',
+        'googleplus',
+        'id_name_suffix',
         'id_prospect',
         'id_salutation',
-        'name_last',
+        'id_user',
+        'linkedin',
         'name_first',
+        'name_last',
         'name_middle',
-        'id_name_suffix',
-        'gender',
         'phone',
         'phone_extension',
         'phone_mobile',
-        'fax',
-        'email',
+        'skype',
         'title',
-        'department',
-        'linkedin',
         'twitter',
-        'facebook',
-        'googleplus',
-        'remarks'
+        'website',
         );
-        
-    // Contact get/set Methods
-    public function getId_user() {
-        return $this->id_user;
-    }
-    public function setId_user($id_user) {
-        $this->id_user = $id_user;
-    }    
     
-    public function getId_prospect() {
-        return $this->id_prospect;
-    }
-    public function setId_prospect($id_prospect) {
+    function __construct($department, $email, $facebook, $fax, $googleplus, $id_prospect, $id_user, $linkedin, $phone, $phone_extension, $phone_mobile, $skype, $title, $twitter, $website) {
+        $this->department = $department;
+        $this->email = $email;
+        $this->facebook = $facebook;
+        $this->fax = $fax;
+        $this->googleplus = $googleplus;
         $this->id_prospect = $id_prospect;
+        $this->id_user = $id_user;
+        $this->linkedin = $linkedin;
+        $this->phone = $phone;
+        $this->phone_extension = $phone_extension;
+        $this->phone_mobile = $phone_mobile;
+        $this->skype = $skype;
+        $this->title = $title;
+        $this->twitter = $twitter;
+        $this->website = $website;
+    }        
+        
+    /*
+     *  Methods: get/set
+     */        
+        
+    function getDepartment() {
+        return $this->department;
     }
 
-    public function getPhone() {
+    function getEmail() {
+        return $this->email;
+    }
+
+    function getFacebook() {
+        return $this->facebook;
+    }
+
+    function getFax() {
+        return $this->fax;
+    }
+
+    function getGoogleplus() {
+        return $this->googleplus;
+    }
+
+    function getId_prospect() {
+        return $this->id_prospect;
+    }
+
+    function getId_user() {
+        return $this->id_user;
+    }
+
+    function getLinkedin() {
+        return $this->linkedin;
+    }
+
+    function getPhone() {
         return $this->phone;
     }
-    public function setPhone($phone) {
-        $this->phone = $phone;
-    }
-    
-    public function getPhone_extension() {
+
+    function getPhone_extension() {
         return $this->phone_extension;
     }
-    public function setPhone_extension($phone_extension) {
-        $this->phone_extension = $phone_extension;
-    }    
-    
-    public function getPhone_mobile() {
+
+    function getPhone_mobile() {
         return $this->phone_mobile;
     }
 
-    public function setPhone_mobile($phone_mobile) {
-        $this->phone_mobile = $phone_mobile;
-    }
-        
-    public function getFax() {
-        return $this->fax;
-    }
-    public function setFax($fax) {
-        $this->fax = $fax;
+    function getSkype() {
+        return $this->skype;
     }
 
-    public function getEmail() {
-        return $this->email;
+    function getTitle() {
+        return $this->title;
     }
-    public function setEmail($email) {
+
+    function getTwitter() {
+        return $this->twitter;
+    }
+
+    function getWebsite() {
+        return $this->website;
+    }
+
+    function setDepartment($department) {
+        $this->department = $department;
+    }
+
+    function setEmail($email) {
         $this->email = $email;
     }
 
-    public function getTitle() {
-        return $this->title;
+    function setFacebook($facebook) {
+        $this->facebook = $facebook;
     }
-    public function setTitle($title) {
-        $this->title = $title;
-    }    
 
-    public function getDepartment() {
-        return $this->department;
+    function setFax($fax) {
+        $this->fax = $fax;
     }
-    public function setDepartment($department) {
-        $this->department = $department;
+
+    function setGoogleplus($googleplus) {
+        $this->googleplus = $googleplus;
     }
-    
-    public function getLinkedin() {
-        return $this->linkedin;
+
+    function setId_prospect($id_prospect) {
+        $this->id_prospect = $id_prospect;
     }
-    public function setLinkedin($linkedin) {
+
+    function setId_user($id_user) {
+        $this->id_user = $id_user;
+    }
+
+    function setLinkedin($linkedin) {
         $this->linkedin = $linkedin;
     }
-    
-    public function getTwitter() {
-        return $this->twitter;
+
+    function setPhone($phone) {
+        $this->phone = $phone;
     }
-    public function setTwitter($twitter) {
+
+    function setPhone_extension($phone_extension) {
+        $this->phone_extension = $phone_extension;
+    }
+
+    function setPhone_mobile($phone_mobile) {
+        $this->phone_mobile = $phone_mobile;
+    }
+
+    function setSkype($skype) {
+        $this->skype = $skype;
+    }
+
+    function setTitle($title) {
+        $this->title = $title;
+    }
+
+    function setTwitter($twitter) {
         $this->twitter = $twitter;
     }
 
-    public function getFacebook() {
-        return $this->facebook;
-    }
-    public function setFacebook($facebook) {
-        $this->facebook = $facebook;
+    function setWebsite($website) {
+        $this->website = $website;
     }
     
-    public function getGoogleplus() {
-        return $this->googleplus;
-    }
-    public function setGoogleplus($googleplus) {
-        $this->googleplus = $googleplus;
-    }   
+    /*
+     * Method: parameterized query    
+     */
     
-    // Contact Query Methods    
-    public function parameters($id)
+    public function parameters($id = NULL)
     {
         $parameters = array(
-            ':id_user'          => $this->id_user,
+            ':remarks'          => $this->remarks,
+            ':date_birth'       => $this->date_birth,
+            ':department'       => $this->department,
+            ':email'            => $this->email,
+            ':facebook'         => $this->facebook,
+            ':fax'              => $this->fax,
+            ':gender'           => $this->gender,
+            ':googleplus'       => $this->googleplus,
+            ':id_name_suffix'   => $this->id_name_suffix,
             ':id_prospect'      => $this->id_prospect,
             ':id_salutation'    => $this->id_salutation,
-            ':name_last'        => $this->name_last,
+            ':id_user'          => $this->id_user,
+            ':linkedin'         => $this->linkedin,
             ':name_first'       => $this->name_first,
+            ':name_last'        => $this->name_last,
             ':name_middle'      => $this->name_middle,
-            ':id_name_suffix'   => $this->id_name_suffix,
-            ':gender'           => $this->gender,
             ':phone'            => $this->phone,
             ':phone_extension'  => $this->phone_extension,
             ':phone_mobile'     => $this->phone_mobile,
-            ':fax'              => $this->fax,
-            ':email'            => $this->email,
+            ':skype'            => $this->skype,
             ':title'            => $this->title,
-            ':department'       => $this->department,
-            ':linkedin'         => $this->linkedin,
             ':twitter'          => $this->twitter,
-            ':facebook'         => $this->facebook,
-            ':googleplus'       => $this->googleplus,
-            ':remarks'          => $this->remarks,
+            ':website'          => $this->website,
             );
-        if(!empty($id))
+        if($id)
         {
             $parameters[':id'] = $id;
         }
         return $parameters;
     }
     
+    /*
+     * Methods: helpers
+     */
+    
     public function full_phone()
     {
+        $phone      = $this->phone;
+        $extension  = $this->phone_extension;
         $full_phone = NULL;
-        if(!empty($this->phone))
+        if(!empty($phone))
         {
-            $area       = substr($this->phone, 0, 3);
-            $prefix     = substr($this->phone, 3, 3);
-            $suffix     = substr($this->phone, 6, 4);
+            $area       = substr($phone, 0, 3);
+            $prefix     = substr($phone, 3, 3);
+            $suffix     = substr($phone, 6, 4);
             $full_phone = "({$area}) {$prefix}-{$suffix}";
-            if(!empty($this->phone_extension))
+            if(!empty($extension))
             {
-                $full_phone .= ' x'.$this->phone_extension;
+                $full_phone .= ' x'.$extension;
             }
         }
         return $full_phone;
@@ -190,12 +270,13 @@ class Contact extends Person implements iLink {
     
     public function full_fax()
     {
-        $full_fax = NULL;
-        if(!empty($this->fax))
+        $fax        = $this->fax;
+        $full_fax   = NULL;
+        if(!empty($fax))
         {
-            $area       = substr($this->fax, 0, 3);
-            $prefix     = substr($this->fax, 3, 3);
-            $suffix     = substr($this->fax, 6, 4);
+            $area       = substr($fax, 0, 3);
+            $prefix     = substr($fax, 3, 3);
+            $suffix     = substr($fax, 6, 4);
             $full_fax   = "({$area}) {$prefix}-{$suffix}";
         }
         return $full_fax;
@@ -203,26 +284,30 @@ class Contact extends Person implements iLink {
     
     public function full_mobile()
     {
-        $full_mobile = NULL;
-        if(!empty($this->phone_mobile))
+        $mobile         = $this->phone_mobile;
+        $full_mobile    = NULL;
+        if(!empty($mobile))
         {
-            $area           = substr($this->phone_mobile, 0, 3);
-            $prefix         = substr($this->phone_mobile, 3, 3);
-            $suffix         = substr($this->phone_mobile, 6, 4);
+            $area           = substr($mobile, 0, 3);
+            $prefix         = substr($mobile, 3, 3);
+            $suffix         = substr($mobile, 6, 4);
             $full_mobile    = "({$area}) {$prefix}-{$suffix}";
         }
         return $full_mobile;
     }
     
     public function link_email()
-    {        
+    {
+        $email  = $this->email;
+        $name   = $this->name_full();
         $link   = NULL;
-        if(!empty($this->email))
+        if(!empty($email))
         {
-            $a_title    = "title=\"E-Mail for {$this->name_full()}\"";
-            $a_href     = "href=\"mailto:{$this->email}\"";
-            $link       = "<a {$a_title} {$a_href}>{$this->email}</a>";
+            $a_title    = "title=\"E-Mail for {$name}\"";
+            $a_href     = "href=\"mailto:{$email}\"";
+            $link       = "<a {$a_title} {$a_href}>{$email}</a>";
         }
         return $link;
     }
+    
 }

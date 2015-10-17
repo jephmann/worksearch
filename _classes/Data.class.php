@@ -6,13 +6,19 @@
  */
 class Data implements iData {
     
-    // Data Properties
+    /*
+     * Properties
+     */
+    
     public $id          = NULL;
     public $remarks     = NULL;
     protected $table    = NULL;
-    protected $fields   = array();
+    protected $fields   = array();      
+        
+    /*
+     *  Methods: get/set
+     */
     
-    // Data get/set Methods
     public function getId() {
         return $this->id;
     }
@@ -32,9 +38,10 @@ class Data implements iData {
      * These return SQL statements per the child objects which inherit them.
      */
     
-    // CREATE
+    // SQL statement: CREATE
     public function insert()
     {
+        $table                      = $this->table;
         $arrayValues                = array();    
         $f                          = count($this->fields);    
         for ($i=0; $i<$f; $i++)
@@ -43,11 +50,11 @@ class Data implements iData {
         }
         $fields                     = implode(',', $this->fields);
         $values                     = implode(',', $arrayValues);
-        $query                      = "INSERT INTO {$this->table} ({$fields}) VALUES ({$values})";
+        $query                      = "INSERT INTO {$table} ({$fields}) VALUES ({$values})";
         return $query;
     }
     
-    // READ (all)    
+    // SQL statement: READ (all)    
     public function selectAll($id_user)
     {
         $table                      = $this->table;
@@ -60,7 +67,7 @@ class Data implements iData {
         return $query;
     }
     
-    // READ (one)
+    // SQL statement: READ (one)
     public function select($id_user)
     {
         $table                      = $this->table;
@@ -74,9 +81,10 @@ class Data implements iData {
         return $query;
     }
     
-    // UPDATE
+    // SQL statement: UPDATE
     public function update($id_user)
     {
+        $table                      = $this->table;
         $arrayFieldvalues           = array();    
         $f                          = count($this->fields);
         for ($i=0; $i<$f; $i++)
@@ -84,7 +92,7 @@ class Data implements iData {
             $arrayFieldvalues[$i]   = "{$this->fields[$i]} = :{$this->fields[$i]}";
         }
         $field_value                = implode(',', $arrayFieldvalues);
-        $query                      = "UPDATE {$this->table} SET {$field_value} WHERE id = :id";
+        $query                      = "UPDATE {$table} SET {$field_value} WHERE id = :id";
         if(!empty($id_user))
         {
             $query                  .= " AND id_user = :id_user";
@@ -92,10 +100,11 @@ class Data implements iData {
         return $query;
     }
     
-    // DELETE
+    // SQL statement: DELETE
     public function delete($id_user)
     {
-        $query                      = "DELETE FROM {$this->table} WHERE id = :id";
+        $table                      = $this->table;
+        $query                      = "DELETE FROM {$table} WHERE id = :id";
         if(!empty($id_user))
         {
             $query                  .= " AND id_user = :id_user";
@@ -125,14 +134,18 @@ class Data implements iData {
          * $value might not always be id;
          * e.g. sometimes $value may be a state abbreviation
          */
-        $query = "SELECT {$value}, {$display} FROM {$this->table} ORDER BY {$display}";
+        $query = "SELECT {$value}, {$display}"
+            . " FROM {$this->table}"
+            . " ORDER BY {$display}";
         return $query;
     }
     
     // Options which display two fields on a dropdownlist
     public function options_concat($value, $concatFields, $display, $sortFields)
     {        
-        $query = "SELECT {$value}, CONCAT({$concatFields}) AS {$display} FROM {$this->table} ORDER BY {$sortFields}";
+        $query = "SELECT {$value}, CONCAT({$concatFields}) AS {$display}"
+            . " FROM {$this->table}"
+            . " ORDER BY {$sortFields}";
         return $query;
     }
     
@@ -140,7 +153,7 @@ class Data implements iData {
      * Common SQL helper(s)
      */
     
-    // sort [formerly return_sort]
+    // sort
     final public function sort($get, $orderby, $dir, $field)
     {
         $sort = " ORDER BY ";
@@ -155,12 +168,30 @@ class Data implements iData {
         return $sort;
     }
     
+    // filter
+    final public function filter($filters)
+    {
+        $filter = " WHERE";
+        $c = count($filters);
+        for($i=0; $i<$c; $i++)
+        {
+            if ($i < 0)
+            {
+                $filter .= " AND";
+            }
+            $filter .= " {$filters[$i]['field']}"
+                . " {$filters[$i]['operator']}"
+                . " {$filters[$i]['value']}"; 
+        }
+        return $filter;                
+    }
+    
     /*
      * Database helper functions:
      * These connect via PDO to the database and execute the SQL statements.
      */
     
-    // create [formerly insertRow}
+    // create
     final public function db_create($db, $obj)
     {
         try
@@ -183,7 +214,7 @@ class Data implements iData {
         return $output;
     }
         
-    // read  [formerly read]      
+    // read      
     final public function db_read($db, $sql, $parameters, $all)
     {
         try
@@ -213,7 +244,7 @@ class Data implements iData {
         return $output;
     }
     
-    // update [formerly updateRow]    
+    // update    
     final public function db_update($db, $obj)
     {
         try
@@ -233,7 +264,7 @@ class Data implements iData {
         return $output;
     }
     
-    // delete [formerly delete]   
+    // delete   
     final public function db_delete($db, $obj, $id_found)
     {
         if($id_found == TRUE)
@@ -294,22 +325,22 @@ class Data implements iData {
          * Before, this function was to ensure that something was unique in a table.
          * Ideally, now it must ensure that something was unique per $id_user in a table
          */
-        $boolean    = FALSE;
-        $query      = "SELECT 1 FROM {$db_table} WHERE {$field} = :{$field}";
-        $param      = array(':'.$field => $value);
+        $boolean        = FALSE;
+        $query          = "SELECT 1 FROM {$db_table} WHERE {$field} = :{$field}";
+        $param          = array(':'.$field => $value);
         try
         {
-            $stmt   = $db->prepare($query);
-            $result = $stmt->execute($param);
+            $stmt       = $db->prepare($query);
+            $result     = $stmt->execute($param);
         }
         catch(PDOException $ex)
         {
             die("Failed to run query on {$db_table}.{$field}: " . $ex->getMessage());
         }
-        $row        = $stmt->fetch();
+        $row            = $stmt->fetch();
         if($row)
         {
-            $boolean = TRUE;
+            $boolean    = TRUE;
         }
         return $boolean;
         

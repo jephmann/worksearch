@@ -6,18 +6,32 @@
  */
 class State extends Data {
     
-    // State Properties
+    /*
+     *  Properties
+     */
+    
     public $abrv        = NULL;
     public $state       = NULL;
     
-    // Data Properties
+    /* 
+     * Properties: Data
+     */
+    
     protected $table    = "states";
     protected $fields   = array(
         'abrv',
         'state',
     );
-        
-    // State get/set Methods
+    
+    function __construct($abrv, $state) {
+        $this->abrv = $abrv;
+        $this->state = $state;
+    }
+    
+    /*
+     *  Methods: get/set
+     */
+    
     public function getAbrv() {
         return $this->abrv;
     }
@@ -30,9 +44,12 @@ class State extends Data {
     }
     public function setState($state) {
         $this->state = $state;
-    }   
+    }  
     
-    // State Query Methods    
+    /*
+     * Method: parameterized query    
+     */
+    
     public function parameters($id)
     {        
         $parameters = array(

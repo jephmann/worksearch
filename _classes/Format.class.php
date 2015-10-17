@@ -93,7 +93,9 @@ class Format {
         $field  = NULL;
         $title  = NULL;
         $url    = strtok($_SERVER["REQUEST_URI"],'?');
-        for($i=0; $i<count($array_columns); $i++)
+        $c      = count($array_columns);
+        
+        for($i=0; $i<$c; $i++)
         {
             $title  = $array_columns[$i]['title'];
             $format .= "<th>{$title}";
@@ -109,7 +111,7 @@ class Format {
                 $format .= "<br />{$desc}&nbsp;{$asc}";
             }
             $format .= "</th>";
-        }
+        }        
         $format .= "</tr></thead>";
         return $format;
     }    

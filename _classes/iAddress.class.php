@@ -37,4 +37,11 @@ interface iAddress {
 
     public function getEmail();
     public function setEmail($email);
+    
+    // helpers
+    public function full_phone();
+    public function full_fax();
+    public function full_zip();
+    public function link_email();
+    
 }

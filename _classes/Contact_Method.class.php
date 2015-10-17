@@ -7,10 +7,10 @@
 class Contact_Method extends Data {
     
     // Contact_Method Properties
-    public $name    = NULL;
+    public $name        = NULL;
     
     // Data Properties
-    public $table   = "contact_methods";
+    public $table       = "contact_methods";
     protected $fields   = array(
         'name',
     );
@@ -20,13 +20,13 @@ class Contact_Method extends Data {
         return $this->name;
     }
     public function setName($name) {
-        $this->name = $name;
+        $this->name     = $name;
     } 
     
     // Contact_Method Query Methods    
     public function parameters($id)
     {        
-        $parameters = array(
+        $parameters     = array(
             ':name'     => $this->name,
             );
         if(!empty($id))

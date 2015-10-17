@@ -6,249 +6,310 @@
  */
 class Prospect extends Data implements iAddress, iLink {
     
-    // Prospect Properties
-    public $id_user             = NULL;
-    public $name                = NULL;
-    public $branch              = NULL;
+    /*
+     * Properties
+     */
+    
+    // remarks                  Data
     public $address_building    = NULL;
-    public $address_street      = NULL;
-    public $address_unit        = NULL;
     public $address_city        = "Chicago";
     public $address_state       = "IL";
-    public $address_zip5        = NULL;
+    public $address_street      = NULL;
+    public $address_unit        = NULL;
     public $address_zip4        = NULL;
+    public $address_zip5        = NULL;
+    public $branch              = NULL;
+    public $description         = NULL;
+    public $email               = NULL;
+    public $facebook            = NULL;
+    public $fax                 = NULL;
+    public $googleplus          = NULL;
+    public $id_user             = NULL;
+    public $industry            = NULL;
+    public $linkedin            = NULL;
+    public $name                = NULL;
     public $phone               = NULL;
     public $phone_extension     = NULL;
-    public $fax                 = NULL;
-    public $email               = NULL;
-    public $website             = NULL;
-    public $linkedin            = NULL;
-    public $twitter             = NULL;
-    public $facebook            = NULL;
-    public $googleplus          = NULL;
-    public $industry            = NULL;
     public $recruiter           = FALSE;
-    public $description         = NULL;
+    public $twitter             = NULL;
+    public $website             = NULL;
     public $contact             = FALSE; // not a db field; if yes, next step is Contact form; if no, next step is Prospect index.
     
-    // Data Properties
+    /* 
+     * Properties: Data
+     */
+    
     protected $table            = "prospects";
     protected $fields           = array(
-        'id_user',
-        'name',
-        'branch',
+        'remarks',
         'address_building',
-        'address_street',
-        'address_unit',
         'address_city',
         'address_state',
-        'address_zip5',
+        'address_street',
+        'address_unit',
         'address_zip4',
+        'address_zip5',
+        'branch',
+        'description',
+        'email',
+        'facebook',
+        'fax',
+        'googleplus',
+        'id_user',
+        'industry',
+        'linkedin',
+        'name',
         'phone',
         'phone_extension',
-        'fax',
-        'email',
-        'website',
-        'description',
-        'linkedin',
-        'twitter',
-        'facebook',
-        'googleplus',
-        'industry',
         'recruiter',
-        'remarks'
+        'twitter',
+        'website',
         );
-        
-    // Prospect get/set Methods
-    public function getId_user() {
-        return $this->id_user;
-    }
-    public function setId_user($id_user) {
+    
+    function __construct($address_building, $address_city, $address_state, $address_street, $address_unit, $address_zip4, $address_zip5, $branch, $description, $email, $facebook, $fax, $googleplus, $id_user, $industry, $linkedin, $name, $phone, $phone_extension, $recruiter, $twitter, $website, $contact) {
+        $this->address_building = $address_building;
+        $this->address_city = $address_city;
+        $this->address_state = $address_state;
+        $this->address_street = $address_street;
+        $this->address_unit = $address_unit;
+        $this->address_zip4 = $address_zip4;
+        $this->address_zip5 = $address_zip5;
+        $this->branch = $branch;
+        $this->description = $description;
+        $this->email = $email;
+        $this->facebook = $facebook;
+        $this->fax = $fax;
+        $this->googleplus = $googleplus;
         $this->id_user = $id_user;
-    }    
-    
-    public function getName() {
-        return $this->name;
-    }
-    public function setName($name) {
+        $this->industry = $industry;
+        $this->linkedin = $linkedin;
         $this->name = $name;
-    }
+        $this->phone = $phone;
+        $this->phone_extension = $phone_extension;
+        $this->recruiter = $recruiter;
+        $this->twitter = $twitter;
+        $this->website = $website;
+        $this->contact = $contact;
+    }      
+        
+    /*
+     *  Methods: get/set
+     */
     
-    public function getBranch() {
+    function getAddress_building() {
+        return $this->address_building;
+    }
+
+    function getAddress_city() {
+        return $this->address_city;
+    }
+
+    function getAddress_state() {
+        return $this->address_state;
+    }
+
+    function getAddress_street() {
+        return $this->address_street;
+    }
+
+    function getAddress_unit() {
+        return $this->address_unit;
+    }
+
+    function getAddress_zip4() {
+        return $this->address_zip4;
+    }
+
+    function getAddress_zip5() {
+        return $this->address_zip5;
+    }
+
+    function getBranch() {
         return $this->branch;
     }
 
-    public function setBranch($branch) {
-        $this->branch = $branch;
+    function getDescription() {
+        return $this->description;
     }
-    
-    public function getAddress_building() {
-        return $this->address_building;
+
+    function getEmail() {
+        return $this->email;
     }
-    public function setAddress_building($address_building) {
+
+    function getFacebook() {
+        return $this->facebook;
+    }
+
+    function getFax() {
+        return $this->fax;
+    }
+
+    function getGoogleplus() {
+        return $this->googleplus;
+    }
+
+    function getId_user() {
+        return $this->id_user;
+    }
+
+    function getIndustry() {
+        return $this->industry;
+    }
+
+    function getLinkedin() {
+        return $this->linkedin;
+    }
+
+    function getName() {
+        return $this->name;
+    }
+
+    function getPhone() {
+        return $this->phone;
+    }
+
+    function getPhone_extension() {
+        return $this->phone_extension;
+    }
+
+    function getRecruiter() {
+        return $this->recruiter;
+    }
+
+    function getTwitter() {
+        return $this->twitter;
+    }
+
+    function getWebsite() {
+        return $this->website;
+    }
+
+    function getContact() {
+        return $this->contact;
+    }
+
+    function setAddress_building($address_building) {
         $this->address_building = $address_building;
     }
-    
-    public function getAddress_street() {
-        return $this->address_street;
-    }
-    public function setAddress_street($address_street) {
-        $this->address_street = $address_street;
-    }
 
-    public function getAddress_unit() {
-        return $this->address_unit;
-    }
-    public function setAddress_unit($address_unit) {
-        $this->address_unit = $address_unit;
-    }
-
-    public function getAddress_city() {
-        return $this->address_city;
-    }
-    public function setAddress_city($address_city) {
+    function setAddress_city($address_city) {
         $this->address_city = $address_city;
     }
 
-    public function getAddress_state() {
-        return $this->address_state;
-    }
-    public function setAddress_state($address_state) {
+    function setAddress_state($address_state) {
         $this->address_state = $address_state;
     }
 
-    public function getAddress_zip5() {
-        return $this->address_zip5;
+    function setAddress_street($address_street) {
+        $this->address_street = $address_street;
     }
-    public function setAddress_zip5($address_zip5) {
+
+    function setAddress_unit($address_unit) {
+        $this->address_unit = $address_unit;
+    }
+
+    function setAddress_zip4($address_zip4) {
+        $this->address_zip4 = $address_zip4;
+    }
+
+    function setAddress_zip5($address_zip5) {
         $this->address_zip5 = $address_zip5;
     }
 
-    public function getAddress_zip4() {
-        return $this->address_zip4;
-    }
-    public function setAddress_zip4($address_zip4) {
-        $this->address_zip4 = $address_zip4;
-    }
-    
-    public function getPhone() {
-        return $this->phone;
-    }
-    public function setPhone($phone) {
-        $this->phone = $phone;
+    function setBranch($branch) {
+        $this->branch = $branch;
     }
 
-    public function getPhone_extension() {
-        return $this->phone_extension;
-    }
-    public function setPhone_extension($phone_extension) {
-        $this->phone_extension = $phone_extension;
+    function setDescription($description) {
+        $this->description = $description;
     }
 
-    public function getFax() {
-        return $this->fax;
-    }
-    public function setFax($fax) {
-        $this->fax = $fax;
-    }
-
-    public function getEmail() {
-        return $this->email;
-    }
-    public function setEmail($email) {
+    function setEmail($email) {
         $this->email = $email;
     }
 
-    public function getWebsite() {
-        return $this->website;
-    }
-    public function setWebsite($website) {
-        $this->website = $website;
-    }
-    
-    public function getLinkedin() {
-        return $this->linkedin;
-    }
-    public function setLinkedin($linkedin) {
-        $this->linkedin = $linkedin;
-    }
-    
-    public function getTwitter() {
-        return $this->twitter;
-    }
-    public function setTwitter($twitter) {
-        $this->twitter = $twitter;
-    }
-
-    public function getFacebook() {
-        return $this->facebook;
-    }
-    public function setFacebook($facebook) {
+    function setFacebook($facebook) {
         $this->facebook = $facebook;
     }
-    
-    public function getGoogleplus() {
-        return $this->googleplus;
+
+    function setFax($fax) {
+        $this->fax = $fax;
     }
-    public function setGoogleplus($googleplus) {
+
+    function setGoogleplus($googleplus) {
         $this->googleplus = $googleplus;
     }
-    
-    public function getIndustry() {
-        return $this->industry;
+
+    function setId_user($id_user) {
+        $this->id_user = $id_user;
     }
-    public function setIndustry($industry) {
+
+    function setIndustry($industry) {
         $this->industry = $industry;
     }
 
-    public function getRecruiter() {
-        return $this->recruiter;
+    function setLinkedin($linkedin) {
+        $this->linkedin = $linkedin;
     }
-    public function setRecruiter($recruiter) {
+
+    function setName($name) {
+        $this->name = $name;
+    }
+
+    function setPhone($phone) {
+        $this->phone = $phone;
+    }
+
+    function setPhone_extension($phone_extension) {
+        $this->phone_extension = $phone_extension;
+    }
+
+    function setRecruiter($recruiter) {
         $this->recruiter = $recruiter;
     }
 
-    public function getDescription() {
-        return $this->description;
+    function setTwitter($twitter) {
+        $this->twitter = $twitter;
     }
-    public function setDescription($description) {
-        $this->description = $description;
+
+    function setWebsite($website) {
+        $this->website = $website;
     }
-    
-    public function getContact() {
-        return $this->contact;
-    }
-    public function setContact($contact) {
+
+    function setContact($contact) {
         $this->contact = $contact;
     }
-        
-    // Prospect Query Methods    
+    
+    /*
+     * Method: parameterized query    
+     */
+    
     public function parameters($id)
     {
         $parameters = array(
-            ':id_user'          => $this->id_user,
-            ':name'             => $this->name,
-            ':branch'           => $this->branch,
+            ':remarks'          => $this->remarks,
             ':address_building' => $this->address_building,
-            ':address_street'   => $this->address_street,
-            ':address_unit'     => $this->address_unit,
             ':address_city'     => $this->address_city,
             ':address_state'    => $this->address_state,
-            ':address_zip5'     => $this->address_zip5,
+            ':address_street'   => $this->address_street,
+            ':address_unit'     => $this->address_unit,
             ':address_zip4'     => $this->address_zip4,
+            ':address_zip5'     => $this->address_zip5,
+            ':branch'           => $this->branch,
+            ':description'      => $this->description,
+            ':email'            => $this->email,
+            ':facebook'         => $this->facebook,
+            ':fax'              => $this->fax,
+            ':googleplus'       => $this->googleplus,
+            ':id_user'          => $this->id_user,
+            ':industry'         => $this->industry,
+            ':linkedin'         => $this->linkedin,
+            ':name'             => $this->name,
             ':phone'            => $this->phone,
             ':phone_extension'  => $this->phone_extension,
-            ':fax'              => $this->fax,
-            ':email'            => $this->email,
-            ':website'          => $this->website,
-            ':description'      => $this->description,
-            ':linkedin'         => $this->linkedin,
-            ':twitter'          => $this->twitter,
-            ':facebook'         => $this->facebook,
-            ':googleplus'       => $this->googleplus,
-            ':industry'         => $this->industry,
             ':recruiter'        => $this->recruiter,
-            ':remarks'          => $this->remarks,
+            ':twitter'          => $this->twitter,
+            ':website'          => $this->website,
             );
         if(!empty($id))
         {
@@ -257,59 +318,71 @@ class Prospect extends Data implements iAddress, iLink {
         return $parameters;
     }
     
+    /*
+     * Methods: helpers
+     */
+        
     public function full_phone()
     {
-        $full_phone = NULL;
-        if(!empty($this->phone))
+        $output     = NULL;
+        $phone      = $this->phone;
+        $extension  = $this->phone_extension;
+        if(!empty($phone))
         {
-            $area       = substr($this->phone, 0, 3);
-            $prefix     = substr($this->phone, 3, 3);
-            $suffix     = substr($this->phone, 6, 4);
-            $full_phone = "({$area}) {$prefix}-{$suffix}";
-            if(!empty($this->phone_extension))
+            $area       = substr($phone, 0, 3);
+            $prefix     = substr($phone, 3, 3);
+            $suffix     = substr($phone, 6, 4);
+            $output     = "({$area}) {$prefix}-{$suffix}";
+            if(!empty($extension))
             {
-                $full_phone .= ' x'.$this->phone_extension;
+                $output .= ' x'.$extension;
             }
         }
-        return $full_phone;
+        return $output;
     }
     
     public function full_fax()
     {
-        $full_fax = NULL;
-        if(!empty($this->fax))
+        $output     = NULL;
+        $fax        = $this->fax;
+        if(!empty($fax))
         {
-            $area       = substr($this->fax, 0, 3);
-            $prefix     = substr($this->fax, 3, 3);
-            $suffix     = substr($this->fax, 6, 4);
-            $full_fax   = "({$area}) {$prefix}-{$suffix}";
+            $area       = substr($fax, 0, 3);
+            $prefix     = substr($fax, 3, 3);
+            $suffix     = substr($fax, 6, 4);
+            $output   = "({$area}) {$prefix}-{$suffix}";
         }
-        return $full_fax;
+        return $output;
     }
     
     public function full_zip()
     {        
-        $full_zip = NULL;
-        if(!empty($this->address_zip5))
+        $output     = NULL;
+        $zip5       = $this->address_zip5;
+        $zip4       = $this->address_zip4;
+        if(!empty($zip5))
         {
-            $full_zip = $this->address_zip5;
-            if(!empty($this->address_zip4))
+            $output = $zip5;
+            if(!empty($zip4))
             {
-                $full_zip .= '-'.$this->address_zip4;
+                $output .= '-'.$zip4;
             }
         }
-        return $full_zip;
+        return $output;
     }
     
     public function link_email()
-    {        
-        $link   = NULL;
-        if(!empty($this->email))
+    {
+        $output = NULL;
+        $email  = $this->email;
+        $name   = $this->name_full();
+        if(!empty($email))
         {
-            $a_title    = "title=\"E-Mail for {$this->name}\"";
-            $a_href     = "href=\"mailto:{$this->email}\"";
-            $link       = "<a {$a_title} {$a_href}>{$this->email}</a>";
+            $a_title    = "title=\"E-Mail for {$name}\"";
+            $a_href     = "href=\"mailto:{$email}\"";
+            $output     = "<a {$a_title} {$a_href}>{$email}</a>";
         }
-        return $link;
+        return $output;
     }
+    
 }
