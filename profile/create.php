@@ -38,7 +38,18 @@
             }
             else
             {
-                $_SESSION['profile']['id'] = $insert['id'];
+                // repopulate session with new profile data
+                unset($_SESSION['profile']);
+                $objCreate     = new Profile;
+                $prmCreate     = $objCreate->id_params(NULL, $_SESSION['user']['id']);
+                $sqlCreate     = $objCreate->selectAll($_SESSION['user']['id']) . " LIMIT 1";
+                $fetchCreate   = $objData->db_read($db, $sqlCreate, $prmCreate, TRUE);
+                $rowCreate     = $fetchCreate['result'][0];
+                if(!empty($rowCreate))
+                {
+                    $_SESSION['profile'] = $rowCreate;
+                }
+                // redirect
                 header('Location:index.php');
             }
         }

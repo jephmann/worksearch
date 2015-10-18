@@ -18,6 +18,7 @@
     /*
      * NEVER set/reset $object->id_user via POST
      */
+    
     // Who Are You
     $objProfile->setGender($profile_gender);
     $objProfile->setId_salutation($_POST['salutation']);
@@ -36,11 +37,15 @@
     $objProfile->setAddress_state($_POST['address_state']);
     $objProfile->setAddress_zip5($_POST['address_zip5']);
     $objProfile->setAddress_zip4($_POST['address_zip4']);
+    
     // Communication
     $objProfile->setPhone($_POST['phone']);
     $objProfile->setPhone_extension($_POST['phone_extension']);
+    $objProfile->setPhone_mobile($_POST['phone_mobile']);
     $objProfile->setFax($_POST['fax']);
     $objProfile->setEmail(strtolower(trim($_POST['profile_email'])));
+    $objProfile->setSkype($_POST['skype']);
+    
     // Identification
     $objProfile->setSocial_security_number($_POST['social_security_number']);
     $objProfile->setDrivers_state($_POST['drivers_state']);

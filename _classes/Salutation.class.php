@@ -25,11 +25,13 @@ class Salutation extends Data {
         'name',
     );
     
+    /*
     function __construct($gender, $abrv, $name) {
         $this->gender = $gender;
         $this->abrv = $abrv;
         $this->name = $name;
-    }
+    } 
+     */
     
     /*
      *  Methods: get/set

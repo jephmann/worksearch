@@ -7,7 +7,7 @@
     {
         if($page['mode'] != "Log In")
         {
-            $loginout .= Link::inside("Log In", "{$page['path']}login.php", "Log In");
+            $loginout .= Link::inside("Log In", "{$page['path']}login.php", "Log In") . '&nbsp;';
         }
         $loginout .= Link::inside("Register", "{$page['path']}register.php", "Register");
     }
@@ -37,7 +37,9 @@
     {
         if(!empty($_SESSION))
         {
-            $session_whose .= "We invite you to build your profile<br />before proceding further.";
+            $session_whose .= "<em>We invite you to build your"
+                . " <a href=\"{$page['path']}profile/\">profile</a>"
+                . " before proceding further.</em>";
         }
     }
     

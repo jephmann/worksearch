@@ -148,14 +148,15 @@ class Input {
         return $optWeeks;
     }
     
-    public static function ddl_options($db, $default, $value, $display, $object, $concatFields, $sortFields)
+    public static function ddl_options($db, $default, $value, $display, $object, $concatFields=FALSE, $sortFields=FALSE)
     {
         $result = array(
-            'error' => NULL,
+            'error'     => NULL,
             'options'   => NULL,
         );
         $error = NULL;
         $query = NULL;
+        //$table = $object->table;
         if(empty($concatFields) || empty($sortFields))
         {
             $query = $object->options($value, $display);
@@ -174,8 +175,8 @@ class Input {
             $error  = ("<li>Failed to run {$object->table} DropDownList query: " . $ex->getMessage()) . "</li>";
         }
         $ddlOptions = "\n<option value=\"\">=== PLEASE SELECT ===</option>";
-        $selected = NULL;
-        $options = $statement->fetchAll();
+        $selected   = NULL;
+        $options    = $statement->fetchAll();
         foreach($options as $option)
         {
             $optDisplay = $option["{$display}"];
@@ -246,11 +247,12 @@ class Input {
     public static function rbl_options($db, $default, $input, $display, $value, $object, $orientation)
     {
         $result = array(
-            'error' => NULL,
+            'error'     => NULL,
             'options'   => NULL,
         );
         $error = NULL;
         $query = $object->options($value, $display);
+        $table = $object->table;
         try
         {
             $statement = $db->prepare($query);
@@ -258,15 +260,15 @@ class Input {
         }
         catch(PDOException $ex)
         {
-            $error  = ("<li>Failed to run {$object->table} RadioButtonList query: " . $ex->getMessage()) . "</li>";
+            $error  = ("<li>Failed to run {$table} RadioButtonList query: " . $ex->getMessage()) . "</li>";
         }
         $rblOptions = NULL;
-        $checked = NULL;
-        $options = $statement->fetchAll();
+        $checked    = NULL;
+        $options    = $statement->fetchAll();
         foreach($options as $option)
         {
-            $optName = $option["{$display}"];
-            $optValue = $option["{$value}"];
+            $optName    = $option["{$display}"];
+            $optValue   = $option["{$value}"];
             if($default == $optValue)
             {
                 $checked = " checked";

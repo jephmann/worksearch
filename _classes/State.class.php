@@ -23,10 +23,12 @@ class State extends Data {
         'state',
     );
     
+    /*
     function __construct($abrv, $state) {
         $this->abrv = $abrv;
         $this->state = $state;
-    }
+    } 
+     */
     
     /*
      *  Methods: get/set

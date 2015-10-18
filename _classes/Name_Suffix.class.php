@@ -25,11 +25,13 @@ class Name_Suffix extends Data {
         'gender',
     );
     
+    /*
     function __construct($abrv, $name, $gender) {
         $this->abrv = $abrv;
         $this->name = $name;
         $this->gender = $gender;
-    }
+    } 
+     */
     
     /*
      *  Methods: get/set

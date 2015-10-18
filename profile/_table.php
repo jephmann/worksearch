@@ -58,12 +58,12 @@
                 <col style="background-color:#FFFFFF">
             </colgroup>
             <tr>
-                <td>
-                    <strong>Phone:</strong>
-                </td>
-                <td>
-                    <?php echo $profile_phone; ?>
-                </td>
+                <td><strong>Phone:</strong></td>
+                <td><?php echo $profile_phone; ?></td>
+            </tr>
+            <tr>
+                <td><strong>Mobile Phone:</strong></td>
+                <td><?php echo $profile_mobile; ?></td>
             </tr>
             <tr>
                 <td><strong>Fax:</strong></td>
@@ -72,6 +72,10 @@
             <tr>
                 <td><strong>E-Mail:</strong></td>
                 <td><?php echo $profile_email; ?></td>
+            </tr>
+            <tr>
+                <td><strong>Skype:</strong></td>
+                <td><?php echo $profile_skype; ?></td>
             </tr>
         
         </table>

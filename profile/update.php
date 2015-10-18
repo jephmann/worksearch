@@ -9,7 +9,7 @@
     user_session($page['path']);
     // =========================================================================
     
-    $id_user    = $_SESSION['user']['id'];
+    $id_user            = $_SESSION['user']['id'];
     $objProfile         = new Profile;
     $objProfile->setId($_SESSION['profile']['id']);
     $objProfile->setId_user($id_user);
@@ -34,6 +34,18 @@
             }
             else
             {
+                // repopulate session with new profile data
+                unset($_SESSION['profile']);
+                $objUpdate     = new Profile;
+                $prmUpdate     = $objUpdate->id_params(NULL, $_SESSION['user']['id']);
+                $sqlUpdate     = $objUpdate->selectAll($_SESSION['user']['id']) . " LIMIT 1";
+                $fetchUpdate   = $objData->db_read($db, $sqlUpdate, $prmUpdate, TRUE);
+                $rowUpdate     = $fetchUpdate['result'][0];
+                if(!empty($rowUpdate))
+                {
+                    $_SESSION['profile'] = $rowUpdate;
+                }
+                // redirect
                 header('Location:'.$location);
             }
         }

@@ -16,7 +16,9 @@
                     echo "<br />{$_SESSION['user']['email']}";
                     if(!empty($_SESSION['profile']))
                     {
-                        echo "<br/>Session Profile OK";
+                        echo "<br/>count: ".count($_SESSION['profile']);
+                        echo "<br/>{$_SESSION['profile']['name_last']}";
+                        echo "<br/>{$_SESSION['profile']['name_first']}";
                     }
                     else
                     {

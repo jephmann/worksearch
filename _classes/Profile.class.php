@@ -69,6 +69,7 @@ class Profile extends Person implements iAddress {
         'social_security_number',
     );
     
+    /*    
     function __construct($address_building, $address_city, $address_state, $address_street, $address_unit, $address_zip4, $address_zip5, $drivers_license, $drivers_state, $email, $fax, $id_user, $phone, $phone_extension, $phone_mobile, $skype, $social_security_number) {
         $this->address_building = $address_building;
         $this->address_city = $address_city;
@@ -87,7 +88,8 @@ class Profile extends Person implements iAddress {
         $this->phone_mobile = $phone_mobile;
         $this->skype = $skype;
         $this->social_security_number = $social_security_number;
-    }       
+    } 
+     */       
         
     /*
      *  Methods: get/set

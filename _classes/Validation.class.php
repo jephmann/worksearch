@@ -68,9 +68,9 @@ class Validation {
             {
                 $li = ("Only numbers are permitted for a {$field}.");
             }
-            elseif(strlen($value) >= 5)
+            elseif(strlen($value) >= 6)
             {
-                $li = ("A {$field} must be 4 digits or less.");
+                $li = ("A {$field} must be 5 digits or less.");
             }
         }
         if(!empty($value) && empty($phone))

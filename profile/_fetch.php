@@ -28,8 +28,10 @@
     // Communication
     $objProfile->setPhone(htmlentities($rowProfile['phone'], ENT_QUOTES, 'UTF-8'));
     $objProfile->setPhone_extension(htmlentities($rowProfile['phone_extension'], ENT_QUOTES, 'UTF-8'));
+    $objProfile->setPhone_mobile(htmlentities($rowProfile['phone_mobile'], ENT_QUOTES, 'UTF-8'));
     $objProfile->setFax(htmlentities($rowProfile['fax'], ENT_QUOTES, 'UTF-8'));
     $objProfile->setEmail(htmlentities($rowProfile['email'], ENT_QUOTES, 'UTF-8'));
+    $objProfile->setSkype(htmlentities($rowProfile['skype'], ENT_QUOTES, 'UTF-8'));
     // Identification
     $objProfile->setSocial_security_number(htmlentities($rowProfile['social_security_number'], ENT_QUOTES, 'UTF-8'));
     $objProfile->setDrivers_state(htmlentities($rowProfile['drivers_state'], ENT_QUOTES, 'UTF-8'));

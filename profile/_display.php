@@ -50,8 +50,10 @@
     $profile_zip                    = $objProfile->full_zip();
     $profile_csz                    = $objProfile->address_city.', '.$objProfile->address_state.' '.$profile_zip;
     $profile_phone                  = $objProfile->full_phone();
+    $profile_mobile                 = $objProfile->full_mobile();
     $profile_fax                    = $objProfile->full_fax();
     $profile_email                  = $objProfile->link_email();
+    $profile_skype                  = $objProfile->skype;
     $profile_drivers_license        = $objProfile->full_dl();
     $profile_social_security_number = $objProfile->full_ssn();
             
