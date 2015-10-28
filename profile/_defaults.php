@@ -1,4 +1,8 @@
 <?php
+    /*
+     * PROFILE
+     */
+
     $option_errors      = NULL;
     
     $rblGender          = Input::rbl_gender("gender", $objProfile->getGender());

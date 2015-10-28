@@ -1,8 +1,9 @@
 <?php
     /*
-     * Server-side validation
+     * PROFILE back-end validation
      */
-    // Clear Status Message
+
+    // First, clear Status Message
     $objStatus->message = NULL;
     $objStatus->message .= Validation::required_li($objProfile->name_last, "Profile: Last Name");
     $objStatus->message .= Validation::zip5_li($objProfile->address_zip5, "Profile ZIP Code");

@@ -1,10 +1,13 @@
 <?php
+    /*
+     * PROFILE
+     */
     
     $id_sal             = $objProfile->id_salutation;
     $objSalutation      = new Salutation;
     if($id_sal != 0)
     {
-        $prmSalutation      = $objSalutation->id_params($id_sal, NULL);
+        $prmSalutation      = $objSalutation->id_params($id_sal);
         $sqlSalutation      = $objSalutation->select(NULL);
         $fetchSalutation    = $objData->db_read($db, $sqlSalutation, $prmSalutation, FALSE);
         $rowSalutation      = $fetchSalutation['result'];
@@ -21,7 +24,7 @@
     $objNameSuffix      = new Name_Suffix;
     if($id_suf != 0)
     {
-        $prmNameSuffix      = $objNameSuffix->id_params($id_suf, NULL);
+        $prmNameSuffix      = $objNameSuffix->id_params($id_suf);
         $sqlNameSuffix      = $objNameSuffix->select(NULL);
         $fetchNameSuffix    = $objData->db_read($db, $sqlNameSuffix, $prmNameSuffix, FALSE);
         $rowNameSuffix      = $fetchNameSuffix['result'];

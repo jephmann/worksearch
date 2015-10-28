@@ -19,7 +19,7 @@
      * NEVER set/reset $object->id_user via POST
      */
     
-    // Who Are You
+    // Who (Profile)
     $objProfile->setGender($profile_gender);
     $objProfile->setId_salutation($_POST['salutation']);
     $objProfile->setName_first(ucwords(strtolower(trim($_POST['name_first']))));

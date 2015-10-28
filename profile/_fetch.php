@@ -1,4 +1,8 @@
-<?php   
+<?php
+    /*
+     * PROFILE
+     */
+
     $prmProfile     = $objProfile->id_params($objProfile->id, $objProfile->id_user);
     $sqlProfile     = $objProfile->select($objProfile->id_user);
     $fetchProfile   = $objData->db_read($db, $sqlProfile, $prmProfile, FALSE);
