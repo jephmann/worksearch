@@ -1,4 +1,8 @@
 <?php
+    /*
+     * PROSPECTS
+     */
+
     $prmProspect     = $objProspect->id_params($objProspect->id, $objProspect->id_user);
     $sqlProspect     = $objProspect->select($objProspect->id_user);
     $fetchProspect   = $objData->db_read($db, $sqlProspect, $prmProspect, FALSE);

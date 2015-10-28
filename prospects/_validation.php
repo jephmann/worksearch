@@ -1,5 +1,9 @@
 <?php
-    // Clear Status Message
+    /*
+     * PROSPECTS back-end validation
+     */
+
+    // First, clear Status Message
     $objStatus->message = NULL;
     $objStatus->message .= Validation::required_li($objProspect->name, "Prospect: Name");
     $objStatus->message .= Validation::zip5_li($objProspect->address_zip5, "Prospect ZIP Code");

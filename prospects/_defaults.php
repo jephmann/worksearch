@@ -1,19 +1,22 @@
 <?php
+    /*
+     * PROSPECTS
+     */
+
     $option_errors      = NULL;
     
     $optStates          = Input::ddl_options($db,
-            $objProspect->getAddress_state(),
-            'abrv', 'state', $objStates,
-            NULL, NULL);
+        $objProspect->getAddress_state(),
+        'abrv', 'state', $objStates);
     if(!empty($optStates['error']))
     {
         $option_errors  .= $optStates['error'];
     }
     
     $rblRecruiter       = Input::rbl_truefalse("prospect_recruiter",
-            $objProspect->getRecruiter());
+        $objProspect->getRecruiter());
     $rblContact         = Input::rbl_truefalse("contact",
-            $objProspect->getContact());
+        $objProspect->getContact());
     
     if(!empty($option_errors))
     {
