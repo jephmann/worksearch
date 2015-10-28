@@ -1,5 +1,9 @@
 <?php
-    // Clear Status Message
+    /*
+     * CONTACTS back-end validation
+     */
+
+    // First, clear Status Message
     $objStatus->message = NULL;
     $objStatus->message .= Validation::required_li($objContact->name_last, "Contact: Last Name");
     $objStatus->message .= Validation::required_li($objContact->id_prospect, "Contact: Prospect");    

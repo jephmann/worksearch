@@ -1,10 +1,13 @@
 <?php
+    /*
+     * CONTACTS
+     */
         
     $id_sal             = $objContact->id_salutation;
     $objSalutation      = new Salutation;
     if($id_sal != 0)
     {
-        $prmSalutation      = $objSalutation->id_params($id_sal, NULL);
+        $prmSalutation      = $objSalutation->id_params($id_sal);
         $sqlSalutation      = $objSalutation->select(NULL);
         $fetchSalutation    = $objData->db_read($db, $sqlSalutation, $prmSalutation, FALSE);
         $rowSalutation      = $fetchSalutation['result'];
@@ -21,7 +24,7 @@
     $objNameSuffix      = new Name_Suffix;
     if($id_suf != 0)
     {
-        $prmNameSuffix      = $objNameSuffix->id_params($id_suf, NULL);
+        $prmNameSuffix      = $objNameSuffix->id_params($id_suf);
         $sqlNameSuffix      = $objNameSuffix->select(NULL);
         $fetchNameSuffix    = $objData->db_read($db, $sqlNameSuffix, $prmNameSuffix, FALSE);
         $rowNameSuffix      = $fetchNameSuffix['result'];
@@ -41,7 +44,15 @@
     $contact_fax            = $objContact->full_fax();
     $contact_mobile_phone   = $objContact->full_mobile();
     $contact_email          = $objContact->link_email();
-    $contact_linkedin       = Link::outside("Contact LinkedIn", $objContact->linkedin, $img_linkedin);
-    $contact_twitter        = Link::outside("Contact Twitter", $objContact->twitter, $img_twitter);
-    $contact_facebook       = Link::outside("Contact Facebook", $objContact->facebook, $img_facebook);
-    $contact_googleplus     = Link::outside("Contact Google Plus", $objContact->googleplus, NULL);
+    $contact_skype          = $objContact->skype;
+    
+    $contact_website        = Link::outside($objContact->name_full(),
+            $objContact->website);
+    $contact_linkedin       = Link::outside("Contact LinkedIn",
+            $objContact->linkedin, $img_linkedin);
+    $contact_twitter        = Link::outside("Contact Twitter",
+            $objContact->twitter, $img_twitter);
+    $contact_facebook       = Link::outside("Contact Facebook",
+            $objContact->facebook, $img_facebook);
+    $contact_googleplus     = Link::outside("Contact Google Plus",
+            $objContact->googleplus);

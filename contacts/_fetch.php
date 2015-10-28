@@ -1,4 +1,8 @@
 <?php
+    /*
+     * CONTACTS
+     */
+
     $prmContact     = $objContact->id_params($objContact->id, $objContact->id_user);
     $sqlContact     = $objContact->select($objContact->id_user);
     $fetchContact   = $objData->db_read($db, $sqlContact, $prmContact, FALSE);
@@ -28,7 +32,9 @@
     $objContact->setPhone_mobile(htmlentities($rowContact['phone_mobile'], ENT_QUOTES, 'UTF-8'));
     $objContact->setFax(htmlentities($rowContact['fax'], ENT_QUOTES, 'UTF-8'));
     $objContact->setEmail(htmlentities($rowContact['email'], ENT_QUOTES, 'UTF-8'));
+    $objContact->setSkype(htmlentities($rowContact['skype'], ENT_QUOTES, 'UTF-8'));
     // Links
+    $objContact->setWebsite(htmlentities($rowContact['website'], ENT_QUOTES, 'UTF-8'));
     $objContact->setLinkedin(htmlentities($rowContact['linkedin'], ENT_QUOTES, 'UTF-8')); 
     $objContact->setTwitter(htmlentities($rowContact['twitter'], ENT_QUOTES, 'UTF-8'));  
     $objContact->setFacebook(htmlentities($rowContact['facebook'], ENT_QUOTES, 'UTF-8'));  

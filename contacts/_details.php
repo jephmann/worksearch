@@ -1,4 +1,4 @@
-<ul id="status" name="status" class="<?php echo $objStatus->class; ?>">
+<ul id="status" class="<?php echo $objStatus->class; ?>">
     <?php echo $objStatus->message; ?>
 </ul>
 <div style="width:350px; float:left">
@@ -44,6 +44,14 @@
             <tr>
                 <td><strong>Office E-mail:</strong></td>
                 <td><?php echo $contact_email; ?></td>
+            </tr>
+            <tr>
+                <td><strong>Office Skype:</strong></td>
+                <td><?php echo $contact_skype; ?></td>
+            </tr>
+            <tr>
+                <td><strong>Website:</strong></td>
+                <td><?php echo $contact_website; ?></td>
             </tr>
             <tr>
                 <td><strong>LinkedIn:</strong></td>

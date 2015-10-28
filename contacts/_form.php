@@ -4,7 +4,7 @@
         <p>
             <?php echo $asterisk; ?> = Required fields.
         </p>
-        <ul id="status" name="status" class="<?php echo $objStatus->class; ?>">
+        <ul id="status" class="<?php echo $objStatus->class; ?>">
             <?php echo $objStatus->message; ?>
         </ul>
         <fieldset>
@@ -75,9 +75,17 @@
                 <label id="lblEmail">E-Mail:</label>
                 <input type="text" name="contact_email" value="<?php echo $objContact->email; ?>" maxlength="255" />
             </div>
+            <div class="form_row">
+                <label id="lblSkype">Skype:</label>
+                <input type="text" name="skype" value="<?php echo $objContact->skype; ?>" maxlength="255" size="40" />
+            </div>
         </fieldset>
         <fieldset>
             <legend>Links</legend>
+            <div class="form_row">
+                <label id="lblWebsite">Website:</label>
+                <input type="text" name="website" value="<?php echo $objContact->website; ?>" maxlength="255" size="40" />
+            </div>
             <div class="form_row">
                 <label id="lblLinkedIn">LinkedIn:</label>
                 <input type="text" name="linkedin" value="<?php echo $objContact->linkedin; ?>" maxlength="255" size="40" />
