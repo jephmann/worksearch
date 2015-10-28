@@ -66,6 +66,7 @@ class Prospect extends Data implements iAddress, iLink {
         'website',
         );
     
+    /*
     function __construct($address_building, $address_city, $address_state, $address_street, $address_unit, $address_zip4, $address_zip5, $branch, $description, $email, $facebook, $fax, $googleplus, $id_user, $industry, $linkedin, $name, $phone, $phone_extension, $recruiter, $twitter, $website, $contact) {
         $this->address_building = $address_building;
         $this->address_city = $address_city;
@@ -90,7 +91,8 @@ class Prospect extends Data implements iAddress, iLink {
         $this->twitter = $twitter;
         $this->website = $website;
         $this->contact = $contact;
-    }      
+    } 
+     */      
         
     /*
      *  Methods: get/set
@@ -375,7 +377,7 @@ class Prospect extends Data implements iAddress, iLink {
     {
         $output = NULL;
         $email  = $this->email;
-        $name   = $this->name_full();
+        $name   = $this->name;
         if(!empty($email))
         {
             $a_title    = "title=\"E-Mail for {$name}\"";

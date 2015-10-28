@@ -148,7 +148,7 @@ class Input {
         return $optWeeks;
     }
     
-    public static function ddl_options($db, $default, $value, $display, $object, $concatFields=FALSE, $sortFields=FALSE)
+    public static function ddl_options($db, $default, $value, $display, $object, $concatFields=NULL, $sortFields=NULL)
     {
         $result = array(
             'error'     => NULL,
@@ -244,7 +244,7 @@ class Input {
         return $rblTrueFalse;
     }
     
-    public static function rbl_options($db, $default, $input, $display, $value, $object, $orientation)
+    public static function rbl_options($db, $default, $input, $display, $value, $object, $is_vertical)
     {
         $result = array(
             'error'     => NULL,
@@ -278,11 +278,11 @@ class Input {
                 $checked = "";
             }
             $rblOptions .= "\n<input{$checked} type=\"radio\" name=\"{$input}\" value=\"{$optValue}\" />{$optName}";
-            if($orientation == "v")
+            if($is_vertical)
             {
                 $rblOptions .= "<br />";
             }
-            else
+            else // is horizontal
             {
                 $rblOptions .= "&nbsp;&nbsp;";
             }

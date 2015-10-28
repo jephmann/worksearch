@@ -113,7 +113,7 @@ class Data implements iData {
     }
     
     // Parameter Array (IDs only)
-    public function id_params($id, $id_user)
+    public function id_params($id, $id_user=NULL)
     {
         $parameters = array();
         if(!empty($id))

@@ -39,6 +39,7 @@ class Log extends Data {
         'work',
         );
     
+    /*
     function __construct($contact_date, $id_contact, $id_contact_method, $id_prospect, $id_user, $results, $specify, $week_ending, $work) {
         $this->contact_date = $contact_date;
         $this->id_contact = $id_contact;
@@ -50,6 +51,7 @@ class Log extends Data {
         $this->week_ending = $week_ending;
         $this->work = $work;
     }
+    */
     
     /*
      *  Methods: get/set

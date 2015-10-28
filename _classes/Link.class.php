@@ -18,7 +18,7 @@ class Link {
         return $link;
     }
     
-    public static function outside($title, $href, $name)
+    public static function outside($title, $href, $name=NULL)
     {
         $link   = NULL;
         if(!empty($href))
@@ -40,7 +40,7 @@ class Link {
         return $link;
     }
     
-    public static function inside($title, $href, $name)
+    public static function inside($title, $href, $name=NULL)
     {
         $link   = NULL;
         if(!empty($href))

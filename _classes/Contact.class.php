@@ -65,6 +65,7 @@ class Contact extends Person implements iLink {
         'website',
         );
     
+    /*
     function __construct($department, $email, $facebook, $fax, $googleplus, $id_prospect, $id_user, $linkedin, $phone, $phone_extension, $phone_mobile, $skype, $title, $twitter, $website) {
         $this->department = $department;
         $this->email = $email;
@@ -81,7 +82,8 @@ class Contact extends Person implements iLink {
         $this->title = $title;
         $this->twitter = $twitter;
         $this->website = $website;
-    }        
+    }
+    */        
         
     /*
      *  Methods: get/set
