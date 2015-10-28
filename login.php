@@ -1,4 +1,4 @@
-<?php    
+<?php
     $page = array(
         'title'     => "Session",
         'subtitle'  => " > Log In",
@@ -99,7 +99,7 @@
             
             // My add: check for an exsiting Profile for the user
             // If Profile exists, add to the Session
-            $objProfile = new Profile;
+            $objProfile     = new Profile;
             $prmProfile     = $objProfile->id_params(NULL, $_SESSION['user']['id']);
             $sqlProfile     = $objProfile->selectAll($_SESSION['user']['id']) . " LIMIT 1";
             $fetchProfile   = $objData->db_read($db, $sqlProfile, $prmProfile, TRUE);

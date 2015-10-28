@@ -4,7 +4,7 @@
         <p>
             <?php echo $asterisk; ?> = Required fields.
         </p>
-        <ul id="status" name="status" class="<?php echo $objStatus->class; ?>">
+        <ul id="status" class="<?php echo $objStatus->class; ?>">
             <?php echo $objStatus->message; ?>
         </ul>
         <div class="notes">
@@ -16,6 +16,9 @@
             <p>
                 An unsuccessful Login may trigger "forget Login" logic. Maybe "delete
                 Profile" as well?
+            </p>
+            <p>
+                2015.09.07 test line
             </p>
         </div>
         <div class="form_row">
