@@ -1,5 +1,9 @@
 <?php
-    // Clear Status Message
+    /*
+     * LOGS back-end validation
+     */
+
+    // First, clear Status Message
     $objStatus->message = NULL;
     $objStatus->message .= Validation::required_li($objLog->week_ending, "Log: Week Ending");
     $objStatus->message .= Validation::required_li($contact_date_mm, "Log: Contact Month");

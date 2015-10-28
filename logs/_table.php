@@ -6,7 +6,7 @@
             Create
         </a>
     </legend>
-    <ul id="status" name="status" class="<?php echo $objStatus->class; ?>">
+    <ul id="status" class="<?php echo $objStatus->class; ?>">
         <?php echo $objStatus->message; ?>
     </ul>
     <form method="post">

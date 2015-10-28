@@ -27,7 +27,7 @@
     
     $objContactMethod   = new Contact_Method;
     $objContactMethod->setId($objLog->id_contact_method);    
-    $prmContactMethod   = $objContactMethod->id_params($objContactMethod->id, NULL);
+    $prmContactMethod   = $objContactMethod->id_params($objContactMethod->id);
     $sqlContactMethod   = $objContactMethod->select(NULL);
     $fetchContactMethod = $objData->db_read($db, $sqlContactMethod, $prmContactMethod, FALSE);
     $rowContactMethod   = $fetchContactMethod['result'];

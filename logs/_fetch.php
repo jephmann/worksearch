@@ -1,4 +1,8 @@
-<?php  
+<?php
+    /*
+     * LOGS
+     */
+
     $prmLog     = $objLog->id_params($objLog->id, $objLog->id_user);
     $sqlLog     = $objLog->select($objLog->id_user);
     $fetchLog   = $objData->db_read($db, $sqlLog, $prmLog, FALSE);

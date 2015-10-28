@@ -25,6 +25,7 @@
     /*
      * NEVER set/reset $object->id_user via POST
      */
+    
     $objLog->setWeek_ending($week_ending);
     $objLog->setContact_date($contact_date);
     $objLog->setWork($_POST['work']);

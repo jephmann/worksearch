@@ -1,6 +1,10 @@
 <?php
+    /*
+     * LOGS
+     */
+
     $objSalutation      = new Salutation;
-    $prmSalutation      = $objSalutation->id_params($objContact->id_salutation, NULL);
+    $prmSalutation      = $objSalutation->id_params($objContact->id_salutation);
     $sqlSalutation      = $objSalutation->select(NULL);
     $fetchSalutation    = $objData->db_read($db, $sqlSalutation, $prmSalutation, FALSE);
     $rowSalutation      = $fetchSalutation['result'];
@@ -14,7 +18,7 @@
     $contact_salutation = $objSalutation->abrv;
     
     $objNameSuffix      = new Name_Suffix;
-    $prmNameSuffix      = $objNameSuffix->id_params($objContact->id_name_suffix, NULL);
+    $prmNameSuffix      = $objNameSuffix->id_params($objContact->id_name_suffix);
     $sqlNameSuffix      = $objNameSuffix->select(NULL);
     $fetchNameSuffix    = $objData->db_read($db, $sqlNameSuffix, $prmNameSuffix, FALSE);
     $rowNameSuffix      = $fetchNameSuffix['result'];

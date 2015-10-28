@@ -1,4 +1,5 @@
 /*
+ * LOGS
  * TODOS:
  * full contact date or nothing
  */
