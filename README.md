@@ -177,3 +177,23 @@ coding exercise. I was always ambivalent about whether or not my project could
 become an app which others could use, as the priorities beyond that were about
 staying in practice between jobs and having code samples to show people. I am
 definitely not interested in creating a competing product anyhow.
+
+UPDATE 2015.11.08
+- Many of the back-end changes during the past few weeks reflect an upgrade of
+my notebook computer's XAMPP to accommodate PHP 5.6 and MySQL 5.6 as well as the
+odd new form field here and there.
+- Very soon I will be changing the front-end look and feel of this project,
+replacing my original design with what I hope would be a template incorporating
+responsive web design concepts. This personally strikes me to be a far more
+intricate undertaking than my recent back-end work; thus there might not be
+significant updates to GitHub for a long while. I already did some initial
+tests applying a template to my form pages, for my priorities in seeking
+responsive templates were form-related. Recently I worked through a rather
+detailed tutorial on RWD -- did so twice, in fact -- which for some reason left
+out forms, hence the template search. I am starting with a template from
+Tutorialzine
+[http://tutorialzine.com/2015/07/freebie-7-clean-and-responsive-forms/],
+although this could still change. Regardless It will still be a rather simple
+and bland design, for this project is essentially a simple and bland form/CRUD
+project. Maybe in due time I might make changes to the template to make this
+design more my own.
