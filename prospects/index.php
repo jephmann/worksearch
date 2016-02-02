@@ -124,6 +124,7 @@
 
             $prospect_citystate     = $rowCity.', '.$rowState;
             
+            // "dud" = D(etail) U(pdate) D(elete)
             $dud = array(
                 'detail'    => Link::inside("Detail of This Prospect",
                         "detail.php?id={$rowID}",
@@ -158,8 +159,9 @@
     }
     
     // =========================================================================
-    require_once ($page['path'].'_views/head.php');
-    require_once ($page['path'].'_views/header.php');
-    require_once ($page['path'].'_views/aside.php');
-    require_once ('_table.php');
-    require_once ($page['path'].'_views/footer.php');
+    require_once ($page['path'].'_views2/head.php');
+    require_once ($page['path'].'_views2/header.php');
+    require_once ($page['path'].'_views2/nav.php');
+    //require_once ($page['path'].'_views/aside.php');
+    require_once ('_table2.php');
+    require_once ($page['path'].'_views2/foot.php');

@@ -29,7 +29,7 @@ class Input {
         
     public static function ddl_months($default)
     {
-        $optMonths  = '<option value="">Month</option>';
+        $optMonths  = '\r<option value="">=== Month ===</option>';
         if($default <= 9)
         {
             $default = ('0'.$default);
@@ -84,7 +84,8 @@ class Input {
                 'name'  => 'December',
             ),
         );
-        for($m=0;$m<=11;$m++)
+        $ctMonths = count($months);
+        for($m=0;$m<$ctMonths;$m++)
         {
             $value  = $months[$m]['value'];
             $name   = $months[$m]['name'];
@@ -96,7 +97,7 @@ class Input {
             {
                 $selected   = NULL;
             }
-            $optMonths  .= "<option{$selected} value=\"{$value}\">{$name}</option>";
+            $optMonths  .= "\r<option{$selected} value=\"{$value}\">{$name}</option>";
         }
         return $optMonths;
     }
@@ -122,7 +123,7 @@ class Input {
             {
                 $selected   = NULL;
             }
-            $optDays .= "<option{$selected} value=\"{$value}\">{$name}</option>";
+            $optDays .= "\r<option{$selected} value=\"{$value}\">{$name}</option>";
         }
         return $optDays;
     }
@@ -198,10 +199,11 @@ class Input {
         
     public static function rbl_gender($name, $gender)
     {
-        $rblGender      = NULL;
-        $checkedMale    = NULL;
-        $checkedFemale  = NULL;
+        $rbl            = NULL;
         $checked        = " checked=\"checked\"";
+        $checkedMale    = NULL;
+        $checkedFemale  = NULL;        
+        
         if($gender=="M")
         {
             $checkedMale    = $checked;
@@ -212,36 +214,71 @@ class Input {
             $checkedFemale  = $checked;
             $checkedMale    = NULL;
         }
-        $rblGender .= "\r<input name=\"{$name}\" type=\"radio\" value=\"M\"{$checkedMale} /> Male";
-        $rblGender .= "\r<input name=\"{$name}\" type=\"radio\" value=\"F\"{$checkedFemale} /> Female";
-        $rblGender .= "\r";
-        return $rblGender;
+        
+        $rbPairs    = array(
+            array(
+                'value'     => 'M',
+                'checked'   => $checkedMale,
+                'legend'    => 'Male',
+            ),
+            array(
+                'value'     => 'F',
+                'checked'   => $checkedFemale,
+                'legend'    => 'Female',
+            ),            
+        );
+        $ctPairs    = count($rbPairs);
+        
+        for($i=0; $i<$ctPairs; $i++)
+        {
+            $rbl .= self::make_rb($name,
+                $rbPairs[$i]['value'],
+                $rbPairs[$i]['checked'],
+                $rbPairs[$i]['legend']);
+        }
+        
+        return $rbl;
     }
     
     public static function rbl_truefalse($name, $boolean)
     {
+        $rbl            = NULL;
+        $checked        = " checked=\"checked\"";
         $checkedTrue    = NULL;
         $checkedFalse   = NULL;
-        $checked        = "checked=\"checked\"";
-        if($boolean==TRUE)
+        
+        if($boolean)
         {
             $checkedTrue    = $checked;
         }
         else
         {
             $checkedFalse   = $checked;
-        }        
-        $rblTrueFalse = "<input
-            name=\"{$name}\"
-            type=\"radio\"
-            value=\"1\"
-            {$checkedTrue} /> Yes
-            <input
-            name=\"{$name}\"
-            type=\"radio\"
-            value=\"0\"
-            {$checkedFalse} /> No";
-        return $rblTrueFalse;
+        }
+        
+        $rbPairs    = array(
+            array(
+                'value'     => 1,
+                'checked'   => $checkedTrue,
+                'legend'    => 'Yes',
+            ),
+            array(
+                'value'     => '0',
+                'checked'   => $checkedFalse,
+                'legend'    => 'No',
+            ),            
+        );
+        $ctPairs    = count($rbPairs);
+        
+        for($i=0; $i<$ctPairs; $i++)
+        {
+            $rbl .= self::make_rb($name,
+                $rbPairs[$i]['value'],
+                $rbPairs[$i]['checked'],
+                $rbPairs[$i]['legend']);
+        }
+        
+        return $rbl;
     }
     
     public static function rbl_options($db, $default, $input, $display, $value, $object, $is_vertical)
@@ -262,35 +299,101 @@ class Input {
         {
             $error  = ("<li>Failed to run {$table} RadioButtonList query: " . $ex->getMessage()) . "</li>";
         }
-        $rblOptions = NULL;
-        $checked    = NULL;
+        
+        $rbl        = NULL;
+        $checked    = " checked=\"checked\"";
         $options    = $statement->fetchAll();
         foreach($options as $option)
         {
             $optName    = $option["{$display}"];
             $optValue   = $option["{$value}"];
-            if($default == $optValue)
+            if($default != $optValue)
             {
-                $checked = " checked";
+                $checked = NULL;
             }
-            else
-            {
-                $checked = "";
-            }
-            $rblOptions .= "\n<input{$checked} type=\"radio\" name=\"{$input}\" value=\"{$optValue}\" />{$optName}";
-            if($is_vertical)
-            {
-                $rblOptions .= "<br />";
-            }
-            else // is horizontal
-            {
-                $rblOptions .= "&nbsp;&nbsp;";
-            }
+            
+            $rbl .= self::make_rb($input, $optValue, $checked, $optName);
         }
-        $result['options']  = $rblOptions;
+        $result['options']  = $rbl;
         $result['error']    = $error;
         return $result;
     }
     
+    public static function make_rb($name, $value, $checked, $legend)
+    {
+        $rb = "\r<div>"
+            . "\r<label>"
+            . "\r<input type=\"radio\" name=\"{$name}\" value=\"{$value}\"{$checked}>"
+            . "\r<span>{$legend}</span>"
+            . "\r</label>"
+            . "\r</div>";            
+        return $rb;
+    }
+    
+    public static function make_txt($id_label, $legend, $name, $value, $maxlength=100)
+    {
+        $input = "\r<label id=\"{$id_label}\">"
+            . "\r<span>{$legend}</span>"
+            . "\r<input type=\"text\" name=\"{$name}\" value=\"{$value}\" maxlength=\"{$maxlength}\">"
+            . "\r</label>";
+        return $input;
+    }
+    
+    public static function make_eml($id_label, $legend, $name, $value)
+    {
+        $input = "\r<label id=\"{$id_label}\">"
+            . "\r<span>{$legend}</span>"
+            . "\r<input type=\"email\" name=\"{$name}\" value=\"{$value}\">"
+            . "\r</label>";
+        return $input;
+    }
+    
+    public static function make_url($id_label, $legend, $name, $value)
+    {
+        $input = "\r<label id=\"{$id_label}\">"
+            . "\r<span>{$legend}</span>"
+            . "\r<input type=\"url\" name=\"{$name}\" value=\"{$value}\">"
+            . "\r</label>";
+        return $input;
+    }
+    
+    public static function make_txtarea($id_label, $legend, $name, $value)
+    {
+        $input = "\r<label id=\"{$id_label}\">"
+            . "\r<span>{$legend}</span>"
+            . "\r<textarea name=\"{$name}\">{$value}</textarea>"
+            . "\r</label>";
+        return $input;
+    }
+    
+    public static function make_rbl($id_label, $legend, $options)
+    {
+        $input = "\r<label id=\"{$id_label}\">"
+            . "\r<span>{$legend}</span>"
+            . "\r</label>"
+            . "<div class=\"form-radio-buttons\">"        
+            . "\r{$options}"
+            . "\r</div>";
+        return $input;
+    }
+    
+    public static function make_ddl($id_label, $legend, $name, $options)
+    {
+        $input = "\r<label id=\"{$id_label}\">"
+            . "\r<span>{$legend}</span>"
+            . "\r<select name=\"{$name}\">"        
+            . "\r{$options}"
+            . "\r</select>"
+            . "\r</label>";
+        return $input;
+    }
+    
+    public static function make_btn($type, $value, $text)
+    {
+        $input = "\r<button type=\"{$type}\" value=\"{$value}\">"
+            . "\r{$text}"
+            . "\r</button>";        
+        return $input;
+    }
+    
 }
-

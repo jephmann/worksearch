@@ -14,19 +14,21 @@
     /*
      * =========================================================================
      */
-    require_once ($page['path'].'_views/head.php');
-    require_once ($page['path'].'_views/header.php');
-    require_once ($page['path'].'_views/aside.php');
+    require_once ($page['path'].'_views2/head.php');
+    require_once ($page['path'].'_views2/header.php');
+    require_once ($page['path'].'_views2/nav.php');
+    //require_once ($page['path'].'_views/aside.php');
 ?>
-<fieldset>
-    <legend><?php echo $page['title'] ?></legend>
+<form class="form-labels-on-top">
+    <div class="form-title-row">
+        <h1><?php echo ($page['title'].$page['subtitle']); ?></h1>
+    </div>
     <h3>Under Construction</h3>
     <p>
         This would be a mostly open-ended diary of one's networking activities
         at job fairs, MeetUps and other mass gatherings.
-    </p>
-    
-</fieldset>
+    </p>    
+</form>
 <?php    
-    require_once ($page['path'].'_views/footer.php');
+    require_once ($page['path'].'_views2/foot.php');
 ?>

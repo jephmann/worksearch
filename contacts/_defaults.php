@@ -5,7 +5,7 @@
 
     $option_errors      = NULL;
     
-    $rblGender          = Input::rbl_gender('gender', $objContact->getGender());
+    $optGender          = Input::rbl_gender('gender', $objContact->getGender());
     
     $optSalutations     = Input::ddl_options($db,
         $objContact->getId_salutation(),

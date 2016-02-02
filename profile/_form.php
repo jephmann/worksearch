@@ -11,7 +11,7 @@
             <legend>Who Are You?</legend>
             <div class="form_row">
                 <label id="lblGender">Gender:</label>
-                <?php echo $rblGender; ?>
+                <?php echo $optGender; ?>
             </div>
             <div class="form_row">
                 <label id="lblSalutation">Salutation:</label>

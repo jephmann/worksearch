@@ -1,13 +1,17 @@
-<ul id="status" class="<?php echo $objStatus->class; ?>">
-    <?php echo $objStatus->message; ?>
-</ul>
-<div style="width:350px; float:left">
-    <fieldset>
-        <legend>
-            <a title="Update This Contact" href="update.php?id=<?php echo $objContact->id; ?>">Update</a>
-            <a title="Delete This Contact" href="delete.php?id=<?php echo $objContact->id; ?>" class="delete">Delete</a>
-            Contact
-        </legend>
+<form class="form-labels-on-top">
+    <div class="form-title-row">
+        <h1><?php echo ($page['title'].$page['subtitle']); ?></h1>
+    </div>
+    <ul>
+        <li><a title="Update This Contact" href="update.php?id=<?php echo $objContact->id; ?>">Update</a></li>
+        <li><a title="Delete This Contact" href="delete.php?id=<?php echo $objContact->id; ?>" class="delete">Delete</a></li>
+    </ul>
+    <ul id="status" class="<?php echo $objStatus->class; ?>">
+        <?php echo $objStatus->message; ?>
+    </ul>
+    <h3>
+        Contact
+    </h3>
         <table>
             <colgroup>
                 <col style="background-color:#CCCCFF">
@@ -70,17 +74,13 @@
                 <td><?php echo $contact_googleplus; ?></td>
             </tr>
         </table>
-    </fieldset>
-    <fieldset>
-        <legend>Contact Log(s):</legend>
+    <br>
+    <h3>Contact Log(s):</h3>
         <table>
             <?php echo $tr_logs; ?>
         </table>
-    </fieldset>
-</div>
-<div style="width:350px;float:right;">
-    <fieldset>
-        <legend>Contact Prospect</legend>
+    <br>
+<h3>Contact Prospect</h3>
         <table>
             <colgroup>
                 <col style="background-color:#CCCCFF">
@@ -155,8 +155,8 @@
                 <td><?php echo $objProspect->description; ?></td>
             </tr>
         </table>
-    </fieldset>
-    <p>[Additional cross-referenced prospect contacts]</p>
-</div>
-<div class="clear"></div>
+        <br>
+    <h3>Additional cross-referenced prospect contacts</h3>
+    <p>[Yet to be built]</p>
+</form>
 <script language="javascript" type="text/javascript" src="_delete.js"></script>

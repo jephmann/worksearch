@@ -5,7 +5,7 @@
 
     $option_errors      = NULL;
     
-    $rblGender          = Input::rbl_gender("gender", $objProfile->getGender());
+    $optGender          = Input::rbl_gender("gender", $objProfile->getGender());
     $optBirthDateMM     = Input::ddl_months($objProfile->birth_month());
     $optBirthDateDD     = Input::ddl_days($objProfile->birth_day());
     $optBirthDateYYYY   = Input::ddl_years($objProfile->birth_year());

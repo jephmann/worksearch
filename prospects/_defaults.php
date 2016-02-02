@@ -13,9 +13,9 @@
         $option_errors  .= $optStates['error'];
     }
     
-    $rblRecruiter       = Input::rbl_truefalse("prospect_recruiter",
+    $optRecruiter       = Input::rbl_truefalse("prospect_recruiter",
         $objProspect->getRecruiter());
-    $rblContact         = Input::rbl_truefalse("contact",
+    $optContact         = Input::rbl_truefalse("contact",
         $objProspect->getContact());
     
     if(!empty($option_errors))

@@ -1,0 +1,50 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 22, 2015, 7:15:01 PM
+    Author     : Jeffrey
+*/
+
+/*
+    Status Classes
+*/
+
+.status_error, .status_quo {
+    /* css3 */
+    -webkit-border-radius: 50px;
+    border-radius: 50px;  
+}
+
+.status_error {
+    background-color: crimson;
+    color: #FFFFFF;
+    -webkit-box-shadow:  2px 2px 2px 2px #cccccc;
+    box-shadow:  2px 2px 2px 2px #cccccc;  
+}
+.status_quo {
+    background-color: powderblue;
+    color: #000000;
+}
+
+/*
+    jQuery Validation
+*/
+label.error {
+    float: none;
+    color: white;
+    padding: 2px .5em;
+    vertical-align: top;
+    font-weight: bold;
+    background-color: crimson;
+    margin: 0 4px;
+    width: 75%;
+    /* css3 */
+    //-webkit-border-radius: 50px;
+    //border-radius: 50px;
+    //-webkit-box-shadow:  2px 2px 2px 2px #cccccc;
+    //box-shadow:  2px 2px 2px 2px #cccccc;
+}
+

@@ -11,7 +11,7 @@
     function classLoader($class)
     {
         $filename = strtolower($class) . '.php';
-        $file ='../_classes/' . $filename;
+        $file ='../../_classes/' . $filename;
         if (!file_exists($file))
         {
             return false;

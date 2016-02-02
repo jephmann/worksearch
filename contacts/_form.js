@@ -20,7 +20,7 @@ $(function() {
             phone_extension: {
                 digits: true,
                 minlength: 1,
-                maxlength: 4
+                maxlength: 5
             },
             phone_mobile: {
                 digits: true,

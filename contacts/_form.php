@@ -11,7 +11,7 @@
             <legend>Who</legend>
             <div class="form_row">
                 <label id="lblGender">Gender:</label>
-                <?php echo $rblGender; ?>
+                <?php echo $optGender; ?>
             </div>
             <div class="form_row">
                 <label id="lblSalutation">Salutation:</label>
@@ -61,7 +61,7 @@
             </div>
             <div class="form_row">
                 <label id="lblPhoneExtension">Office Phone Extension:</label>
-                x<input type="text" name="phone_extension" value="<?php echo $objContact->phone_extension; ?>" size="4" maxlength="4" />
+                x<input type="text" name="phone_extension" value="<?php echo $objContact->phone_extension; ?>" size="5" maxlength="5" />
             </div>
             <div class="form_row">
                 <label id="lblFax">Office Fax:</label>

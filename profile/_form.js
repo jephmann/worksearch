@@ -64,9 +64,9 @@ $(function() {
                 maxlength: $.format("Zip Code must be {0} digits.")
             },
             address_zip4: {
-                digits: "Numbers only for Zip Code Extension (####)",
-                minlength: $.format("Zip Code Extension must be {0} digits."),
-                maxlength: $.format("Zip Code Extension must be {0} digits.")
+                digits: "Numbers only for Zip Extension (####)",
+                minlength: $.format("Zip Extension must be {0} digits."),
+                maxlength: $.format("Zip Extension must be {0} digits.")
             },
             phone: {
                 digits: "Numbers only for Phone (##########)",

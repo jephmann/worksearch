@@ -13,7 +13,7 @@
     $objStatus->message .= Validation::phone_li($objProfile->fax, "Profile Fax Number");    
     $objStatus->message .= Validation::phone_li($objProfile->phone_mobile, "Profile Mobile Number");
     $objStatus->message .= Validation::email_li($objProfile->email, "Profile E-Mail");    
-    if(!empty($objStatus->message))
+    if($objStatus->message)
     {
         $objStatus->class   = ("status_error");
     }

@@ -23,7 +23,7 @@
             </div>
             <div class="form_row">
                 <label id="lblRecruiter">Recruiter:<?php echo $asterisk; ?></label>
-                <?php echo $rblRecruiter; ?>
+                <?php echo $optRecruiter; ?>
             </div>
             <div class="form_row">
                 <label id="lblDescription">Description:</label>
@@ -109,7 +109,7 @@
         </fieldset>
         <div class="form_row">
             <label id="lblContact">Add Contact to This Prospect NOW:<?php echo $asterisk; ?></label>
-            <?php echo $rblContact; ?>
+            <?php echo $optContact; ?>
         </div>
     </fieldset>
     <div class="button_row">

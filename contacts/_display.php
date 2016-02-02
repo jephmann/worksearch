@@ -55,4 +55,4 @@
     $contact_facebook       = Link::outside("Contact Facebook",
             $objContact->facebook, $img_facebook);
     $contact_googleplus     = Link::outside("Contact Google Plus",
-            $objContact->googleplus);
+            $objContact->googleplus,'GooglePlus');
